@@ -26,10 +26,12 @@ window.ADMIN_DATA = {
   user: { name: 'مدير المنصة', role: 'مسؤول النظام', email: 'admin@shamal-society.org', initials: 'م' },
 
   categories: [
-    { id: 'relief',  label: 'برامج إغاثية', icon: 'crisis_alert' },
-    { id: 'construction', label: 'برامج إنشائية', icon: 'construction' },
-    { id: 'development',  label: 'برامج تنموية', icon: 'trending_up' },
-    { id: 'health',  label: 'برامج صحية', icon: 'medical_services' }
+    { id: 'relief',  label: 'إغاثة وطوارئ', icon: 'crisis_alert' },
+    { id: 'orphan',  label: 'كفالة الأيتام', icon: 'child_care' },
+    { id: 'water',   label: 'مياه وإصحاح', icon: 'water_drop' },
+    { id: 'shelter', label: 'إيواء ونزوح', icon: 'camping' },
+    { id: 'health',  label: 'الصحة', icon: 'medical_services' },
+    { id: 'edu',     label: 'التعليم', icon: 'school' }
   ],
 
   projectStatuses: [
@@ -50,17 +52,17 @@ window.ADMIN_DATA = {
 
   projects: [
     { id: 'relief',  title: 'برنامج الإطعام الطارئ ومخابز غزة', cat: 'relief', gov: 'north', location: 'شمال غزة — جباليا', goal: 120000, raised: 103200, status: 'urgent', image: '../img/project-relief.jpg', updated: 0, donors: 1284, desc: 'تأمين الطحين والوقود لتشغيل 4 مخابز خيرية وتوزيع وجبات ساخنة يومية على النازحين.' },
-    { id: 'development', title: 'برنامج التمكين والتنمية المجتمعية', cat: 'development', gov: 'gaza', location: 'مخيم الشاطئ', goal: 90000, raised: 64800, status: 'active', image: '../img/project-orphan.jpg', updated: 1, donors: 842, desc: 'كفالة متكاملة للطعام والكساء والتعلّم في خيم مدرسية داخل مراكز الإيواء.' },
-    { id: 'water',   title: 'صهاريج مياه الشرب لمخيمات النزوح', cat: 'health', gov: 'khan', location: 'خان يونس ودير البلح', goal: 60000, raised: 38400, status: 'active', image: '../img/project-water.jpg', updated: 2, donors: 611, desc: 'تشغيل محطات تحلية متنقلة وصهاريج يومية لنقاط الإيواء.' },
-    { id: 'shelter', title: 'خيام ومستلزمات الإيواء في رفح', cat: 'construction', gov: 'rafah', location: 'رفح', goal: 150000, raised: 87000, status: 'active', image: '../img/project-empower.jpg', updated: 3, donors: 903, desc: 'توفير خيام عائلية ومستلزمات إيواء أساسية للأسر النازحة.' },
+    { id: 'orphans', title: 'رعاية أيتام غزة والتعليم المؤقت', cat: 'orphan', gov: 'gaza', location: 'مخيم الشاطئ', goal: 90000, raised: 64800, status: 'active', image: '../img/project-orphan.jpg', updated: 1, donors: 842, desc: 'كفالة متكاملة للطعام والكساء والتعلّم في خيم مدرسية داخل مراكز الإيواء.' },
+    { id: 'water',   title: 'صهاريج مياه الشرب لمخيمات النزوح', cat: 'water', gov: 'khan', location: 'خان يونس ودير البلح', goal: 60000, raised: 38400, status: 'active', image: '../img/project-water.jpg', updated: 2, donors: 611, desc: 'تشغيل محطات تحلية متنقلة وصهاريج يومية لنقاط الإيواء.' },
+    { id: 'shelter', title: 'خيام ومستلزمات الإيواء في رفح', cat: 'shelter', gov: 'rafah', location: 'رفح', goal: 150000, raised: 87000, status: 'active', image: '../img/project-empower.jpg', updated: 3, donors: 903, desc: 'توفير خيام عائلية ومستلزمات إيواء أساسية للأسر النازحة.' },
     { id: 'clinics', title: 'العيادات الميدانية والأدوية المزمنة', cat: 'health', gov: 'middle', location: 'دير البلح', goal: 50000, raised: 22500, status: 'paused', image: '../img/activity-medical.jpg', updated: 5, donors: 377, desc: 'عيادات خيام للجروح والأطفال والتوليد وصرف أدوية مزمنة.' },
-    { id: 'winter',  title: 'حملة دفء غزة الشتوية', cat: 'construction', gov: 'rafah', location: 'مخيمات النزوح في رفح', goal: 80000, raised: 30400, status: 'draft', image: '../img/activity-winter.jpg', updated: 6, donors: 214, desc: 'حزم دفء وأغطية عازلة لحماية النازحين من برد الخيام.' },
-    { id: 'learning', title: 'الخيمة التعليمية السادسة لأطفال غزة', cat: 'development', gov: 'gaza', location: 'غزة — حي الرمال', goal: 30000, raised: 30000, status: 'completed', image: '../img/activity-graduate.jpg', updated: 9, donors: 468, desc: 'حلقات تعلّم مؤقتة في القراءة والحساب والدعم النفسي.' },
+    { id: 'winter',  title: 'حملة دفء غزة الشتوية', cat: 'shelter', gov: 'rafah', location: 'مخيمات النزوح في رفح', goal: 80000, raised: 30400, status: 'draft', image: '../img/activity-winter.jpg', updated: 6, donors: 214, desc: 'حزم دفء وأغطية عازلة لحماية النازحين من برد الخيام.' },
+    { id: 'learning', title: 'الخيمة التعليمية السادسة لأيتام غزة', cat: 'edu', gov: 'gaza', location: 'غزة — حي الرمال', goal: 30000, raised: 30000, status: 'completed', image: '../img/activity-graduate.jpg', updated: 9, donors: 468, desc: 'حلقات تعلّم مؤقتة في القراءة والحساب والدعم النفسي.' },
     { id: 'convoy',  title: 'قوافل الطحين لمراكز الإيواء', cat: 'relief', gov: 'middle', location: 'دير البلح', goal: 70000, raised: 51800, status: 'active', image: '../img/gallery-convoy.jpg', updated: 4, donors: 590, desc: 'نقل الطحين والسلال الغذائية إلى مراكز الإيواء في الوسطى.' },
-    { id: 'waterpt', title: 'نقطة مياه شرب إضافية في الشمال', cat: 'health', gov: 'north', location: 'بيت لاهيا', goal: 25000, raised: 9800, status: 'active', image: '../img/gallery-water.jpg', updated: 7, donors: 163, desc: 'تشغيل نقطة تعبئة مياه شرب إضافية في شمال القطاع.' },
-    { id: 'kits',    title: 'الحقيبة المدرسية للأطفال النازحين', cat: 'development', gov: 'khan', location: 'خان يونس', goal: 40000, raised: 40000, status: 'completed', image: '../img/gallery-children.jpg', updated: 14, donors: 520, desc: 'حقائب وقرطاسية للأطفال في خيم التعلّم.' },
+    { id: 'waterpt', title: 'نقطة مياه شرب إضافية في الشمال', cat: 'water', gov: 'north', location: 'بيت لاهيا', goal: 25000, raised: 9800, status: 'active', image: '../img/gallery-water.jpg', updated: 7, donors: 163, desc: 'تشغيل نقطة تعبئة مياه شرب إضافية في شمال القطاع.' },
+    { id: 'kits',    title: 'الحقيبة المدرسية للأطفال النازحين', cat: 'edu', gov: 'khan', location: 'خان يونس', goal: 40000, raised: 40000, status: 'completed', image: '../img/gallery-children.jpg', updated: 14, donors: 520, desc: 'حقائب وقرطاسية للأطفال في خيم التعلّم.' },
     { id: 'meds',    title: 'أدوية الأمراض المزمنة لكبار السن', cat: 'health', gov: 'khan', location: 'خان يونس — المواصي', goal: 45000, raised: 12600, status: 'urgent', image: '../img/gallery-clinic.jpg', updated: 1, donors: 198, desc: 'صرف شهري لأدوية الضغط والسكري للمرضى النازحين.' },
-    { id: 'blankets', title: 'أغطية عازلة لمراكز الإيواء', cat: 'construction', gov: 'north', location: 'جباليا', goal: 35000, raised: 6300, status: 'draft', image: '../img/gallery-winter.jpg', updated: 11, donors: 74, desc: 'أغطية وفرشات عازلة للأسر في مراكز الإيواء.' }
+    { id: 'blankets', title: 'أغطية عازلة لمراكز الإيواء', cat: 'shelter', gov: 'north', location: 'جباليا', goal: 35000, raised: 6300, status: 'draft', image: '../img/gallery-winter.jpg', updated: 11, donors: 74, desc: 'أغطية وفرشات عازلة للأسر في مراكز الإيواء.' }
   ],
 
   /* KPI cards: spark = last 12 points, oldest first. */
@@ -81,10 +83,11 @@ window.ADMIN_DATA = {
   },
 
   donationsByCategory: [
-    { id: 'relief', label: 'برامج إغاثية', value: 38 },
-    { id: 'construction', label: 'برامج إنشائية', value: 13 },
-    { id: 'development', label: 'برامج تنموية', value: 30 },
-    { id: 'health', label: 'برامج صحية', value: 19 }
+    { id: 'relief', label: 'إغاثة وطوارئ', value: 38 },
+    { id: 'orphan', label: 'كفالة الأيتام', value: 24 },
+    { id: 'water', label: 'مياه وإصحاح', value: 14 },
+    { id: 'shelter', label: 'إيواء ونزوح', value: 13 },
+    { id: 'health', label: 'الصحة والتعليم', value: 11 }
   ],
 
   /* Monthly donations by channel (last 6 months, oldest first). */
@@ -96,7 +99,7 @@ window.ADMIN_DATA = {
 
   recentDonations: [
     { donor: 'متبرع #1024', amount: 500,  project: 'relief',  method: 'بطاقة', mins: 4 },
-    { donor: 'متبرع #1023', amount: 120,  project: 'development', method: 'تحويل', mins: 18 },
+    { donor: 'متبرع #1023', amount: 120,  project: 'orphans', method: 'تحويل', mins: 18 },
     { donor: 'متبرع #1022', amount: 2500, project: 'shelter', method: 'تحويل', mins: 42 },
     { donor: 'متبرع #1021', amount: 75,   project: 'water',   method: 'بطاقة', mins: 65 },
     { donor: 'متبرع #1020', amount: 300,  project: 'meds',    method: 'محفظة', mins: 110 },
@@ -115,7 +118,7 @@ window.ADMIN_DATA = {
     { id: 'm1', from: 'زائر #2031', email: 'visitor2031@example.com', type: 'donation', subject: 'استفسار عن إيصال تبرع شهر أيلول', body: 'السلام عليكم،\nقمت بتحويل تبرع لبرنامج الإطعام الطارئ ولم يصلني الإيصال الإلكتروني حتى الآن. هل يمكن إعادة إرساله إلى بريدي؟\nشكراً لجهودكم.', mins: 9, read: false, starred: true, archived: false },
     { id: 'm2', from: 'متطوع #0417', email: 'volunteer0417@example.com', type: 'volunteer', subject: 'طلب تطوع في فريق التوثيق', body: 'أرغب في الانضمام إلى فريق التوثيق الإعلامي، لدي خبرة في التصوير والمونتاج ويمكنني المساهمة عن بعد.\nما الخطوات المطلوبة؟', mins: 37, read: false, starred: false, archived: false },
     { id: 'm3', from: 'جهة شريكة #12', email: 'partner12@example.org', type: 'contact', subject: 'تنسيق قافلة مشتركة إلى دير البلح', body: 'نود التنسيق معكم بشأن قافلة مشتركة للطحين خلال الأسبوع القادم. نرجو تحديد موعد لاجتماع قصير مع فريق العمليات.', mins: 95, read: false, starred: true, archived: false },
-    { id: 'm4', from: 'زائر #2029', email: 'visitor2029@example.com', type: 'donation', subject: 'هل يمكن تخصيص التبرع لبرنامج التنمية المجتمعية؟', body: 'أرغب في دعم برنامج التنمية المجتمعية بشكل شهري، هل يمكن ربط التبرع باسم طفل محدد ومتابعة أخباره؟', mins: 180, read: true, starred: false, archived: false },
+    { id: 'm4', from: 'زائر #2029', email: 'visitor2029@example.com', type: 'donation', subject: 'هل يمكن تخصيص التبرع لكفالة يتيم؟', body: 'أرغب في كفالة يتيم بشكل شهري، هل يمكن ربط التبرع باسم طفل محدد ومتابعة أخباره؟', mins: 180, read: true, starred: false, archived: false },
     { id: 'm5', from: 'متطوع #0415', email: 'volunteer0415@example.com', type: 'volunteer', subject: 'متاح للتطوع في نقاط التوزيع', body: 'أقيم في خان يونس ومتاح للتطوع في نقاط التوزيع صباحاً. أرجو التواصل معي.', mins: 260, read: false, starred: false, archived: false },
     { id: 'm6', from: 'زائر #2026', email: 'visitor2026@example.com', type: 'contact', subject: 'اقتراح لتحسين صفحة المشاريع', body: 'أقترح إضافة خريطة صغيرة لكل مشروع توضح مكان التنفيذ، سيكون ذلك مفيداً للمتبرعين.', mins: 1300, read: true, starred: false, archived: false },
     { id: 'm7', from: 'زائر #2024', email: 'visitor2024@example.com', type: 'donation', subject: 'طريقة التبرع عبر التحويل البنكي', body: 'ما هي بيانات الحساب البنكي المعتمدة للتبرع؟ وهل يمكن الحصول على خطاب رسمي بالتبرع لجهة العمل؟', mins: 1500, read: true, starred: true, archived: false },
@@ -127,11 +130,11 @@ window.ADMIN_DATA = {
 
   news: [
     { id: 'report-88', title: 'نشر تقرير الإغاثة الدوري لغزة وتوسيع مخابز الطوارئ في الجنوب', cat: 'statements', status: 'published', date: '2026-09-24', views: 4820, image: '../img/news-conference.jpg', author: 'فريق الإعلام', tags: ['تقارير', 'مخابز'] },
-    { id: 'development-500', title: 'إطلاق برنامج التمكين المجتمعي لـ 500 مستفيد من شمال غزة وجباليا', cat: 'development', status: 'published', date: '2026-09-19', views: 3910, image: '../img/gallery-children.jpg', author: 'فريق الإعلام', tags: ['تنمية', 'كفالة'] },
+    { id: 'orphans-500', title: 'فتح باب كفالة 500 يتيم نازح من شمال غزة وجباليا', cat: 'orphans', status: 'published', date: '2026-09-19', views: 3910, image: '../img/gallery-children.jpg', author: 'فريق الإعلام', tags: ['أيتام', 'كفالة'] },
     { id: 'tracking-map', title: 'إطلاق خريطة تتبع السلال داخل قطاع غزة', cat: 'field', status: 'published', date: '2026-09-12', views: 2750, image: '../img/gallery-lab.jpg', author: 'محرر المحتوى #2', tags: ['شفافية'] },
     { id: 'winter-campaign', title: 'توزيع 10,000 طرد شتوي وأغطية عازلة', cat: 'activities', status: 'scheduled', date: '2026-10-05', views: 0, image: '../img/activity-winter.jpg', author: 'محرر المحتوى #2', tags: ['شتاء', 'إيواء'] },
     { id: 'field-clinics', title: 'تسيير 3 عيادات ميدانية وإجراء 320 تدخلاً', cat: 'activities', status: 'published', date: '2026-09-03', views: 1980, image: '../img/activity-medical.jpg', author: 'فريق الإعلام', tags: ['صحة'] },
-    { id: 'learning-tent', title: 'افتتاح الخيمة التعليمية السادسة لأطفال غزة', cat: 'development', status: 'published', date: '2026-08-27', views: 2210, image: '../img/activity-graduate.jpg', author: 'فريق الإعلام', tags: ['تعليم', 'تنمية'] },
+    { id: 'learning-tent', title: 'افتتاح الخيمة التعليمية السادسة لأيتام غزة', cat: 'orphans', status: 'published', date: '2026-08-27', views: 2210, image: '../img/activity-graduate.jpg', author: 'فريق الإعلام', tags: ['تعليم', 'أيتام'] },
     { id: 'flour-convoy', title: 'وصول قافلة طحين جديدة إلى مراكز الإيواء في دير البلح', cat: 'field', status: 'draft', date: '2026-09-27', views: 0, image: '../img/gallery-convoy.jpg', author: 'منسق ميداني #3', tags: ['قوافل'] },
     { id: 'water-point', title: 'تشغيل نقطة مياه شرب إضافية في شمال القطاع', cat: 'activities', status: 'draft', date: '2026-09-26', views: 0, image: '../img/gallery-water.jpg', author: 'محرر المحتوى #2', tags: ['مياه'] },
     { id: 'quarterly-report', title: 'تقرير الأثر الربعي متاح قريباً في المركز الإعلامي', cat: 'statements', status: 'scheduled', date: '2026-10-12', views: 0, image: '../img/project-parallax.jpg', author: 'فريق الإعلام', tags: ['تقارير'] }
@@ -139,7 +142,7 @@ window.ADMIN_DATA = {
 
   newsCategories: [
     { id: 'statements', label: 'بيانات وتقارير' },
-    { id: 'development', label: 'تنمية مجتمعية' },
+    { id: 'orphans', label: 'أيتام غزة' },
     { id: 'field', label: 'توثيق الميدان' },
     { id: 'activities', label: 'أنشطة ميدانية' }
   ],
@@ -147,22 +150,22 @@ window.ADMIN_DATA = {
   albums: [
     { id: 'field', label: 'توثيق الميدان' },
     { id: 'relief', label: 'الإغاثة' },
-    { id: 'development', label: 'التعليم والتنمية' },
+    { id: 'orphans', label: 'الأيتام والتعليم' },
     { id: 'health', label: 'الصحة والمياه' }
   ],
 
   gallery: [
     { id: 'g1', src: '../img/gallery-convoy.jpg', title: 'قافلة الإغاثة الكبرى', alt: 'شاحنات قافلة الإغاثة تصل إلى جباليا', album: 'relief', size: '412 KB', dims: '1600×1067' },
-    { id: 'g2', src: '../img/gallery-children.jpg', title: 'أطفال غزة والحقائب المدرسية', alt: 'أطفال يبتسمون بعد استلام الحقائب المدرسية', album: 'development', size: '388 KB', dims: '1600×1067' },
+    { id: 'g2', src: '../img/gallery-children.jpg', title: 'أطفال غزة والحقائب المدرسية', alt: 'أطفال يبتسمون بعد استلام الحقائب المدرسية', album: 'orphans', size: '388 KB', dims: '1600×1067' },
     { id: 'g3', src: '../img/gallery-clinic.jpg', title: 'العيادة الميدانية', alt: 'طاقم طبي داخل عيادة خيمة ميدانية', album: 'health', size: '356 KB', dims: '1600×1067' },
     { id: 'g4', src: '../img/gallery-water.jpg', title: 'نقطة مياه الشرب', alt: 'نازحون يملؤون عبوات المياه من صهريج', album: 'health', size: '401 KB', dims: '1600×1067' },
     { id: 'g5', src: '../img/gallery-lab.jpg', title: 'نقطة توزيع السلال', alt: 'فريق يجهز السلال الغذائية في نقطة توزيع', album: 'field', size: '372 KB', dims: '1600×1067' },
     { id: 'g6', src: '../img/gallery-winter.jpg', title: 'حزم الدفء الشتوية', alt: 'توزيع أغطية شتوية على الأسر النازحة', album: 'relief', size: '395 KB', dims: '1600×1067' },
-    { id: 'g7', src: '../img/gallery-campus.jpg', title: 'خيم التعلّم', alt: 'أطفال في حلقة تعلّم داخل خيمة مدرسية', album: 'development', size: '344 KB', dims: '1600×1067' },
+    { id: 'g7', src: '../img/gallery-campus.jpg', title: 'خيم التعلّم', alt: 'أطفال في حلقة تعلّم داخل خيمة مدرسية', album: 'orphans', size: '344 KB', dims: '1600×1067' },
     { id: 'g8', src: '../img/project-relief.jpg', title: 'توزيع المساعدات الغذائية', alt: 'توزيع مساعدات غذائية في شمال غزة', album: 'field', size: '420 KB', dims: '1600×1067' },
     { id: 'g9', src: '../img/activity-medical.jpg', title: 'فريق العيادات', alt: 'فريق طبي يقدم الرعاية للأطفال', album: 'health', size: '367 KB', dims: '1600×1067' },
     { id: 'g10', src: '../img/project-water.jpg', title: 'صهاريج خان يونس', alt: 'توزيع مياه صالحة للشرب في خان يونس', album: 'health', size: '398 KB', dims: '1600×1067' },
-    { id: 'g11', src: '../img/activity-graduate.jpg', title: 'الخيمة التعليمية السادسة', alt: 'أطفال في افتتاح الخيمة التعليمية', album: 'development', size: '351 KB', dims: '1600×1067' },
+    { id: 'g11', src: '../img/activity-graduate.jpg', title: 'الخيمة التعليمية السادسة', alt: 'أطفال في افتتاح الخيمة التعليمية', album: 'orphans', size: '351 KB', dims: '1600×1067' },
     { id: 'g12', src: '../img/project-parallax.jpg', title: 'مراكز الإيواء', alt: 'انتظار الوجبات الساخنة في مراكز الإيواء', album: 'field', size: '433 KB', dims: '1600×1067' }
   ],
 

@@ -15,7 +15,7 @@ window.PAGES_DATA = {
   {
    "id": "relief",
    "cat": "relief",
-   "catLabel": "برامج إغاثية",
+   "catLabel": "إغاثة وطوارئ",
    "catIcon": "crisis_alert",
    "title": "برنامج الإطعام الطارئ ومخابز غزة",
    "image": "img/project-relief.jpg",
@@ -82,13 +82,13 @@ window.PAGES_DATA = {
    ]
   },
   {
-   "id": "development",
-   "cat": "development",
-   "catLabel": "برامج تنموية",
-   "catIcon": "diversity_3",
-   "title": "برنامج التمكين والتنمية المجتمعية",
+   "id": "orphans",
+   "cat": "orphan",
+   "catLabel": "كفالة الأيتام",
+   "catIcon": "child_care",
+   "title": "رعاية أيتام غزة والتعليم المؤقت",
    "image": "img/project-orphan.jpg",
-   "alt": "أطفال في خيمة تعليمية داخل مركز إيواء بغزة",
+   "alt": "طفل يتيم نازح في مدرسة إيواء بغزة",
    "badge": {
     "cls": "badge-forest",
     "icon": "school",
@@ -96,11 +96,11 @@ window.PAGES_DATA = {
     "live": false
    },
    "loc": "مخيم الشاطئ",
-   "desc": "مبادرات تنموية تشمل التعليم المؤقت والتدريب المهني ودعم الأسر الأشد احتياجاً على استعادة مصادر دخلها داخل مراكز الإيواء.",
+   "desc": "كفالة متكاملة للطعام والكساء والتعلّم في خيم مدرسية داخل مراكز الإيواء، مع متابعة نفسية للأطفال فاقدي ذويهم.",
    "facts": [
     {
-     "dt": "المستفيدون",
-     "dd": "500 مستفيد",
+     "dt": "الأيتام المكفولون",
+     "dd": "500 يتيم",
      "accent": true
     },
     {
@@ -117,8 +117,8 @@ window.PAGES_DATA = {
    "covers": [
     {
      "icon": "restaurant",
-     "title": "التمكين الاقتصادي",
-     "text": "دعم الأسر بمشاريع صغيرة ومصادر دخل مستدامة."
+     "title": "الطعام والكساء",
+     "text": "كفالة الاحتياجات اليومية للطفل من غذاء وكساء."
     },
     {
      "icon": "school",
@@ -127,14 +127,14 @@ window.PAGES_DATA = {
     },
     {
      "icon": "psychology",
-     "title": "الدعم النفسي والاجتماعي",
-     "text": "دعم نفسي واجتماعي للأطفال والأسر."
+     "title": "المتابعة النفسية",
+     "text": "دعم نفسي للأطفال فاقدي ذويهم."
     }
    ],
    "gallery": [
     {
      "src": "img/project-orphan.jpg",
-     "caption": "برنامج التمكين والتنمية المجتمعية"
+     "caption": "رعاية أيتام غزة والتعليم المؤقت"
     },
     {
      "src": "img/gallery-children.jpg",
@@ -142,15 +142,15 @@ window.PAGES_DATA = {
     },
     {
      "src": "img/gallery-campus.jpg",
-     "caption": "أثر برامج التعليم والتنمية داخل خيم التعلّم"
+     "caption": "أثر كفالة أيتام غزة داخل خيم التعلّم"
     }
    ]
   },
   {
    "id": "water",
-   "cat": "health",
-   "catLabel": "برامج صحية",
-   "catIcon": "medical_services",
+   "cat": "water",
+   "catLabel": "مياه وإصحاح",
+   "catIcon": "water_drop",
    "title": "صهاريج مياه الشرب لمخيمات النزوح",
    "image": "img/project-water.jpg",
    "alt": "توزيع مياه صالحة للشرب في خان يونس",
@@ -209,9 +209,9 @@ window.PAGES_DATA = {
   },
   {
    "id": "shelter",
-   "cat": "construction",
-   "catLabel": "برامج إنشائية",
-   "catIcon": "construction",
+   "cat": "shelter",
+   "catLabel": "إيواء ونزوح",
+   "catIcon": "night_shelter",
    "title": "خيام ومستلزمات الإيواء في رفح",
    "image": "img/project-empower.jpg",
    "alt": "توزيع خيام ومستلزمات إيواء في رفح",
@@ -275,7 +275,7 @@ window.PAGES_DATA = {
   {
    "id": "clinics",
    "cat": "health",
-   "catLabel": "برامج صحية",
+   "catLabel": "الصحة",
    "catIcon": "medical_services",
    "title": "العيادات الميدانية والأدوية المزمنة",
    "image": "img/activity-medical.jpg",
@@ -335,9 +335,9 @@ window.PAGES_DATA = {
   },
   {
    "id": "winter",
-   "cat": "construction",
-   "catLabel": "برامج إنشائية",
-   "catIcon": "construction",
+   "cat": "shelter",
+   "catLabel": "إيواء ونزوح",
+   "catIcon": "night_shelter",
    "title": "حملة دفء غزة الشتوية",
    "image": "img/activity-winter.jpg",
    "alt": "قافلة إغاثة شتوية",
@@ -416,24 +416,24 @@ window.PAGES_DATA = {
    "catLabel": "بيانات وتقارير"
   },
   {
-   "id": "development-500",
-   "cat": "development",
-   "badge": "تنمية مجتمعية",
+   "id": "orphans-500",
+   "cat": "orphans",
+   "badge": "أيتام غزة",
    "date": "10 ديسمبر 2024",
    "read": "",
    "desk": "",
    "ref": "",
-   "title": "إطلاق برنامج التمكين المجتمعي لـ 500 مستفيد من شمال غزة وجباليا",
-   "excerpt": "يشمل البرنامج التدريب المهني والتعليم المؤقت ودعم الأسر بمصادر دخل داخل مراكز الإيواء.",
+   "title": "فتح باب كفالة 500 يتيم نازح من شمال غزة وجباليا",
+   "excerpt": "تغطي الكفالة الوجبة اليومية والكساء والحقيبة التعليمية داخل خيم الإيواء طوال العام الدراسي المؤقت.",
    "image": "img/gallery-children.jpg",
    "alt": "أطفال يبتسمون في أحد مراكز الإيواء",
    "sample": false,
    "highlights": [
-    "500 مستفيد من شمال غزة وجباليا",
-    "يشمل البرنامج التدريب المهني والتعليم المؤقت ودعم الأسر",
+    "500 يتيم نازح من شمال غزة وجباليا",
+    "تشمل الكفالة الوجبة اليومية والكساء والحقيبة التعليمية",
     "آخر موعد: 30 يناير 2025"
    ],
-   "catLabel": "برامج تنموية"
+   "catLabel": "أيتام غزة"
   },
   {
    "id": "tracking-map",
@@ -497,13 +497,13 @@ window.PAGES_DATA = {
   },
   {
    "id": "learning-tent",
-   "cat": "development",
+   "cat": "orphans",
    "badge": "تعليم النازحين",
    "date": "سبتمبر 2024",
    "read": "",
    "desk": "",
    "ref": "",
-   "title": "افتتاح الخيمة التعليمية السادسة لأطفال غزة",
+   "title": "افتتاح الخيمة التعليمية السادسة لأيتام غزة",
    "excerpt": "احتفاء بعودة 210 طفلاً نازحاً إلى حلقات تعلّم مؤقتة في القراءة والحساب والدعم النفسي.",
    "image": "img/activity-graduate.jpg",
    "alt": "تخريج دفعة تمكين مهني",
@@ -513,7 +513,7 @@ window.PAGES_DATA = {
     "210 طالب نازح",
     "خان يونس"
    ],
-   "catLabel": "برامج تنموية"
+   "catLabel": "أيتام غزة"
   },
   {
    "id": "flour-convoy",

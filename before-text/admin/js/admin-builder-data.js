@@ -26,19 +26,19 @@ window.BUILDER_DATA = {
   pages: [
     { id: 'index', file: 'index.html', slug: '', title: 'الرئيسية', icon: 'home', kind: 'صفحة رئيسية', status: 'published', mins: 42, author: 'مدير المنصة',
       seoTitle: 'جمعية الشمال للتنمية والتطوير المجتمعي',
-      meta: 'مؤسسة إنسانية تعمل على إغاثة أهل غزة: برامج إغاثية وإنشائية وتنموية وصحية وفق معايير الحوكمة والشفافية.' },
+      meta: 'مؤسسة إنسانية تعمل على إغاثة أهل غزة: الغذاء والدواء والمأوى ورعاية الأيتام وفق معايير الحوكمة والشفافية.' },
     { id: 'about', file: 'about.html', slug: 'about', title: 'من نحن', icon: 'account_balance', kind: 'صفحة ثابتة', status: 'published', mins: 60 * 26, author: 'فريق الإعلام',
       seoTitle: 'من نحن — جمعية الشمال للتنمية والتطوير المجتمعي',
       meta: 'تعرّف على جمعية الشمال للتنمية والتطوير المجتمعي: قصتنا ومسيرتنا، رؤيتنا ورسالتنا وقيمنا، وكيف نعمل داخل القطاع.' },
     { id: 'projects', file: 'projects.html', slug: 'projects', title: 'المشاريع والبرامج', icon: 'cases', kind: 'صفحة قائمة', status: 'published', mins: 60 * 5, author: 'محرر المحتوى #2',
       seoTitle: 'المشاريع والبرامج — جمعية الشمال للتنمية والتطوير المجتمعي',
-      meta: 'مبادرات الإغاثة المعتمدة داخل قطاع غزة: المخابز، المياه، الإيواء، والتنمية المجتمعية — مع نسب التمويل.' },
+      meta: 'مبادرات الإغاثة المعتمدة داخل قطاع غزة: المخابز، كفالة الأيتام، المياه، ومراكز الإيواء — مع نسب التمويل.' },
     { id: 'project', file: 'project.html', slug: 'project', title: 'تفاصيل المشروع', icon: 'volunteer_activism', kind: 'قالب ديناميكي', status: 'published', mins: 60 * 24 * 3, author: 'مدير المنصة',
       seoTitle: 'تفاصيل المشروع — جمعية الشمال للتنمية والتطوير المجتمعي',
       meta: 'تفاصيل مبادرة إغاثة داخل قطاع غزة: نسبة التمويل، ما تغطيه مساهمتك، الصور والتحديثات.' },
     { id: 'news', file: 'news.html', slug: 'news', title: 'الأخبار', icon: 'newspaper', kind: 'صفحة قائمة', status: 'published', mins: 95, author: 'فريق الإعلام',
       seoTitle: 'الأخبار — جمعية الشمال للتنمية والتطوير المجتمعي',
-      meta: 'آخر الأخبار وتقارير الشفافية من قطاع غزة: بيانات، تنمية مجتمعية، توثيق الميدان، وأنشطة ميدانية.' },
+      meta: 'آخر الأخبار وتقارير الشفافية من قطاع غزة: بيانات، أيتام غزة، توثيق الميدان، وأنشطة ميدانية.' },
     { id: 'article', file: 'article.html', slug: 'article', title: 'صفحة الخبر', icon: 'article', kind: 'قالب ديناميكي', status: 'published', mins: 60 * 24 * 6, author: 'محرر المحتوى #2',
       seoTitle: 'صفحة الخبر — جمعية الشمال للتنمية والتطوير المجتمعي',
       meta: 'تفاصيل الخبر من المركز الإعلامي لجمعية الشمال للتنمية والتطوير المجتمعي.' },
@@ -80,7 +80,7 @@ window.BUILDER_DATA = {
         { label: 'الرؤية والرسالة', url: 'about.html#vision', type: 'custom', icon: 'visibility' }
       ] },
       { label: 'المشاريع', url: 'projects.html', type: 'page', icon: 'cases', children: [
-        { label: 'التنمية المجتمعية', url: 'project.html?id=development', type: 'custom', icon: 'diversity_3' },
+        { label: 'كفالة أيتام غزة', url: 'project.html?id=orphans', type: 'custom', icon: 'child_care' },
         { label: 'الإطعام الطارئ ومخابز غزة', url: 'project.html?id=relief', type: 'custom', icon: 'bakery_dining' }
       ] },
       { label: 'الأنشطة', url: 'index.html#activities', type: 'anchor', icon: 'verified' },
@@ -94,7 +94,7 @@ window.BUILDER_DATA = {
     footer: [
       { label: 'روابط سريعة', url: '', type: 'custom', icon: '', children: [
         { label: 'الرؤية والرسالة', url: 'about.html#vision', type: 'custom', icon: '' },
-        { label: 'التنمية المجتمعية', url: 'project.html?id=development', type: 'custom', icon: '' },
+        { label: 'كفالة أيتام غزة', url: 'project.html?id=orphans', type: 'custom', icon: '' },
         { label: 'تقارير إغاثة القطاع', url: 'index.html#activities', type: 'anchor', icon: '' },
         { label: 'المركز الإعلامي', url: 'news.html', type: 'page', icon: '' },
         { label: 'معرض الصور', url: 'gallery.html', type: 'page', icon: '' },
@@ -108,6 +108,6 @@ window.BUILDER_DATA = {
   },
 
   icons: ['home', 'account_balance', 'cases', 'verified', 'newspaper', 'handshake', 'perm_media', 'admin_panel_settings', 'contact_support',
-    'volunteer_activism', 'diversity_3', 'bakery_dining', 'water_drop', 'camping', 'medical_services', 'school', 'visibility', 'quiz', 'map',
+    'volunteer_activism', 'child_care', 'bakery_dining', 'water_drop', 'camping', 'medical_services', 'school', 'visibility', 'quiz', 'map',
     'campaign', 'favorite', 'payments', 'mail', 'call', 'public', 'info', 'star', 'open_in_new']
 };

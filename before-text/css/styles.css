@@ -554,8 +554,8 @@ img, video { max-width: 100%; }
 
 /* ---------- Pillars ---------- */
 .pillars { background: var(--forest-900); }
-.pillars-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; opacity: .5; filter: none; }
-.pillars-shade { position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(7,61,36,.8), rgba(5,43,25,.9)), radial-gradient(60% 60% at 80% 0%, rgba(12,120,69,.12), transparent); }
+.pillars-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; opacity: .35; filter: grayscale(.4); }
+.pillars-shade { position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(7,61,36,.92), rgba(5,43,25,.97)), radial-gradient(60% 60% at 80% 0%, rgba(12,120,69,.18), transparent); }
 .pillar-card {
   position: relative; padding: 26px; border-radius: 22px;
   background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
@@ -1132,8 +1132,3 @@ img, video { max-width: 100%; }
 .partners-lux .more-btn:hover { background: #fff; color: var(--forest-900); }
 html { scroll-behavior: smooth; }
 section[id] { scroll-margin-top: 84px; }
-
-/* اسم الجمعية في الهيدر: ثمانية سانس */
-.site-header .brand-title { font-family: "Thmanyah Sans", system-ui, sans-serif !important; font-weight: 700 !important; font-size: 18px !important; line-height: 1.25 !important; white-space: nowrap; }
-@media (max-width: 1279px) { .site-header .brand-title { font-size: 16px !important; white-space: normal; } }
-@media (max-width: 640px) { .site-header .brand-title { font-size: 14px !important; } }

@@ -214,7 +214,7 @@
         else bottom += '<span class="' + (it.id === focusId ? 'is-focus' : '') + '">' + esc(it.label || 'بدون عنوان') + (it.newTab ? icon('open_in_new', 'sp-ext') : '') + '</span>';
       });
       return '<footer class="sf ' + (isMobile ? 'is-mobile' : '') + '"><div class="sf-grid">' +
-        '<div class="sf-col sf-brand"><span class="sp-brand"><span class="sp-mark">' + LOGO + '</span><span class="sp-brand-t"><b>جمعية الشمال للتنمية والتطوير المجتمعي</b></span></span><p>مؤسسة إنسانية تعنى بإغاثة أهل غزة: برامج إغاثية وإنشائية وتنموية وصحية.</p></div>' +
+        '<div class="sf-col sf-brand"><span class="sp-brand"><span class="sp-mark">' + LOGO + '</span><span class="sp-brand-t"><b>جمعية الشمال للتنمية والتطوير المجتمعي</b></span></span><p>مؤسسة إنسانية تعنى بإغاثة أهل غزة: الغذاء والدواء والمأوى وكفالة الأيتام النازحين.</p></div>' +
         cols +
         '<div class="sf-col sf-static"><span class="sf-h">التواصل</span><p>غرفة التنسيق: القاهرة<br>info@shamal-society.org</p></div>' +
         '</div><div class="sf-bottom"><span>جميع الحقوق محفوظة © 2026 جمعية الشمال للتنمية والتطوير المجتمعي</span><span class="sf-bl">' + bottom + '</span></div></footer>';

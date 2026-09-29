@@ -83,7 +83,7 @@
         </nav>
         <p class="page-hero-kicker hero-in d2" data-hero-kicker>التواصل لدعم إغاثة غزة</p>
         <h1 id="page-title" class="page-hero-title hero-in d3" data-hero-title>نحن في خدمتك لكل استفسار <span class="text-gradient-gold">عن القطاع</span></h1>
-        <p class="page-hero-lead hero-in d4" data-hero-lead>فريق خدمة المتبرعين والشركاء لاستقبال طلبات الإغاثة والبرامج الإنشائية والتنموية والصحية.</p>
+        <p class="page-hero-lead hero-in d4" data-hero-lead>فريق خدمة المتبرعين والشركاء لاستقبال طلبات الإغاثة وكفالة أيتام غزة.</p>
         <div class="page-hero-meta hero-in d5"><span class="hero-chip"><span class="material-symbols-outlined" aria-hidden="true">call</span>الخط الساخن متاح 24/7</span><span class="hero-chip"><span class="material-symbols-outlined" aria-hidden="true">schedule</span>الأحد - الخميس • 8:00 ص - 4:00 م</span></div>
       </div>
       <span class="lux-hairline lux-hairline-bottom" aria-hidden="true"></span>
@@ -109,7 +109,7 @@
           <div class="form-card reveal" id="message-form">
             <form id="contact-page-form" novalidate aria-describedby="form-title-sub">
               <h2 id="form-title" class="text-[22px] font-bold text-primary">أرسل استفسارك عن إغاثة غزة</h2>
-              <p id="form-title-sub" class="mt-1 text-[14px] text-on-variant">يسعدنا تواصلك، وسيُوجَّه طلبك إلى البرنامج المناسب. الحقول المعلّمة بـ <span class="req" aria-hidden="true">*</span> مطلوبة.</p>
+              <p id="form-title-sub" class="mt-1 text-[14px] text-on-variant">يسعدنا تواصلك، وسيُوجَّه طلبك إلى مسار التوزيع أو الكفالة. الحقول المعلّمة بـ <span class="req" aria-hidden="true">*</span> مطلوبة.</p>
               <div class="form-alert" id="cf-alert" role="alert" hidden><span class="material-symbols-outlined" aria-hidden="true">error</span><span id="cf-alert-text"></span></div>
               <div class="cform-grid">
                 <div class="field"><label for="cf-name">الاسم الكامل <span class="req" aria-hidden="true">*</span></label><input id="cf-name" name="name" type="text" autocomplete="name" required minlength="3" placeholder="مثال: عبد الله السالم" aria-describedby="cf-name-err"><p class="field-error" id="cf-name-err" hidden></p></div>
@@ -117,7 +117,7 @@
                 <div class="field"><label for="cf-email">البريد الإلكتروني <span class="req" aria-hidden="true">*</span></label><input id="cf-email" name="email" type="email" autocomplete="email" dir="ltr" class="text-left" required placeholder="name@example.com" aria-describedby="cf-email-err"><p class="field-error" id="cf-email-err" hidden></p></div>
                 <div class="field"><label for="cf-topic">نوع الاستفسار</label>
                   <select id="cf-topic" name="topic">
-                    <option value="development">استفسار عن البرامج التنموية</option>
+                    <option value="orphan">استفسار عن كفالة يتيم في غزة</option>
                     <option value="donate">تبرع لمشروع أو حملة</option>
                     <option value="partner">شراكة لإغاثة القطاع</option>
                     <option value="volunteer">رغبة في التطوع الميداني</option>
@@ -126,7 +126,7 @@
                     <option value="other">أخرى</option>
                   </select>
                 </div>
-                <div class="field span-2"><label for="cf-msg">نص الرسالة <span class="req" aria-hidden="true">*</span></label><textarea id="cf-msg" name="message" rows="5" required minlength="10" placeholder="اكتب تفاصيل طلبك أو استفسارك عن برامجنا في غزة..." aria-describedby="cf-msg-err"></textarea><p class="field-error" id="cf-msg-err" hidden></p></div>
+                <div class="field span-2"><label for="cf-msg">نص الرسالة <span class="req" aria-hidden="true">*</span></label><textarea id="cf-msg" name="message" rows="5" required minlength="10" placeholder="اكتب تفاصيل طلب الإغاثة أو الكفالة في غزة..." aria-describedby="cf-msg-err"></textarea><p class="field-error" id="cf-msg-err" hidden></p></div>
                 <div class="field span-2"><label class="check" for="cf-consent"><input id="cf-consent" name="consent" type="checkbox" required aria-describedby="cf-consent-err"><span>أوافق على أن يتواصل معي فريق خدمة المتبرعين بخصوص رسالتي. <span class="req" aria-hidden="true">*</span></span></label><p class="field-error" id="cf-consent-err" hidden></p></div>
               </div>
               <div class="form-foot">
@@ -191,7 +191,7 @@
               <span class="faq-cta-ico material-symbols-outlined" aria-hidden="true">quiz</span>
               <div>
                 <p class="faq-cta-title">المزيد من الأسئلة</p>
-                <p class="faq-cta-text">الزكاة، والإيصالات، والتبرع الشهري.</p>
+                <p class="faq-cta-text">الزكاة، والإيصالات، والكفالة الشهرية.</p>
               </div>
               <a href="index.html#faq" class="btn btn-forest faq-cta-btn">كل الأسئلة</a>
             </div>
@@ -203,7 +203,7 @@
             </div>
             <div class="faq-item">
               <h3 class="faq-q"><button type="button" id="faq-b2" aria-expanded="false" aria-controls="faq-p2"><span class="faq-num" dir="ltr" aria-hidden="true">02</span><span class="faq-q-text">هل يمكنني تخصيص تبرعي لمشروع أو محافظة بعينها؟</span><span class="faq-ico" aria-hidden="true"></span></button></h3>
-              <div class="faq-panel" id="faq-p2" role="region" aria-labelledby="faq-b2"><div class="faq-panel-in"><p>يمكنك اختيار المشروع (السلال الغذائية، الخيام، المياه، العيادات الميدانية) عند التواصل معنا، وسنبذل جهدنا لتوجيهه إلى المحافظة التي تحددها وفق الاحتياج والظروف الميدانية.</p></div></div>
+              <div class="faq-panel" id="faq-p2" role="region" aria-labelledby="faq-b2"><div class="faq-panel-in"><p>يمكنك اختيار المشروع (السلال الغذائية، الخيام، المياه، كفالة الأيتام) عند التواصل معنا، وسنبذل جهدنا لتوجيهه إلى المحافظة التي تحددها وفق الاحتياج والظروف الميدانية.</p></div></div>
             </div>
             <div class="faq-item">
               <h3 class="faq-q"><button type="button" id="faq-b3" aria-expanded="false" aria-controls="faq-p3"><span class="faq-num" dir="ltr" aria-hidden="true">03</span><span class="faq-q-text">ما وسائل التبرع المتاحة؟</span><span class="faq-ico" aria-hidden="true"></span></button></h3>
@@ -229,14 +229,14 @@
           <span class="brand-mark has-logo"><img src="img/logo.png" alt="شعار الجمعية" width="52" height="52"></span>
           <p class="text-[20px] font-bold">جمعية الشمال للتنمية والتطوير المجتمعي</p>
         </div>
-        <p class="mt-5 max-w-sm text-[15px] leading-[1.9] text-primary-soft">مؤسسة إنسانية تعنى بإغاثة أهل غزة: برامج إغاثية وإنشائية وتنموية وصحية وفق أعلى معايير التوثيق.</p>
+        <p class="mt-5 max-w-sm text-[15px] leading-[1.9] text-primary-soft">مؤسسة إنسانية تعنى بإغاثة أهل غزة: الغذاء والدواء والمأوى وكفالة الأيتام النازحين وفق أعلى معايير التوثيق.</p>
         <p class="mt-4 inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[12.5px] text-primary-soft"><span class="material-symbols-outlined text-[16px] text-gold-light">verified</span>ترخيص رقم: GZA-77492</p>
       </div>
       <div class="lg:col-span-2">
         <h3 class="footer-h">روابط سريعة</h3>
         <ul class="footer-links">
           <li><a href="about.html#vision">الرؤية والرسالة</a></li>
-          <li><a href="project.html?id=development">التنمية المجتمعية</a></li>
+          <li><a href="project.html?id=orphans">كفالة أيتام غزة</a></li>
           <li><a href="index.html#activities">تقارير إغاثة القطاع</a></li>
           <li><a href="news.html">المركز الإعلامي</a></li>
           <li><a href="gallery.html">معرض الصور</a></li>
