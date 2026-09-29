@@ -1,5 +1,5 @@
 /* ==========================================================================
-   جمعية الأمل — Alternative admin login designs (login-1 / login-2 / login-3)
+   جمعية الشمال للتنمية والتطوير المجتمعي — Alternative admin login designs (login-1 / login-2 / login-3)
    Standalone stylesheet: no dependency on admin.css. Fonts via ../css/fonts.css
    ========================================================================== */
 
@@ -648,3 +648,15 @@ button { cursor: pointer; }
 /* lv3 stacked logo */
 .lv3-logo .lv-brand { flex-direction: column; gap: 0; padding: 4px 10px; }
 .lv3-footer { width: 100%; max-width: 432px; display: flex; flex-direction: column; align-items: center; }
+
+/* organization logo image in login marks */
+.lv-mark:has(img) { background: none; box-shadow: none; width: 48px; height: 48px; border-radius: 0; }
+.lv-mark img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.lv3-logo .lv-mark:has(img) { width: 72px; height: 72px; border-radius: 0; }
+
+/* login-2: real governorate shapes (same data as the homepage map) */
+.lv2-svg .outline { fill: none; stroke-dasharray: none; stroke-width: 1.2; animation: lv-fade 1.6s .2s var(--ease-out) both; }
+.lv2-svg .outline-glow { fill: none; }
+.lv2-svg .gv { fill: rgba(217,166,91,.07); stroke: rgba(217,166,91,.55); stroke-width: .8; stroke-linejoin: round; transition: fill .3s; animation: lv-fade 1.6s .2s var(--ease-out) both; }
+.lv2-svg .gv:hover { fill: rgba(217,166,91,.18); }
+.lv2-svg .sea-label { font-size: 11px; }

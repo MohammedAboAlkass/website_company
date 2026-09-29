@@ -481,3 +481,39 @@ const SITE_CONTENT = {
     showToast("تم تأكيد اشتراكك في النشرة البريدية.");
   });
 })();
+
+
+/* ---------- "Show more" for long sections (one-page layout) ---------- */
+(() => {
+  document.querySelectorAll("[data-more]").forEach((box) => {
+    const n = parseInt(box.dataset.more, 10) || 3;
+    const items = Array.from(box.children);
+    if (items.length <= n) { const b0 = document.querySelector(`[data-more-btn="#${box.id}"]`); if (b0) b0.hidden = true; return; }
+    let open = false;
+    const apply = () => items.forEach((el, i) => el.classList.toggle("more-hidden", !open && i >= n));
+    let btn = box.id ? document.querySelector(`[data-more-btn="#${box.id}"]`) : null;
+    let label;
+    if (!btn) {
+      const wrap = document.createElement("div");
+      wrap.className = "more-wrap";
+      btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "btn btn-outline more-btn h-12 px-6 text-[15px]";
+      btn.innerHTML = '<span data-more-label>مشاهدة المزيد</span><span class="material-symbols-outlined more-ico" aria-hidden="true">expand_more</span>';
+      wrap.appendChild(btn);
+      box.insertAdjacentElement("afterend", wrap);
+    }
+    label = btn.querySelector("[data-more-label]");
+    btn.setAttribute("aria-expanded", "false");
+    btn.addEventListener("click", () => {
+      open = !open;
+      apply();
+      btn.setAttribute("aria-expanded", String(open));
+      btn.classList.toggle("is-open", open);
+      if (label) label.textContent = open ? "عرض أقل" : "مشاهدة المزيد";
+      if (open) items.forEach((el) => el.classList.add("is-in"));
+      else box.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    apply();
+  });
+})();

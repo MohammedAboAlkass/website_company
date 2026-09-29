@@ -1,5 +1,5 @@
 /* =========================================================
-   جمعية الأمل — inner pages script (v11)
+   جمعية الشمال للتنمية والتطوير المجتمعي — inner pages script (v11)
    Loaded on the inner pages BEFORE js/main.js, so content rendered here
    (project.html / article.html) is picked up by main.js's reveal and
    counter observers. main.js still handles the header, mobile menu,
@@ -133,7 +133,7 @@
      ========================================================= */
   if (page === "project" && D.projects.length) {
     const p = D.projects.find((x) => x.id === qs.get("id")) || D.projects[0];
-    document.title = `${p.title} — جمعية الأمل لإغاثة أهل غزة`;
+    document.title = `${p.title} — جمعية الشمال للتنمية والتطوير المجتمعي`;
     setHero({ title: p.title, lead: p.desc, image: p.image });
     const chipsBox = $("#pd-hero-chips");
     if (chipsBox) {
@@ -219,7 +219,7 @@
      ========================================================= */
   if (page === "article" && D.news.length) {
     const n = D.news.find((x) => x.id === qs.get("id")) || D.news[0];
-    document.title = `${n.title} — جمعية الأمل لإغاثة أهل غزة`;
+    document.title = `${n.title} — جمعية الشمال للتنمية والتطوير المجتمعي`;
     setHero({ title: n.title, image: n.image, kicker: esc(n.catLabel) + (n.sample ? ' <!-- PLACEHOLDER --><span class="sample-badge sample-badge-dark">محتوى تجريبي</span>' : "") });
     const meta = [[`calendar_month`, n.date], ["schedule", n.read], ["apartment", n.desk]].filter((m) => m[1]);
     $("#ar-meta").innerHTML = meta.map(([i, t]) => `<span>${icon(i)}${esc(t)}</span>`).join("");

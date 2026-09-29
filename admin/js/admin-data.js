@@ -14,16 +14,16 @@
    ========================================================================= */
 window.ADMIN_DATA = {
   org: {
-    name: 'جمعية الأمل',
+    name: 'جمعية الشمال للتنمية والتطوير المجتمعي',
     tagline: 'لإغاثة أهل غزة ودعم صمودهم',
-    email: 'info@alamal-gaza.org',
+    email: 'info@shamal-society.org',
     phone: '+20 100 774 9292',
     address: 'مكتب إغاثة غزة — القاهرة (تنسيق دخول المساعدات)',
     license: 'HRSD-77492',
-    website: 'https://alamal-gaza.org'
+    website: 'https://shamal-society.org'
   },
 
-  user: { name: 'مدير المنصة', role: 'مسؤول النظام', email: 'admin@alamal-gaza.org', initials: 'م' },
+  user: { name: 'مدير المنصة', role: 'مسؤول النظام', email: 'admin@shamal-society.org', initials: 'م' },
 
   categories: [
     { id: 'relief',  label: 'إغاثة وطوارئ', icon: 'crisis_alert' },
@@ -177,12 +177,12 @@ window.ADMIN_DATA = {
   ],
 
   users: [
-    { name: 'مدير المنصة', email: 'admin@alamal-gaza.org', role: 'admin', status: 'active', last: 0 },
-    { name: 'محرر المحتوى #2', email: 'editor2@alamal-gaza.org', role: 'editor', status: 'active', last: 55 },
-    { name: 'منسق ميداني #3', email: 'field3@alamal-gaza.org', role: 'field', status: 'active', last: 12 },
-    { name: 'مراجع مالي #4', email: 'finance4@alamal-gaza.org', role: 'finance', status: 'active', last: 1440 },
-    { name: 'مراجع #5', email: 'reviewer5@alamal-gaza.org', role: 'viewer', status: 'invited', last: null },
-    { name: 'محرر المحتوى #6', email: 'editor6@alamal-gaza.org', role: 'editor', status: 'disabled', last: 20160 }
+    { name: 'مدير المنصة', email: 'admin@shamal-society.org', role: 'admin', status: 'active', last: 0 },
+    { name: 'محرر المحتوى #2', email: 'editor2@shamal-society.org', role: 'editor', status: 'active', last: 55 },
+    { name: 'منسق ميداني #3', email: 'field3@shamal-society.org', role: 'field', status: 'active', last: 12 },
+    { name: 'مراجع مالي #4', email: 'finance4@shamal-society.org', role: 'finance', status: 'active', last: 1440 },
+    { name: 'مراجع #5', email: 'reviewer5@shamal-society.org', role: 'viewer', status: 'invited', last: null },
+    { name: 'محرر المحتوى #6', email: 'editor6@shamal-society.org', role: 'editor', status: 'disabled', last: 20160 }
   ],
 
   roles: [

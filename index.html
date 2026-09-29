@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>جمعية الأمل لإغاثة أهل غزة</title>
+  <title>جمعية الشمال للتنمية والتطوير المجتمعي</title>
   <meta name="description" content="مؤسسة إنسانية تعمل على إغاثة أهل غزة: الغذاء والدواء والمأوى ورعاية الأيتام وفق معايير الحوكمة والشفافية.">
-  <meta name="theme-color" content="#001a3c">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Crect width=%2724%27 height=%2724%27 rx=%276%27 fill=%27%23f28c14%27/%3E%3Cpath d=%27M12 4c-2.4 3.1-6 5.3-6 8.7A6 6 0 0 0 12 19a6 6 0 0 0 6-6.3C18 9.3 14.4 7.1 12 4Z%27 fill=%27%23001a3c%27/%3E%3C/svg%3E">
+  <meta name="theme-color" content="#0c7845">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Crect width=%2724%27 height=%2724%27 rx=%276%27 fill=%27%230c7845%27/%3E%3Cpath d=%27M12 4c-2.4 3.1-6 5.3-6 8.7A6 6 0 0 0 12 19a6 6 0 0 0 6-6.3C18 9.3 14.4 7.1 12 4Z%27 fill=%27%23ffffff%27/%3E%3C/svg%3E">
   <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/styles.css">
@@ -21,37 +21,25 @@
     <div class="navbar">
       <div class="mx-auto flex h-[76px] max-w-page items-center justify-between gap-5 px-5 md:px-8">
         <a href="#hero" class="brand flex shrink-0 items-center gap-3">
-          <span class="brand-mark">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M12 3c-2.8 3.6-7 6.2-7 10.2A7 7 0 0 0 12 21a7 7 0 0 0 7-7.8C19 9.2 14.8 6.6 12 3Z" fill="currentColor"/>
-            </svg>
-          </span>
+          <span class="brand-mark has-logo"><img src="img/logo.png" alt="شعار الجمعية" width="52" height="52"></span>
           <span class="flex flex-col">
-            <span class="brand-title text-[19px] font-bold leading-tight">جمعية الأمل</span>
-            <span class="brand-sub text-[11.5px] font-medium leading-none">لإغاثة أهل غزة ودعم صمودهم</span>
+            <span class="brand-title text-[15px] font-bold leading-tight">جمعية الشمال للتنمية والتطوير المجتمعي</span>
           </span>
         </a>
 
         <nav class="hidden items-center gap-1 xl:flex" aria-label="التنقل الرئيسي">
           <a class="nav-link is-active" href="#hero">الرئيسية</a>
-          <a class="nav-link" href="about.html">من نحن</a>
-          <a class="nav-link" href="projects.html">المشاريع</a>
+          <a class="nav-link" href="#about">من نحن</a>
+          <a class="nav-link" href="#projects">المشاريع</a>
           <a class="nav-link" href="#activities">الأنشطة</a>
-          <a class="nav-link" href="news.html">الأخبار</a>
+          <a class="nav-link" href="#news">الأخبار</a>
           <a class="nav-link" href="#partners">الشركاء</a>
-          <a class="nav-link" href="gallery.html">المعرض</a>
-          <a class="nav-link" href="admin/login.html">بوابة الإدارة</a>
-          <a class="nav-link" href="contact.html">تواصل معنا</a>
+          <a class="nav-link" href="#gallery">المعرض</a>
+          <a class="nav-link" href="admin/login-2.html">بوابة الإدارة</a>
+          <a class="nav-link" href="#contact">تواصل معنا</a>
         </nav>
 
         <div class="flex items-center gap-2">
-          <a href="#appeal" class="btn btn-gold hidden h-11 px-5 text-[14px] sm:inline-flex">
-            <span class="material-symbols-outlined fill text-[20px]">volunteer_activism</span>
-            ساهم في إغاثة غزة الآن
-          </a>
-          <button class="icon-btn account-btn" aria-label="حساب المستخدم">
-            <span class="material-symbols-outlined text-[20px]">person</span>
-          </button>
           <button id="menu-btn" class="icon-btn menu-btn xl:hidden" aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobile-menu">
             <span class="material-symbols-outlined">menu</span>
           </button>
@@ -65,16 +53,16 @@
     <div class="mobile-menu-panel">
       <nav class="flex flex-col gap-1" id="mobile-nav" aria-label="القائمة">
         <a href="#hero"><span class="material-symbols-outlined">home</span>الرئيسية</a>
-        <a href="about.html"><span class="material-symbols-outlined">account_balance</span>من نحن</a>
-        <a href="projects.html"><span class="material-symbols-outlined">cases</span>المشاريع والبرامج</a>
+        <a href="#about"><span class="material-symbols-outlined">account_balance</span>من نحن</a>
+        <a href="#projects"><span class="material-symbols-outlined">cases</span>المشاريع والبرامج</a>
         <a href="#activities"><span class="material-symbols-outlined">verified</span>الأنشطة والأعمال</a>
-        <a href="news.html"><span class="material-symbols-outlined">newspaper</span>الأخبار</a>
+        <a href="#news"><span class="material-symbols-outlined">newspaper</span>الأخبار</a>
         <a href="#partners"><span class="material-symbols-outlined">handshake</span>الشركاء</a>
-        <a href="gallery.html"><span class="material-symbols-outlined">perm_media</span>معرض الصور</a>
-        <a href="admin/login.html"><span class="material-symbols-outlined">admin_panel_settings</span>بوابة الإدارة</a>
-        <a href="contact.html"><span class="material-symbols-outlined">contact_support</span>تواصل معنا</a>
+        <a href="#gallery"><span class="material-symbols-outlined">perm_media</span>معرض الصور</a>
+        <a href="admin/login-2.html"><span class="material-symbols-outlined">admin_panel_settings</span>بوابة الإدارة</a>
+        <a href="#contact"><span class="material-symbols-outlined">contact_support</span>تواصل معنا</a>
       </nav>
-      <a href="#appeal" class="btn btn-gold mt-4 h-12 w-full text-[15px]" data-close>
+      <a href="#appeal" class="btn btn-donate mt-4 h-12 w-full text-[15px]" data-close>
         <span class="material-symbols-outlined fill text-[20px]">volunteer_activism</span>
         ساهم في إغاثة غزة الآن
       </a>
@@ -90,6 +78,7 @@
         </video>
       </div>
       <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-light" aria-hidden="true"><span class="blob blob-a"></span><span class="blob blob-b"></span><span class="blob blob-c"></span></div>
       <div class="hero-grain" aria-hidden="true"></div>
 
       <div class="hero-inner relative z-10 mx-auto flex w-full max-w-page flex-col px-5 md:px-8">
@@ -196,46 +185,6 @@
       </div>
     </section>
 
-    <!-- ================= URGENT APPEAL ================= -->
-    <section id="appeal" class="relative z-10 -mt-px bg-canvas pt-16 md:pt-20" aria-labelledby="appeal-title">
-      <div class="mx-auto max-w-page px-5 md:px-8">
-        <div class="appeal-card reveal">
-          <div class="appeal-media">
-            <img src="img/gallery-convoy.jpg" alt="" loading="lazy">
-            <div class="appeal-media-shade"></div>
-            <span class="appeal-flag"><span class="live-dot live-dot-white"></span>نداء إغاثة عاجل</span>
-          </div>
-          <div class="appeal-body">
-            <div class="inline-flex flex-wrap items-center gap-2 rounded-full border border-white/15 bg-white/[.07] px-4 py-1.5">
-              <span class="material-symbols-outlined text-[18px] text-gold-light">local_shipping</span>
-              <span class="text-[12.5px] font-medium text-white/85">قوافل يومية من الشمال إلى رفح</span>
-            </div>
-            <p class="mt-6 text-[15px] font-bold text-gold-light">حملة السلال والخيام والمياه</p>
-            <h2 id="appeal-title" class="mt-3 text-[28px] font-bold leading-[1.45] text-white md:text-[40px]">
-              خبز اليوم يصل للخيمة..<br>
-              <span class="text-gradient-gold">وماؤك لا ينقطع عن النازحين</span>
-            </h2>
-            <p class="mt-5 max-w-xl text-[16px] leading-[1.95] text-white/75">
-              قوافل الطحين والخيام وصهاريج المياه تتحرك داخل القطاع كل يوم. مساهمتك تتحوّل إلى وجبة ساخنة، خيمة عازلة، وصهريج شرب لعائلات نزحت من بيوتها.
-            </p>
-            <div class="mt-8 flex flex-wrap items-center gap-3">
-              <a href="#contact" class="btn btn-urgent h-14 ps-2 pe-6 text-[16px]">
-                <span class="grid h-10 w-10 place-items-center rounded-full bg-white text-urgent">
-                  <span class="material-symbols-outlined fill text-[20px]">volunteer_activism</span>
-                </span>
-                ساهم في إغاثة غزة الآن
-                <span class="material-symbols-outlined btn-arrow text-[20px]">arrow_back</span>
-              </a>
-              <a href="#projects" class="btn btn-glass h-14 px-6 text-[16px]">
-                <span class="material-symbols-outlined text-gold-light">cases</span>
-                مبادرات الإغاثة المعتمدة
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ================= ZAKAT CALCULATOR ================= -->
 
     <!-- ================= ABOUT ================= -->
@@ -246,9 +195,9 @@
             <p class="eyebrow"><span class="material-symbols-outlined">account_balance</span>التعريف والمسيرة في غزة</p>
             <h2 id="about-title" class="section-title">سنوات من العمل لإغاثة أهل غزة وصون كرامتهم</h2>
             <span class="coverage-pill"><span class="ab-pulse" aria-hidden="true"></span><span class="material-symbols-outlined">location_on</span>تغطية لخمس محافظات في القطاع</span>
-            <p class="mt-5"><a class="link-arrow text-[15px]" href="about.html">تعرّف على قصتنا ومسيرتنا<span class="material-symbols-outlined">arrow_back</span></a></p>
+            <p class="mt-5"><a class="link-arrow text-[15px]" href="#ab-step-1">تعرّف على قصتنا ومسيرتنا<span class="material-symbols-outlined">arrow_back</span></a></p>
           </div>
-          <p class="ab-statement reveal" data-wordfill>تأسست جمعية الأمل ككيان إنساني غير ربحي للاستجابة العاجلة في قطاع غزة: الغذاء والدواء والمأوى والتعليم، من النزوح في الشمال حتى رفح.</p>
+          <p class="ab-statement reveal" data-wordfill>تأسست جمعية الشمال للتنمية والتطوير المجتمعي ككيان إنساني غير ربحي للاستجابة العاجلة في قطاع غزة: الغذاء والدواء والمأوى والتعليم، من النزوح في الشمال حتى رفح.</p>
         </div>
 
         <div class="ab-story" data-story>
@@ -354,7 +303,7 @@
               </div>
               <div class="project-actions">
                 <a href="project.html?id=relief" class="btn btn-forest h-11 flex-1 text-[14px]">تفاصيل المبادرة<span class="material-symbols-outlined btn-arrow text-[18px]" aria-hidden="true">arrow_back</span></a>
-                <a href="gallery.html" class="icon-square" aria-label="المعرض"><span class="material-symbols-outlined text-[20px]">photo_camera</span></a>
+                <a href="#gallery" class="icon-square" aria-label="المعرض"><span class="material-symbols-outlined text-[20px]">photo_camera</span></a>
               </div>
             </div>
           </article>
@@ -378,7 +327,7 @@
               </div>
               <div class="project-actions">
                 <a href="project.html?id=orphans" class="btn btn-forest h-11 flex-1 text-[14px]">تفاصيل المبادرة<span class="material-symbols-outlined btn-arrow text-[18px]" aria-hidden="true">arrow_back</span></a>
-                <a href="gallery.html" class="icon-square" aria-label="المعرض"><span class="material-symbols-outlined text-[20px]">photo_camera</span></a>
+                <a href="#gallery" class="icon-square" aria-label="المعرض"><span class="material-symbols-outlined text-[20px]">photo_camera</span></a>
               </div>
             </div>
           </article>
@@ -402,7 +351,7 @@
               </div>
               <div class="project-actions">
                 <a href="project.html?id=water" class="btn btn-forest h-11 flex-1 text-[14px]">تفاصيل المبادرة<span class="material-symbols-outlined btn-arrow text-[18px]" aria-hidden="true">arrow_back</span></a>
-                <a href="gallery.html" class="icon-square" aria-label="المعرض"><span class="material-symbols-outlined text-[20px]">photo_camera</span></a>
+                <a href="#gallery" class="icon-square" aria-label="المعرض"><span class="material-symbols-outlined text-[20px]">photo_camera</span></a>
               </div>
             </div>
           </article>
@@ -426,15 +375,12 @@
               </div>
               <div class="project-actions">
                 <a href="project.html?id=shelter" class="btn btn-forest h-11 flex-1 text-[14px]">تفاصيل المبادرة<span class="material-symbols-outlined btn-arrow text-[18px]" aria-hidden="true">arrow_back</span></a>
-                <a href="gallery.html" class="icon-square" aria-label="المعرض"><span class="material-symbols-outlined text-[20px]">photo_camera</span></a>
+                <a href="#gallery" class="icon-square" aria-label="المعرض"><span class="material-symbols-outlined text-[20px]">photo_camera</span></a>
               </div>
             </div>
           </article>
         </div>
 
-        <div class="mt-12 flex justify-center">
-          <a href="projects.html" class="btn btn-outline h-12 px-6 text-[15px]">عرض كل المشاريع<span class="material-symbols-outlined btn-arrow text-[18px]" aria-hidden="true">arrow_back</span></a>
-        </div>
       </div>
     </section>
 
@@ -522,7 +468,7 @@
             <h2 class="section-title">أنشطة ميدانية موثّقة داخل القطاع</h2>
             <p class="section-lead">فرقنا والمتطوعون يوثّقون وصول السلال والخيام والدواء إلى مخيمات النزوح في غزة على مدار الساعة.</p>
           </div>
-          <a href="gallery.html" class="btn btn-outline reveal h-12 shrink-0 px-5 text-[14px]">مشاهدة الأرشيف الميداني المصور <span class="material-symbols-outlined btn-arrow text-[18px]">west</span></a>
+          <a href="#gallery" class="btn btn-outline reveal h-12 shrink-0 px-5 text-[14px]">مشاهدة الأرشيف الميداني المصور <span class="material-symbols-outlined btn-arrow text-[18px]">west</span></a>
         </div>
         <div class="mt-12 grid gap-6 md:grid-cols-3">
           <article class="activity-card reveal">
@@ -536,7 +482,7 @@
               <p class="activity-desc">إيصال حزم الدفء لحماية أكثر من 45 ألف نازح من برد الخيام في جنوب القطاع.</p>
               <div class="activity-foot">
                 <span class="inline-flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px] text-gold-deep">group</span>45,200 مستفيد</span>
-                <a class="link-arrow" href="gallery.html">تقرير الفيديو<span class="material-symbols-outlined">arrow_back</span></a>
+                <a class="link-arrow" href="#gallery">تقرير الفيديو<span class="material-symbols-outlined">arrow_back</span></a>
               </div>
             </div>
           </article>
@@ -566,10 +512,50 @@
               <p class="activity-desc">احتفاء بعودة 210 طفلاً نازحاً إلى حلقات تعلّم مؤقتة في القراءة والحساب والدعم النفسي.</p>
               <div class="activity-foot">
                 <span class="inline-flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px] text-gold-deep">school</span>210 طالب نازح</span>
-                <a class="link-arrow" href="news.html">قصص النجاح<span class="material-symbols-outlined">arrow_back</span></a>
+                <a class="link-arrow" href="#news">قصص النجاح<span class="material-symbols-outlined">arrow_back</span></a>
               </div>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= URGENT APPEAL ================= -->
+    <section id="appeal" class="relative z-10 bg-canvas py-16 md:py-20" aria-labelledby="appeal-title">
+      <div class="mx-auto max-w-page px-5 md:px-8">
+        <div class="appeal-card reveal">
+          <div class="appeal-media">
+            <img src="img/gallery-convoy.jpg" alt="" loading="lazy">
+            <div class="appeal-media-shade"></div>
+            <span class="appeal-flag"><span class="live-dot live-dot-white"></span>نداء إغاثة عاجل</span>
+          </div>
+          <div class="appeal-body">
+            <div class="inline-flex flex-wrap items-center gap-2 rounded-full border border-white/15 bg-white/[.07] px-4 py-1.5">
+              <span class="material-symbols-outlined text-[18px] text-gold-light">local_shipping</span>
+              <span class="text-[12.5px] font-medium text-white/85">قوافل يومية من الشمال إلى رفح</span>
+            </div>
+            <p class="mt-6 text-[15px] font-bold text-gold-light">حملة السلال والخيام والمياه</p>
+            <h2 id="appeal-title" class="mt-3 text-[28px] font-bold leading-[1.45] text-white md:text-[40px]">
+              خبز اليوم يصل للخيمة..<br>
+              <span class="text-gradient-gold">وماؤك لا ينقطع عن النازحين</span>
+            </h2>
+            <p class="mt-5 max-w-xl text-[16px] leading-[1.95] text-white/75">
+              قوافل الطحين والخيام وصهاريج المياه تتحرك داخل القطاع كل يوم. مساهمتك تتحوّل إلى وجبة ساخنة، خيمة عازلة، وصهريج شرب لعائلات نزحت من بيوتها.
+            </p>
+            <div class="mt-8 flex flex-wrap items-center gap-3">
+              <a href="#contact" class="btn btn-urgent h-14 ps-2 pe-6 text-[16px]">
+                <span class="grid h-10 w-10 place-items-center rounded-full bg-white text-urgent">
+                  <span class="material-symbols-outlined fill text-[20px]">volunteer_activism</span>
+                </span>
+                ساهم في إغاثة غزة الآن
+                <span class="material-symbols-outlined btn-arrow text-[20px]">arrow_back</span>
+              </a>
+              <a href="#projects" class="btn btn-glass h-14 px-6 text-[16px]">
+                <span class="material-symbols-outlined text-gold-light">cases</span>
+                مبادرات الإغاثة المعتمدة
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -611,38 +597,37 @@
           </div>
 
           <div class="impact-map-wrap reveal">
-            <svg class="impact-map" viewBox="0 0 360 670" role="group" aria-label="خريطة مبسطة لمحافظات قطاع غزة الخمس">
+            <svg class="impact-map" viewBox="-10 109 380 452" role="group" aria-label="خريطة مبسطة لمحافظات قطاع غزة الخمس">
               <defs>
-                <linearGradient id="govGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe2b3"/><stop offset=".55" stop-color="#fba53a"/><stop offset="1" stop-color="#c2640a"/></linearGradient>
-                <pattern id="seaLines" width="18" height="10" patternUnits="userSpaceOnUse"><path d="M0 5 Q4.5 1 9 5 T18 5" fill="none" stroke="rgba(255,226,179,.09)" stroke-width="1"/></pattern>
+                <linearGradient id="govGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eaf5ee"/><stop offset=".55" stop-color="#9ad7b4"/><stop offset="1" stop-color="#0c7845"/></linearGradient>
+                <pattern id="seaLines" width="18" height="10" patternUnits="userSpaceOnUse"><path d="M0 5 Q4.5 1 9 5 T18 5" fill="none" stroke="rgba(234,245,238,.09)" stroke-width="1"/></pattern>
                 <radialGradient id="seaFade" cx=".5" cy=".5" r=".6"><stop offset=".45" stop-color="#fff"/><stop offset="1" stop-color="#000"/></radialGradient>
-                <mask id="seaMask"><rect width="360" height="670" fill="url(#seaFade)"/></mask>
+                <mask id="seaMask"><rect x="-10" y="109" width="380" height="452" fill="url(#seaFade)"/></mask>
                 <filter id="govGlow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
               </defs>
-              <rect class="sea" x="0" y="0" width="360" height="670" fill="url(#seaLines)" mask="url(#seaMask)" aria-hidden="true"/>
-              <path class="strip-shadow" d="M250.0,40.0 L247.3,46.9 L244.7,53.9 L242.0,60.8 L239.4,67.7 L236.7,74.7 L234.0,81.6 L231.4,88.5 L228.7,95.5 L226.1,102.4 L223.4,109.4 L220.8,116.3 L218.2,123.2 L215.5,130.2 L212.9,137.1 L210.3,144.1 L207.6,151.0 L205.0,158.0 L202.4,164.9 L199.8,171.9 L197.2,178.8 L194.6,185.8 L192.0,192.7 L189.4,199.7 L186.8,206.7 L184.2,213.6 L181.6,220.6 L179.1,227.5 L176.5,234.5 L173.9,241.5 L171.4,248.5 L168.9,255.4 L166.3,262.4 L163.8,269.4 L161.3,276.4 L158.8,283.4 L156.2,290.4 L153.7,297.3 L151.3,304.3 L148.8,311.3 L146.3,318.3 L143.8,325.3 L141.4,332.3 L138.9,339.3 L136.4,346.4 L134.0,353.4 L131.6,360.4 L129.1,367.4 L126.7,374.4 L124.3,381.4 L121.9,388.5 L119.5,395.5 L117.1,402.5 L114.7,409.5 L112.3,416.6 L110.0,423.6 L107.6,430.7 L105.2,437.7 L102.9,444.7 L100.5,451.8 L98.2,458.8 L95.8,465.9 L93.5,472.9 L91.2,480.0 L88.8,487.0 L86.5,494.1 L84.2,501.1 L81.9,508.2 L79.6,515.2 L77.3,522.3 L74.9,529.4 L72.6,536.4 L70.3,543.5 L68.0,550.5 L65.7,557.6 L63.5,564.7 L61.2,571.7 L58.9,578.8 L56.6,585.9 L54.3,592.9 L52.0,600.0 L170.8,642.0 L173.5,635.1 L176.9,628.4 L181.0,622.0 L185.5,615.7 L190.3,609.5 L195.0,603.3 L199.3,597.0 L203.2,590.5 L206.4,583.7 L208.8,576.7 L210.4,569.4 L211.5,561.9 L212.1,554.3 L212.6,546.6 L213.2,538.9 L214.2,531.4 L215.7,524.0 L217.8,516.9 L219.1,509.5 L219.3,501.7 L218.6,493.6 L217.5,485.3 L216.1,476.9 L215.1,468.7 L214.6,460.6 L215.0,452.9 L216.5,445.6 L218.3,438.3 L218.3,430.4 L216.8,422.0 L214.2,413.3 L211.3,404.3 L208.6,395.5 L206.9,387.0 L206.6,379.0 L208.1,371.7 L210.3,364.6 L211.9,357.3 L213.1,349.9 L214.2,342.3 L215.2,334.8 L216.5,327.4 L218.1,320.1 L220.3,313.0 L223.0,306.1 L225.9,299.2 L229.0,292.5 L232.2,285.7 L235.6,279.1 L239.0,272.4 L242.3,265.7 L245.5,258.9 L248.6,252.1 L251.4,245.2 L254.0,238.3 L256.8,231.4 L259.8,224.6 L262.9,217.8 L266.1,211.1 L269.3,204.3 L272.5,197.6 L275.5,190.8 L278.4,183.9 L281.2,177.0 L283.9,170.1 L286.8,163.3 L289.9,156.5 L293.1,149.8 L296.3,143.0 L299.6,136.3 L302.8,129.5 L305.8,122.7 L308.7,115.9 L311.3,108.9 L313.4,101.8 L314.9,94.5 L316.2,87.1 L317.6,79.7 L319.3,72.4 L321.6,65.3 Z" aria-hidden="true"/>
+              
+              <path class="strip-shadow" d="M227.4,204.1 L236.0,210.3 L246.4,219.9 L248.2,220.6 L247.6,221.5 L248.1,222.0 L247.5,222.4 L248.1,222.8 L246.8,224.0 L245.6,223.8 L243.5,224.5 L241.5,225.9 L242.7,226.6 L243.0,226.2 L247.8,230.3 L250.8,231.2 L250.0,232.2 L250.9,232.7 L250.3,233.8 L251.0,234.5 L254.1,233.2 L254.9,234.1 L257.5,232.4 L261.0,235.6 L266.0,241.0 L268.9,236.7 L275.5,242.8 L279.4,245.0 L278.9,245.7 L280.8,248.0 L286.1,246.8 L291.4,242.9 L303.6,237.4 L306.3,233.9 L309.6,232.1 L309.2,229.7 L310.0,228.3 L312.7,226.1 L312.9,223.8 L317.8,219.8 L318.5,218.5 L320.0,212.1 L319.5,210.8 L310.9,204.1 L303.0,197.1 L302.2,195.8 L300.8,195.1 L283.7,180.4 L256.7,159.1 L230.4,200.3 Z M165.3,281.1 L167.8,283.3 L170.2,283.4 L175.7,281.1 L182.0,281.5 L184.9,281.0 L186.0,281.9 L186.9,285.7 L188.2,287.2 L197.4,289.8 L198.6,292.1 L197.7,294.4 L195.9,295.9 L199.8,303.6 L199.1,305.3 L201.4,307.3 L202.6,309.9 L201.9,311.3 L200.6,312.0 L199.2,311.6 L199.0,312.5 L201.1,314.2 L207.2,315.9 L208.0,317.6 L211.0,313.8 L216.2,305.3 L220.1,302.8 L223.0,302.0 L224.1,300.8 L229.1,294.3 L238.3,285.8 L240.3,282.4 L246.0,275.9 L248.8,271.8 L255.6,267.4 L260.3,262.6 L273.1,251.1 L276.5,248.9 L280.8,248.0 L278.9,245.7 L279.4,245.0 L275.5,242.8 L268.9,236.7 L266.0,241.0 L257.5,232.4 L254.9,234.1 L254.1,233.2 L251.0,234.5 L250.3,233.8 L250.9,232.7 L250.0,232.2 L250.8,231.2 L247.8,230.3 L243.0,226.2 L242.7,226.6 L241.5,225.9 L243.5,224.5 L245.6,223.8 L246.8,224.0 L248.1,222.8 L247.5,222.4 L248.1,222.0 L247.6,221.5 L248.2,220.6 L246.4,219.9 L236.0,210.3 L227.4,204.1 L215.5,219.2 L210.5,220.9 L208.0,223.6 L207.0,225.4 L206.5,229.2 L204.6,232.2 Z M113.6,338.9 L117.6,342.7 L119.2,343.0 L122.3,347.9 L122.9,349.4 L120.7,351.1 L119.9,352.8 L132.3,351.3 L134.1,352.1 L139.5,357.1 L143.2,351.2 L146.6,353.3 L152.0,361.9 L153.7,363.8 L155.8,365.1 L156.3,363.9 L156.9,363.8 L158.5,365.8 L165.2,367.5 L166.0,362.7 L171.0,354.5 L171.0,352.7 L182.7,341.2 L190.0,332.1 L190.5,331.6 L192.7,332.1 L198.5,326.5 L199.7,324.5 L205.5,321.1 L207.7,318.1 L208.0,317.6 L207.2,315.9 L201.9,314.5 L199.5,313.3 L198.9,312.4 L199.2,311.6 L200.6,312.0 L201.9,311.3 L202.6,310.3 L202.2,308.6 L199.1,305.3 L199.8,303.6 L195.9,295.9 L197.7,294.4 L198.6,292.1 L197.4,289.8 L188.2,287.2 L186.9,285.7 L186.0,281.9 L184.9,281.0 L182.0,281.5 L175.7,281.1 L170.2,283.4 L167.8,283.3 L165.3,281.1 L134.0,318.4 Z M59.1,393.6 L63.7,398.8 L63.5,399.2 L64.0,399.7 L65.3,400.7 L67.4,401.0 L69.2,402.0 L68.6,402.9 L70.2,405.4 L73.3,401.9 L75.3,404.2 L77.8,407.8 L83.8,419.8 L80.9,423.1 L81.6,423.9 L82.8,423.2 L85.3,423.2 L92.2,427.2 L90.7,429.1 L94.5,435.3 L98.2,439.4 L104.5,442.5 L112.1,442.7 L119.1,441.1 L117.6,447.4 L119.4,448.8 L121.2,458.1 L123.0,462.9 L126.2,461.4 L129.3,466.8 L130.4,469.7 L128.6,471.2 L129.9,473.4 L136.0,465.8 L140.6,456.6 L160.0,445.1 L163.6,436.3 L165.4,430.5 L158.6,378.7 L159.5,373.5 L160.5,371.3 L163.9,371.3 L164.0,368.8 L165.2,367.5 L158.5,365.8 L156.9,363.8 L156.3,363.9 L155.8,365.1 L153.7,363.8 L152.0,361.9 L146.6,353.3 L143.2,351.2 L139.5,357.1 L134.1,352.1 L132.3,351.3 L119.9,352.8 L120.7,351.1 L122.9,349.4 L122.3,347.9 L119.2,343.0 L117.6,342.7 L113.6,338.9 L112.1,340.2 L107.7,342.1 L105.8,345.5 L94.6,357.1 L85.7,367.4 Z M40.0,411.7 L42.6,414.9 L55.6,439.5 L59.2,440.1 L81.1,510.9 L91.8,501.1 L100.6,491.2 L112.3,484.7 L119.9,481.4 L129.9,473.4 L128.6,471.2 L130.4,469.7 L126.2,461.4 L123.0,462.9 L122.3,461.2 L121.2,458.1 L119.4,448.8 L117.6,447.4 L119.1,441.1 L112.1,442.7 L104.5,442.5 L98.2,439.4 L94.5,435.3 L90.7,429.1 L92.2,427.2 L85.3,423.2 L82.8,423.2 L81.6,423.9 L80.9,423.1 L83.8,419.8 L77.8,407.8 L73.3,401.9 L70.2,405.4 L68.6,402.9 L69.2,402.0 L67.4,401.0 L65.3,400.7 L64.0,399.7 L63.5,399.2 L63.7,398.8 L59.1,393.6 Z" aria-hidden="true"/>
               <g class="govs">
-                <path class="gov" data-gov="north" d="M250.0,40.0 L247.4,46.7 L244.8,53.5 L242.2,60.2 L239.7,66.9 L237.1,73.7 L234.5,80.4 L231.9,87.2 L229.3,93.9 L226.8,100.6 L224.2,107.4 L221.6,114.1 L219.1,120.9 L216.5,127.6 L213.9,134.4 L288.0,160.6 L291.1,154.0 L294.2,147.4 L297.4,140.9 L300.5,134.4 L303.5,127.8 L306.5,121.2 L309.2,114.5 L311.7,107.7 L313.6,100.8 L315.1,93.6 L316.3,86.4 L317.7,79.2 L319.4,72.2 L321.6,65.3 Z" tabindex="0" role="button" aria-label="شمال غزة" aria-pressed="false"/>
-                <path class="gov" data-gov="gaza" d="M213.9,134.4 L210.8,142.7 L207.6,151.0 L204.5,159.4 L201.3,167.7 L198.2,176.0 L195.1,184.4 L192.0,192.7 L188.9,201.1 L185.8,209.4 L182.7,217.8 L179.6,226.2 L176.5,234.5 L173.4,242.9 L170.4,251.2 L237.7,275.0 L241.7,267.0 L245.5,258.9 L249.2,250.8 L252.4,242.5 L255.7,234.2 L259.2,226.0 L262.9,217.8 L266.7,209.7 L270.6,201.6 L274.3,193.5 L277.9,185.3 L281.2,177.0 L284.5,168.7 L288.0,160.6 Z" tabindex="0" role="button" aria-label="غزة" aria-pressed="false"/>
-                <path class="gov" data-gov="deir" d="M170.4,251.2 L167.8,258.4 L165.2,265.6 L162.6,272.8 L160.0,280.0 L157.4,287.2 L154.8,294.3 L152.2,301.5 L149.7,308.7 L147.1,315.9 L144.6,323.1 L142.1,330.3 L139.5,337.5 L137.0,344.8 L134.5,352.0 L206.7,377.5 L208.6,370.1 L210.7,362.7 L212.3,355.2 L213.5,347.5 L214.5,339.8 L215.6,332.1 L217.1,324.5 L219.0,317.1 L221.5,309.8 L224.4,302.7 L227.4,295.7 L230.7,288.8 L234.2,281.9 L237.7,275.0 Z" tabindex="0" role="button" aria-label="دير البلح" aria-pressed="false"/>
-                <path class="gov" data-gov="khan" d="M134.5,352.0 L131.1,361.6 L127.8,371.2 L124.5,380.8 L121.2,390.5 L117.9,400.1 L114.6,409.7 L111.4,419.4 L108.1,429.0 L104.9,438.7 L101.7,448.4 L98.4,458.0 L95.2,467.7 L92.0,477.3 L88.8,487.0 L214.2,531.4 L216.5,521.4 L218.9,511.4 L219.3,500.8 L218.1,489.6 L216.3,478.1 L214.9,466.8 L214.7,455.9 L216.5,445.8 L218.5,435.7 L217.3,424.5 L214.0,412.5 L210.0,400.3 L207.1,388.5 L206.7,377.5 Z" tabindex="0" role="button" aria-label="خان يونس" aria-pressed="false"/>
-                <path class="gov" data-gov="rafah" d="M88.8,487.0 L86.2,495.1 L83.5,503.1 L80.9,511.2 L78.2,519.3 L75.6,527.3 L73.0,535.4 L70.3,543.5 L67.7,551.6 L65.1,559.6 L62.5,567.7 L59.9,575.8 L57.2,583.9 L54.6,591.9 L52.0,600.0 L170.8,642.0 L173.9,634.1 L178.0,626.6 L182.9,619.3 L188.2,612.2 L193.6,605.1 L198.7,597.9 L203.2,590.5 L206.8,582.7 L209.3,574.6 L210.9,566.2 L211.9,557.6 L212.5,548.8 L213.1,540.0 L214.2,531.4 Z" tabindex="0" role="button" aria-label="رفح" aria-pressed="false"/>
+                <path class="gov" data-gov="north" d="M227.4,204.1 L236.0,210.3 L246.4,219.9 L248.2,220.6 L247.6,221.5 L248.1,222.0 L247.5,222.4 L248.1,222.8 L246.8,224.0 L245.6,223.8 L243.5,224.5 L241.5,225.9 L242.7,226.6 L243.0,226.2 L247.8,230.3 L250.8,231.2 L250.0,232.2 L250.9,232.7 L250.3,233.8 L251.0,234.5 L254.1,233.2 L254.9,234.1 L257.5,232.4 L261.0,235.6 L266.0,241.0 L268.9,236.7 L275.5,242.8 L279.4,245.0 L278.9,245.7 L280.8,248.0 L286.1,246.8 L291.4,242.9 L303.6,237.4 L306.3,233.9 L309.6,232.1 L309.2,229.7 L310.0,228.3 L312.7,226.1 L312.9,223.8 L317.8,219.8 L318.5,218.5 L320.0,212.1 L319.5,210.8 L310.9,204.1 L303.0,197.1 L302.2,195.8 L300.8,195.1 L283.7,180.4 L256.7,159.1 L230.4,200.3 Z" tabindex="0" role="button" aria-label="شمال غزة" aria-pressed="false"/>
+                <path class="gov" data-gov="gaza" d="M165.3,281.1 L167.8,283.3 L170.2,283.4 L175.7,281.1 L182.0,281.5 L184.9,281.0 L186.0,281.9 L186.9,285.7 L188.2,287.2 L197.4,289.8 L198.6,292.1 L197.7,294.4 L195.9,295.9 L199.8,303.6 L199.1,305.3 L201.4,307.3 L202.6,309.9 L201.9,311.3 L200.6,312.0 L199.2,311.6 L199.0,312.5 L201.1,314.2 L207.2,315.9 L208.0,317.6 L211.0,313.8 L216.2,305.3 L220.1,302.8 L223.0,302.0 L224.1,300.8 L229.1,294.3 L238.3,285.8 L240.3,282.4 L246.0,275.9 L248.8,271.8 L255.6,267.4 L260.3,262.6 L273.1,251.1 L276.5,248.9 L280.8,248.0 L278.9,245.7 L279.4,245.0 L275.5,242.8 L268.9,236.7 L266.0,241.0 L257.5,232.4 L254.9,234.1 L254.1,233.2 L251.0,234.5 L250.3,233.8 L250.9,232.7 L250.0,232.2 L250.8,231.2 L247.8,230.3 L243.0,226.2 L242.7,226.6 L241.5,225.9 L243.5,224.5 L245.6,223.8 L246.8,224.0 L248.1,222.8 L247.5,222.4 L248.1,222.0 L247.6,221.5 L248.2,220.6 L246.4,219.9 L236.0,210.3 L227.4,204.1 L215.5,219.2 L210.5,220.9 L208.0,223.6 L207.0,225.4 L206.5,229.2 L204.6,232.2 Z" tabindex="0" role="button" aria-label="غزة" aria-pressed="false"/>
+                <path class="gov" data-gov="deir" d="M113.6,338.9 L117.6,342.7 L119.2,343.0 L122.3,347.9 L122.9,349.4 L120.7,351.1 L119.9,352.8 L132.3,351.3 L134.1,352.1 L139.5,357.1 L143.2,351.2 L146.6,353.3 L152.0,361.9 L153.7,363.8 L155.8,365.1 L156.3,363.9 L156.9,363.8 L158.5,365.8 L165.2,367.5 L166.0,362.7 L171.0,354.5 L171.0,352.7 L182.7,341.2 L190.0,332.1 L190.5,331.6 L192.7,332.1 L198.5,326.5 L199.7,324.5 L205.5,321.1 L207.7,318.1 L208.0,317.6 L207.2,315.9 L201.9,314.5 L199.5,313.3 L198.9,312.4 L199.2,311.6 L200.6,312.0 L201.9,311.3 L202.6,310.3 L202.2,308.6 L199.1,305.3 L199.8,303.6 L195.9,295.9 L197.7,294.4 L198.6,292.1 L197.4,289.8 L188.2,287.2 L186.9,285.7 L186.0,281.9 L184.9,281.0 L182.0,281.5 L175.7,281.1 L170.2,283.4 L167.8,283.3 L165.3,281.1 L134.0,318.4 Z" tabindex="0" role="button" aria-label="دير البلح" aria-pressed="false"/>
+                <path class="gov" data-gov="khan" d="M59.1,393.6 L63.7,398.8 L63.5,399.2 L64.0,399.7 L65.3,400.7 L67.4,401.0 L69.2,402.0 L68.6,402.9 L70.2,405.4 L73.3,401.9 L75.3,404.2 L77.8,407.8 L83.8,419.8 L80.9,423.1 L81.6,423.9 L82.8,423.2 L85.3,423.2 L92.2,427.2 L90.7,429.1 L94.5,435.3 L98.2,439.4 L104.5,442.5 L112.1,442.7 L119.1,441.1 L117.6,447.4 L119.4,448.8 L121.2,458.1 L123.0,462.9 L126.2,461.4 L129.3,466.8 L130.4,469.7 L128.6,471.2 L129.9,473.4 L136.0,465.8 L140.6,456.6 L160.0,445.1 L163.6,436.3 L165.4,430.5 L158.6,378.7 L159.5,373.5 L160.5,371.3 L163.9,371.3 L164.0,368.8 L165.2,367.5 L158.5,365.8 L156.9,363.8 L156.3,363.9 L155.8,365.1 L153.7,363.8 L152.0,361.9 L146.6,353.3 L143.2,351.2 L139.5,357.1 L134.1,352.1 L132.3,351.3 L119.9,352.8 L120.7,351.1 L122.9,349.4 L122.3,347.9 L119.2,343.0 L117.6,342.7 L113.6,338.9 L112.1,340.2 L107.7,342.1 L105.8,345.5 L94.6,357.1 L85.7,367.4 Z" tabindex="0" role="button" aria-label="خان يونس" aria-pressed="false"/>
+                <path class="gov" data-gov="rafah" d="M40.0,411.7 L42.6,414.9 L55.6,439.5 L59.2,440.1 L81.1,510.9 L91.8,501.1 L100.6,491.2 L112.3,484.7 L119.9,481.4 L129.9,473.4 L128.6,471.2 L130.4,469.7 L126.2,461.4 L123.0,462.9 L122.3,461.2 L121.2,458.1 L119.4,448.8 L117.6,447.4 L119.1,441.1 L112.1,442.7 L104.5,442.5 L98.2,439.4 L94.5,435.3 L90.7,429.1 L92.2,427.2 L85.3,423.2 L82.8,423.2 L81.6,423.9 L80.9,423.1 L83.8,419.8 L77.8,407.8 L73.3,401.9 L70.2,405.4 L68.6,402.9 L69.2,402.0 L67.4,401.0 L65.3,400.7 L64.0,399.7 L63.5,399.2 L63.7,398.8 L59.1,393.6 Z" tabindex="0" role="button" aria-label="رفح" aria-pressed="false"/>
               </g>
-              <path class="coastline" d="M250.0,40.0 L247.3,46.9 L244.7,53.9 L242.0,60.8 L239.4,67.7 L236.7,74.7 L234.0,81.6 L231.4,88.5 L228.7,95.5 L226.1,102.4 L223.4,109.4 L220.8,116.3 L218.2,123.2 L215.5,130.2 L212.9,137.1 L210.3,144.1 L207.6,151.0 L205.0,158.0 L202.4,164.9 L199.8,171.9 L197.2,178.8 L194.6,185.8 L192.0,192.7 L189.4,199.7 L186.8,206.7 L184.2,213.6 L181.6,220.6 L179.1,227.5 L176.5,234.5 L173.9,241.5 L171.4,248.5 L168.9,255.4 L166.3,262.4 L163.8,269.4 L161.3,276.4 L158.8,283.4 L156.2,290.4 L153.7,297.3 L151.3,304.3 L148.8,311.3 L146.3,318.3 L143.8,325.3 L141.4,332.3 L138.9,339.3 L136.4,346.4 L134.0,353.4 L131.6,360.4 L129.1,367.4 L126.7,374.4 L124.3,381.4 L121.9,388.5 L119.5,395.5 L117.1,402.5 L114.7,409.5 L112.3,416.6 L110.0,423.6 L107.6,430.7 L105.2,437.7 L102.9,444.7 L100.5,451.8 L98.2,458.8 L95.8,465.9 L93.5,472.9 L91.2,480.0 L88.8,487.0 L86.5,494.1 L84.2,501.1 L81.9,508.2 L79.6,515.2 L77.3,522.3 L74.9,529.4 L72.6,536.4 L70.3,543.5 L68.0,550.5 L65.7,557.6 L63.5,564.7 L61.2,571.7 L58.9,578.8 L56.6,585.9 L54.3,592.9 L52.0,600.0" aria-hidden="true"/>
               <g class="gov-labels" aria-hidden="true">
-                <circle class="gov-dot" data-gov-dot="north" cx="270.6" cy="86.8" r="3.5"/>
-                <circle class="gov-dot" data-gov-dot="gaza" cx="227.4" cy="191.3" r="3.5"/>
-                <circle class="gov-dot" data-gov-dot="deir" cx="184.7" cy="299.0" r="3.5"/>
-                <circle class="gov-dot" data-gov-dot="khan" cx="163.0" cy="423.7" r="3.5"/>
-                <circle class="gov-dot" data-gov-dot="rafah" cx="136.8" cy="553.0" r="3.5"/>
-                <text class="gov-label" data-gov-label="north" x="270.6" y="104.8" text-anchor="middle">شمال غزة</text>
-                <text class="gov-label" data-gov-label="gaza" x="227.4" y="209.3" text-anchor="middle">غزة</text>
-                <text class="gov-label" data-gov-label="deir" x="184.7" y="317.0" text-anchor="middle">دير البلح</text>
-                <text class="gov-label" data-gov-label="khan" x="163.0" y="441.7" text-anchor="middle">خان يونس</text>
-                <text class="gov-label" data-gov-label="rafah" x="136.8" y="571.0" text-anchor="middle">رفح</text>
+                <circle class="gov-dot" data-gov-dot="north" cx="273.1" cy="207.1" r="3.5"/>
+                <circle class="gov-dot" data-gov-dot="gaza" cx="221.9" cy="259.1" r="3.5"/>
+                <circle class="gov-dot" data-gov-dot="deir" cx="163.2" cy="322.9" r="3.5"/>
+                <circle class="gov-dot" data-gov-dot="khan" cx="120.9" cy="401.0" r="3.5"/>
+                <circle class="gov-dot" data-gov-dot="rafah" cx="84.2" cy="451.7" r="3.5"/>
+                <text class="gov-label" data-gov-label="north" x="273.1" y="225.1" text-anchor="middle">شمال غزة</text>
+                <text class="gov-label" data-gov-label="gaza" x="221.9" y="277.1" text-anchor="middle">غزة</text>
+                <text class="gov-label" data-gov-label="deir" x="163.2" y="340.9" text-anchor="middle">دير البلح</text>
+                <text class="gov-label" data-gov-label="khan" x="120.9" y="419.0" text-anchor="middle">خان يونس</text>
+                <text class="gov-label" data-gov-label="rafah" x="84.2" y="469.7" text-anchor="middle">رفح</text>
               </g>
-              <text class="sea-label" x="0" y="0" transform="translate(88 330) rotate(-70.5)" text-anchor="middle" aria-hidden="true">البحر الأبيض المتوسط</text>
-              <g class="compass" transform="translate(52 64)" aria-hidden="true">
+              <text class="sea-label" x="0" y="0" transform="translate(68 353) rotate(-45)" text-anchor="middle" aria-hidden="true">البحر الأبيض المتوسط</text>
+              <g class="compass" transform="translate(30 149)" aria-hidden="true">
                 <circle r="20"/>
                 <path d="M0 -13 L6 5 L0 1 L-6 5 Z"/>
                 <text y="-26" text-anchor="middle">ش</text>
@@ -703,7 +688,7 @@
                 <h3 class="mt-1 text-[17px] font-bold text-white">تحميل تقارير الإغاثة الميدانية</h3>
                 <p class="mt-0.5 text-[13px] text-primary-soft">متاح للعموم: دورات التوزيع 2023 — 2024</p>
               </div>
-              <a class="btn btn-gold h-10 shrink-0 px-4 text-[13px]" href="news.html">مكتبة التقارير</a>
+              <a class="btn btn-gold h-10 shrink-0 px-4 text-[13px]" href="#news">مكتبة التقارير</a>
             </div>
           </div>
         </div>
@@ -716,30 +701,14 @@
       <div class="lux-glow" aria-hidden="true"></div>
       <span class="lux-hairline lux-hairline-top" aria-hidden="true"></span>
 
-      <div class="relative mx-auto max-w-page px-5 pt-20 md:px-8 md:pt-28">
+      <div class="relative mx-auto max-w-page px-5 pt-12 md:px-8 md:pt-16">
         <div class="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
-          <div class="reveal lg:col-span-7">
+          <div class="reveal lg:col-span-12 text-center">
             <p class="lux-eyebrow"><span class="lux-rule" aria-hidden="true"></span><span class="material-symbols-outlined">handshake</span>شركاء إغاثة غزة<span class="lux-rule" aria-hidden="true"></span></p>
-            <h2 id="partners-title" class="lux-title">تحالفات الخير <span class="text-gradient-gold">لأهل القطاع</span></h2>
+            <h2 id="partners-title" class="lux-title">شركاء <span class="text-gradient-gold">الجمعية</span></h2>
             <div class="lux-statement">
               <span class="lux-quote" aria-hidden="true">”</span>
               <p>نعتز بالتعاون مع هيئات أممية وهلال أحمر وصناديق زكاة لإيصال الإغاثة إلى غزة بشفافية كاملة.</p>
-            </div>
-          </div>
-          <div class="reveal lg:col-span-5" style="--d:.1s">
-            <div class="lux-stats">
-              <div class="lux-stat">
-                <span class="lux-stat-ico material-symbols-outlined">shield</span>
-                <div><p class="lux-stat-num" dir="ltr" data-count="98.4" data-decimals="1" data-suffix="%">98.4%</p><p class="lux-stat-label">نسبة الشفافية والتدقيق</p></div>
-              </div>
-              <div class="lux-stat">
-                <span class="lux-stat-ico material-symbols-outlined">volunteer_activism</span>
-                <div><p class="lux-stat-num" dir="ltr" data-count="180" data-suffix="K+">180K+</p><p class="lux-stat-label">مستفيد في غزة</p></div>
-              </div>
-              <div class="lux-stat">
-                <span class="lux-stat-ico material-symbols-outlined">verified</span>
-                <div><p class="lux-stat-num" dir="ltr" data-count="5">5</p><p class="lux-stat-label">محافظات القطاع</p></div>
-              </div>
             </div>
           </div>
         </div>
@@ -756,8 +725,8 @@
         </div>
       </div>
 
-      <div class="relative mx-auto max-w-page px-5 pb-20 md:px-8 md:pb-28">
-        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="relative mx-auto max-w-page px-5 pb-12 md:px-8 md:pb-16">
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3" id="partners-grid" data-more="3">
           <article class="lux-card reveal">
             <div class="lux-card-top"><div class="lux-logo"><img src="img/partners/unicef.svg" alt="منظمة يونيسف" loading="lazy"></div><p class="lux-tag"><span class="material-symbols-outlined">child_care</span>شريك دولي</p></div>
             <h3 class="lux-name">منظمة يونيسف</h3>
@@ -820,7 +789,7 @@
           </div>
         </div>
 
-        <div class="gallery-grid mt-8" id="gallery-grid">
+        <div class="gallery-grid mt-8" id="gallery-grid" data-more="4">
           <article class="media-card g-xl reveal" data-gtype="video">
             <img src="img/gallery-convoy.jpg" alt="قافلة إغاثة كبرى" loading="lazy">
             <span class="badge badge-gold absolute top-4 right-4"><span class="material-symbols-outlined">play_circle</span>فيديو 04:20</span>
@@ -878,64 +847,13 @@
         </div>
 
         <div class="mt-12 flex justify-center">
-          <a href="gallery.html" class="btn btn-gold h-14 ps-2 pe-6 text-[16px]">
+          <button type="button" class="btn btn-gold h-14 ps-2 pe-6 text-[16px]" data-more-btn="#gallery-grid">
             <span class="grid h-10 w-10 place-items-center rounded-full bg-primary text-gold-light">
               <span class="material-symbols-outlined fill text-[22px]">play_arrow</span>
             </span>
-            مشاهدة المزيد
+            <span data-more-label>مشاهدة المزيد</span>
             <span class="material-symbols-outlined btn-arrow text-[20px]">arrow_back</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= ADMIN PORTAL ================= -->
-    <section id="admin" class="py-20 md:py-28">
-      <div class="mx-auto max-w-page px-5 md:px-8">
-        <div class="admin-card">
-          <div class="relative grid items-center gap-12 lg:grid-cols-12">
-            <div class="reveal lg:col-span-6">
-              <span class="eyebrow-pill"><span class="material-symbols-outlined">admin_panel_settings</span>الحوكمة والرقابة الرقمية الذكية</span>
-              <h2 class="section-title mt-5">بوابة إدارة عمليات إغاثة غزة</h2>
-              <p class="section-lead">منظومة تربط فرق التوزيع في محافظات القطاع الخمس بغرفة التوثيق. تتيح متابعة مسار كل سلة وخيمة بالدقيقة والصورة.</p>
-              <div class="mt-7 grid gap-3 sm:grid-cols-2">
-                <div class="feature-tile"><span class="feature-ico material-symbols-outlined">monitoring</span><div><p class="feature-title">تتبع التوزيع في غزة</p><p class="feature-desc">خرائط لنقاط الإيواء من جباليا إلى رفح</p></div></div>
-                <div class="feature-tile"><span class="feature-ico material-symbols-outlined">verified_user</span><div><p class="feature-title">نظام تقارير الشفافية</p><p class="feature-desc">إشعارات آلية بفاتورة الصرف الموثقة</p></div></div>
-                <div class="feature-tile"><span class="feature-ico material-symbols-outlined">lock_clock</span><div><p class="feature-title">إدارة الصلاحيات</p><p class="feature-desc">سجل نشاطات مشفّر غير قابل للتعديل</p></div></div>
-                <div class="feature-tile"><span class="feature-ico material-symbols-outlined">point_of_sale</span><div><p class="feature-title">إدارة التبرعات الآلية</p><p class="feature-desc">ربط مصرفي آمن مع بوابات الدفع</p></div></div>
-              </div>
-              <a href="admin/login.html" class="btn btn-forest mt-8 h-12 px-6 text-[15px]"><span class="material-symbols-outlined">login</span>دخول غرفة عمليات غزة</a>
-            </div>
-            <div class="reveal lg:col-span-6" style="--d:.1s">
-              <div class="dash">
-                <div class="dash-top">
-                  <div class="flex items-center gap-2"><span class="h-3 w-3 rounded-full bg-urgent"></span><span class="h-3 w-3 rounded-full bg-gold"></span><span class="h-3 w-3 rounded-full bg-primary-light"></span><span class="ms-2 text-[12.5px] font-bold text-on-variant">غرفة عمليات غزة v4.8</span></div>
-                  <span class="inline-flex items-center gap-1.5 rounded-full bg-primary-tint px-2.5 py-1 text-[11.5px] font-bold text-primary-mid"><span class="h-1.5 w-1.5 rounded-full bg-primary-bright"></span>مباشر • Live</span>
-                </div>
-                <div class="grid grid-cols-3 gap-3">
-                  <div class="dash-kpi"><p class="dash-kpi-label">تبرعات اليوم</p><p class="dash-kpi-num" dir="ltr">$42,850</p><p class="text-[11.5px] font-bold text-primary-mid" dir="ltr">+18%</p></div>
-                  <div class="dash-kpi"><p class="dash-kpi-label">مشاريع نشطة</p><p class="dash-kpi-num">48</p><p class="text-[11.5px] font-medium text-primary">12 تحت الصرف</p></div>
-                  <div class="dash-kpi"><p class="dash-kpi-label">كفاءة الرضا</p><p class="dash-kpi-num text-gold-deep" dir="ltr">99.2%</p><p class="text-[11.5px] text-muted">1,400 تقييم</p></div>
-                </div>
-                <div class="dash-chart">
-                  <p class="mb-3 text-[12.5px] font-bold text-primary">مؤشر التوزيع الأسبوعي في القطاع</p>
-                  <svg class="h-20 w-full" viewBox="0 0 400 80" preserveAspectRatio="none" aria-hidden="true">
-                    <rect fill="#192f52" height="45" rx="5" width="30" x="12" y="35"></rect>
-                    <rect fill="#f28c14" height="55" rx="5" width="30" x="68" y="25"></rect>
-                    <rect fill="#192f52" height="65" rx="5" width="30" x="124" y="15"></rect>
-                    <rect fill="#f28c14" height="50" rx="5" width="30" x="180" y="30"></rect>
-                    <rect fill="#192f52" height="60" rx="5" width="30" x="236" y="20"></rect>
-                    <rect fill="#f28c14" height="40" rx="5" width="30" x="292" y="40"></rect>
-                    <rect fill="#192f52" height="72" rx="5" width="30" x="348" y="8"></rect>
-                  </svg>
-                </div>
-                <div class="mt-3 space-y-2 text-[12.5px]">
-                  <div class="dash-row"><span class="font-bold text-primary">صرف كفالة أيتام الشاطئ #GZA-942</span><span class="dash-status">معتمد</span></div>
-                  <div class="dash-row"><span class="font-bold text-primary">دفعة مخابز جباليا #GZA-104</span><span class="dash-status">مسلّم وموثّق</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
+          </button>
         </div>
       </div>
     </section>
@@ -1019,7 +937,7 @@
               <a href="#contact" class="btn btn-forest faq-cta-btn">تواصل معنا</a>
             </div>
           </div>
-          <div class="faq-list reveal" data-faq>
+          <div class="faq-list reveal" data-faq data-more="4" id="faq-list">
             <div class="faq-item is-open">
               <h3 class="faq-q"><button type="button" id="faq-b1" aria-expanded="true" aria-controls="faq-p1"><span class="faq-num" dir="ltr" aria-hidden="true">01</span><span class="faq-q-text">كيف أتأكد أن تبرعي يصل إلى غزة فعلاً؟</span><span class="faq-ico" aria-hidden="true"></span></button></h3>
               <div class="faq-panel" id="faq-p1" role="region" aria-labelledby="faq-b1"><div class="faq-panel-in"><p>نعمل عبر فرق ميدانية وشركاء داخل القطاع، ونوثّق التوزيعات بالصور والتقارير الدورية التي ننشرها في المركز الإعلامي، ويمكنك طلب تقرير عن الحملة التي ساهمت فيها.</p></div></div>
@@ -1066,10 +984,8 @@
     <div class="relative mx-auto grid max-w-page gap-10 px-5 pb-12 pt-20 md:grid-cols-2 md:px-8 lg:grid-cols-12">
       <div class="lg:col-span-4">
         <div class="flex items-center gap-3">
-          <span class="brand-mark">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3c-2.8 3.6-7 6.2-7 10.2A7 7 0 0 0 12 21a7 7 0 0 0 7-7.8C19 9.2 14.8 6.6 12 3Z" fill="currentColor"/></svg>
-          </span>
-          <p class="text-[20px] font-bold">جمعية الأمل لإغاثة غزة</p>
+          <span class="brand-mark has-logo"><img src="img/logo.png" alt="شعار الجمعية" width="52" height="52"></span>
+          <p class="text-[20px] font-bold">جمعية الشمال للتنمية والتطوير المجتمعي</p>
         </div>
         <p class="mt-5 max-w-sm text-[15px] leading-[1.9] text-primary-soft">مؤسسة إنسانية تعنى بإغاثة أهل غزة: الغذاء والدواء والمأوى وكفالة الأيتام النازحين وفق أعلى معايير التوثيق.</p>
         <p class="mt-4 inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[12.5px] text-primary-soft"><span class="material-symbols-outlined text-[16px] text-gold-light">verified</span>ترخيص رقم: GZA-77492</p>
@@ -1077,13 +993,13 @@
       <div class="lg:col-span-2">
         <h3 class="footer-h">روابط سريعة</h3>
         <ul class="footer-links">
-          <li><a href="about.html#vision">الرؤية والرسالة</a></li>
-          <li><a href="project.html?id=orphans">كفالة أيتام غزة</a></li>
+          <li><a href="#about">الرؤية والرسالة</a></li>
+          <li><a href="#projects">كفالة أيتام غزة</a></li>
           <li><a href="#activities">تقارير إغاثة القطاع</a></li>
-          <li><a href="news.html">المركز الإعلامي</a></li>
-          <li><a href="gallery.html">معرض الصور</a></li>
+          <li><a href="#news">المركز الإعلامي</a></li>
+          <li><a href="#gallery">معرض الصور</a></li>
           <li><a href="#faq">الأسئلة الشائعة</a></li>
-          <li><a href="contact.html">تواصل معنا</a></li>
+          <li><a href="#contact">تواصل معنا</a></li>
         </ul>
       </div>
       <div class="lg:col-span-3">
@@ -1101,8 +1017,8 @@
     </div>
     <div class="relative border-t border-white/10">
       <div class="mx-auto flex max-w-page flex-col items-center justify-between gap-3 px-5 pb-24 pt-6 text-[13px] text-primary-soft md:flex-row md:px-8 md:pb-6 md:pe-60">
-        <p>جميع الحقوق محفوظة © 2026 جمعية الأمل لإغاثة أهل غزة</p>
-        <div class="flex flex-wrap justify-center gap-x-6 gap-y-2"><a class="hover:text-white" href="#">سياسة الخصوصية</a><a class="hover:text-white" href="#">لوائح الحوكمة</a><a class="hover:text-white" href="admin/login.html">بوابة الموظفين</a></div>
+        <p>جميع الحقوق محفوظة © 2026 جمعية الشمال للتنمية والتطوير المجتمعي</p>
+        <div class="flex flex-wrap justify-center gap-x-6 gap-y-2"><a class="hover:text-white" href="#">سياسة الخصوصية</a><a class="hover:text-white" href="#">لوائح الحوكمة</a><a class="hover:text-white" href="admin/login-2.html">بوابة الموظفين</a></div>
       </div>
     </div>
   </footer>

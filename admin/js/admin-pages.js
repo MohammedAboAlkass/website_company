@@ -1,4 +1,4 @@
-/* =========================================================================
+﻿/* =========================================================================
    إدارة الصفحات — pages.html
    • Public pages list: status, last edit, author, SERP snippet, search +
      status filter, quick publish / hide toggles, duplicate, delete (confirm).
@@ -225,7 +225,7 @@
         { ok: tl >= 30 && tl <= 60, text: 'طول العنوان ' + tl + ' حرفاً', tip: 'المثالي بين 30 و60 حرفاً' },
         { ok: dl >= 70 && dl <= 160, text: 'طول الوصف ' + dl + ' حرفاً', tip: 'المثالي بين 70 و160 حرفاً' },
         { ok: editing && isHome(editing) ? true : /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug) && slug.length <= 40, text: 'رابط قصير وواضح', tip: 'أحرف لاتينية صغيرة وشرطات' },
-        { ok: /الأمل/.test(t), text: 'العنوان يتضمن اسم الجمعية', tip: 'يعزّز الثقة في نتائج البحث' }
+        { ok: /الشمال/.test(t), text: 'العنوان يتضمن اسم الجمعية', tip: 'يعزّز الثقة في نتائج البحث' }
       ];
       $('#seo-checks').innerHTML = checks.map(function (c) { return '<li class="' + (c.ok ? 'ok' : 'warn') + '">' + icon(c.ok ? 'check_circle' : 'error') + '<span>' + esc(c.text) + '<small> — ' + esc(c.tip) + '</small></span><span class="sr-only">' + (c.ok ? ' (جيد)' : ' (يحتاج تحسيناً)') + '</span></li>'; }).join('');
     }

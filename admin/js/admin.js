@@ -1,5 +1,5 @@
 /* =========================================================================
-   جمعية الأمل — Admin template script (static, no backend)
+   جمعية الشمال للتنمية والتطوير المجتمعي — Admin template script (static, no backend)
    1. Utilities & formatting      5. Command palette
    2. Layers (Esc + focus trap)   6. Charts (inline SVG, RTL time axis)
    3. UI components               7. Page modules (data-page on <body>)
@@ -131,7 +131,7 @@
     if (window.matchMedia) {
       var mq = matchMedia('(prefers-color-scheme: dark)');
       var onMq = function () { if (store.get('almel-admin-theme', null) === null) { html.classList.toggle('dark', mq.matches); if (typeof syncThemeButtons === 'function') syncThemeButtons(); } };
-      if (mq.addEventListener) mq.addEventListener('change', onMq);
+      /* light is the default: do not follow the system theme */
     }
     return { KEY: KEY, DEF: DEF, SCALES: SCALES, RADII: RADII, read: read, apply: apply, clean: clean, derive: derive, contrast: function (a, b) { return contrast(rgb(a), rgb(b)); } };
   })();
@@ -473,13 +473,13 @@
     messages: { title: 'الرسائل والطلبات' }, settings: { title: 'الإعدادات' },
     pages: { title: 'إدارة الصفحات' }, menu: { title: 'إدارة القائمة' }, homepage: { title: 'الصفحة الرئيسية' }
   };
-  var LOGO = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3c-2.8 3.6-7 6.2-7 10.2A7 7 0 0 0 12 21a7 7 0 0 0 7-7.8C19 9.2 14.8 6.6 12 3Z" fill="currentColor"/></svg>';
+  var LOGO = '<img src="../img/logo.png" alt="شعار الجمعية" width="44" height="44">';
 
   function renderSidebar() {
     var sb = $('#sidebar');
     if (!sb) return;
     var active = (PAGES[PAGE] && PAGES[PAGE].parent) || PAGE;
-    var h = '<div class="sb-head"><a class="sb-brand" href="index.html" data-tip="جمعية الأمل"><span class="brand-mark">' + LOGO + '</span><span class="sb-brand-text"><strong>' + esc(D.org ? D.org.name : 'جمعية الأمل') + '</strong><small>لوحة التحكم</small></span></a>' +
+    var h = '<div class="sb-head"><a class="sb-brand" href="index.html" data-tip="جمعية الشمال للتنمية والتطوير المجتمعي"><span class="brand-mark">' + LOGO + '</span><span class="sb-brand-text"><strong>' + esc(D.org ? D.org.name : 'جمعية الشمال للتنمية والتطوير المجتمعي') + '</strong><small>لوحة التحكم</small></span></a>' +
       '<button type="button" class="sb-collapse" id="sb-collapse" aria-controls="sidebar" aria-expanded="true" aria-label="طي القائمة الجانبية" data-tip="توسيع القائمة">' + icon('right_panel_close') + '</button>' +
       '<button type="button" class="sb-close" id="sb-close" aria-label="إغلاق القائمة">' + icon('close') + '</button></div>';
     h += '<nav class="sb-nav" aria-label="التنقل في لوحة التحكم">';
@@ -558,7 +558,6 @@
       '<nav class="breadcrumbs" aria-label="مسار التنقل"><ol>' + crumbs + '</ol></nav>' +
       '<div class="tb-spacer"></div>' +
       '<div class="tb-actions">' +
-      '<span class="demo-badge" title="كل الأرقام والأسماء في هذا القالب تجريبية"><span class="dot" aria-hidden="true"></span>بيانات تجريبية</span>' +
       '<button type="button" class="tb-search" id="tb-search" aria-haspopup="dialog" aria-label="بحث وأوامر سريعة (Ctrl+K)">' + icon('search') + '<span class="tb-search-text" aria-hidden="true">ابحث أو انتقل إلى…</span><kbd aria-hidden="true">Ctrl K</kbd></button>' +
       '<button type="button" class="icon-btn theme-toggle" aria-pressed="false" aria-label="الوضع الداكن">' + icon('dark_mode') + '</button>' +
       '<div class="dd"><button type="button" class="icon-btn" id="notif-btn" data-dd aria-controls="notif-panel" aria-expanded="false" aria-haspopup="dialog" aria-label="الإشعارات' + (unreadN ? '، ' + unreadN + ' غير مقروءة' : '') + '">' + icon('notifications') + (unreadN ? '<span class="notif-dot" aria-hidden="true"></span>' : '') + '</button>' +
@@ -1240,8 +1239,8 @@
     function syncSeo() {
       var t = title.value.trim() || 'عنوان الخبر يظهر هنا';
       if (!slugTouched) slug.value = slugify(title.value) || '';
-      $('#seo-t').textContent = t + ' | جمعية الأمل';
-      $('#seo-u').textContent = 'alamal-gaza.org › news › ' + (slug.value || 'slug');
+      $('#seo-t').textContent = t + ' | جمعية الشمال للتنمية والتطوير المجتمعي';
+      $('#seo-u').textContent = 'shamal-society.org › news › ' + (slug.value || 'slug');
       var d = meta.value.trim() || rte.textContent.trim().slice(0, 155) || 'أضف وصفاً مختصراً يظهر في نتائج محركات البحث ومشاركات الشبكات الاجتماعية.';
       $('#seo-d').textContent = d.length > 160 ? d.slice(0, 157) + '…' : d;
       var c = $('#ne-meta-count'); c.textContent = meta.value.length + ' / 160'; c.classList.toggle('over', meta.value.length > 160);
@@ -1513,7 +1512,7 @@
         '<div class="reader-meta"><span class="avatar navy" aria-hidden="true">' + icon(t.icon) + '</span><div style="flex:1;min-width:0"><strong>' + esc(m.from) + '</strong><span class="ltr">' + esc(m.email) + '</span></div><span>' + ago(m.mins) + '</span></div>' +
         '<div class="reader-text">' + esc(m.body) + '</div></div>' +
         '<form class="reply" id="m-reply"><div class="reply-to">' + icon('reply', 'flip-rtl') + 'رد إلى <span class="ltr">' + esc(m.email) + '</span></div><label class="sr-only" for="m-reply-text">نص الرد</label><textarea id="m-reply-text" placeholder="اكتب ردك هنا…"></textarea>' +
-        '<div class="reply-foot"><div class="chips" role="group" aria-label="ردود جاهزة"><button type="button" class="chip-btn" data-tpl="شكراً لتواصلك مع جمعية الأمل، وصلتنا رسالتك وسنعود إليك قريباً.">شكر واستلام</button><button type="button" class="chip-btn" data-tpl="تم تحويل طلبك إلى الفريق المختص، وسيتواصل معك خلال يومي عمل.">تحويل للفريق</button><button type="button" class="chip-btn" data-tpl="يسعدنا انضمامك إلى فريق المتطوعين، نرجو تعبئة نموذج التطوع المرفق.">ترحيب بمتطوع</button></div>' +
+        '<div class="reply-foot"><div class="chips" role="group" aria-label="ردود جاهزة"><button type="button" class="chip-btn" data-tpl="شكراً لتواصلك مع جمعية الشمال للتنمية والتطوير المجتمعي، وصلتنا رسالتك وسنعود إليك قريباً.">شكر واستلام</button><button type="button" class="chip-btn" data-tpl="تم تحويل طلبك إلى الفريق المختص، وسيتواصل معك خلال يومي عمل.">تحويل للفريق</button><button type="button" class="chip-btn" data-tpl="يسعدنا انضمامك إلى فريق المتطوعين، نرجو تعبئة نموذج التطوع المرفق.">ترحيب بمتطوع</button></div>' +
         '<div class="row" style="gap:4px"><button type="button" class="icon-btn sm" aria-label="إرفاق ملف" title="إرفاق ملف (واجهة فقط)">' + icon('attach_file') + '</button><button type="submit" class="btn btn-primary btn-sm">' + icon('send', 'flip-rtl') + 'إرسال الرد</button></div></div></form></div>';
       $('#m-back').addEventListener('click', function () { inbox.classList.remove('show-reader'); var o = $('#opt-' + m.id); if (o) o.focus(); });
       $('#m-star').addEventListener('click', function () { m.starred = !m.starred; renderList(); renderReader(); $('#m-star').focus(); toast(m.starred ? 'تمت إضافة الرسالة إلى المميزة' : 'أُزيلت من المميزة', { icon: 'star' }); });
@@ -1697,7 +1696,7 @@
     function exportCSV() {
       var f = factor(), s = summary(), key = seriesKey(), ser = D.donationsSeries[key], dates = periodDates(key, st.end), labels = periodLabels(key, dates);
       var iso = function (d) { return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); };
-      var rows = [['تقرير جمعية الأمل — بيانات تجريبية (Demo data)'], ['الفترة', iso(st.start), iso(st.end)], [],
+      var rows = [['تقرير جمعية الشمال للتنمية والتطوير المجتمعي — بيانات تجريبية (Demo data)'], ['الفترة', iso(st.start), iso(st.end)], [],
         ['الملخص', 'القيمة'], ['إجمالي التبرعات (USD)', s.total], ['عدد المتبرعين', s.donors], ['متوسط التبرع (USD)', s.avg], ['المستفيدون', s.benef], [],
         ['الفترة الزمنية', 'التاريخ', 'تبرعات الفترة الحالية (USD)', 'تبرعات الفترة السابقة (USD)']];
       dates.forEach(function (d, i) { rows.push([labels[i], iso(d), ser.current[i], ser.previous[i]]); });
@@ -1781,7 +1780,7 @@
     }
     $('#invite-user').addEventListener('click', function () {
       modal({ title: 'دعوة عضو جديد', icon: 'person_add', size: 'lg', confirmText: 'إرسال الدعوة', focus: '#inv-email',
-        body: '<p class="modal-text">سيصل إلى العضو بريد يحتوي رابط تفعيل الحساب (واجهة تجريبية).</p><div class="field-row mt-16"><div class="field"><label class="label" for="inv-email">البريد الإلكتروني <span class="req" aria-hidden="true">*</span></label><input class="input" id="inv-email" type="email" dir="ltr" placeholder="name@alamal-gaza.org" aria-describedby="inv-email-err" required><p class="error" id="inv-email-err" hidden>' + icon('error') + '<span>أدخل بريداً إلكترونياً صالحاً.</span></p></div><div class="field"><label class="label" for="inv-role">الدور</label><select class="select" id="inv-role">' + roleOptions('editor') + '</select></div></div>',
+        body: '<p class="modal-text">سيصل إلى العضو بريد يحتوي رابط تفعيل الحساب (واجهة تجريبية).</p><div class="field-row mt-16"><div class="field"><label class="label" for="inv-email">البريد الإلكتروني <span class="req" aria-hidden="true">*</span></label><input class="input" id="inv-email" type="email" dir="ltr" placeholder="name@shamal-society.org" aria-describedby="inv-email-err" required><p class="error" id="inv-email-err" hidden>' + icon('error') + '<span>أدخل بريداً إلكترونياً صالحاً.</span></p></div><div class="field"><label class="label" for="inv-role">الدور</label><select class="select" id="inv-role">' + roleOptions('editor') + '</select></div></div>',
         validate: function (d) { var i = $('#inv-email', d), ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(i.value.trim()); i.setAttribute('aria-invalid', ok ? 'false' : 'true'); $('#inv-email-err', d).hidden = ok; if (!ok) i.focus(); return ok; },
         getValue: function (d) { return { email: $('#inv-email', d).value.trim(), role: $('#inv-role', d).value }; } })
         .then(function (v) { if (!v) return; users.push({ name: 'عضو جديد #' + (users.length + 1), email: v.email, role: v.role, status: 'invited', last: null }); renderUsers(); toast('تم إرسال الدعوة', { text: v.email, icon: 'mail' }); });

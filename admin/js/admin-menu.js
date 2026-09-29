@@ -190,7 +190,7 @@
         nav += '<span class="sp-link' + (active ? ' is-active' : '') + (kids.length ? ' has-kids' : '') + (open ? ' is-open' : '') + cls + '">' + lbl + (it.newTab ? icon('open_in_new', 'sp-ext') : '') + (kids.length ? icon('expand_more', 'sp-chev') : '') +
           (kids.length ? '<span class="sp-dd">' + kids.map(function (k) { return '<span class="sp-dd-item' + (k.id === focusId ? ' is-focus' : '') + '">' + (k.icon ? icon(k.icon) : '') + esc(k.label || 'بدون عنوان') + (k.newTab ? icon('open_in_new', 'sp-ext') : '') + '</span>'; }).join('') + '</span>' : '') + '</span>';
       });
-      var brand = '<span class="sp-brand"><span class="sp-mark">' + LOGO + '</span><span class="sp-brand-t"><b>جمعية الأمل</b><small>' + esc(B.site.tagline) + '</small></span></span>';
+      var brand = '<span class="sp-brand"><span class="sp-mark">' + LOGO + '</span><span class="sp-brand-t"><b>جمعية الشمال للتنمية والتطوير المجتمعي</b><small>' + esc(B.site.tagline) + '</small></span></span>';
       if (!isMobile) return '<header class="sp-header ' + (hstate === 'top' ? 'is-top' : 'is-scrolled') + '"><div class="sp-bar">' + brand + '<nav class="sp-nav">' + nav + '</nav><span class="sp-actions">' + btns + '<span class="sp-icon">' + icon('person') + '</span></span></div></header>';
       return brand;
     }
@@ -214,10 +214,10 @@
         else bottom += '<span class="' + (it.id === focusId ? 'is-focus' : '') + '">' + esc(it.label || 'بدون عنوان') + (it.newTab ? icon('open_in_new', 'sp-ext') : '') + '</span>';
       });
       return '<footer class="sf ' + (isMobile ? 'is-mobile' : '') + '"><div class="sf-grid">' +
-        '<div class="sf-col sf-brand"><span class="sp-brand"><span class="sp-mark">' + LOGO + '</span><span class="sp-brand-t"><b>جمعية الأمل لإغاثة غزة</b></span></span><p>مؤسسة إنسانية تعنى بإغاثة أهل غزة: الغذاء والدواء والمأوى وكفالة الأيتام النازحين.</p></div>' +
+        '<div class="sf-col sf-brand"><span class="sp-brand"><span class="sp-mark">' + LOGO + '</span><span class="sp-brand-t"><b>جمعية الشمال للتنمية والتطوير المجتمعي</b></span></span><p>مؤسسة إنسانية تعنى بإغاثة أهل غزة: الغذاء والدواء والمأوى وكفالة الأيتام النازحين.</p></div>' +
         cols +
-        '<div class="sf-col sf-static"><span class="sf-h">التواصل</span><p>غرفة التنسيق: القاهرة<br>info@alamal-gaza.org</p></div>' +
-        '</div><div class="sf-bottom"><span>جميع الحقوق محفوظة © 2026 جمعية الأمل</span><span class="sf-bl">' + bottom + '</span></div></footer>';
+        '<div class="sf-col sf-static"><span class="sf-h">التواصل</span><p>غرفة التنسيق: القاهرة<br>info@shamal-society.org</p></div>' +
+        '</div><div class="sf-bottom"><span>جميع الحقوق محفوظة © 2026 جمعية الشمال للتنمية والتطوير المجتمعي</span><span class="sf-bl">' + bottom + '</span></div></footer>';
     }
     function renderPreview(tree) {
       tree = tree || cur();
@@ -225,7 +225,7 @@
       var h;
       if (tab === 'header') {
         if (!isMobile) {
-          h = '<div class="pv-desktop"><div class="pv-browser"><span class="pv-dots"><i></i><i></i><i></i></span><span class="pv-url">' + icon('lock') + 'alamal-gaza.org</span></div>' +
+          h = '<div class="pv-desktop"><div class="pv-browser"><span class="pv-dots"><i></i><i></i><i></i></span><span class="pv-url">' + icon('lock') + 'shamal-society.org</span></div>' +
             '<div class="pv-viewport"><div class="pv-canvas ' + (hstate === 'top' ? 'on-hero' : 'on-page') + '" style="width:' + DESIGN_W + 'px">' +
             (hstate === 'top' ? '<div class="sp-hero"><img src="../img/hero-poster.jpg" alt=""><div class="sp-hero-t"><span class="sp-kicker">حملة الشتاء 2026</span><b>معاً نصنع الأمل لأهل غزة</b><i></i><i class="short"></i></div></div>' : '<div class="sp-page"><i class="w1"></i><i class="w2"></i><div class="sp-cards"><span></span><span></span><span></span></div></div>') +
             hdrHTML(tree, false) + '</div></div></div>';
@@ -233,7 +233,7 @@
           h = '<div class="pv-phone"><div class="pv-notch"></div><div class="pv-screen"><img class="pv-phone-bg" src="../img/hero-poster.jpg" alt=""><div class="sp-m-bar ' + (hstate === 'top' ? 'is-top' : 'is-scrolled') + '">' + hdrHTML(tree, true) + '<span class="sp-icon">' + icon('close') + '</span></div><div class="sp-m-backdrop"></div>' + mobileMenuHTML(tree) + '</div></div>';
         }
       } else {
-        if (!isMobile) h = '<div class="pv-desktop"><div class="pv-browser"><span class="pv-dots"><i></i><i></i><i></i></span><span class="pv-url">' + icon('lock') + 'alamal-gaza.org</span></div><div class="pv-viewport"><div class="pv-canvas on-footer" style="width:' + DESIGN_W + 'px">' + footerHTML(tree, false) + '</div></div></div>';
+        if (!isMobile) h = '<div class="pv-desktop"><div class="pv-browser"><span class="pv-dots"><i></i><i></i><i></i></span><span class="pv-url">' + icon('lock') + 'shamal-society.org</span></div><div class="pv-viewport"><div class="pv-canvas on-footer" style="width:' + DESIGN_W + 'px">' + footerHTML(tree, false) + '</div></div></div>';
         else h = '<div class="pv-phone"><div class="pv-notch"></div><div class="pv-screen is-footer">' + footerHTML(tree, true) + '</div></div>';
       }
       stage.innerHTML = h;

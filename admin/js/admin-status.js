@@ -93,7 +93,7 @@
     $('#fp-email-form').addEventListener('submit', function (e) {
       e.preventDefault(); var btn = $('#fp-send'); if (btn.getAttribute('aria-disabled')) return;
       var v = em.value.trim();
-      if (!err('fp-email', !v ? 'البريد الإلكتروني مطلوب.' : EMAIL.test(v) ? '' : 'أدخل بريداً إلكترونياً صالحاً، مثل name@alamal-gaza.org')) { em.focus(); return; }
+      if (!err('fp-email', !v ? 'البريد الإلكتروني مطلوب.' : EMAIL.test(v) ? '' : 'أدخل بريداً إلكترونياً صالحاً، مثل name@shamal-society.org')) { em.focus(); return; }
       email = v; busy(btn, 'جارٍ الإرسال…', function () { unbusy(btn, 'send', 'إرسال رمز التحقق'); $('#fp-email-out').textContent = email; clearOtp(); go(2); toast('أُرسل رمز التحقق', { text: 'تجريبي: لم يُرسل بريد فعلياً.', icon: 'mail' }); });
     });
 

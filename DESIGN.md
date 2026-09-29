@@ -136,6 +136,9 @@ spacing:
   space-xl: 3.5rem
 ---
 
+> **Public-site brand palette (current):** the tokens below are the original navy/amber system and are kept for reference only. The public site now uses the logo palette: primary green `#0C7845` (buttons, links, icons, highlights), deep green `#073D24` / `#052B19` (dark sections, footer, hero overlay), mid green `#0A5C35` (hover/darker), tints `#EAF5EE` and canvas `#F6F9F5`, ink `#16261D`, muted `#4D6157`, line `#DBE6DF`. Orange `#FF7000` is reserved for the donate buttons (`.btn-donate`, dark ink text for AA contrast). Red `#E11D48` stays for urgent/error. The old gold/amber roles are now primary green (or white/pale green on dark sections). Legacy CSS variable names (`--forest-*`, `--gold-*`) and Tailwind names (`primary`, `gold`) are kept but hold green values. The admin panel still uses navy + amber.
+
+
 ## Brand & Style
 
 This design system is tailored for an esteemed humanitarian and social empowerment non-governmental organization serving the Arab world and international donor communities. Moving away from standard emerald and olive tones prevalent in the non-profit sector, this aesthetic creates differentiation through institutional prestige, profound dependability, and heartfelt warmth.

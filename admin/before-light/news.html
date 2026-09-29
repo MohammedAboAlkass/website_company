@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الأخبار — لوحة تحكم جمعية الشمال للتنمية والتطوير المجتمعي</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#f6f5f2">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Crect width=%2724%27 height=%2724%27 rx=%276%27 fill=%27%23f28c14%27/%3E%3Cpath d=%27M12 4c-2.4 3.1-6 5.3-6 8.7A6 6 0 0 0 12 19a6 6 0 0 0 6-6.3C18 9.3 14.4 7.1 12 4Z%27 fill=%27%23001a3c%27/%3E%3C/svg%3E">
+  <script>(function(){try{var d=document.documentElement,t=localStorage.getItem('almel-admin-theme');if(t==='dark'||(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))d.classList.add('dark');if(localStorage.getItem('almel-admin-sb')==='1')d.classList.add('sb-collapsed');}catch(e){}})();</script>
+  <link rel="stylesheet" href="../css/fonts.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body data-page="news">
+  <a class="skip-link" href="#main">تخطَّ إلى المحتوى</a>
+  <div class="app">
+    <aside class="sidebar" id="sidebar" aria-label="القائمة الجانبية"></aside>
+    <div class="main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content" id="main" tabindex="-1">
+
+        <div class="page-head">
+          <div><h1 class="page-title">الأخبار</h1><p class="page-sub">أدِر الأخبار المنشورة والمسودات والمواد المجدولة للمركز الإعلامي.</p></div>
+          <div class="page-actions">
+            <a class="btn btn-secondary" href="../news.html"><span class="material-symbols-outlined" aria-hidden="true">open_in_new</span>عرض في الموقع</a>
+            <a class="btn btn-primary" href="news-edit.html"><span class="material-symbols-outlined" aria-hidden="true">add</span>خبر جديد</a>
+          </div>
+        </div>
+        <section class="card" aria-labelledby="t-news">
+          <h2 class="sr-only" id="t-news">قائمة الأخبار</h2>
+          <div class="tabs" role="tablist" id="news-tabs" aria-label="حالة الخبر" data-shared-panel="true">
+            <button type="button" class="tab" role="tab" id="tab-all" data-value="all" aria-selected="true" aria-controls="news-panel">الكل <span class="tab-count" data-tab-count="all"></span></button>
+            <button type="button" class="tab" role="tab" id="tab-published" data-value="published" aria-selected="false" aria-controls="news-panel" tabindex="-1">منشور <span class="tab-count" data-tab-count="published"></span></button>
+            <button type="button" class="tab" role="tab" id="tab-draft" data-value="draft" aria-selected="false" aria-controls="news-panel" tabindex="-1">مسودة <span class="tab-count" data-tab-count="draft"></span></button>
+            <button type="button" class="tab" role="tab" id="tab-scheduled" data-value="scheduled" aria-selected="false" aria-controls="news-panel" tabindex="-1">مجدول <span class="tab-count" data-tab-count="scheduled"></span></button>
+          </div>
+          <div class="toolbar">
+            <label class="input-icon"><span class="sr-only">بحث في الأخبار</span><span class="material-symbols-outlined" aria-hidden="true">search</span><input class="input sm" id="n-search" type="search" placeholder="ابحث بالعنوان أو الوسم…" autocomplete="off"></label>
+            <label class="sr-only" for="n-cat">تصفية حسب التصنيف</label><select class="select sm auto" id="n-cat"></select>
+          </div>
+          <div id="news-panel" role="tabpanel" aria-labelledby="tab-all"><div id="news-body"></div></div>
+          <div class="card-foot"><div class="pagination" id="news-pages" style="width:100%"></div></div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div id="toasts" class="toasts" role="status" aria-live="polite"></div>
+  <script src="js/admin-data.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>التقارير والإحصائيات — لوحة تحكم جمعية الشمال للتنمية والتطوير المجتمعي</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#f6f5f2">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Crect width=%2724%27 height=%2724%27 rx=%276%27 fill=%27%23f28c14%27/%3E%3Cpath d=%27M12 4c-2.4 3.1-6 5.3-6 8.7A6 6 0 0 0 12 19a6 6 0 0 0 6-6.3C18 9.3 14.4 7.1 12 4Z%27 fill=%27%23001a3c%27/%3E%3C/svg%3E">
+  <script>(function(){try{var d=document.documentElement,t=localStorage.getItem('almel-admin-theme');if(t==='dark'||(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))d.classList.add('dark');if(localStorage.getItem('almel-admin-sb')==='1')d.classList.add('sb-collapsed');}catch(e){}})();</script>
+  <link rel="stylesheet" href="../css/fonts.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body data-page="reports">
+  <a class="skip-link" href="#main">تخطَّ إلى المحتوى</a>
+  <div class="app">
+    <aside class="sidebar" id="sidebar" aria-label="القائمة الجانبية"></aside>
+    <div class="main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content" id="main" tabindex="-1">
+
+        <div class="print-head" aria-hidden="true">
+          <div><strong>جمعية الشمال للتنمية والتطوير المجتمعي — تقرير التبرعات والأثر</strong><div class="muted">الفترة: <span id="print-range"></span></div></div>
+          <div class="muted" style="text-align:end">أُنشئ في <span id="print-date"></span><br>بيانات تجريبية</div>
+        </div>
+        <div class="page-head">
+          <div><h1 class="page-title">التقارير والإحصائيات</h1><p class="page-sub">حلّل التبرعات والأثر حسب الفترة والبرنامج والمحافظة، وصدّر النتائج.</p></div>
+          <div class="page-actions">
+            <div class="dd">
+              <button type="button" class="btn btn-secondary range-btn" id="range-btn" data-dd aria-controls="range-pop" aria-expanded="false" aria-haspopup="dialog">
+                <span class="rb-text"><span class="material-symbols-outlined" aria-hidden="true">date_range</span><span class="sr-only">الفترة: </span><span id="range-text"></span></span><span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+              </button>
+              <div class="dd-panel range-pop" id="range-pop" role="dialog" aria-label="اختيار الفترة الزمنية" hidden>
+                <div class="range-presets" id="range-presets" role="group" aria-label="فترات جاهزة"></div>
+                <div class="cal" id="cal"></div>
+                <div class="cal-foot">
+                  <span class="sel" id="cal-sel" aria-live="polite"></span>
+                  <div class="row"><button type="button" class="btn btn-ghost btn-sm" id="range-cancel">إلغاء</button><button type="button" class="btn btn-primary btn-sm" id="range-apply">تطبيق</button></div>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn btn-secondary" id="export-csv"><span class="material-symbols-outlined" aria-hidden="true">download</span>تصدير CSV</button>
+            <button type="button" class="btn btn-primary" id="print-pdf"><span class="material-symbols-outlined" aria-hidden="true">print</span>طباعة / PDF</button>
+          </div>
+        </div>
+
+        <section class="card" aria-label="ملخص الفترة"><dl class="mini-stats" id="r-stats"></dl></section>
+
+        <div class="grid mt-24">
+          <section class="card xl-8" data-loading aria-labelledby="t-trend">
+            <div class="card-head">
+              <div><h2 class="card-title" id="t-trend">اتجاه التبرعات</h2><p class="card-sub">الفترة المحددة مقابل الفترة السابقة</p></div>
+              <div class="legend" aria-hidden="true"><span><i class="sw-1"></i>الفترة المحددة</span><span><i class="dash"></i>الفترة السابقة</span></div>
+            </div>
+            <div class="card-body"><div id="r-line"></div></div>
+          </section>
+          <section class="card xl-4" aria-labelledby="t-donut">
+            <div class="card-head"><div><h2 class="card-title" id="t-donut">التوزيع حسب البرنامج</h2><p class="card-sub">نسبة التبرعات لكل برنامج</p></div></div>
+            <div class="card-body"><div id="r-donut"></div></div>
+          </section>
+          <section class="card xl-7" data-loading aria-labelledby="t-bar">
+            <div class="card-head">
+              <div><h2 class="card-title" id="t-bar">التبرعات الشهرية حسب القناة</h2><p class="card-sub">آخر ستة أشهر</p></div>
+              <div class="legend" aria-hidden="true"><span><i class="sw-1"></i>تبرع إلكتروني</span><span><i class="sw-2"></i>تحويل بنكي</span><span><i class="sw-5"></i>حملات ميدانية</span></div>
+            </div>
+            <div class="card-body"><div id="r-bar"></div></div>
+          </section>
+          <section class="card xl-5" aria-labelledby="t-rgov">
+            <div class="card-head">
+              <div><h2 class="card-title" id="t-rgov">الأداء حسب المحافظة</h2><p class="card-sub">مخطط توضيحي لمحافظات القطاع</p></div>
+              <div class="seg no-print" id="r-gov-seg" role="group" aria-label="المؤشر المعروض">
+                <button type="button" data-value="donations" aria-pressed="true">التبرعات</button>
+                <button type="button" data-value="beneficiaries" aria-pressed="false">المستفيدون</button>
+              </div>
+            </div>
+            <div class="card-body"><div id="r-gov"></div></div>
+          </section>
+          <section class="card xl-12" data-loading aria-labelledby="t-top">
+            <div class="card-head bordered"><div><h2 class="card-title" id="t-top">أعلى المشاريع تمويلاً</h2><p class="card-sub">مرتبة حسب المبلغ المُحصَّل خلال الفترة</p></div><a class="link no-print" href="projects.html">إدارة المشاريع<span class="material-symbols-outlined" aria-hidden="true">arrow_back</span></a></div>
+            <div id="r-table"></div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <div id="toasts" class="toasts" role="status" aria-live="polite"></div>
+  <script src="js/admin-data.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

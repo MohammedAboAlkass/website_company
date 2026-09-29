@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>معرض الصور — جمعية الأمل لإغاثة أهل غزة</title>
+  <meta name="description" content="معرض التوثيق الميداني في غزة: صور وفيديو لوصول السلال والخيام والدواء إلى مستحقيها في مخيمات النزوح.">
+  <meta name="theme-color" content="#0c7845">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Crect width=%2724%27 height=%2724%27 rx=%276%27 fill=%27%230c7845%27/%3E%3Cpath d=%27M12 4c-2.4 3.1-6 5.3-6 8.7A6 6 0 0 0 12 19a6 6 0 0 0 6-6.3C18 9.3 14.4 7.1 12 4Z%27 fill=%27%23ffffff%27/%3E%3C/svg%3E">
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <script src="js/tailwind.js"></script>
+  <script src="js/config.js"></script>
+</head>
+<body class="bg-canvas text-on-surface antialiased" data-page="gallery">
+  <a href="#main" class="skip-link">تخطّ إلى المحتوى</a>
+
+  <!-- ================= HEADER (same as index.html) ================= -->
+  <header id="site-header" class="site-header is-top">
+    <div class="navbar">
+      <div class="mx-auto flex h-[76px] max-w-page items-center justify-between gap-5 px-5 md:px-8">
+        <a href="index.html" class="brand flex shrink-0 items-center gap-3" aria-label="جمعية الأمل — الصفحة الرئيسية">
+          <span class="brand-mark">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3c-2.8 3.6-7 6.2-7 10.2A7 7 0 0 0 12 21a7 7 0 0 0 7-7.8C19 9.2 14.8 6.6 12 3Z" fill="currentColor"/></svg>
+          </span>
+          <span class="flex flex-col">
+            <span class="brand-title text-[19px] font-bold leading-tight">جمعية الأمل</span>
+            <span class="brand-sub text-[11.5px] font-medium leading-none">لإغاثة أهل غزة ودعم صمودهم</span>
+          </span>
+        </a>
+
+        <nav class="hidden items-center gap-1 xl:flex" aria-label="التنقل الرئيسي">
+          <a class="nav-link" href="index.html">الرئيسية</a>
+          <a class="nav-link" href="about.html">من نحن</a>
+          <a class="nav-link" href="projects.html">المشاريع</a>
+          <a class="nav-link" href="index.html#activities">الأنشطة</a>
+          <a class="nav-link" href="news.html">الأخبار</a>
+          <a class="nav-link" href="index.html#partners">الشركاء</a>
+          <a class="nav-link is-active" href="gallery.html" aria-current="page">المعرض</a>
+          <a class="nav-link" href="admin/login.html">بوابة الإدارة</a>
+          <a class="nav-link" href="contact.html">تواصل معنا</a>
+        </nav>
+
+        <div class="flex items-center gap-2">
+          <a href="index.html#appeal" class="btn btn-donate hidden h-11 px-5 text-[14px] sm:inline-flex">
+            <span class="material-symbols-outlined fill text-[20px]">volunteer_activism</span>
+            ساهم في إغاثة غزة الآن
+          </a>
+          <button class="icon-btn account-btn" aria-label="حساب المستخدم">
+            <span class="material-symbols-outlined text-[20px]">person</span>
+          </button>
+          <button id="menu-btn" class="icon-btn menu-btn xl:hidden" aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobile-menu">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div id="mobile-menu" class="mobile-menu xl:hidden" hidden>
+    <div class="mobile-menu-backdrop" data-close></div>
+    <div class="mobile-menu-panel">
+      <nav class="flex flex-col gap-1" id="mobile-nav" aria-label="القائمة">
+        <a href="index.html"><span class="material-symbols-outlined">home</span>الرئيسية</a>
+        <a href="about.html"><span class="material-symbols-outlined">account_balance</span>من نحن</a>
+        <a href="projects.html"><span class="material-symbols-outlined">cases</span>المشاريع والبرامج</a>
+        <a href="index.html#activities"><span class="material-symbols-outlined">verified</span>الأنشطة والأعمال</a>
+        <a href="news.html"><span class="material-symbols-outlined">newspaper</span>الأخبار</a>
+        <a href="index.html#partners"><span class="material-symbols-outlined">handshake</span>الشركاء</a>
+        <a href="gallery.html" aria-current="page"><span class="material-symbols-outlined">perm_media</span>معرض الصور</a>
+        <a href="admin/login.html"><span class="material-symbols-outlined">admin_panel_settings</span>بوابة الإدارة</a>
+        <a href="contact.html"><span class="material-symbols-outlined">contact_support</span>تواصل معنا</a>
+      </nav>
+      <a href="index.html#appeal" class="btn btn-donate mt-4 h-12 w-full text-[15px]" data-close>
+        <span class="material-symbols-outlined fill text-[20px]">volunteer_activism</span>
+        ساهم في إغاثة غزة الآن
+      </a>
+    </div>
+  </div>
+
+  <main id="main">
+    <!-- ================= PAGE HERO ================= -->
+    <section class="page-hero " aria-labelledby="page-title">
+      <div class="page-hero-media" aria-hidden="true"><img src="img/gallery-convoy.jpg" alt="" data-hero-img></div>
+      <div class="page-hero-shade" aria-hidden="true"></div>
+      <div class="page-hero-pattern" aria-hidden="true"></div>
+      <div class="hero-grain" aria-hidden="true"></div>
+      <div class="page-hero-inner mx-auto max-w-page px-5 md:px-8">
+        <nav class="crumbs hero-in d1" aria-label="مسار التنقل">
+          <ol><li><a href="index.html"><span class="material-symbols-outlined" aria-hidden="true">home</span>الرئيسية</a></li><li><span aria-current="page" data-crumb-current>معرض الصور</span></li></ol>
+        </nav>
+        <p class="page-hero-kicker hero-in d2" data-hero-kicker>مرئيات من قطاع غزة</p>
+        <h1 id="page-title" class="page-hero-title hero-in d3" data-hero-title>معرض التوثيق الميداني <span class="text-gradient-gold">في غزة</span></h1>
+        <p class="page-hero-lead hero-in d4" data-hero-lead>أرشيف حي يوثّق وصول السلال والخيام والدواء إلى مستحقيها في مخيمات النزوح بكرامة.</p>
+        <div class="page-hero-meta hero-in d5"><span class="hero-chip"><span class="material-symbols-outlined" aria-hidden="true">photo_library</span><b dir="ltr">16</b>صورة</span><span class="hero-chip"><span class="material-symbols-outlined" aria-hidden="true">play_circle</span><b dir="ltr">1</b>فيديو</span></div>
+      </div>
+      <span class="lux-hairline lux-hairline-bottom" aria-hidden="true"></span>
+    </section>
+
+    <!-- ================= GALLERY ================= -->
+    <section id="gallery" class="gallery sec relative isolate" aria-labelledby="gallery-title">
+      <div class="gallery-glow" aria-hidden="true"></div>
+      <div class="relative mx-auto max-w-page px-5 md:px-8">
+        <div class="sec-head">
+          <div class="reveal">
+            <p class="eyebrow"><span class="material-symbols-outlined">perm_media</span>الأرشيف المصور</p>
+            <h2 id="gallery-title" class="section-title">لقطات من الميدان</h2>
+            <p class="section-lead">اضغط على أي صورة لفتح العارض، وتنقّل بالأسهم أو بالسحب على الجوال.</p>
+          </div>
+        </div>
+        <div class="toolbar reveal mt-9">
+          <div id="gl-filters" class="chip-bar" role="group" aria-label="تصنيف الصور">
+          <button type="button" class="chip is-on" data-filter="all" aria-pressed="true"><span class="material-symbols-outlined" aria-hidden="true">auto_awesome</span>الكل<span class="chip-count">17</span></button>
+          <button type="button" class="chip" data-filter="relief" aria-pressed="false"><span class="material-symbols-outlined" aria-hidden="true">shopping_basket</span>إغاثة وغذاء<span class="chip-count">5</span></button>
+          <button type="button" class="chip" data-filter="education" aria-pressed="false"><span class="material-symbols-outlined" aria-hidden="true">school</span>تعليم وأيتام<span class="chip-count">3</span></button>
+          <button type="button" class="chip" data-filter="health" aria-pressed="false"><span class="material-symbols-outlined" aria-hidden="true">health_and_safety</span>صحة ومياه<span class="chip-count">4</span></button>
+          <button type="button" class="chip" data-filter="shelter" aria-pressed="false"><span class="material-symbols-outlined" aria-hidden="true">night_shelter</span>إيواء ونزوح<span class="chip-count">4</span></button>
+          <button type="button" class="chip" data-filter="events" aria-pressed="false"><span class="material-symbols-outlined" aria-hidden="true">campaign</span>فعاليات<span class="chip-count">1</span></button>
+          <button type="button" class="chip" data-filter="video" aria-pressed="false"><span class="material-symbols-outlined" aria-hidden="true">play_circle</span>فيديو<span class="chip-count">1</span></button>
+          </div>
+          <p class="result-count" id="gl-count" aria-live="polite">عرض <b>17</b> مادة</p>
+        </div>
+        <div class="masonry" id="gl-grid">
+          <a class="m-item reveal" href="img/gallery-convoy.jpg" data-gcat="relief" data-gtype="photo" data-lb-group="gallery" data-lb-kicker="شمال غزة • 15 سبتمبر 2024" data-lb-title="قافلة الإغاثة الكبرى — توزيع السلال في جباليا" style="--ar:4 / 5" aria-label="عرض الصورة: قافلة الإغاثة الكبرى — توزيع السلال في جباليا">
+            <img src="img/gallery-convoy.jpg" alt="قافلة الإغاثة الكبرى — توزيع السلال في جباليا" loading="lazy">
+            <span class="m-zoom" aria-hidden="true"><span class="material-symbols-outlined">zoom_in</span></span>
+            <span class="m-cap"><span class="m-kicker">شمال غزة • 15 سبتمبر 2024</span><span class="m-title">قافلة الإغاثة الكبرى — توزيع السلال في جباليا</span></span>
+          </a>
+          <a class="m-item reveal" href="img/gallery-children.jpg" data-gcat="education" data-gtype="photo" data-lb-group="gallery" data-lb-kicker="مخيم الشاطئ" data-lb-title="ابتسامة أطفال غزة بعد استلام الحقائب المدرسية" style="--ar:4 / 3" aria-label="عرض الصورة: ابتسامة أطفال غزة بعد استلام الحقائب المدرسية">
+            <img src="img/gallery-children.jpg" alt="ابتسامة أطفال غزة بعد استلام الحقائب المدرسية" loading="lazy">
+            <span class="m-zoom" aria-hidden="true"><span class="material-symbols-outlined">zoom_in</span></span>
+            <span class="m-cap"><span class="m-kicker">مخيم الشاطئ</span><span class="m-title">ابتسامة أطفال غزة بعد استلام الحقائب المدرسية</span></span>
+          </a>
+          <a class="m-item reveal" href="img/video/hero.mp4" data-gcat="relief" data-gtype="video" data-lb-group="gallery" data-lb-type="video" data-lb-poster="img/hero-poster.jpg" data-lb-kicker="فيديو ميداني" data-lb-title="توثيق حي ومباشر من غزة" style="--ar:16 / 10" aria-label="تشغيل الفيديو: توثيق حي ومباشر من غزة">
+            <img src="img/hero-poster.jpg" alt="" loading="lazy">
+            <span class="badge badge-gold"><span class="material-symbols-outlined" aria-hidden="true">play_circle</span>فيديو</span>
+            <span class="play-btn" aria-hidden="true"><span class="material-symbols-outlined fill">play_arrow</span></span>
+            <span class="m-cap"><span class="m-kicker">فيديو ميداني</span><span class="m-title">توثيق حي ومباشر من غزة</span></span>
+          </a>
+          <a class="m-item reveal" href="img/gallery-water.jpg" data-gcat="health" data-gtype="photo" data-lb-group="gallery" data-lb-kicker="خان يونس" data-lb-title="افتتاح نقطة تحلية تسقي 1,200 عائلة نازحة" style="--ar:1 / 1" aria-label="عرض الصورة: افتتاح نقطة تحلية تسقي 1,200 عائلة نازحة">
+            <img src="img/gallery-water.jpg" alt="افتتاح نقطة تحلية تسقي 1,200 عائلة نازحة" loading="lazy">
+            <span class="m-zoom" aria-hidden="true"><span class="material-symbols-outlined">zoom_in</span></span>
+            <span class="m-cap"><span class="m-kicker">خان يونس</span><span class="m-title">افتتاح نقطة تحلية تسقي 1,200 عائلة نازحة</span></span>
+          </a>
+          <a class="m-item reveal" href="img/gallery-winter.jpg" data-gcat="shelter" data-gtype="photo" data-lb-group="gallery" data-lb-kicker="مخيمات النزوح في رفح" data-lb-title="توثيق جوي لتوزيع الأغطية والطرود الشتوية" style="--ar:3 / 4" aria-label="عرض الصورة: توثيق جوي لتوزيع الأغطية والطرود الشتوية">
+            <img src="img/gallery-winter.jpg" alt="توثيق جوي لتوزيع الأغطية والطرود الشتوية" loading="lazy">
+            <span class="m-zoom" aria-hidden="true"><span class="material-symbols-outlined">zoom_in</span></span>
+            <span class="m-cap"><span class="m-kicker">مخيمات النزوح في رفح</span><span class="m-title">توثيق جوي لتوزيع الأغطية والطرود الشتوية</span></span>
+          </a>
+          <a class="m-item reveal" href="img/gallery-clinic.jpg" data-gcat="health" data-gtype="photo" data-lb-group="gallery" data-lb-kicker="دير البلح" data-lb-title="العيادة الميدانية تجري 150 فحصاً في الخيام" style="--ar:4 / 3" aria-label="عرض الصورة: العيادة الميدانية تجري 150 فحصاً في الخيام">
+            <img src="img/gallery-clinic.jpg" alt="العيادة الميدانية تجري 150 فحصاً في الخيام" loading="lazy">
+            <span class="m-zoom" aria-hidden="true"><span class="material-symbols-outlined">zoom_in</span></span>
+            <span class="m-cap"><span class="m-kicker">دير البلح</span><span class="m-title">العيادة الميدانية تجري 150 فحصاً في الخيام</span></span>
+          </a>
+          <a class="m-item reveal" href="img/project-relief.jpg" data-gcat="relief" data-gtype="photo" data-lb-group="gallery" data-lb-kicker="شمال غزة — جباليا" data-lb-title="توزيع مساعدات غذائية في شمال غزة" style="--ar:4 / 3" aria-label="عرض الصورة: توزيع مساعدات غذائية في شمال غزة">
+            <img src="img/project-relief.jpg" alt="توزيع مساعدات غذائية في شمال غزة" loading="lazy">
+            <span class="m-zoom" aria-hidden="true"><span class="material-symbols-outlined">zoom_in</span></span>
+            <span class="m-cap"><span class="m-kicker">شمال غزة — جباليا</span><span class="m-title">توزيع مساعدات غذائية في شمال غزة</span></span>
+          </a>
+          <a class="m-item reveal" href="img/gallery-campus.jpg" data-gcat="education" data-gtype="photo" data-lb-group="gallery" data-lb-kicker="خيم التعلّم" data-lb-title="أثر كفالة أيتام غزة داخل خيم التعلّم" style="--ar:16 / 10" aria-label="عرض الصورة: أثر كفالة أيتام غزة داخل خيم التعلّم">
+            <img src="img/gallery-campus.jpg" alt="أثر كفالة أيتام غزة داخل خيم التعلّم" loading="lazy">
+            <span class="m-zoom" aria-hidden="true"><span class="material-symbols-outlined">zoom_in</span></span>
+            <span class="m-cap"><span class="m-kicker">خيم التعلّم</span><span class="m-title">أثر كفالة أيتام غزة داخل خيم التعلّم</span></span>
+          </a>
+          <a class="m-item reveal" href="img/activity-medical.jpg" data-gcat="health" data-gtype="photo" data-lb-group="gallery" data-lb-kicker="أكتوبر 2024 • دير البلح" data-lb-title="تسيير 3 عيادات ميدانية وإجراء 320 تدخلاً" style="--ar:4 / 5" aria-label="عرض الصورة: تسيير 3 عيادات ميدانية وإجراء 320 تدخلاً">
+            <img src="img/activity-medical.jpg" alt="تسيير 3 عيادات ميدانية وإجراء 320 تدخلاً" loading="lazy">
+            <span class="m-zoom" aria-hidden="true"><span class="material-symbols-outlined">zoom_in</span></span>
+            <span class="m-cap"><span class="m-kicker">أكتوبر 2024 • دير البلح</span><span class="m-title">تسيير 3 عيادات ميدانية وإجراء 320 تدخلاً</span></span>
+          </a>
+          <a class="m-item reveal" href="img/gallery-lab.jpg" data-gcat="relief" data-gtype="photo" data-lb-group="gallery" data-lb-kicker="غزة المدينة" data-lb-title="نظرة داخل نقطة توزيع السلال في غزة المدينة" style="--ar:1 / 1" aria-label="عرض الصورة: نظرة داخل نقطة توزيع السلال في غزة المدينة">
+            <img src="img/gallery-lab.jpg" alt="نظرة داخل نقطة توزيع السلال في غزة المدينة" loading="lazy">
+            <span class="m-zoom" aria-hidden="true"><span class="material-symbols-outlined">zoom_in</span></span>
+            <span class="m-cap"><span class="m-kicker">غزة المدينة</span><span class="m-title">نظرة داخل نقطة توزيع السلال في غزة المدينة</span></span>
+          </a>
+          <a class="m-item reveal" href="img/project-empower.jpg" data-gcat="shelter" data-gtype="photo" data-lb-group="gallery" data-lb-kicker="رفح" data-lb-title="خيام ومستلزمات الإيواء في رفح" style="--ar:4 / 3" aria-label="عرض الصورة: خيام ومستلزمات الإيواء في رفح">
+            <img src="img/project-empower.jpg" alt="خيام ومستلزمات الإيواء في رفح" loading="lazy">
+            <span class="m-zoom" aria-hidden="true"><span class="material-symbols-outlined">zoom_in</span></span>
+            <span class="m-cap"><span class="m-kicker">رفح</span><span class="m-title">خيام ومستلزمات الإيواء في رفح</span></span>
+          </a>
+          <a class="m-item reveal" href="img/project-orphan.jpg" data-gcat="education" data-gtype="photo" data-lb-group="gallery" data-lb-kicker="مخيم الشاطئ" data-lb-title="رعاية أيتام غزة والتعليم المؤقت" style="--ar:3 / 4" aria-label="عرض الصورة: رعاية أيتام غزة والتعليم المؤقت">
+            <img src="img/project-orphan.jpg" alt="رعاية أيتام غزة والتعليم المؤقت" loading="lazy">
+            <span class="m-zoom" aria-hidden="true"><span class="material-symbols-outlined">zoom_in</span></span>
+            <span class="m-cap"><span class="m-kicker">مخيم الشاطئ</span><span class="m-title">رعاية أيتام غزة والتعليم المؤقت</span></span>
+          </a>
+          <a class="m-item reveal" href="img/news-conference.jpg" data-gcat="events" data-gtype="photo" data-lb-group="gallery" data-lb-kicker="15 ديسمبر 2024" data-lb-title="إحاطة إعلامية عن إغاثة غزة" style="--ar:16 / 10" aria-label="عرض الصورة: إحاطة إعلامية عن إغاثة غزة">
+            <img src="img/news-conference.jpg" alt="إحاطة إعلامية عن إغاثة غزة" loading="lazy">
+            <span class="m-zoom" aria-hidden="true"><span class="material-symbols-outlined">zoom_in</span></span>
+            <span class="m-cap"><span class="m-kicker">15 ديسمبر 2024</span><span class="m-title">إحاطة إعلامية عن إغاثة غزة</span></span>
+          </a>
+          <a class="m-item reveal" href="img/project-water.jpg" data-gcat="health" data-gtype="photo" data-lb-group="gallery" data-lb-kicker="خان يونس ودير البلح" data-lb-title="صهاريج مياه الشرب لمخيمات النزوح" style="--ar:4 / 5" aria-label="عرض الصورة: صهاريج مياه الشرب لمخيمات النزوح">
+            <img src="img/project-water.jpg" alt="صهاريج مياه الشرب لمخيمات النزوح" loading="lazy">
+            <span class="m-zoom" aria-hidden="true"><span class="material-symbols-outlined">zoom_in</span></span>
+            <span class="m-cap"><span class="m-kicker">خان يونس ودير البلح</span><span class="m-title">صهاريج مياه الشرب لمخيمات النزوح</span></span>
+          </a>
+          <a class="m-item reveal" href="img/activity-winter.jpg" data-gcat="shelter" data-gtype="photo" data-lb-group="gallery" data-lb-kicker="نوفمبر - ديسمبر 2024 • رفح" data-lb-title="توزيع 10,000 طرد شتوي وأغطية عازلة" style="--ar:4 / 3" aria-label="عرض الصورة: توزيع 10,000 طرد شتوي وأغطية عازلة">
+            <img src="img/activity-winter.jpg" alt="توزيع 10,000 طرد شتوي وأغطية عازلة" loading="lazy">
+            <span class="m-zoom" aria-hidden="true"><span class="material-symbols-outlined">zoom_in</span></span>
+            <span class="m-cap"><span class="m-kicker">نوفمبر - ديسمبر 2024 • رفح</span><span class="m-title">توزيع 10,000 طرد شتوي وأغطية عازلة</span></span>
+          </a>
+          <a class="m-item reveal" href="img/project-parallax.jpg" data-gcat="relief" data-gtype="photo" data-lb-group="gallery" data-lb-kicker="قطاع غزة" data-lb-title="انتظار الوجبات الساخنة في مراكز الإيواء" style="--ar:1 / 1" aria-label="عرض الصورة: انتظار الوجبات الساخنة في مراكز الإيواء">
+            <img src="img/project-parallax.jpg" alt="انتظار الوجبات الساخنة في مراكز الإيواء" loading="lazy">
+            <span class="m-zoom" aria-hidden="true"><span class="material-symbols-outlined">zoom_in</span></span>
+            <span class="m-cap"><span class="m-kicker">قطاع غزة</span><span class="m-title">انتظار الوجبات الساخنة في مراكز الإيواء</span></span>
+          </a>
+          <a class="m-item reveal" href="img/footer-hardship.jpg" data-gcat="shelter" data-gtype="photo" data-lb-group="gallery" data-lb-kicker="قطاع غزة" data-lb-title="مشهد من الدمار في قطاع غزة" style="--ar:16 / 10" aria-label="عرض الصورة: مشهد من الدمار في قطاع غزة">
+            <img src="img/footer-hardship.jpg" alt="مشهد من الدمار في قطاع غزة" loading="lazy">
+            <span class="m-zoom" aria-hidden="true"><span class="material-symbols-outlined">zoom_in</span></span>
+            <span class="m-cap"><span class="m-kicker">قطاع غزة</span><span class="m-title">مشهد من الدمار في قطاع غزة</span></span>
+          </a>
+        </div>
+        <div class="empty-state mt-8" id="gl-empty" hidden><span class="material-symbols-outlined" aria-hidden="true">image_not_supported</span><strong>لا توجد مواد في هذا التصنيف</strong></div>
+      </div>
+    </section>
+<div class="pt-20 md:pt-28" aria-hidden="true"></div>
+    <!-- ================= DONATE CTA ================= -->
+    <section class="pb-20 md:pb-28" aria-labelledby="cta-title">
+      <div class="mx-auto max-w-page px-5 md:px-8">
+        <div class="cta-card reveal">
+          <div class="cta-body">
+            <span class="cta-pill"><span class="material-symbols-outlined" aria-hidden="true">local_shipping</span>قوافل يومية من الشمال إلى رفح</span>
+            <p class="mt-6 text-[15px] font-bold text-gold-light">مرئيات من قطاع غزة</p>
+            <h2 id="cta-title" class="cta-title">كل صورة هنا..<br><span class="text-gradient-gold">بدأت بمساهمة</span></h2>
+            <p class="cta-text">أرشيف حي يوثّق وصول السلال والخيام والدواء إلى مستحقيها. ساهم لتصل الحملة القادمة إلى عائلة أخرى.</p>
+            <div class="cta-actions">
+              <a href="contact.html?topic=donate#message-form" class="btn btn-donate h-14 ps-2 pe-6 text-[16px]">
+                <span class="grid h-10 w-10 place-items-center rounded-full bg-primary text-gold-light"><span class="material-symbols-outlined fill text-[20px]" aria-hidden="true">volunteer_activism</span></span>
+                ساهم في إغاثة غزة الآن
+                <span class="material-symbols-outlined btn-arrow text-[20px]" aria-hidden="true">arrow_back</span>
+              </a>
+              <a href="https://wa.me/201007749292" target="_blank" rel="noopener" class="btn btn-glass h-14 px-6 text-[16px]"><span class="material-symbols-outlined text-gold-light" aria-hidden="true">chat</span>تواصل عبر واتساب</a>
+            </div>
+          </div>
+          <div class="cta-media" aria-hidden="true"><img src="img/gallery-children.jpg" alt="" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= LIGHTBOX ================= -->
+  <div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lb-title" hidden>
+    <div class="lb-top">
+      <p class="lb-count" dir="ltr" aria-live="polite"><b data-lb="i">1</b> / <span data-lb="n">1</span></p>
+      <button type="button" class="lb-btn" data-lb="close" aria-label="إغلاق العارض"><span class="material-symbols-outlined" aria-hidden="true">close</span></button>
+    </div>
+    <div class="lb-stage">
+      <button type="button" class="lb-btn lb-prev" data-lb="prev" aria-label="السابق"><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></button>
+      <div class="lb-media" data-lb="media"></div>
+      <button type="button" class="lb-btn lb-next" data-lb="next" aria-label="التالي"><span class="material-symbols-outlined" aria-hidden="true">arrow_back</span></button>
+    </div>
+    <div class="lb-cap">
+      <p class="lb-kicker" data-lb="kicker"></p>
+      <p class="lb-title" id="lb-title" data-lb="title"></p>
+      <p class="lb-hint">استخدم الأسهم أو اسحب للتنقل • Esc للإغلاق</p>
+    </div>
+  </div>
+
+  <!-- ================= FOOTER (same as index.html) ================= -->
+  <footer class="site-footer relative isolate overflow-hidden text-white">
+    <img class="footer-bg" src="img/footer-hardship.jpg" alt="" aria-hidden="true" loading="lazy">
+    <div class="footer-shade" aria-hidden="true"></div>
+    <div class="relative mx-auto grid max-w-page gap-10 px-5 pb-12 pt-20 md:grid-cols-2 md:px-8 lg:grid-cols-12">
+      <div class="lg:col-span-4">
+        <div class="flex items-center gap-3">
+          <span class="brand-mark">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3c-2.8 3.6-7 6.2-7 10.2A7 7 0 0 0 12 21a7 7 0 0 0 7-7.8C19 9.2 14.8 6.6 12 3Z" fill="currentColor"/></svg>
+          </span>
+          <p class="text-[20px] font-bold">جمعية الأمل لإغاثة غزة</p>
+        </div>
+        <p class="mt-5 max-w-sm text-[15px] leading-[1.9] text-primary-soft">مؤسسة إنسانية تعنى بإغاثة أهل غزة: الغذاء والدواء والمأوى وكفالة الأيتام النازحين وفق أعلى معايير التوثيق.</p>
+        <p class="mt-4 inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[12.5px] text-primary-soft"><span class="material-symbols-outlined text-[16px] text-gold-light">verified</span>ترخيص رقم: GZA-77492</p>
+      </div>
+      <div class="lg:col-span-2">
+        <h3 class="footer-h">روابط سريعة</h3>
+        <ul class="footer-links">
+          <li><a href="about.html#vision">الرؤية والرسالة</a></li>
+          <li><a href="project.html?id=orphans">كفالة أيتام غزة</a></li>
+          <li><a href="index.html#activities">تقارير إغاثة القطاع</a></li>
+          <li><a href="news.html">المركز الإعلامي</a></li>
+          <li><a href="gallery.html">معرض الصور</a></li>
+          <li><a href="index.html#faq">الأسئلة الشائعة</a></li>
+          <li><a href="contact.html">تواصل معنا</a></li>
+        </ul>
+      </div>
+      <div class="lg:col-span-3">
+        <h3 class="footer-h">التواصل</h3>
+        <p class="text-[15px] leading-[2] text-primary-soft">غرفة التنسيق: القاهرة<br>نقاط ميدانية: جباليا • الشاطئ • دير البلح • خان يونس • رفح<br>info@alamal-gaza.org</p>
+      </div>
+      <div class="lg:col-span-3">
+        <h3 class="footer-h">النشرة البريدية</h3>
+        <p class="text-[14px] leading-[1.8] text-primary-soft">اشترك لتصلك تقارير الأثر من غزة والحملات الطارئة.</p>
+        <form id="news-form" class="newsletter mt-4">
+          <input type="email" required placeholder="أدخل بريدك الإلكتروني" aria-label="أدخل بريدك الإلكتروني">
+          <button class="btn btn-gold h-11 px-4 text-[13px]" type="submit">تأكيد الاشتراك</button>
+        </form>
+      </div>
+    </div>
+    <div class="relative border-t border-white/10">
+      <div class="mx-auto flex max-w-page flex-col items-center justify-between gap-3 px-5 pb-24 pt-6 text-[13px] text-primary-soft md:flex-row md:px-8 md:pb-6 md:pe-60">
+        <p>جميع الحقوق محفوظة © 2026 جمعية الأمل لإغاثة أهل غزة</p>
+        <div class="flex flex-wrap justify-center gap-x-6 gap-y-2"><a class="hover:text-white" href="#">سياسة الخصوصية</a><a class="hover:text-white" href="#">لوائح الحوكمة</a><a class="hover:text-white" href="admin/login.html">بوابة الموظفين</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <a class="fab" href="https://wa.me/201007749292" target="_blank" rel="noopener" aria-label="خدمة إغاثة غزة الفورية">
+    <span class="material-symbols-outlined">support_agent</span>
+    <span class="hidden sm:inline">خدمة إغاثة غزة الفورية</span>
+  </a>
+
+  <div id="toast" class="toast" role="status" aria-live="polite">تم استلام رسالتك بنجاح</div>
+
+  <script src="js/pages.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

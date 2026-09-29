@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تواصل معنا — جمعية الأمل لإغاثة أهل غزة</title>
+  <meta name="description" content="تواصل مع فريق جمعية الأمل لإغاثة أهل غزة: الخط الساخن، واتساب، البريد الإلكتروني، وغرفة التنسيق في القاهرة.">
+  <meta name="theme-color" content="#0c7845">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Crect width=%2724%27 height=%2724%27 rx=%276%27 fill=%27%230c7845%27/%3E%3Cpath d=%27M12 4c-2.4 3.1-6 5.3-6 8.7A6 6 0 0 0 12 19a6 6 0 0 0 6-6.3C18 9.3 14.4 7.1 12 4Z%27 fill=%27%23ffffff%27/%3E%3C/svg%3E">
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <script src="js/tailwind.js"></script>
+  <script src="js/config.js"></script>
+</head>
+<body class="bg-canvas text-on-surface antialiased" data-page="contact">
+  <a href="#main" class="skip-link">تخطّ إلى المحتوى</a>
+
+  <!-- ================= HEADER (same as index.html) ================= -->
+  <header id="site-header" class="site-header is-top">
+    <div class="navbar">
+      <div class="mx-auto flex h-[76px] max-w-page items-center justify-between gap-5 px-5 md:px-8">
+        <a href="index.html" class="brand flex shrink-0 items-center gap-3" aria-label="جمعية الأمل — الصفحة الرئيسية">
+          <span class="brand-mark has-logo"><img src="img/logo.png" alt="شعار الجمعية" width="52" height="52"></span>
+          <span class="flex flex-col">
+            <span class="brand-title text-[19px] font-bold leading-tight">جمعية الأمل</span>
+            <span class="brand-sub text-[11.5px] font-medium leading-none">لإغاثة أهل غزة ودعم صمودهم</span>
+          </span>
+        </a>
+
+        <nav class="hidden items-center gap-1 xl:flex" aria-label="التنقل الرئيسي">
+          <a class="nav-link" href="index.html">الرئيسية</a>
+          <a class="nav-link" href="about.html">من نحن</a>
+          <a class="nav-link" href="projects.html">المشاريع</a>
+          <a class="nav-link" href="index.html#activities">الأنشطة</a>
+          <a class="nav-link" href="news.html">الأخبار</a>
+          <a class="nav-link" href="index.html#partners">الشركاء</a>
+          <a class="nav-link" href="gallery.html">المعرض</a>
+          <a class="nav-link" href="admin/login.html">بوابة الإدارة</a>
+          <a class="nav-link is-active" href="contact.html" aria-current="page">تواصل معنا</a>
+        </nav>
+
+        <div class="flex items-center gap-2">
+          <a href="index.html#appeal" class="btn btn-donate hidden h-11 px-5 text-[14px] sm:inline-flex">
+            <span class="material-symbols-outlined fill text-[20px]">volunteer_activism</span>
+            ساهم في إغاثة غزة الآن
+          </a>
+          <button class="icon-btn account-btn" aria-label="حساب المستخدم">
+            <span class="material-symbols-outlined text-[20px]">person</span>
+          </button>
+          <button id="menu-btn" class="icon-btn menu-btn xl:hidden" aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobile-menu">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div id="mobile-menu" class="mobile-menu xl:hidden" hidden>
+    <div class="mobile-menu-backdrop" data-close></div>
+    <div class="mobile-menu-panel">
+      <nav class="flex flex-col gap-1" id="mobile-nav" aria-label="القائمة">
+        <a href="index.html"><span class="material-symbols-outlined">home</span>الرئيسية</a>
+        <a href="about.html"><span class="material-symbols-outlined">account_balance</span>من نحن</a>
+        <a href="projects.html"><span class="material-symbols-outlined">cases</span>المشاريع والبرامج</a>
+        <a href="index.html#activities"><span class="material-symbols-outlined">verified</span>الأنشطة والأعمال</a>
+        <a href="news.html"><span class="material-symbols-outlined">newspaper</span>الأخبار</a>
+        <a href="index.html#partners"><span class="material-symbols-outlined">handshake</span>الشركاء</a>
+        <a href="gallery.html"><span class="material-symbols-outlined">perm_media</span>معرض الصور</a>
+        <a href="admin/login.html"><span class="material-symbols-outlined">admin_panel_settings</span>بوابة الإدارة</a>
+        <a href="contact.html" aria-current="page"><span class="material-symbols-outlined">contact_support</span>تواصل معنا</a>
+      </nav>
+      <a href="index.html#appeal" class="btn btn-donate mt-4 h-12 w-full text-[15px]" data-close>
+        <span class="material-symbols-outlined fill text-[20px]">volunteer_activism</span>
+        ساهم في إغاثة غزة الآن
+      </a>
+    </div>
+  </div>
+
+  <main id="main">
+    <!-- ================= PAGE HERO ================= -->
+    <section class="page-hero " aria-labelledby="page-title">
+      <div class="page-hero-media" aria-hidden="true"><img src="img/gallery-lab.jpg" alt="" data-hero-img></div>
+      <div class="page-hero-shade" aria-hidden="true"></div>
+      <div class="page-hero-pattern" aria-hidden="true"></div>
+      <div class="hero-grain" aria-hidden="true"></div>
+      <div class="page-hero-inner mx-auto max-w-page px-5 md:px-8">
+        <nav class="crumbs hero-in d1" aria-label="مسار التنقل">
+          <ol><li><a href="index.html"><span class="material-symbols-outlined" aria-hidden="true">home</span>الرئيسية</a></li><li><span aria-current="page" data-crumb-current>تواصل معنا</span></li></ol>
+        </nav>
+        <p class="page-hero-kicker hero-in d2" data-hero-kicker>التواصل لدعم إغاثة غزة</p>
+        <h1 id="page-title" class="page-hero-title hero-in d3" data-hero-title>نحن في خدمتك لكل استفسار <span class="text-gradient-gold">عن القطاع</span></h1>
+        <p class="page-hero-lead hero-in d4" data-hero-lead>فريق خدمة المتبرعين والشركاء لاستقبال طلبات الإغاثة وكفالة أيتام غزة.</p>
+        <div class="page-hero-meta hero-in d5"><span class="hero-chip"><span class="material-symbols-outlined" aria-hidden="true">call</span>الخط الساخن متاح 24/7</span><span class="hero-chip"><span class="material-symbols-outlined" aria-hidden="true">schedule</span>الأحد - الخميس • 8:00 ص - 4:00 م</span></div>
+      </div>
+      <span class="lux-hairline lux-hairline-bottom" aria-hidden="true"></span>
+    </section>
+
+    <!-- ================= CONTACT CARDS ================= -->
+    <section class="sec sec-sand pb-0 md:pb-0" aria-labelledby="channels-title">
+      <div class="mx-auto max-w-page px-5 md:px-8">
+        <h2 id="channels-title" class="sr-only">قنوات التواصل</h2>
+        <div class="cc-grid">
+          <div class="cc-card reveal"><span class="info-ico material-symbols-outlined" aria-hidden="true">call</span><p class="info-label">الخط الساخن لإغاثة غزة</p><p class="info-value" dir="ltr"><a href="tel:+201007749292">+20 100 774 9292</a></p><p class="text-[12.5px] font-bold text-gold-deep">متاح 24/7</p><span class="cc-cta" aria-hidden="true">اتصل الآن<span class="material-symbols-outlined">arrow_back</span></span></div>
+          <div class="cc-card reveal" style="--d:.06s"><span class="info-ico info-ico-wa material-symbols-outlined" aria-hidden="true">chat</span><p class="info-label">واتساب — خدمة إغاثة غزة الفورية</p><p class="info-value" dir="ltr"><a href="https://wa.me/201007749292" target="_blank" rel="noopener" aria-label="راسلنا على واتساب: +20 100 774 9292">+20 100 774 9292</a></p><p class="cc-sub">راسلنا مباشرة</p><span class="cc-cta" aria-hidden="true">افتح المحادثة<span class="material-symbols-outlined">arrow_back</span></span></div>
+          <div class="cc-card reveal" style="--d:.12s"><span class="info-ico info-ico-gold material-symbols-outlined" aria-hidden="true">mail</span><p class="info-label">البريد الإلكتروني</p><p class="info-value break-all"><a href="mailto:info@alamal-gaza.org">info@alamal-gaza.org</a></p><p class="cc-sub">الرد خلال ساعتين</p><span class="cc-cta" aria-hidden="true">أرسل بريداً<span class="material-symbols-outlined">arrow_back</span></span></div>
+          <div class="cc-card reveal" style="--d:.18s"><span class="info-ico material-symbols-outlined" aria-hidden="true">location_on</span><p class="info-label">غرفة التنسيق</p><p class="info-value"><a href="https://maps.google.com/?q=Gaza+Strip" target="_blank" rel="noopener">مكتب إغاثة غزة</a></p><p class="cc-sub">القاهرة — تنسيق دخول المساعدات</p><span class="cc-cta" aria-hidden="true">الخريطة<span class="material-symbols-outlined">arrow_back</span></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FORM + MAP ================= -->
+    <section class="sec sec-sand pt-6 md:pt-6" aria-labelledby="form-title">
+      <div class="mx-auto max-w-page px-5 md:px-8">
+        <div class="contact-grid">
+          <div class="form-card reveal" id="message-form">
+            <form id="contact-page-form" novalidate aria-describedby="form-title-sub">
+              <h2 id="form-title" class="text-[22px] font-bold text-primary">أرسل استفسارك عن إغاثة غزة</h2>
+              <p id="form-title-sub" class="mt-1 text-[14px] text-on-variant">يسعدنا تواصلك، وسيُوجَّه طلبك إلى مسار التوزيع أو الكفالة. الحقول المعلّمة بـ <span class="req" aria-hidden="true">*</span> مطلوبة.</p>
+              <div class="form-alert" id="cf-alert" role="alert" hidden><span class="material-symbols-outlined" aria-hidden="true">error</span><span id="cf-alert-text"></span></div>
+              <div class="cform-grid">
+                <div class="field"><label for="cf-name">الاسم الكامل <span class="req" aria-hidden="true">*</span></label><input id="cf-name" name="name" type="text" autocomplete="name" required minlength="3" placeholder="مثال: عبد الله السالم" aria-describedby="cf-name-err"><p class="field-error" id="cf-name-err" hidden></p></div>
+                <div class="field"><label for="cf-phone">رقم الهاتف <span class="req" aria-hidden="true">*</span></label><input id="cf-phone" name="phone" class="text-left" dir="ltr" type="tel" autocomplete="tel" required placeholder="+970 59 xxx xxxx" aria-describedby="cf-phone-hint cf-phone-err"><p class="field-hint" id="cf-phone-hint">مع رمز الدولة، من 8 إلى 15 رقماً.</p><p class="field-error" id="cf-phone-err" hidden></p></div>
+                <div class="field"><label for="cf-email">البريد الإلكتروني <span class="req" aria-hidden="true">*</span></label><input id="cf-email" name="email" type="email" autocomplete="email" dir="ltr" class="text-left" required placeholder="name@example.com" aria-describedby="cf-email-err"><p class="field-error" id="cf-email-err" hidden></p></div>
+                <div class="field"><label for="cf-topic">نوع الاستفسار</label>
+                  <select id="cf-topic" name="topic">
+                    <option value="orphan">استفسار عن كفالة يتيم في غزة</option>
+                    <option value="donate">تبرع لمشروع أو حملة</option>
+                    <option value="partner">شراكة لإغاثة القطاع</option>
+                    <option value="volunteer">رغبة في التطوع الميداني</option>
+                    <option value="previous">استفسار عن سلة أو تبرع سابق</option>
+                    <option value="media">استفسار إعلامي</option>
+                    <option value="other">أخرى</option>
+                  </select>
+                </div>
+                <div class="field span-2"><label for="cf-msg">نص الرسالة <span class="req" aria-hidden="true">*</span></label><textarea id="cf-msg" name="message" rows="5" required minlength="10" placeholder="اكتب تفاصيل طلب الإغاثة أو الكفالة في غزة..." aria-describedby="cf-msg-err"></textarea><p class="field-error" id="cf-msg-err" hidden></p></div>
+                <div class="field span-2"><label class="check" for="cf-consent"><input id="cf-consent" name="consent" type="checkbox" required aria-describedby="cf-consent-err"><span>أوافق على أن يتواصل معي فريق خدمة المتبرعين بخصوص رسالتي. <span class="req" aria-hidden="true">*</span></span></label><p class="field-error" id="cf-consent-err" hidden></p></div>
+              </div>
+              <div class="form-foot">
+                <button class="btn btn-forest h-12 px-8 text-[15px]" type="submit"><span class="material-symbols-outlined" aria-hidden="true">send</span>إرسال الرسالة الآن</button>
+                <p class="form-note"><span class="material-symbols-outlined" aria-hidden="true">lock</span>يتم التحقق من الحقول على جهازك فقط.</p>
+              </div>
+            </form>
+            <div class="form-success" id="cf-success" tabindex="-1" hidden>
+              <span class="form-success-ico" aria-hidden="true"><span class="material-symbols-outlined">check</span></span>
+              <h3>شكراً لتواصلك، تم استلام رسالتك</h3>
+              <p>سيُوجَّه طلبك إلى الفريق المختص. هذه نسخة ثابتة من الموقع ولا تُرسَل الرسالة إلى خادم؛ للتواصل الفوري راسلنا على <a class="link-arrow" href="https://wa.me/201007749292" target="_blank" rel="noopener">واتساب</a>.</p>
+              <button type="button" class="btn btn-outline mt-3 h-11 px-6 text-[14px]" id="cf-again"><span class="material-symbols-outlined text-[20px]" aria-hidden="true">refresh</span>إرسال رسالة أخرى</button>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-6">
+            <div class="gz-map reveal">
+              <span class="gz-note"><span class="material-symbols-outlined" aria-hidden="true">info</span>خريطة توضيحية مبسطة</span>
+              <svg viewBox="30 20 320 640" role="img" aria-label="خريطة توضيحية مبسطة لقطاع غزة ونقاط العمل الميداني" focusable="false">
+                <path class="gz-strip" d="M250.0,40.0 L52.0,600.0 L170.8,642.0 L185.5,615.7 L203.2,590.5 L210.4,569.4 L213.2,538.9 L217.8,516.9 L218.6,493.6 L215.1,468.7 L216.5,445.6 L216.8,422.0 L208.6,395.5 L208.1,371.7 L213.1,349.9 L216.5,327.4 L223.0,306.1 L235.6,279.1 L248.6,252.1 L259.8,224.6 L275.5,190.8 L286.8,163.3 L302.8,129.5 L313.4,101.8 L321.6,65.3 Z"/>
+                <path class="gz-coast" d="M250.0,40.0 L52.0,600.0"/>
+                <text class="gz-sea" transform="translate(100 330) rotate(-70.5)" text-anchor="middle">البحر الأبيض المتوسط</text>
+                <g><circle class="gz-pin-ring" cx="270.6" cy="86.8" r="9"/><circle class="gz-pin" cx="270.6" cy="86.8" r="6"/><text class="gz-label" x="286.6" y="91.8" text-anchor="end">شمال غزة</text></g><g><circle class="gz-pin-ring" cx="227.4" cy="191.3" r="9"/><circle class="gz-pin" cx="227.4" cy="191.3" r="6"/><text class="gz-label" x="243.4" y="196.3" text-anchor="end">غزة</text></g><g><circle class="gz-pin-ring" cx="184.7" cy="299.0" r="9"/><circle class="gz-pin" cx="184.7" cy="299.0" r="6"/><text class="gz-label" x="200.7" y="304.0" text-anchor="end">دير البلح</text></g><g><circle class="gz-pin-ring" cx="163.0" cy="423.7" r="9"/><circle class="gz-pin" cx="163.0" cy="423.7" r="6"/><text class="gz-label" x="179.0" y="428.7" text-anchor="end">خان يونس</text></g><g><circle class="gz-pin-ring" cx="136.8" cy="553.0" r="9"/><circle class="gz-pin" cx="136.8" cy="553.0" r="6"/><text class="gz-label" x="152.8" y="558.0" text-anchor="end">رفح</text></g>
+              </svg>
+              <div class="map-info">
+                <div>
+                  <p class="text-[16px] font-bold text-primary">غرفة التنسيق — إغاثة غزة</p>
+                  <p class="text-[12.5px] text-on-variant">القاهرة • نقاط ميدانية داخل القطاع</p>
+                </div>
+                <a class="btn btn-gold h-10 shrink-0 px-4 text-[13px]" href="https://maps.google.com/?q=Gaza+Strip" target="_blank" rel="noopener"><span class="material-symbols-outlined text-[18px]" aria-hidden="true">directions</span>افتح في خرائط Google</a>
+              </div>
+            </div>
+            <div class="form-card reveal !p-6">
+              <h2 class="text-[18px] font-bold text-primary">نقاط الميدان داخل غزة</h2>
+              <div class="mt-4 grid grid-cols-2 gap-3 text-[14px] text-on-variant">
+                <p class="field-point">جباليا وبيت حانون</p>
+                <p class="field-point">غزة المدينة والشاطئ</p>
+                <p class="field-point">دير البلح</p>
+                <p class="field-point">خان يونس ورفح</p>
+              </div>
+              <div class="mt-5 flex items-center justify-between gap-3 border-t border-line pt-4 text-[13.5px]">
+                <span class="inline-flex items-center gap-1.5 font-bold text-primary"><span class="material-symbols-outlined text-[18px] text-gold-deep" aria-hidden="true">schedule</span>ساعات العمل</span>
+                <span class="text-on-variant">الأحد - الخميس • 8:00 ص - 4:00 م</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FAQ EXCERPT ================= -->
+    <!-- PLACEHOLDER: FAQ answers are the sample text from index.html -->
+    <section id="faq" class="faq-sec" aria-labelledby="faq-title">
+      <div class="mx-auto max-w-page px-5 md:px-8">
+        <div class="faq-grid">
+          <div class="faq-intro reveal">
+            <p class="eyebrow"><span class="material-symbols-outlined">help</span>الأسئلة الشائعة</p>
+            <h2 id="faq-title" class="section-title">إجابات واضحة قبل أن تتبرع</h2>
+            <p class="section-lead">مقتطف من أكثر ما يسألنا عنه المتبرعون.</p>
+            <span class="sample-badge">محتوى تجريبي</span>
+            <div class="faq-cta">
+              <span class="faq-cta-ico material-symbols-outlined" aria-hidden="true">quiz</span>
+              <div>
+                <p class="faq-cta-title">المزيد من الأسئلة</p>
+                <p class="faq-cta-text">الزكاة، والإيصالات، والكفالة الشهرية.</p>
+              </div>
+              <a href="index.html#faq" class="btn btn-forest faq-cta-btn">كل الأسئلة</a>
+            </div>
+          </div>
+          <div class="faq-list reveal" data-faq>
+            <div class="faq-item is-open">
+              <h3 class="faq-q"><button type="button" id="faq-b1" aria-expanded="true" aria-controls="faq-p1"><span class="faq-num" dir="ltr" aria-hidden="true">01</span><span class="faq-q-text">كيف أتأكد أن تبرعي يصل إلى غزة فعلاً؟</span><span class="faq-ico" aria-hidden="true"></span></button></h3>
+              <div class="faq-panel" id="faq-p1" role="region" aria-labelledby="faq-b1"><div class="faq-panel-in"><p>نعمل عبر فرق ميدانية وشركاء داخل القطاع، ونوثّق التوزيعات بالصور والتقارير الدورية التي ننشرها في المركز الإعلامي، ويمكنك طلب تقرير عن الحملة التي ساهمت فيها.</p></div></div>
+            </div>
+            <div class="faq-item">
+              <h3 class="faq-q"><button type="button" id="faq-b2" aria-expanded="false" aria-controls="faq-p2"><span class="faq-num" dir="ltr" aria-hidden="true">02</span><span class="faq-q-text">هل يمكنني تخصيص تبرعي لمشروع أو محافظة بعينها؟</span><span class="faq-ico" aria-hidden="true"></span></button></h3>
+              <div class="faq-panel" id="faq-p2" role="region" aria-labelledby="faq-b2"><div class="faq-panel-in"><p>يمكنك اختيار المشروع (السلال الغذائية، الخيام، المياه، كفالة الأيتام) عند التواصل معنا، وسنبذل جهدنا لتوجيهه إلى المحافظة التي تحددها وفق الاحتياج والظروف الميدانية.</p></div></div>
+            </div>
+            <div class="faq-item">
+              <h3 class="faq-q"><button type="button" id="faq-b3" aria-expanded="false" aria-controls="faq-p3"><span class="faq-num" dir="ltr" aria-hidden="true">03</span><span class="faq-q-text">ما وسائل التبرع المتاحة؟</span><span class="faq-ico" aria-hidden="true"></span></button></h3>
+              <div class="faq-panel" id="faq-p3" role="region" aria-labelledby="faq-b3"><div class="faq-panel-in"><p>تواصل مع فريق خدمة المتبرعين عبر الهاتف أو البريد الإلكتروني أو واتساب، وسيزوّدك بوسائل التبرع المعتمدة المتاحة في بلدك.</p></div></div>
+            </div>
+            <div class="faq-item">
+              <h3 class="faq-q"><button type="button" id="faq-b4" aria-expanded="false" aria-controls="faq-p4"><span class="faq-num" dir="ltr" aria-hidden="true">04</span><span class="faq-q-text">كيف يمكنني التطوع مع الجمعية؟</span><span class="faq-ico" aria-hidden="true"></span></button></h3>
+              <div class="faq-panel" id="faq-p4" role="region" aria-labelledby="faq-b4"><div class="faq-panel-in"><p>أرسل لنا بياناتك ومجال خبرتك عبر نموذج التواصل، وسنتواصل معك عند توفر فرص تطوع ميدانية أو عن بُعد (تصميم، ترجمة، تنسيق حملات).</p></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER (same as index.html) ================= -->
+  <footer class="site-footer relative isolate overflow-hidden text-white">
+    <img class="footer-bg" src="img/footer-hardship.jpg" alt="" aria-hidden="true" loading="lazy">
+    <div class="footer-shade" aria-hidden="true"></div>
+    <div class="relative mx-auto grid max-w-page gap-10 px-5 pb-12 pt-20 md:grid-cols-2 md:px-8 lg:grid-cols-12">
+      <div class="lg:col-span-4">
+        <div class="flex items-center gap-3">
+          <span class="brand-mark has-logo"><img src="img/logo.png" alt="شعار الجمعية" width="52" height="52"></span>
+          <p class="text-[20px] font-bold">جمعية الأمل لإغاثة غزة</p>
+        </div>
+        <p class="mt-5 max-w-sm text-[15px] leading-[1.9] text-primary-soft">مؤسسة إنسانية تعنى بإغاثة أهل غزة: الغذاء والدواء والمأوى وكفالة الأيتام النازحين وفق أعلى معايير التوثيق.</p>
+        <p class="mt-4 inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[12.5px] text-primary-soft"><span class="material-symbols-outlined text-[16px] text-gold-light">verified</span>ترخيص رقم: GZA-77492</p>
+      </div>
+      <div class="lg:col-span-2">
+        <h3 class="footer-h">روابط سريعة</h3>
+        <ul class="footer-links">
+          <li><a href="about.html#vision">الرؤية والرسالة</a></li>
+          <li><a href="project.html?id=orphans">كفالة أيتام غزة</a></li>
+          <li><a href="index.html#activities">تقارير إغاثة القطاع</a></li>
+          <li><a href="news.html">المركز الإعلامي</a></li>
+          <li><a href="gallery.html">معرض الصور</a></li>
+          <li><a href="index.html#faq">الأسئلة الشائعة</a></li>
+          <li><a href="contact.html">تواصل معنا</a></li>
+        </ul>
+      </div>
+      <div class="lg:col-span-3">
+        <h3 class="footer-h">التواصل</h3>
+        <p class="text-[15px] leading-[2] text-primary-soft">غرفة التنسيق: القاهرة<br>نقاط ميدانية: جباليا • الشاطئ • دير البلح • خان يونس • رفح<br>info@alamal-gaza.org</p>
+      </div>
+      <div class="lg:col-span-3">
+        <h3 class="footer-h">النشرة البريدية</h3>
+        <p class="text-[14px] leading-[1.8] text-primary-soft">اشترك لتصلك تقارير الأثر من غزة والحملات الطارئة.</p>
+        <form id="news-form" class="newsletter mt-4">
+          <input type="email" required placeholder="أدخل بريدك الإلكتروني" aria-label="أدخل بريدك الإلكتروني">
+          <button class="btn btn-gold h-11 px-4 text-[13px]" type="submit">تأكيد الاشتراك</button>
+        </form>
+      </div>
+    </div>
+    <div class="relative border-t border-white/10">
+      <div class="mx-auto flex max-w-page flex-col items-center justify-between gap-3 px-5 pb-24 pt-6 text-[13px] text-primary-soft md:flex-row md:px-8 md:pb-6 md:pe-60">
+        <p>جميع الحقوق محفوظة © 2026 جمعية الأمل لإغاثة أهل غزة</p>
+        <div class="flex flex-wrap justify-center gap-x-6 gap-y-2"><a class="hover:text-white" href="#">سياسة الخصوصية</a><a class="hover:text-white" href="#">لوائح الحوكمة</a><a class="hover:text-white" href="admin/login.html">بوابة الموظفين</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <a class="fab" href="https://wa.me/201007749292" target="_blank" rel="noopener" aria-label="خدمة إغاثة غزة الفورية">
+    <span class="material-symbols-outlined">support_agent</span>
+    <span class="hidden sm:inline">خدمة إغاثة غزة الفورية</span>
+  </a>
+
+  <div id="toast" class="toast" role="status" aria-live="polite">تم استلام رسالتك بنجاح</div>
+
+  <script src="js/site-data.js"></script>
+  <script src="js/pages.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

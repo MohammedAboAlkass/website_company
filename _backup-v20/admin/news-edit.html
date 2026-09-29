@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تحرير خبر — لوحة تحكم جمعية الأمل</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#f6f5f2">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Crect width=%2724%27 height=%2724%27 rx=%276%27 fill=%27%23f28c14%27/%3E%3Cpath d=%27M12 4c-2.4 3.1-6 5.3-6 8.7A6 6 0 0 0 12 19a6 6 0 0 0 6-6.3C18 9.3 14.4 7.1 12 4Z%27 fill=%27%23001a3c%27/%3E%3C/svg%3E">
+  <script>(function(){try{var d=document.documentElement,t=localStorage.getItem('almel-admin-theme');if(t==='dark'||(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))d.classList.add('dark');if(localStorage.getItem('almel-admin-sb')==='1')d.classList.add('sb-collapsed');}catch(e){}})();</script>
+  <link rel="stylesheet" href="../css/fonts.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body data-page="news-edit">
+  <a class="skip-link" href="#main">تخطَّ إلى المحتوى</a>
+  <div class="app">
+    <aside class="sidebar" id="sidebar" aria-label="القائمة الجانبية"></aside>
+    <div class="main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content" id="main" tabindex="-1">
+
+        <div class="page-head">
+          <div><h1 class="page-title" id="ne-heading">خبر جديد</h1><p class="page-sub"><span class="save-state" id="save-state" aria-live="polite"><span class="material-symbols-outlined" aria-hidden="true">cloud_done</span>لا توجد تغييرات بعد</span></p></div>
+          <div class="page-actions">
+            <button type="button" class="btn btn-ghost" id="ne-preview"><span class="material-symbols-outlined" aria-hidden="true">visibility</span>معاينة</button>
+            <button type="button" class="btn btn-secondary" id="ne-draft"><span class="material-symbols-outlined" aria-hidden="true">save</span>حفظ كمسودة</button>
+            <button type="button" class="btn btn-primary" id="ne-publish"><span class="material-symbols-outlined flip-rtl" aria-hidden="true">send</span><span class="btn-text">نشر الآن</span></button>
+          </div>
+        </div>
+        <div class="grid">
+          <section class="card xl-8" aria-label="محتوى الخبر">
+            <div class="card-body" style="display:flex;flex-direction:column;gap:24px">
+              <div>
+                <label class="sr-only" for="ne-title">عنوان الخبر</label>
+                <textarea id="ne-title" class="editor-title" rows="1" placeholder="اكتب عنواناً واضحاً وجذاباً للخبر…" aria-describedby="ne-title-err"></textarea>
+                <p class="error mt-8" id="ne-title-err" hidden><span class="material-symbols-outlined" aria-hidden="true">error</span><span>العنوان يجب أن يكون 8 أحرف على الأقل.</span></p>
+              </div>
+              <div class="field">
+                <span class="label" id="ne-cover-label">صورة الغلاف</span>
+                <div class="dropzone" id="ne-dropzone">
+                  <input type="file" id="ne-cover-input" accept="image/*" aria-labelledby="ne-cover-label ne-cover-hint">
+                  <span class="dz-ico"><span class="material-symbols-outlined" aria-hidden="true">add_photo_alternate</span></span>
+                  <strong>اسحب صورة الغلاف هنا أو <span style="color:var(--accent-text)">تصفّح</span></strong>
+                  <span class="hint" id="ne-cover-hint">مقاس 1600×900 أو أكبر — تظهر في بطاقة الخبر وعند المشاركة</span>
+                </div>
+                <div class="cover-preview" id="ne-cover-preview" hidden>
+                  <img id="ne-cover-img" alt="معاينة صورة الغلاف">
+                  <div class="cp-actions">
+                    <button type="button" class="btn btn-sm" id="ne-cover-change"><span class="material-symbols-outlined" aria-hidden="true">sync</span>تغيير</button>
+                    <button type="button" class="btn btn-sm danger" id="ne-cover-remove"><span class="material-symbols-outlined" aria-hidden="true">delete</span>إزالة</button>
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <span class="label" id="ne-body-label">نص الخبر</span>
+                <div class="rte">
+                  <div class="rte-toolbar" id="rte-toolbar" role="toolbar" aria-label="تنسيق النص" aria-controls="ne-body">
+                    <button type="button" data-cmd="bold" aria-pressed="false" aria-label="غامق (Ctrl+B)" title="غامق (Ctrl+B)"><span class="material-symbols-outlined" aria-hidden="true">format_bold</span></button><button type="button" data-cmd="italic" aria-pressed="false" aria-label="مائل (Ctrl+I)" title="مائل (Ctrl+I)"><span class="material-symbols-outlined" aria-hidden="true">format_italic</span></button><button type="button" data-cmd="underline" aria-pressed="false" aria-label="تسطير (Ctrl+U)" title="تسطير (Ctrl+U)"><span class="material-symbols-outlined" aria-hidden="true">format_underlined</span></button>
+                    <span class="sep" aria-hidden="true"></span>
+                    <button type="button" data-cmd="formatBlock" data-val="h2" aria-pressed="false" aria-label="عنوان رئيسي" title="عنوان رئيسي"><span class="material-symbols-outlined" aria-hidden="true">format_h2</span></button><button type="button" data-cmd="formatBlock" data-val="h3" aria-pressed="false" aria-label="عنوان فرعي" title="عنوان فرعي"><span class="material-symbols-outlined" aria-hidden="true">format_h3</span></button><button type="button" data-cmd="formatBlock" data-val="blockquote" aria-pressed="false" aria-label="اقتباس" title="اقتباس"><span class="material-symbols-outlined" aria-hidden="true">format_quote</span></button>
+                    <span class="sep" aria-hidden="true"></span>
+                    <button type="button" data-cmd="insertUnorderedList" aria-pressed="false" aria-label="قائمة نقطية" title="قائمة نقطية"><span class="material-symbols-outlined" aria-hidden="true">format_list_bulleted</span></button><button type="button" data-cmd="insertOrderedList" aria-pressed="false" aria-label="قائمة مرقمة" title="قائمة مرقمة"><span class="material-symbols-outlined" aria-hidden="true">format_list_numbered</span></button>
+                    <span class="sep" aria-hidden="true"></span>
+                    <button type="button" data-cmd="createLink" aria-label="إدراج رابط" title="إدراج رابط"><span class="material-symbols-outlined" aria-hidden="true">link</span></button><button type="button" data-cmd="removeFormat" aria-label="إزالة التنسيق" title="إزالة التنسيق"><span class="material-symbols-outlined" aria-hidden="true">format_clear</span></button>
+                    <span class="sep" aria-hidden="true"></span>
+                    <button type="button" data-cmd="undo" aria-label="تراجع" title="تراجع"><span class="material-symbols-outlined flip-rtl" aria-hidden="true">undo</span></button><button type="button" data-cmd="redo" aria-label="إعادة" title="إعادة"><span class="material-symbols-outlined flip-rtl" aria-hidden="true">redo</span></button>
+                  </div>
+                  <div class="rte-body is-empty" id="ne-body" contenteditable="true" role="textbox" aria-multiline="true" aria-labelledby="ne-body-label" data-placeholder="ابدأ كتابة الخبر هنا… استخدم شريط الأدوات للتنسيق."></div>
+                  <div class="rte-foot"><span id="ne-words">0 كلمة</span><span>يُحفظ تلقائياً أثناء الكتابة</span></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="xl-4">
+            <div class="stack sticky-side">
+              <section class="card" aria-labelledby="t-pub">
+                <div class="card-head bordered"><h2 class="card-title" id="t-pub">النشر</h2><span class="pill pill-neutral">واجهة تجريبية</span></div>
+                <div class="card-body" style="display:flex;flex-direction:column;gap:20px">
+                  <div class="field"><label class="label" for="ne-status">الحالة</label>
+                    <select class="select" id="ne-status"><option value="draft">مسودة</option><option value="published">منشور</option><option value="scheduled">مجدول</option></select></div>
+                  <div class="field" id="ne-date-field"><label class="label" for="ne-date">تاريخ ووقت النشر</label><input class="input" id="ne-date" type="datetime-local"></div>
+                  <div class="row" style="font-size:13px;color:var(--text-2)"><span class="material-symbols-outlined" aria-hidden="true">person</span><span>الكاتب: فريق الإعلام</span></div>
+                </div>
+              </section>
+              <section class="card" aria-labelledby="t-tax">
+                <div class="card-head bordered"><h2 class="card-title" id="t-tax">التصنيف والوسوم</h2></div>
+                <div class="card-body" style="display:flex;flex-direction:column;gap:20px">
+                  <div class="field"><label class="label" for="ne-cat">التصنيف</label><select class="select" id="ne-cat"></select></div>
+                  <div class="field"><label class="label" for="ne-tag-input">الوسوم</label>
+                    <div class="tags-input"><ul id="ne-tags-list" style="display:contents" aria-label="الوسوم المضافة"></ul><input id="ne-tag-input" placeholder="أضف وسماً ثم Enter" aria-describedby="ne-tag-hint"></div>
+                    <p class="hint" id="ne-tag-hint">اضغط Enter أو الفاصلة لإضافة وسم.</p></div>
+                </div>
+              </section>
+              <section class="card" aria-labelledby="t-seo">
+                <div class="card-head bordered"><h2 class="card-title" id="t-seo">معاينة محركات البحث</h2></div>
+                <div class="card-body" style="display:flex;flex-direction:column;gap:20px">
+                  <div class="seo-preview" aria-live="polite">
+                    <div class="u"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3c-2.8 3.6-7 6.2-7 10.2A7 7 0 0 0 12 21a7 7 0 0 0 7-7.8C19 9.2 14.8 6.6 12 3Z"/></svg></i><span class="url" id="seo-u"></span></div>
+                    <p class="t" id="seo-t"></p><p class="d" id="seo-d"></p>
+                  </div>
+                  <div class="field"><label class="label" for="ne-slug">الرابط المختصر (Slug)</label><input class="input" id="ne-slug" dir="ltr" placeholder="news-title"></div>
+                  <div class="field"><label class="label" for="ne-meta"><span>الوصف التعريفي</span><span class="counter" id="ne-meta-count">0 / 160</span></label><textarea class="textarea" id="ne-meta" rows="3" placeholder="وصف موجز يظهر في نتائج البحث…"></textarea></div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <div id="toasts" class="toasts" role="status" aria-live="polite"></div>
+  <script src="js/admin-data.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

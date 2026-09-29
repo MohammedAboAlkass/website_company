@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الإعدادات — لوحة تحكم جمعية الشمال للتنمية والتطوير المجتمعي</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#f6f5f2">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Crect width=%2724%27 height=%2724%27 rx=%276%27 fill=%27%23f28c14%27/%3E%3Cpath d=%27M12 4c-2.4 3.1-6 5.3-6 8.7A6 6 0 0 0 12 19a6 6 0 0 0 6-6.3C18 9.3 14.4 7.1 12 4Z%27 fill=%27%23001a3c%27/%3E%3C/svg%3E">
+  <script>(function(){try{var d=document.documentElement,t=localStorage.getItem('almel-admin-theme');if(t==='dark'||(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))d.classList.add('dark');if(localStorage.getItem('almel-admin-sb')==='1')d.classList.add('sb-collapsed');}catch(e){}})();</script>
+  <link rel="stylesheet" href="../css/fonts.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/admin-settings.css">
+</head>
+<body data-page="settings">
+  <a class="skip-link" href="#main">تخطَّ إلى المحتوى</a>
+  <div class="app">
+    <aside class="sidebar" id="sidebar" aria-label="القائمة الجانبية"></aside>
+    <div class="main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content" id="main" tabindex="-1">
+        <div class="page-head">
+          <div><h1 class="page-title">الإعدادات</h1><p class="page-sub">مركز التحكم في هوية الجمعية ومظهر اللوحة وفريق العمل والأمان والتبرعات والنسخ الاحتياطي.</p></div>
+          <div class="page-actions"><span class="save-state st-state" id="st-state" aria-live="polite"></span></div>
+        </div>
+        <div class="st-layout" id="st-root">
+          <aside class="st-aside" aria-label="التنقل في الإعدادات">
+            <div class="st-search">
+              <label class="sr-only" for="st-search">ابحث في الإعدادات</label>
+              <span class="material-symbols-outlined" aria-hidden="true">search</span>
+              <input class="input" id="st-search" type="search" autocomplete="off" spellcheck="false" placeholder="ابحث في كل الإعدادات…" role="combobox" aria-expanded="false" aria-controls="st-results" aria-autocomplete="list" aria-describedby="st-search-hint">
+              <kbd class="st-kbd" aria-hidden="true">/</kbd>
+              <p class="sr-only" id="st-search-hint">اكتب للبحث ثم استخدم الأسهم واضغط Enter للانتقال إلى الإعداد.</p>
+              <ul class="st-results" id="st-results" role="listbox" aria-label="نتائج البحث في الإعدادات" hidden></ul>
+            </div>
+            <nav class="st-nav" id="st-nav" aria-label="أقسام الإعدادات"></nav>
+          </aside>
+          <div class="st-main" id="st-sections"></div>
+        </div>
+        <div class="st-savebar" id="st-savebar" role="region" aria-label="تغييرات غير محفوظة" hidden>
+          <span class="st-savebar-ico" aria-hidden="true"><span class="dirty-dot"></span></span>
+          <div class="st-savebar-text"><strong>لديك تغييرات غير محفوظة</strong><span id="st-dirty-list"></span></div>
+          <div class="st-savebar-actions">
+            <button type="button" class="btn st-discard" id="st-discard"><span class="material-symbols-outlined" aria-hidden="true">undo</span>تجاهل</button>
+            <button type="button" class="btn btn-accent" id="st-save" aria-keyshortcuts="Control+S"><span class="material-symbols-outlined" aria-hidden="true">save</span>حفظ التغييرات</button>
+          </div>
+        </div>
+        <p class="sr-only" id="st-live" aria-live="polite"></p>
+      </main>
+    </div>
+  </div>
+  <div id="toasts" class="toasts" role="status" aria-live="polite"></div>
+  <script src="js/admin-data.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/admin-settings.js"></script>
+</body>
+</html>

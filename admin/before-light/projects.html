@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>إدارة المشاريع — لوحة تحكم جمعية الشمال للتنمية والتطوير المجتمعي</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#f6f5f2">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Crect width=%2724%27 height=%2724%27 rx=%276%27 fill=%27%23f28c14%27/%3E%3Cpath d=%27M12 4c-2.4 3.1-6 5.3-6 8.7A6 6 0 0 0 12 19a6 6 0 0 0 6-6.3C18 9.3 14.4 7.1 12 4Z%27 fill=%27%23001a3c%27/%3E%3C/svg%3E">
+  <script>(function(){try{var d=document.documentElement,t=localStorage.getItem('almel-admin-theme');if(t==='dark'||(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))d.classList.add('dark');if(localStorage.getItem('almel-admin-sb')==='1')d.classList.add('sb-collapsed');}catch(e){}})();</script>
+  <link rel="stylesheet" href="../css/fonts.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body data-page="projects">
+  <a class="skip-link" href="#main">تخطَّ إلى المحتوى</a>
+  <div class="app">
+    <aside class="sidebar" id="sidebar" aria-label="القائمة الجانبية"></aside>
+    <div class="main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content" id="main" tabindex="-1">
+
+        <div class="page-head">
+          <div><h1 class="page-title">إدارة المشاريع</h1><p class="page-sub">أضف المشاريع وحدّث نسب التمويل وحالاتها قبل ظهورها في الموقع.</p></div>
+          <div class="page-actions">
+            <a class="btn btn-secondary" href="../projects.html"><span class="material-symbols-outlined" aria-hidden="true">open_in_new</span>عرض في الموقع</a>
+            <button type="button" class="btn btn-primary" id="add-project"><span class="material-symbols-outlined" aria-hidden="true">add</span>مشروع جديد</button>
+          </div>
+        </div>
+
+        <section class="card" aria-label="ملخص المشاريع"><dl class="mini-stats" id="p-stats"></dl></section>
+
+        <section class="card mt-24" aria-labelledby="t-plist">
+          <h2 class="sr-only" id="t-plist">قائمة المشاريع</h2>
+          <div class="toolbar">
+            <label class="input-icon"><span class="sr-only">بحث في المشاريع</span><span class="material-symbols-outlined" aria-hidden="true">search</span><input class="input sm" id="proj-search" type="search" placeholder="ابحث بالعنوان أو الموقع…" autocomplete="off"></label>
+            <label class="sr-only" for="f-cat">تصفية حسب الفئة</label><select class="select sm auto" id="f-cat"></select>
+            <label class="sr-only" for="f-status">تصفية حسب الحالة</label><select class="select sm auto" id="f-status"></select>
+            <span class="grow"></span>
+            <span class="muted" id="result-count" aria-live="polite" style="font-size:13px"></span>
+            <div class="seg icons" id="view-seg" role="group" aria-label="طريقة العرض">
+              <button type="button" data-value="table" aria-pressed="true" aria-label="عرض جدول" title="جدول"><span class="material-symbols-outlined" aria-hidden="true">table_rows</span></button>
+              <button type="button" data-value="grid" aria-pressed="false" aria-label="عرض شبكة" title="شبكة"><span class="material-symbols-outlined" aria-hidden="true">grid_view</span></button>
+            </div>
+          </div>
+          <div class="bulkbar" id="bulkbar" hidden>
+            <strong id="bulk-count" aria-live="polite"></strong><span class="sp"></span>
+            <button type="button" class="btn btn-secondary btn-sm" id="bulk-activate"><span class="material-symbols-outlined" aria-hidden="true">check_circle</span>تفعيل</button>
+            <button type="button" class="btn btn-secondary btn-sm" id="bulk-draft"><span class="material-symbols-outlined" aria-hidden="true">inventory_2</span>نقل إلى المسودات</button>
+            <button type="button" class="btn btn-danger-ghost btn-sm" id="bulk-delete"><span class="material-symbols-outlined" aria-hidden="true">delete</span>حذف</button>
+            <button type="button" class="btn btn-ghost btn-sm" id="bulk-clear">إلغاء التحديد</button>
+          </div>
+          <div id="proj-view"></div>
+          <div class="card-foot"><div class="pagination" id="proj-pages" style="width:100%"></div></div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="drawer" id="project-drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" aria-describedby="drawer-sub" hidden>
+    <form id="project-form" novalidate style="display:contents">
+      <div class="drawer-head">
+        <div><h2 id="drawer-title">مشروع جديد</h2><p id="drawer-sub">أدخل بيانات المشروع لإضافته إلى القائمة.</p></div>
+        <button type="button" class="icon-btn" data-close-drawer aria-label="إغلاق"><span class="material-symbols-outlined" aria-hidden="true">close</span></button>
+      </div>
+      <div class="drawer-body">
+        <div class="field">
+          <label class="label" for="pf-title"><span>عنوان المشروع <span class="req" aria-hidden="true">*</span></span></label>
+          <input class="input" id="pf-title" maxlength="90" required aria-describedby="pf-title-err" placeholder="مثال: سلال غذائية لمراكز الإيواء">
+          <p class="error" id="pf-title-err" hidden><span class="material-symbols-outlined" aria-hidden="true">error</span><span></span></p>
+        </div>
+        <div class="field-row">
+          <div class="field"><label class="label" for="pf-cat">الفئة</label><select class="select" id="pf-cat"></select></div>
+          <div class="field"><label class="label" for="pf-status">الحالة</label><select class="select" id="pf-status"></select></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label class="label" for="pf-gov">المحافظة</label><select class="select" id="pf-gov"></select></div>
+          <div class="field"><label class="label" for="pf-location"><span>الموقع التفصيلي <span class="opt">اختياري</span></span></label><input class="input" id="pf-location" placeholder="الحي أو المخيم"></div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label class="label" for="pf-goal"><span>الهدف <span class="req" aria-hidden="true">*</span></span></label>
+            <div class="input-affix"><input class="input num" id="pf-goal" type="number" min="1" step="100" inputmode="numeric" dir="ltr" required aria-describedby="pf-goal-err" placeholder="50000"><span class="affix" aria-hidden="true">$</span></div>
+            <p class="error" id="pf-goal-err" hidden><span class="material-symbols-outlined" aria-hidden="true">error</span><span></span></p>
+          </div>
+          <div class="field">
+            <label class="label" for="pf-raised">المبلغ المُحصَّل</label>
+            <div class="input-affix"><input class="input num" id="pf-raised" type="number" min="0" step="100" inputmode="numeric" dir="ltr" aria-describedby="pf-raised-err" placeholder="0"><span class="affix" aria-hidden="true">$</span></div>
+            <p class="error" id="pf-raised-err" hidden><span class="material-symbols-outlined" aria-hidden="true">error</span><span></span></p>
+          </div>
+        </div>
+        <div class="field">
+          <span class="label" id="pf-cover-label"><span>صورة الغلاف <span class="opt">اختياري</span></span></span>
+          <div class="dropzone" id="pf-dropzone">
+            <input type="file" id="pf-cover-input" accept="image/*" aria-labelledby="pf-cover-label pf-cover-hint">
+            <span class="dz-ico"><span class="material-symbols-outlined" aria-hidden="true">cloud_upload</span></span>
+            <strong>اسحب الصورة هنا أو <span style="color:var(--accent-text)">تصفّح</span></strong>
+            <span class="hint" id="pf-cover-hint">JPG أو PNG أو WebP — يُفضّل 1600×900</span>
+          </div>
+          <div class="cover-preview" id="pf-cover-preview" hidden>
+            <img id="pf-cover-img" alt="معاينة صورة الغلاف">
+            <div class="cp-actions">
+              <button type="button" class="btn btn-sm" id="pf-cover-change"><span class="material-symbols-outlined" aria-hidden="true">sync</span>تغيير</button>
+              <button type="button" class="btn btn-sm danger" id="pf-cover-remove"><span class="material-symbols-outlined" aria-hidden="true">delete</span>إزالة</button>
+            </div>
+          </div>
+          <p class="hint" id="pf-cover-name" aria-live="polite"></p>
+        </div>
+        <div class="field">
+          <label class="label" for="pf-desc"><span>وصف مختصر</span><span class="counter" id="pf-desc-count" aria-live="polite">0 / 280</span></label>
+          <textarea class="textarea" id="pf-desc" rows="4" placeholder="صف هدف المشروع والفئة المستفيدة ونطاق التنفيذ…"></textarea>
+        </div>
+      </div>
+      <div class="drawer-foot">
+        <button type="button" class="btn btn-secondary" data-close-drawer>إلغاء</button>
+        <button type="submit" class="btn btn-primary"><span class="material-symbols-outlined" aria-hidden="true">save</span>حفظ المشروع</button>
+      </div>
+    </form>
+  </div>
+  <div id="toasts" class="toasts" role="status" aria-live="polite"></div>
+  <script src="js/admin-data.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

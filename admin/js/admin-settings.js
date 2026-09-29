@@ -43,7 +43,7 @@
     /* ---------- keys & sections ---------- */
     var K = { settings: 'almel-admin-settings', users: 'almel-admin-users', sessions: 'almel-admin-sessions', integ: 'almel-admin-integrations', keys: 'almel-admin-api-keys', audit: 'almel-admin-audit', twofa: 'almel-admin-2fa' };
     var SECTIONS = [
-      { id: 'general', label: 'عام', icon: 'tune', desc: 'هوية الجمعية وبيانات التواصل والمنطقة الزمنية ووضع الصيانة.' },
+      { id: 'general', label: 'الإعدادات العامة', icon: 'tune', desc: 'هوية الجمعية وبيانات التواصل والمنطقة الزمنية ووضع الصيانة.' },
       { id: 'appearance', label: 'المظهر', icon: 'palette', desc: 'السمة ولون التمييز والكثافة وشكل القائمة الجانبية — تُطبّق على كل صفحات اللوحة.' },
       { id: 'users', label: 'المستخدمون والصلاحيات', icon: 'group', desc: 'أعضاء الفريق والدعوات والأدوار وما يستطيع كل دور فعله.' },
       { id: 'security', label: 'الأمان', icon: 'shield_lock', desc: 'سياسة كلمات المرور والمصادقة الثنائية والجلسات وقيود الوصول.' },
@@ -87,17 +87,17 @@
       ['wallet', 'المحافظ الإلكترونية', 'محافظ الهاتف المحلية', 'smartphone']
     ];
     var OG_IMAGES = [['../img/hero-poster.jpg', 'غلاف الرئيسية'], ['../img/gallery-convoy.jpg', 'قافلة الإغاثة'], ['../img/project-relief.jpg', 'توزيع المساعدات'], ['../img/gallery-children.jpg', 'أطفال غزة'], ['../img/activity-winter.jpg', 'حملة الشتاء'], ['../img/footer-hardship.jpg', 'صمود']];
-    var SOCIAL = [['facebook', 'فيسبوك', 'public', 'facebook.com/alamal.gaza'], ['x', 'إكس (تويتر)', 'alternate_email', 'x.com/alamal_gaza'], ['instagram', 'إنستغرام', 'photo_camera', 'instagram.com/alamal.gaza'], ['youtube', 'يوتيوب', 'smart_display', 'youtube.com/@alamalgaza'], ['telegram', 'تيليجرام', 'send', ''], ['whatsapp', 'واتساب', 'chat', 'wa.me/201007749292']];
+    var SOCIAL = [['facebook', 'فيسبوك', 'public', 'facebook.com/shamal.society'], ['x', 'إكس (تويتر)', 'alternate_email', 'x.com/shamal_society'], ['instagram', 'إنستغرام', 'photo_camera', 'instagram.com/shamal.society'], ['youtube', 'يوتيوب', 'smart_display', 'youtube.com/@shamalsociety'], ['telegram', 'تيليجرام', 'send', ''], ['whatsapp', 'واتساب', 'chat', 'wa.me/201007749292']];
     var ACCENTS = [['#f28c14', 'كهرماني (الافتراضي)'], ['#d9a21b', 'ذهبي'], ['#e8603c', 'مرجاني'], ['#5f8a1f', 'زيتوني'], ['#0f9f8f', 'فيروزي'], ['#2f6fde', 'أزرق'], ['#7c5cd6', 'بنفسجي'], ['#d6457a', 'وردي']];
     var storedTheme = UI.store.get('almel-admin-theme', null);
     var DEF = {
-      general: { orgName: 'جمعية الأمل', tagline: 'لإغاثة أهل غزة ودعم صمودهم', license: 'GZA-77492', website: 'https://alamal-gaza.org', email: 'info@alamal-gaza.org', phone: '+20 100 774 9292', address: 'مكتب إغاثة غزة — القاهرة (تنسيق دخول المساعدات)', logo: '', favicon: '', timezone: 'Asia/Gaza', language: 'ar', dateFormat: 'long', maintenance: false, maintenanceMsg: 'نجري تحديثات لتحسين تجربتك، وسنعود خلال وقت قصير. شكراً لصبركم.' },
-      appearance: { theme: 'auto', accent: AP.DEF.accent, scale: 'md', density: 'comfortable', sidebar: 'navy', radius: 'md' },
+      general: { orgName: 'جمعية الشمال للتنمية والتطوير المجتمعي', tagline: 'لإغاثة أهل غزة ودعم صمودهم', license: 'GZA-77492', website: 'https://shamal-society.org', email: 'info@shamal-society.org', phone: '+20 100 774 9292', address: 'مكتب إغاثة غزة — القاهرة (تنسيق دخول المساعدات)', logo: '', favicon: '', timezone: 'Asia/Gaza', language: 'ar', dateFormat: 'long', maintenance: false, maintenanceMsg: 'نجري تحديثات لتحسين تجربتك، وسنعود خلال وقت قصير. شكراً لصبركم.' },
+      appearance: { theme: 'light', accent: AP.DEF.accent, scale: 'md', density: 'comfortable', sidebar: 'navy', radius: 'md' },
       users: { matrix: { admin: permSet(true), editor: permSet(['projects_view', 'projects_edit', 'news_publish', 'pages_edit', 'messages_reply', 'reports_export']), writer: permSet(['projects_view', 'news_publish', 'messages_reply']), viewer: permSet(['projects_view', 'donations_view']) }, custom: [] },
       security: { minLength: 10, upper: true, number: true, symbol: false, reuse: 5, expiry: '90', lockout: 5, enforce2fa: 'admins', alertNewDevice: true, alertFailed: true, alertCountry: true, timeout: '60', ipAllow: false, ips: ['203.0.113.0/24', '198.51.100.24'] },
-      notifications: { matrix: nMatrix(), quiet: true, quietFrom: '22:00', quietTo: '07:00', digest: 'weekly', digestDay: 'sun', digestEmail: 'admin@alamal-gaza.org' },
+      notifications: { matrix: nMatrix(), quiet: true, quietFrom: '22:00', quietTo: '07:00', digest: 'weekly', digestDay: 'sun', digestEmail: 'admin@shamal-society.org' },
       donations: { currency: 'USD', currencies: ['USD', 'EUR', 'EGP', 'SAR'], amounts: [10, 25, 50, 100, 250], defaultAmount: 50, customAmount: true, recurring: true, coverFees: true, methods: { card: true, paypal: false, applepay: false, bank: true, wallet: false }, receiptPrefix: 'ALM-', receiptNext: 1049, receiptAuto: true, receiptNote: true, receiptFooter: 'شكراً لمساهمتك في إغاثة أهل غزة. هذا إيصال إلكتروني لا يحتاج إلى توقيع.', zakat: true, zakatSeparate: true },
-      seo: { titleTpl: '%s — جمعية الأمل لإغاثة أهل غزة', metaDesc: 'مؤسسة إنسانية تعمل على إغاثة أهل غزة: الغذاء والدواء والمأوى ورعاية الأيتام وفق معايير الحوكمة والشفافية.', index: true, sitemap: true, ogImage: OG_IMAGES[0][0], social: {}, analyticsId: '', anonymizeIp: true, cookieBanner: true },
+      seo: { titleTpl: '%s — جمعية الشمال للتنمية والتطوير المجتمعي', metaDesc: 'مؤسسة إنسانية تعمل على إغاثة أهل غزة: الغذاء والدواء والمأوى ورعاية الأيتام وفق معايير الحوكمة والشفافية.', index: true, sitemap: true, ogImage: OG_IMAGES[0][0], social: {}, analyticsId: '', anonymizeIp: true, cookieBanner: true },
       backup: { schedule: 'weekly', time: '03:00', keep: 10, incContent: true, incSettings: true, incMedia: false, dest: 'local' }
     };
     SOCIAL.forEach(function (s) { DEF.seo.social[s[0]] = s[3]; });
@@ -110,7 +110,7 @@
       var raw = read(K.settings, {}), s = {};
       STATEFUL.forEach(function (k) { s[k] = merge(DEF[k], raw[k]); });
       var ap = AP.read(); ['accent', 'scale', 'density', 'sidebar', 'radius'].forEach(function (k) { s.appearance[k] = ap[k]; });
-      s.appearance.theme = storedTheme === 'dark' || storedTheme === 'light' ? storedTheme : 'auto';
+      s.appearance.theme = storedTheme === 'dark' || storedTheme === 'light' ? storedTheme : 'light';
       (s.users.custom || []).forEach(function (r) { if (!s.users.matrix[r.id]) s.users.matrix[r.id] = permSet([]); });
       return s;
     }
@@ -302,7 +302,7 @@
     INIT.general = function () { hooks.general(); };
     hooks.general = function () {
       var g = S.general;
-      $$('[data-live="orgName"]').forEach(function (n) { n.textContent = g.orgName || 'جمعية الأمل'; });
+      $$('[data-live="orgName"]').forEach(function (n) { n.textContent = g.orgName || 'جمعية الشمال للتنمية والتطوير المجتمعي'; });
       $$('[data-live="maintenanceMsg"]').forEach(function (n) { n.textContent = g.maintenanceMsg; });
       $$('[data-when="general.maintenance"]').forEach(function (n) { n.hidden = !g.maintenance; });
       ['logo', 'favicon'].forEach(function (k) {
@@ -398,7 +398,7 @@
     // the topbar theme button writes the theme immediately: keep settings in sync
     document.addEventListener('click', function (e) {
       if (!e.target.closest('.theme-toggle')) return;
-      setTimeout(function () { var t = UI.store.get('almel-admin-theme', null); S.appearance.theme = SAVED.appearance.theme = t || 'auto'; hooks.appearance(); syncDirty(); }, 0);
+      setTimeout(function () { var t = UI.store.get('almel-admin-theme', null); S.appearance.theme = SAVED.appearance.theme = t || 'light'; hooks.appearance(); syncDirty(); }, 0);
     });
 
     /* ----- security (static parts; dynamic lists built in INIT) ----- */
@@ -533,8 +533,8 @@
         card('seo', 'social', 'حسابات التواصل', 'تظهر في تذييل الموقع وبيانات المشاركة.', '<div class="st-social">' + SOCIAL.map(function (s) { return text('seo.social.' + s[0], s[1], { dir: 'ltr', iconName: s[2], max: 80, ph: s[0] + '.com/…' }); }).join('') + '</div>') +
         card('seo', 'analytics', 'التحليلات', null,
           row('seo', 'ga', 'Google Analytics', 'معرّف القياس يبدأ بـ G-.', text('seo.analyticsId', 'معرّف القياس', { dir: 'ltr', max: 16, ph: 'G-XXXXXXXXXX' }) + toggle('seo.anonymizeIp', 'إخفاء عناوين IP للزوار') + toggle('seo.cookieBanner', 'إظهار شريط موافقة ملفات الارتباط'), 'تحليلات analytics google'));
-      var prev = '<section class="card st-card st-preview-card" aria-labelledby="og-prev-t"><div class="card-head bordered"><div><h3 class="card-title" id="og-prev-t">معاينة المشاركة</h3><p class="card-sub">كما تظهر في فيسبوك وواتساب.</p></div></div><div class="card-body"><div class="st-share" aria-hidden="true"><img id="st-share-img" alt=""><div class="st-share-meta"><span dir="ltr">ALAMAL-GAZA.ORG</span><strong id="st-share-title"></strong><p id="st-share-desc"></p></div></div>' +
-        '<div class="st-serp" aria-hidden="true"><span class="st-serp-url" dir="ltr">alamal-gaza.org</span><strong id="st-serp-title"></strong><p id="st-serp-desc"></p></div></div></section>';
+      var prev = '<section class="card st-card st-preview-card" aria-labelledby="og-prev-t"><div class="card-head bordered"><div><h3 class="card-title" id="og-prev-t">معاينة المشاركة</h3><p class="card-sub">كما تظهر في فيسبوك وواتساب.</p></div></div><div class="card-body"><div class="st-share" aria-hidden="true"><img id="st-share-img" alt=""><div class="st-share-meta"><span dir="ltr">SHAMAL-SOCIETY.ORG</span><strong id="st-share-title"></strong><p id="st-share-desc"></p></div></div>' +
+        '<div class="st-serp" aria-hidden="true"><span class="st-serp-url" dir="ltr">shamal-society.org</span><strong id="st-serp-title"></strong><p id="st-serp-desc"></p></div></div></section>';
       return '<div class="st-split"><div class="st-split-main">' + controls + '</div><div class="st-split-side">' + prev + '</div></div>';
     };
     hooks.seo = function () {
@@ -643,7 +643,7 @@
     function roleOpts(sel) { return rolesAll().map(function (r) { return '<option value="' + esc(r.id) + '"' + (r.id === sel ? ' selected' : '') + '>' + esc(r.label) + '</option>'; }).join(''); }
     function inviteUser() {
       modal({ title: 'دعوة عضو جديد', icon: 'person_add', size: 'lg', confirmText: 'إرسال الدعوة', focus: '#inv-name',
-        body: '<p class="modal-text">سيصل إلى العضو رابط لتفعيل حسابه (واجهة تجريبية).</p><div class="field-row mt-16"><div class="field"><label class="label" for="inv-name">الاسم <span class="req" aria-hidden="true">*</span></label><input class="input" id="inv-name" maxlength="40" aria-describedby="inv-name-err" autocomplete="off"><p class="error" id="inv-name-err" hidden>' + icon('error') + '<span>الاسم مطلوب.</span></p></div><div class="field"><label class="label" for="inv-email">البريد الإلكتروني <span class="req" aria-hidden="true">*</span></label><input class="input" id="inv-email" type="email" dir="ltr" placeholder="name@alamal-gaza.org" aria-describedby="inv-email-err" autocomplete="off"><p class="error" id="inv-email-err" hidden>' + icon('error') + '<span>أدخل بريداً صالحاً غير مستخدم.</span></p></div></div><div class="field mt-16"><label class="label" for="inv-role">الدور</label><select class="select" id="inv-role">' + roleOpts('editor') + '</select></div>',
+        body: '<p class="modal-text">سيصل إلى العضو رابط لتفعيل حسابه (واجهة تجريبية).</p><div class="field-row mt-16"><div class="field"><label class="label" for="inv-name">الاسم <span class="req" aria-hidden="true">*</span></label><input class="input" id="inv-name" maxlength="40" aria-describedby="inv-name-err" autocomplete="off"><p class="error" id="inv-name-err" hidden>' + icon('error') + '<span>الاسم مطلوب.</span></p></div><div class="field"><label class="label" for="inv-email">البريد الإلكتروني <span class="req" aria-hidden="true">*</span></label><input class="input" id="inv-email" type="email" dir="ltr" placeholder="name@shamal-society.org" aria-describedby="inv-email-err" autocomplete="off"><p class="error" id="inv-email-err" hidden>' + icon('error') + '<span>أدخل بريداً صالحاً غير مستخدم.</span></p></div></div><div class="field mt-16"><label class="label" for="inv-role">الدور</label><select class="select" id="inv-role">' + roleOpts('editor') + '</select></div>',
         validate: function (d) {
           var n = $('#inv-name', d), m = $('#inv-email', d), okN = n.value.trim().length >= 2, v = m.value.trim().toLowerCase(), okM = EMAIL.test(v) && !users.some(function (u) { return u.email.toLowerCase() === v; });
           n.setAttribute('aria-invalid', String(!okN)); $('#inv-name-err', d).hidden = okN; m.setAttribute('aria-invalid', String(!okM)); $('#inv-email-err', d).hidden = okM;
@@ -742,7 +742,7 @@
       ['analytics', 'Google Analytics', 'قياس الزيارات والتحويلات', 'monitoring', 'معرّف القياس'], ['storage', 'التخزين السحابي', 'حفظ الصور والنسخ الاحتياطية', 'cloud', 'اسم الحاوية'],
       ['payments', 'بوابة الدفع', 'استقبال التبرعات بالبطاقات', 'credit_card', 'معرّف التاجر'], ['webhooks', 'Webhooks', 'إشعار أنظمتك عند كل تبرع', 'webhook', 'رابط الاستقبال']
     ];
-    var integ = read(K.integ, null) || { email: { on: true, at: Date.now() - 86400000 * 12, label: 'smtp.alamal-gaza.org' } };
+    var integ = read(K.integ, null) || { email: { on: true, at: Date.now() - 86400000 * 12, label: 'smtp.shamal-society.org' } };
     var apiKeys = read(K.keys, null) || [{ id: 'k1', name: 'تطبيق التقارير الداخلي', scope: 'read', last4: '7Q2m', created: Date.now() - 86400000 * 40, used: 180 }];
     R.integrations = function () {
       return card('integrations', 'services', 'الخدمات المرتبطة', 'اتصالات تجريبية: لا تُرسل أي بيانات فعلياً.', '<div class="st-integ" id="st-integ"></div>') +
@@ -833,7 +833,7 @@
     var pending = null;
     function parseBackup(txt) {
       var o; try { o = JSON.parse(txt); } catch (e) { return { err: 'الملف ليس JSON صالحاً.' }; }
-      if (!o || o.app !== 'almel-admin' || typeof o.data !== 'object' || Array.isArray(o.data)) return { err: 'هذا الملف ليس نسخة من لوحة جمعية الأمل.' };
+      if (!o || o.app !== 'almel-admin' || typeof o.data !== 'object' || Array.isArray(o.data)) return { err: 'هذا الملف ليس نسخة من لوحة جمعية الشمال للتنمية والتطوير المجتمعي.' };
       var keys = Object.keys(o.data);
       if (!keys.length) return { err: 'النسخة فارغة.' };
       if (keys.length > 200) return { err: 'عدد المفاتيح أكبر من المسموح.' };

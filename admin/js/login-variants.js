@@ -1,4 +1,4 @@
-/* جمعية الأمل — shared logic for the alternative login designs (login-1/2/3.html).
+/* جمعية الشمال للتنمية والتطوير المجتمعي — shared logic for the alternative login designs (login-1/2/3.html).
    Mirrors Pages.login in admin.js: any valid email + a password of 4+ characters
    redirects to index.html. Static template: no server, nothing is sent anywhere. */
 (function () {
