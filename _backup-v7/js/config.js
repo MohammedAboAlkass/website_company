@@ -1,0 +1,43 @@
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        canvas: '#faf6ef',
+        surface: '#faf6ef',
+        sand: '#f3ebdd',
+        line: '#e6dccb',
+        'on-surface': '#1e2527',
+        'on-variant': '#475254',
+        muted: '#5b6466',
+        primary: '#0b4f55',
+        'primary-deep': '#052e33',
+        'primary-mid': '#0e5e63',
+        'primary-light': '#13767a',
+        'primary-soft': '#b5d0cd',
+        'primary-bright': '#2a9d9a',
+        'primary-tint': '#e3f2f0',
+        beige: '#e8d9c0',
+        'beige-deep': '#d9c3a0',
+        'on-primary': '#ffffff',
+        gold: '#c08a4a',
+        'gold-light': '#e6cfa6',
+        'gold-bright': '#dcb27a',
+        'gold-deep': '#7a4f22',
+        champagne: '#efe3cf',
+        'gold-tint': '#f3e8d6',
+        urgent: '#9b1c1c',
+        'urgent-dark': '#7f1d1d',
+      },
+      fontFamily: {
+        sans: ['"IBM Plex Sans Arabic"', 'system-ui', 'sans-serif'],
+        display: ['"El Messiri"', '"IBM Plex Sans Arabic"', 'serif'],
+      },
+      maxWidth: { page: '1280px' },
+      boxShadow: {
+        card: '0 1px 2px rgba(30,37,39,.04), 0 10px 30px -14px rgba(6,44,48,.16)',
+        lift: '0 28px 56px -22px rgba(6,44,48,.32), 0 8px 18px -8px rgba(6,44,48,.10)',
+        glow: '0 16px 36px -12px rgba(192,138,74,.55)',
+      },
+    },
+  },
+};

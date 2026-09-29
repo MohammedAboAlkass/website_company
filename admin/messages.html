@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الرسائل والطلبات — لوحة تحكم جمعية الأمل</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#f6f5f2">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Crect width=%2724%27 height=%2724%27 rx=%276%27 fill=%27%23f28c14%27/%3E%3Cpath d=%27M12 4c-2.4 3.1-6 5.3-6 8.7A6 6 0 0 0 12 19a6 6 0 0 0 6-6.3C18 9.3 14.4 7.1 12 4Z%27 fill=%27%23001a3c%27/%3E%3C/svg%3E">
+  <script>(function(){try{var d=document.documentElement,t=localStorage.getItem('almel-admin-theme');if(t==='dark'||(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))d.classList.add('dark');if(localStorage.getItem('almel-admin-sb')==='1')d.classList.add('sb-collapsed');}catch(e){}})();</script>
+  <link rel="stylesheet" href="../css/fonts.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body data-page="messages">
+  <a class="skip-link" href="#main">تخطَّ إلى المحتوى</a>
+  <div class="app">
+    <aside class="sidebar" id="sidebar" aria-label="القائمة الجانبية"></aside>
+    <div class="main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content" id="main" tabindex="-1">
+
+        <div class="page-head">
+          <div><h1 class="page-title">الرسائل والطلبات</h1><p class="page-sub" id="m-sub" aria-live="polite"></p></div>
+          <div class="page-actions"><button type="button" class="btn btn-secondary" id="m-readall"><span class="material-symbols-outlined" aria-hidden="true">done_all</span>تعليم الكل كمقروء</button></div>
+        </div>
+        <section class="card inbox" id="inbox" aria-label="صندوق الرسائل">
+          <div class="inbox-list">
+            <div class="inbox-filters">
+              <label class="input-icon"><span class="sr-only">بحث في الرسائل</span><span class="material-symbols-outlined" aria-hidden="true">search</span><input class="input sm" id="m-search" type="search" placeholder="ابحث في الرسائل…" autocomplete="off"></label>
+              <div class="seg" id="m-box" role="group" aria-label="تصفية الرسائل">
+                <button type="button" data-value="all" aria-pressed="true">الكل</button>
+                <button type="button" data-value="unread" aria-pressed="false">غير مقروءة</button>
+                <button type="button" data-value="starred" aria-pressed="false">المميزة</button>
+                <button type="button" data-value="archived" aria-pressed="false">الأرشيف</button>
+              </div>
+              <div class="chips type-chips" role="group" aria-label="نوع الرسالة">
+                <button type="button" class="chip-btn" data-type="" aria-pressed="true">كل الأنواع</button>
+                <button type="button" class="chip-btn" data-type="contact" aria-pressed="false">تواصل</button>
+                <button type="button" class="chip-btn" data-type="volunteer" aria-pressed="false">تطوع</button>
+                <button type="button" class="chip-btn" data-type="donation" aria-pressed="false">استفسار تبرع</button>
+              </div>
+            </div>
+            <ul class="inbox-items" id="m-list" role="listbox" aria-label="الرسائل"></ul>
+          </div>
+          <section class="reader" id="m-reader" aria-label="قراءة الرسالة"></section>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div id="toasts" class="toasts" role="status" aria-live="polite"></div>
+  <script src="js/admin-data.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

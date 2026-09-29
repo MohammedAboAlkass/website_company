@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>نظرة عامة — لوحة تحكم جمعية الأمل</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#f6f5f2">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Crect width=%2724%27 height=%2724%27 rx=%276%27 fill=%27%23f28c14%27/%3E%3Cpath d=%27M12 4c-2.4 3.1-6 5.3-6 8.7A6 6 0 0 0 12 19a6 6 0 0 0 6-6.3C18 9.3 14.4 7.1 12 4Z%27 fill=%27%23001a3c%27/%3E%3C/svg%3E">
+  <script>(function(){try{var d=document.documentElement,t=localStorage.getItem('almel-admin-theme');if(t==='dark'||(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))d.classList.add('dark');if(localStorage.getItem('almel-admin-sb')==='1')d.classList.add('sb-collapsed');}catch(e){}})();</script>
+  <link rel="stylesheet" href="../css/fonts.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body data-page="index">
+  <a class="skip-link" href="#main">تخطَّ إلى المحتوى</a>
+  <div class="app">
+    <aside class="sidebar" id="sidebar" aria-label="القائمة الجانبية"></aside>
+    <div class="main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content" id="main" tabindex="-1">
+
+        <div class="page-head">
+          <div>
+            <p class="greet-date"><span class="material-symbols-outlined" aria-hidden="true">calendar_today</span><span id="greet-date"></span></p>
+            <h1 class="page-title" id="greet-title">مرحباً</h1>
+            <p class="page-sub">إليك ملخص أداء الجمعية وأحدث النشاطات خلال هذا الشهر.</p>
+          </div>
+          <div class="page-actions">
+            <a class="btn btn-secondary" href="reports.html"><span class="material-symbols-outlined" aria-hidden="true">bar_chart</span>تقرير الشهر</a>
+            <a class="btn btn-primary" href="projects.html#new"><span class="material-symbols-outlined" aria-hidden="true">add</span>مشروع جديد</a>
+          </div>
+        </div>
+
+        <section aria-label="المؤشرات الرئيسية"><div class="kpis" id="kpis"></div></section>
+
+        <div class="grid mt-24">
+          <section class="card xl-8" aria-labelledby="t-don">
+            <div class="card-head">
+              <div><h2 class="card-title" id="t-don">التبرعات عبر الزمن</h2><p class="card-sub">الفترة الحالية مقارنة بالفترة السابقة</p></div>
+              <div class="seg" id="range-seg" role="group" aria-label="الفترة الزمنية للمخطط">
+                <button type="button" data-value="7d" aria-pressed="false">7 أيام</button>
+                <button type="button" data-value="30d" aria-pressed="false">30 يوماً</button>
+                <button type="button" data-value="12m" aria-pressed="true">12 شهراً</button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="row-between" style="flex-wrap:wrap;margin-bottom:16px">
+                <div class="chart-summary"><span class="big ltr" id="donations-total"></span><span id="donations-delta" class="row" style="gap:8px"></span></div>
+                <div class="legend" aria-hidden="true"><span><i class="sw-1"></i>الفترة الحالية</span><span><i class="dash"></i>الفترة السابقة</span></div>
+              </div>
+              <div id="donations-chart"></div>
+            </div>
+          </section>
+
+          <section class="card xl-4" aria-labelledby="t-gov">
+            <div class="card-head"><div><h2 class="card-title" id="t-gov">التوزيع حسب المحافظات</h2><p class="card-sub">محافظات قطاع غزة الخمس — مخطط توضيحي</p></div></div>
+            <div class="card-body">
+              <div class="seg" id="gov-seg" role="group" aria-label="المؤشر المعروض" style="display:flex">
+                <button type="button" data-value="beneficiaries" aria-pressed="true" style="flex:1;justify-content:center">المستفيدون</button>
+                <button type="button" data-value="donations" aria-pressed="false" style="flex:1;justify-content:center">التبرعات</button>
+              </div>
+              <div id="gov-widget" class="mt-16"></div>
+            </div>
+          </section>
+
+          <section class="card xl-7" aria-labelledby="t-fund">
+            <div class="card-head">
+              <div><h2 class="card-title" id="t-fund">تقدّم تمويل المشاريع</h2><p class="card-sub">المشاريع النشطة الأقرب إلى هدفها</p></div>
+              <a class="link" href="projects.html">كل المشاريع<span class="material-symbols-outlined" aria-hidden="true">arrow_back</span></a>
+            </div>
+            <div class="card-body"><ul class="proj-list" id="proj-funding"></ul></div>
+          </section>
+
+          <section class="card xl-5" aria-labelledby="t-feed">
+            <div class="card-head">
+              <div><h2 class="card-title" id="t-feed">آخر النشاطات</h2><p class="card-sub">تحديث لحظي من المنصة</p></div>
+              <div class="seg" role="tablist" id="feed-tabs" aria-label="نوع النشاط">
+                <button type="button" role="tab" id="tab-don" aria-selected="true" aria-controls="feed-donations">التبرعات</button>
+                <button type="button" role="tab" id="tab-act" aria-selected="false" aria-controls="feed-activity" tabindex="-1">السجل</button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div id="feed-donations" role="tabpanel" aria-labelledby="tab-don" tabindex="0"></div>
+              <div id="feed-activity" role="tabpanel" aria-labelledby="tab-act" tabindex="0" hidden></div>
+            </div>
+          </section>
+
+          <section class="card xl-8" aria-labelledby="t-msg">
+            <div class="card-head">
+              <div><h2 class="card-title" id="t-msg">أحدث الرسائل</h2><p class="card-sub">طلبات التواصل والتطوع واستفسارات التبرع</p></div>
+              <a class="link" href="messages.html">صندوق الرسائل<span class="material-symbols-outlined" aria-hidden="true">arrow_back</span></a>
+            </div>
+            <div class="card-body" style="padding-top:8px"><ul id="latest-messages"></ul></div>
+          </section>
+
+          <section class="card xl-4" aria-labelledby="t-quick">
+            <div class="card-head"><div><h2 class="card-title" id="t-quick">إجراءات سريعة</h2><p class="card-sub">أكثر المهام استخداماً</p></div></div>
+            <div class="card-body">
+              <div class="quick">
+                <a href="projects.html#new"><span class="q-ico"><span class="material-symbols-outlined" aria-hidden="true">add_circle</span></span><span><strong>مشروع جديد</strong><span class="s">إضافة حملة أو برنامج</span></span></a>
+                <a href="news-edit.html"><span class="q-ico"><span class="material-symbols-outlined" aria-hidden="true">edit_square</span></span><span><strong>كتابة خبر</strong><span class="s">نشر أو جدولة</span></span></a>
+                <a href="gallery.html#upload"><span class="q-ico"><span class="material-symbols-outlined" aria-hidden="true">add_photo_alternate</span></span><span><strong>رفع صور</strong><span class="s">إلى معرض الميدان</span></span></a>
+                <a href="reports.html#export"><span class="q-ico"><span class="material-symbols-outlined" aria-hidden="true">download</span></span><span><strong>تصدير تقرير</strong><span class="s">CSV أو PDF</span></span></a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <div id="toasts" class="toasts" role="status" aria-live="polite"></div>
+  <script src="js/admin-data.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

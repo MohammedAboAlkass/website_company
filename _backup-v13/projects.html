@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>المشاريع والبرامج — جمعية الأمل لإغاثة أهل غزة</title>
+  <meta name="description" content="مبادرات الإغاثة المعتمدة داخل قطاع غزة: المخابز، كفالة الأيتام، المياه، ومراكز الإيواء — مع نسب التمويل.">
+  <meta name="theme-color" content="#001a3c">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Crect width=%2724%27 height=%2724%27 rx=%276%27 fill=%27%23f28c14%27/%3E%3Cpath d=%27M12 4c-2.4 3.1-6 5.3-6 8.7A6 6 0 0 0 12 19a6 6 0 0 0 6-6.3C18 9.3 14.4 7.1 12 4Z%27 fill=%27%23001a3c%27/%3E%3C/svg%3E">
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <script src="js/tailwind.js"></script>
+  <script src="js/config.js"></script>
+</head>
+<body class="bg-canvas text-on-surface antialiased" data-page="projects">
+  <a href="#main" class="skip-link">تخطّ إلى المحتوى</a>
+
+  <!-- ================= HEADER (same as index.html) ================= -->
+  <header id="site-header" class="site-header is-top">
+    <div class="navbar">
+      <div class="mx-auto flex h-[76px] max-w-page items-center justify-between gap-5 px-5 md:px-8">
+        <a href="index.html" class="brand flex shrink-0 items-center gap-3" aria-label="جمعية الأمل — الصفحة الرئيسية">
+          <span class="brand-mark">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3c-2.8 3.6-7 6.2-7 10.2A7 7 0 0 0 12 21a7 7 0 0 0 7-7.8C19 9.2 14.8 6.6 12 3Z" fill="currentColor"/></svg>
+          </span>
+          <span class="flex flex-col">
+            <span class="brand-title text-[19px] font-bold leading-tight">جمعية الأمل</span>
+            <span class="brand-sub text-[11.5px] font-medium leading-none">لإغاثة أهل غزة ودعم صمودهم</span>
+          </span>
+        </a>
+
+        <nav class="hidden items-center gap-1 xl:flex" aria-label="التنقل الرئيسي">
+          <a class="nav-link" href="index.html">الرئيسية</a>
+          <a class="nav-link" href="about.html">من نحن</a>
+          <a class="nav-link is-active" href="projects.html" aria-current="page">المشاريع</a>
+          <a class="nav-link" href="index.html#activities">الأنشطة</a>
+          <a class="nav-link" href="news.html">الأخبار</a>
+          <a class="nav-link" href="index.html#partners">الشركاء</a>
+          <a class="nav-link" href="gallery.html">المعرض</a>
+          <a class="nav-link" href="index.html#admin">بوابة الإدارة</a>
+          <a class="nav-link" href="contact.html">تواصل معنا</a>
+        </nav>
+
+        <div class="flex items-center gap-2">
+          <a href="index.html#appeal" class="btn btn-gold hidden h-11 px-5 text-[14px] sm:inline-flex">
+            <span class="material-symbols-outlined fill text-[20px]">volunteer_activism</span>
+            ساهم في إغاثة غزة الآن
+          </a>
+          <button class="icon-btn account-btn" aria-label="حساب المستخدم">
+            <span class="material-symbols-outlined text-[20px]">person</span>
+          </button>
+          <button id="menu-btn" class="icon-btn menu-btn xl:hidden" aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobile-menu">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div id="mobile-menu" class="mobile-menu xl:hidden" hidden>
+    <div class="mobile-menu-backdrop" data-close></div>
+    <div class="mobile-menu-panel">
+      <nav class="flex flex-col gap-1" id="mobile-nav" aria-label="القائمة">
+        <a href="index.html"><span class="material-symbols-outlined">home</span>الرئيسية</a>
+        <a href="about.html"><span class="material-symbols-outlined">account_balance</span>من نحن</a>
+        <a href="projects.html" aria-current="page"><span class="material-symbols-outlined">cases</span>المشاريع والبرامج</a>
+        <a href="index.html#activities"><span class="material-symbols-outlined">verified</span>الأنشطة والأعمال</a>
+        <a href="news.html"><span class="material-symbols-outlined">newspaper</span>الأخبار</a>
+        <a href="index.html#partners"><span class="material-symbols-outlined">handshake</span>الشركاء</a>
+        <a href="gallery.html"><span class="material-symbols-outlined">perm_media</span>معرض الصور</a>
+        <a href="index.html#admin"><span class="material-symbols-outlined">admin_panel_settings</span>بوابة الإدارة</a>
+        <a href="contact.html"><span class="material-symbols-outlined">contact_support</span>تواصل معنا</a>
+      </nav>
+      <a href="index.html#appeal" class="btn btn-gold mt-4 h-12 w-full text-[15px]" data-close>
+        <span class="material-symbols-outlined fill text-[20px]">volunteer_activism</span>
+        ساهم في إغاثة غزة الآن
+      </a>
+    </div>
+  </div>
+
+  <main id="main">
+    <!-- ================= PAGE HERO ================= -->
+    <section class="page-hero " aria-labelledby="page-title">
+      <div class="page-hero-media" aria-hidden="true"><img src="img/project-parallax.jpg" alt="" data-hero-img></div>
+      <div class="page-hero-shade" aria-hidden="true"></div>
+      <div class="page-hero-pattern" aria-hidden="true"></div>
+      <div class="hero-grain" aria-hidden="true"></div>
+      <div class="page-hero-inner mx-auto max-w-page px-5 md:px-8">
+        <nav class="crumbs hero-in d1" aria-label="مسار التنقل">
+          <ol><li><a href="index.html"><span class="material-symbols-outlined" aria-hidden="true">home</span>الرئيسية</a></li><li><span aria-current="page" data-crumb-current>المشاريع</span></li></ol>
+        </nav>
+        <p class="page-hero-kicker hero-in d2" data-hero-kicker>مشاريع وبرامج غزة</p>
+        <h1 id="page-title" class="page-hero-title hero-in d3" data-hero-title>مبادرات الإغاثة المعتمدة <span class="text-gradient-gold">داخل القطاع</span></h1>
+        <p class="page-hero-lead hero-in d4" data-hero-lead>مسارات العمل الإنساني في غزة: المخابز، كفالة الأيتام، المياه، ومراكز الإيواء من الشمال إلى الجنوب.</p>
+        <div class="page-hero-meta hero-in d5"><span class="hero-chip"><b dir="ltr">12,000</b>نازح يومياً</span><span class="hero-chip"><b dir="ltr">500</b>يتيم مكفول</span><span class="hero-chip"><b dir="ltr">14,000</b>نسمة تصلها المياه</span><span class="hero-chip"><b dir="ltr">1,200</b>خيمة في رفح</span></div>
+      </div>
+      <span class="lux-hairline lux-hairline-bottom" aria-hidden="true"></span>
+    </section>
+
+    <!-- ================= PROJECTS GRID ================= -->
+    <section id="projects" class="sec sec-sand" aria-labelledby="projects-title">
+      <div class="mx-auto max-w-page px-5 md:px-8">
+        <div class="sec-head">
+          <div class="reveal">
+            <p class="eyebrow"><span class="material-symbols-outlined">cases</span>كل المشاريع</p>
+            <h2 id="projects-title" class="section-title">اختر المسار الذي تريد دعمه</h2>
+            <p class="section-lead">نسب التمويل المعروضة هي المنشورة في الصفحة الرئيسية؛ اضغط على أي مشروع لعرض تفاصيله والتبرع له.</p>
+          </div>
+        </div>
+        <div class="toolbar reveal mt-9">
+          <div id="pj-filters" class="chip-bar" role="group" aria-label="تصنيف المشاريع">
+          <button type="button" class="chip is-on" data-filter="all" aria-pressed="true"><span class="material-symbols-outlined" aria-hidden="true">auto_awesome</span>الكل<span class="chip-count">6</span></button>
+          <button type="button" class="chip" data-filter="relief" aria-pressed="false"><span class="material-symbols-outlined" aria-hidden="true">crisis_alert</span>إغاثة وطوارئ<span class="chip-count">1</span></button>
+          <button type="button" class="chip" data-filter="orphan" aria-pressed="false"><span class="material-symbols-outlined" aria-hidden="true">child_care</span>كفالة الأيتام<span class="chip-count">1</span></button>
+          <button type="button" class="chip" data-filter="water" aria-pressed="false"><span class="material-symbols-outlined" aria-hidden="true">water_drop</span>مياه وإصحاح<span class="chip-count">1</span></button>
+          <button type="button" class="chip" data-filter="shelter" aria-pressed="false"><span class="material-symbols-outlined" aria-hidden="true">night_shelter</span>إيواء ونزوح<span class="chip-count">2</span></button>
+          <button type="button" class="chip" data-filter="health" aria-pressed="false"><span class="material-symbols-outlined" aria-hidden="true">medical_services</span>الصحة<span class="chip-count">1</span></button>
+          </div>
+          <p class="result-count" id="pj-count" aria-live="polite">عرض <b>6</b> من <b>6</b> مشاريع</p>
+        </div>
+        <div class="pj-grid" id="pj-grid">
+          <article class="project-card reveal" data-cat="relief">
+            <div class="project-media">
+              <img src="img/project-relief.jpg" alt="توزيع مساعدات غذائية في شمال غزة" loading="lazy">
+              <span class="badge badge-urgent absolute top-3 right-3"><span class="live-dot live-dot-white"></span>أولوية قصوى</span>
+              <span class="loc-chip"><span class="material-symbols-outlined">location_on</span>شمال غزة — جباليا</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title"><a href="project.html?id=relief">برنامج الإطعام الطارئ ومخابز غزة</a></h3>
+              <p class="project-desc">تأمين الطحين والوقود لتشغيل 4 مخابز خيرية وتوزيع وجبات ساخنة يومية على 12,000 نازح في جباليا وبيت حانون.</p>
+              <dl class="project-facts">
+                <div><dt>النطاق:</dt><dd>4 مخابز مركزية</dd></div><div><dt>المستفيدون:</dt><dd class="text-gold-deep">12,000 يومياً</dd></div>
+              </dl>
+              <div class="progress" role="progressbar" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100" aria-label="نسبة التمويل: برنامج الإطعام الطارئ ومخابز غزة">
+                <div class="progress-track"><div class="bar-fill gold" style="--w:86%"></div></div>
+                <span class="progress-val" dir="ltr">86%</span>
+              </div>
+              <div class="project-actions">
+                <a href="project.html?id=relief" class="btn btn-forest h-11 flex-1 text-[14px]" aria-label="تفاصيل المبادرة: برنامج الإطعام الطارئ ومخابز غزة">تفاصيل المبادرة<span class="material-symbols-outlined btn-arrow text-[18px]" aria-hidden="true">arrow_back</span></a>
+                <a href="gallery.html" class="icon-square" aria-label="المعرض"><span class="material-symbols-outlined text-[20px]">photo_camera</span></a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card reveal" data-cat="orphan" style="--d:0.08s">
+            <div class="project-media">
+              <img src="img/project-orphan.jpg" alt="طفل يتيم نازح في مدرسة إيواء بغزة" loading="lazy">
+              <span class="badge badge-forest absolute top-3 right-3"><span class="material-symbols-outlined">school</span>مشروع مستدام</span>
+              <span class="loc-chip"><span class="material-symbols-outlined">location_on</span>مخيم الشاطئ</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title"><a href="project.html?id=orphans">رعاية أيتام غزة والتعليم المؤقت</a></h3>
+              <p class="project-desc">كفالة متكاملة للطعام والكساء والتعلّم في خيم مدرسية داخل مراكز الإيواء، مع متابعة نفسية للأطفال فاقدي ذويهم.</p>
+              <dl class="project-facts">
+                <div><dt>الأيتام المكفولون:</dt><dd class="text-gold-deep">500 يتيم</dd></div><div><dt>المراكز:</dt><dd>6 مجمعات تعليمية</dd></div>
+              </dl>
+              <div class="progress" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" aria-label="نسبة التمويل: رعاية أيتام غزة والتعليم المؤقت">
+                <div class="progress-track"><div class="bar-fill forest" style="--w:72%"></div></div>
+                <span class="progress-val" dir="ltr">72%</span>
+              </div>
+              <div class="project-actions">
+                <a href="project.html?id=orphans" class="btn btn-forest h-11 flex-1 text-[14px]" aria-label="تفاصيل المبادرة: رعاية أيتام غزة والتعليم المؤقت">تفاصيل المبادرة<span class="material-symbols-outlined btn-arrow text-[18px]" aria-hidden="true">arrow_back</span></a>
+                <a href="gallery.html" class="icon-square" aria-label="المعرض"><span class="material-symbols-outlined text-[20px]">photo_camera</span></a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card reveal" data-cat="water" style="--d:0.16s">
+            <div class="project-media">
+              <img src="img/project-water.jpg" alt="توزيع مياه صالحة للشرب في خان يونس" loading="lazy">
+              <span class="badge badge-light absolute top-3 right-3"><span class="material-symbols-outlined">water_drop</span>سقيا الماء</span>
+              <span class="loc-chip"><span class="material-symbols-outlined">location_on</span>خان يونس ودير البلح</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title"><a href="project.html?id=water">صهاريج مياه الشرب لمخيمات النزوح</a></h3>
+              <p class="project-desc">تشغيل محطات تحلية متنقلة وصهاريج يومية لثماني نقاط إيواء في خان يونس ودير البلح بعد تضرر الشبكات.</p>
+              <dl class="project-facts">
+                <div><dt>نقاط الإيواء:</dt><dd class="text-gold-deep">8 مواقع</dd></div><div><dt>المستفيدون:</dt><dd>14,000 نسمة</dd></div>
+              </dl>
+              <div class="progress" role="progressbar" aria-valuenow="64" aria-valuemin="0" aria-valuemax="100" aria-label="نسبة التمويل: صهاريج مياه الشرب لمخيمات النزوح">
+                <div class="progress-track"><div class="bar-fill gold" style="--w:64%"></div></div>
+                <span class="progress-val" dir="ltr">64%</span>
+              </div>
+              <div class="project-actions">
+                <a href="project.html?id=water" class="btn btn-forest h-11 flex-1 text-[14px]" aria-label="تفاصيل المبادرة: صهاريج مياه الشرب لمخيمات النزوح">تفاصيل المبادرة<span class="material-symbols-outlined btn-arrow text-[18px]" aria-hidden="true">arrow_back</span></a>
+                <a href="gallery.html" class="icon-square" aria-label="المعرض"><span class="material-symbols-outlined text-[20px]">photo_camera</span></a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card reveal" data-cat="shelter">
+            <div class="project-media">
+              <img src="img/project-empower.jpg" alt="توزيع خيام ومستلزمات إيواء في رفح" loading="lazy">
+              <span class="badge badge-mid absolute top-3 right-3"><span class="material-symbols-outlined">night_shelter</span>مأوى عاجل</span>
+              <span class="loc-chip"><span class="material-symbols-outlined">location_on</span>رفح</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title"><a href="project.html?id=shelter">خيام ومستلزمات الإيواء في رفح</a></h3>
+              <p class="project-desc">توزيع خيام عازلة وأغطية وفرش لعائلات نزحت من غزة المدينة والشمال نحو رفح ومحيطها.</p>
+              <dl class="project-facts">
+                <div><dt>الخيام:</dt><dd class="text-gold-deep">1,200 خيمة</dd></div><div><dt>الأسر المأواة:</dt><dd>1,200 أسرة نازحة</dd></div>
+              </dl>
+              <div class="progress" role="progressbar" aria-valuenow="58" aria-valuemin="0" aria-valuemax="100" aria-label="نسبة التمويل: خيام ومستلزمات الإيواء في رفح">
+                <div class="progress-track"><div class="bar-fill forest" style="--w:58%"></div></div>
+                <span class="progress-val" dir="ltr">58%</span>
+              </div>
+              <div class="project-actions">
+                <a href="project.html?id=shelter" class="btn btn-forest h-11 flex-1 text-[14px]" aria-label="تفاصيل المبادرة: خيام ومستلزمات الإيواء في رفح">تفاصيل المبادرة<span class="material-symbols-outlined btn-arrow text-[18px]" aria-hidden="true">arrow_back</span></a>
+                <a href="gallery.html" class="icon-square" aria-label="المعرض"><span class="material-symbols-outlined text-[20px]">photo_camera</span></a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card reveal" data-cat="health" style="--d:0.08s">
+            <div class="project-media">
+              <img src="img/activity-medical.jpg" alt="قافلة طبية ميدانية" loading="lazy">
+              <span class="badge badge-gold absolute top-3 right-3"><span class="material-symbols-outlined">medical_services</span>البرنامج الصحي في غزة</span>
+              <span class="loc-chip"><span class="material-symbols-outlined">location_on</span>دير البلح</span>
+            </div>
+            <div class="project-body">
+              <!-- PLACEHOLDER: project framing & progress are sample -->
+              <span class="sample-badge">محتوى تجريبي</span>
+              <h3 class="project-title"><a href="project.html?id=clinics">العيادات الميدانية والأدوية المزمنة</a></h3>
+              <p class="project-desc">عيادات خيام للجروح والأطفال والتوليد، وصرف أدوية مزمنة، وتحويلات عاجلة داخل وسط القطاع.</p>
+              <dl class="project-facts">
+                <div><dt>العيادات:</dt><dd class="text-gold-deep">3 عيادات ميدانية</dd></div><div><dt>الكشوفات:</dt><dd>8,400 كشف</dd></div>
+              </dl>
+              <div class="progress" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" aria-label="نسبة التمويل: العيادات الميدانية والأدوية المزمنة">
+                <div class="progress-track"><div class="bar-fill gold" style="--w:45%"></div></div>
+                <span class="progress-val" dir="ltr">45%</span>
+              </div>
+              <div class="project-actions">
+                <a href="project.html?id=clinics" class="btn btn-forest h-11 flex-1 text-[14px]" aria-label="تفاصيل المبادرة: العيادات الميدانية والأدوية المزمنة">تفاصيل المبادرة<span class="material-symbols-outlined btn-arrow text-[18px]" aria-hidden="true">arrow_back</span></a>
+                <a href="gallery.html" class="icon-square" aria-label="المعرض"><span class="material-symbols-outlined text-[20px]">photo_camera</span></a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card reveal" data-cat="shelter" style="--d:0.16s">
+            <div class="project-media">
+              <img src="img/activity-winter.jpg" alt="قافلة إغاثة شتوية" loading="lazy">
+              <span class="badge badge-forest absolute top-3 right-3"><span class="material-symbols-outlined">ac_unit</span>حملة دفء غزة</span>
+              <span class="loc-chip"><span class="material-symbols-outlined">location_on</span>مخيمات النزوح في رفح</span>
+            </div>
+            <div class="project-body">
+              <!-- PLACEHOLDER: project framing & progress are sample -->
+              <span class="sample-badge">محتوى تجريبي</span>
+              <h3 class="project-title"><a href="project.html?id=winter">حملة دفء غزة الشتوية</a></h3>
+              <p class="project-desc">إيصال حزم الدفء لحماية أكثر من 45 ألف نازح من برد الخيام في جنوب القطاع.</p>
+              <dl class="project-facts">
+                <div><dt>الطرود:</dt><dd class="text-gold-deep">10,000 طرد شتوي</dd></div><div><dt>المستفيدون:</dt><dd>45,200 مستفيد</dd></div>
+              </dl>
+              <div class="progress" role="progressbar" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100" aria-label="نسبة التمويل: حملة دفء غزة الشتوية">
+                <div class="progress-track"><div class="bar-fill forest" style="--w:38%"></div></div>
+                <span class="progress-val" dir="ltr">38%</span>
+              </div>
+              <div class="project-actions">
+                <a href="project.html?id=winter" class="btn btn-forest h-11 flex-1 text-[14px]" aria-label="تفاصيل المبادرة: حملة دفء غزة الشتوية">تفاصيل المبادرة<span class="material-symbols-outlined btn-arrow text-[18px]" aria-hidden="true">arrow_back</span></a>
+                <a href="gallery.html" class="icon-square" aria-label="المعرض"><span class="material-symbols-outlined text-[20px]">photo_camera</span></a>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="empty-state mt-8" id="pj-empty" hidden><span class="material-symbols-outlined" aria-hidden="true">search_off</span><strong>لا توجد مشاريع في هذا التصنيف حالياً</strong><p>جرّب تصنيفاً آخر أو اعرض كل المشاريع.</p></div>
+
+        <div class="trust-strip">
+          <div class="feature-tile reveal"><span class="feature-ico material-symbols-outlined" aria-hidden="true">photo_camera</span><div><p class="feature-title">توثيق بالصورة</p><p class="feature-desc">الشفافية في توثيق كل سلة بالصورة.</p></div></div>
+          <div class="feature-tile reveal" style="--d:.06s"><span class="feature-ico material-symbols-outlined" aria-hidden="true">shield</span><div><p class="feature-title">98.4% نسبة الشفافية والتدقيق</p><p class="feature-desc">في آخر تقرير إغاثة دوري منشور.</p></div></div>
+          <div class="feature-tile reveal" style="--d:.12s"><span class="feature-ico material-symbols-outlined" aria-hidden="true">volunteer_activism</span><div><p class="feature-title">وجّه زكاتك لأهل غزة</p><p class="feature-desc"><a class="link-arrow" href="contact.html">تواصل معنا لإخراج زكاتك<span class="material-symbols-outlined">arrow_back</span></a></p></div></div>
+        </div>
+      </div>
+    </section>
+<div class="pt-20 md:pt-28" aria-hidden="true"></div>
+    <!-- ================= DONATE CTA ================= -->
+    <section class="pb-20 md:pb-28" aria-labelledby="cta-title">
+      <div class="mx-auto max-w-page px-5 md:px-8">
+        <div class="cta-card reveal">
+          <div class="cta-body">
+            <span class="cta-pill"><span class="material-symbols-outlined" aria-hidden="true">local_shipping</span>قوافل يومية من الشمال إلى رفح</span>
+            <p class="mt-6 text-[15px] font-bold text-gold-light">خدمة المتبرعين</p>
+            <h2 id="cta-title" class="cta-title">لا تعرف أين توجّه مساهمتك؟<br><span class="text-gradient-gold">نوجّهها للاحتياج الأشد</span></h2>
+            <p class="cta-text">فريق خدمة المتبرعين والشركاء يساعدك في اختيار المشروع أو المحافظة، ويزوّدك بوسائل التبرع المعتمدة المتاحة في بلدك.</p>
+            <div class="cta-actions">
+              <a href="contact.html?topic=donate#message-form" class="btn btn-gold h-14 ps-2 pe-6 text-[16px]">
+                <span class="grid h-10 w-10 place-items-center rounded-full bg-primary text-gold-light"><span class="material-symbols-outlined fill text-[20px]" aria-hidden="true">volunteer_activism</span></span>
+                ساهم في إغاثة غزة الآن
+                <span class="material-symbols-outlined btn-arrow text-[20px]" aria-hidden="true">arrow_back</span>
+              </a>
+              <a href="https://wa.me/201007749292" target="_blank" rel="noopener" class="btn btn-glass h-14 px-6 text-[16px]"><span class="material-symbols-outlined text-gold-light" aria-hidden="true">chat</span>تواصل عبر واتساب</a>
+            </div>
+          </div>
+          <div class="cta-media" aria-hidden="true"><img src="img/project-relief.jpg" alt="" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER (same as index.html) ================= -->
+  <footer class="site-footer relative isolate overflow-hidden text-white">
+    <img class="footer-bg" src="img/footer-hardship.jpg" alt="" aria-hidden="true" loading="lazy">
+    <div class="footer-shade" aria-hidden="true"></div>
+    <div class="relative mx-auto grid max-w-page gap-10 px-5 pb-12 pt-20 md:grid-cols-2 md:px-8 lg:grid-cols-12">
+      <div class="lg:col-span-4">
+        <div class="flex items-center gap-3">
+          <span class="brand-mark">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3c-2.8 3.6-7 6.2-7 10.2A7 7 0 0 0 12 21a7 7 0 0 0 7-7.8C19 9.2 14.8 6.6 12 3Z" fill="currentColor"/></svg>
+          </span>
+          <p class="text-[20px] font-bold">جمعية الأمل لإغاثة غزة</p>
+        </div>
+        <p class="mt-5 max-w-sm text-[15px] leading-[1.9] text-primary-soft">مؤسسة إنسانية تعنى بإغاثة أهل غزة: الغذاء والدواء والمأوى وكفالة الأيتام النازحين وفق أعلى معايير التوثيق.</p>
+        <p class="mt-4 inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[12.5px] text-primary-soft"><span class="material-symbols-outlined text-[16px] text-gold-light">verified</span>ترخيص رقم: GZA-77492</p>
+      </div>
+      <div class="lg:col-span-2">
+        <h3 class="footer-h">روابط سريعة</h3>
+        <ul class="footer-links">
+          <li><a href="about.html#vision">الرؤية والرسالة</a></li>
+          <li><a href="project.html?id=orphans">كفالة أيتام غزة</a></li>
+          <li><a href="index.html#activities">تقارير إغاثة القطاع</a></li>
+          <li><a href="news.html">المركز الإعلامي</a></li>
+          <li><a href="gallery.html">معرض الصور</a></li>
+          <li><a href="index.html#faq">الأسئلة الشائعة</a></li>
+          <li><a href="contact.html">تواصل معنا</a></li>
+        </ul>
+      </div>
+      <div class="lg:col-span-3">
+        <h3 class="footer-h">التواصل</h3>
+        <p class="text-[15px] leading-[2] text-primary-soft">غرفة التنسيق: القاهرة<br>نقاط ميدانية: جباليا • الشاطئ • دير البلح • خان يونس • رفح<br>info@alamal-gaza.org</p>
+      </div>
+      <div class="lg:col-span-3">
+        <h3 class="footer-h">النشرة البريدية</h3>
+        <p class="text-[14px] leading-[1.8] text-primary-soft">اشترك لتصلك تقارير الأثر من غزة والحملات الطارئة.</p>
+        <form id="news-form" class="newsletter mt-4">
+          <input type="email" required placeholder="أدخل بريدك الإلكتروني" aria-label="أدخل بريدك الإلكتروني">
+          <button class="btn btn-gold h-11 px-4 text-[13px]" type="submit">تأكيد الاشتراك</button>
+        </form>
+      </div>
+    </div>
+    <div class="relative border-t border-white/10">
+      <div class="mx-auto flex max-w-page flex-col items-center justify-between gap-3 px-5 pb-24 pt-6 text-[13px] text-primary-soft md:flex-row md:px-8 md:pb-6 md:pe-60">
+        <p>جميع الحقوق محفوظة © 2026 جمعية الأمل لإغاثة أهل غزة</p>
+        <div class="flex flex-wrap justify-center gap-x-6 gap-y-2"><a class="hover:text-white" href="#">سياسة الخصوصية</a><a class="hover:text-white" href="#">لوائح الحوكمة</a><a class="hover:text-white" href="index.html#admin">بوابة الموظفين</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <a class="fab" href="https://wa.me/201007749292" target="_blank" rel="noopener" aria-label="خدمة إغاثة غزة الفورية">
+    <span class="material-symbols-outlined">support_agent</span>
+    <span class="hidden sm:inline">خدمة إغاثة غزة الفورية</span>
+  </a>
+
+  <div id="toast" class="toast" role="status" aria-live="polite">تم استلام رسالتك بنجاح</div>
+
+  <script src="js/pages.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

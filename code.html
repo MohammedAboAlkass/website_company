@@ -1,0 +1,1517 @@
+<!DOCTYPE html><html dir="rtl" lang="ar" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}html{scroll-behavior:smooth;}
+/* Dynamic Header Styles */
+#main-header {
+  transition: background-color 0.35s ease, backdrop-filter 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease, padding 0.35s ease;
+}
+#main-header:not(.scrolled) {
+  background-color: transparent;
+  background-image: linear-gradient(to bottom, rgba(0, 26, 60, 0.75) 0%, rgba(0, 26, 60, 0.2) 70%, transparent 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: none;
+}
+#main-header:not(.scrolled) .header-logo-title {
+  color: #ffffff;
+}
+#main-header:not(.scrolled) .header-logo-subtitle {
+  color: rgba(255, 255, 255, 0.75);
+}
+#main-header:not(.scrolled) .nav-link {
+  color: rgba(255, 255, 255, 0.88);
+}
+#main-header:not(.scrolled) .nav-link:hover,
+#main-header:not(.scrolled) .nav-link.active-nav {
+  color: #ffffff;
+}
+#main-header:not(.scrolled) .header-user-btn {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+#main-header:not(.scrolled) .header-user-btn:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+#main-header.scrolled {
+  background-color: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 4px 20px -2px rgba(0, 26, 60, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+#main-header.scrolled .header-logo-title {
+  color: #001a3c;
+}
+#main-header.scrolled .header-logo-subtitle {
+  color: #44474e;
+}
+#main-header.scrolled .nav-link {
+  color: #334155;
+}
+#main-header.scrolled .nav-link:hover,
+#main-header.scrolled .nav-link.active-nav {
+  color: #001a3c;
+  font-weight: 700;
+}
+#main-header.scrolled .header-user-btn {
+  background-color: #001a3c;
+  color: #ffffff;
+  border: 1px solid transparent;
+}
+#main-header.scrolled .header-user-btn:hover {
+  background-color: #192f52;
+}
+</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "outline": "#74777f",
+          "on-secondary-container": "#663500",
+          "on-secondary-fixed": "#2f1500",
+          "surface-container-lowest": "#ffffff",
+          "inverse-on-surface": "#ecf1ff",
+          "surface-bright": "#f9f9ff",
+          "on-secondary-fixed-variant": "#6e3900",
+          "on-secondary": "#ffffff",
+          "error-container": "#ffdad6",
+          "on-surface": "#111c2d",
+          "background": "#f9f9ff",
+          "on-primary-fixed": "#011b3d",
+          "tertiary": "#3e000c",
+          "surface-variant": "#d8e3fb",
+          "error": "#ba1a1a",
+          "secondary-container": "#fe932c",
+          "tertiary-fixed-dim": "#ffb3b6",
+          "secondary-fixed-dim": "#ffb77d",
+          "on-error-container": "#93000a",
+          "on-surface-variant": "#44474e",
+          "surface": "#f9f9ff",
+          "tertiary-container": "#650019",
+          "surface-container-high": "#dee8ff",
+          "on-primary": "#ffffff",
+          "on-background": "#111c2d",
+          "surface-container": "#e7eeff",
+          "primary-container": "#192f52",
+          "on-primary-fixed-variant": "#32476b",
+          "on-primary-container": "#8397c0",
+          "on-tertiary-fixed": "#40000c",
+          "primary": "#001a3c",
+          "outline-variant": "#c4c6cf",
+          "surface-container-highest": "#d8e3fb",
+          "surface-tint": "#4a5f84",
+          "secondary-fixed": "#ffdcc3",
+          "on-tertiary-container": "#ff5f72",
+          "inverse-surface": "#263143",
+          "tertiary-fixed": "#ffdada",
+          "primary-fixed-dim": "#b2c7f2",
+          "on-tertiary-fixed-variant": "#920028",
+          "inverse-primary": "#b2c7f2",
+          "surface-container-low": "#f0f3ff",
+          "secondary": "#904d00",
+          "surface-dim": "#cfdaf2",
+          "on-tertiary": "#ffffff",
+          "primary-fixed": "#d7e3ff",
+          "on-error": "#ffffff"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "gutter": "1.5rem",
+          "margin": "3rem",
+          "space-sm": "0.75rem",
+          "space-lg": "2rem",
+          "space-md": "1.25rem",
+          "space-xl": "3.5rem",
+          "space-xs": "0.375rem",
+          "gutter-mobile": "1rem",
+          "margin-mobile": "1.25rem",
+          "margin-tablet": "2rem"
+        },
+        "fontFamily": {
+          "body-md": [
+            "IBM Plex Sans"
+          ],
+          "headline-sm": [
+            "IBM Plex Sans"
+          ],
+          "headline-lg-mobile": [
+            "IBM Plex Sans"
+          ],
+          "label-md": [
+            "IBM Plex Sans"
+          ],
+          "label-sm": [
+            "IBM Plex Sans"
+          ],
+          "display": [
+            "IBM Plex Sans"
+          ],
+          "body-lg": [
+            "IBM Plex Sans"
+          ],
+          "body-sm": [
+            "IBM Plex Sans"
+          ],
+          "title-lg": [
+            "IBM Plex Sans"
+          ],
+          "headline-lg": [
+            "IBM Plex Sans"
+          ],
+          "headline-md": [
+            "IBM Plex Sans"
+          ],
+          "label-lg": [
+            "IBM Plex Sans"
+          ],
+          "display-mobile": [
+            "IBM Plex Sans"
+          ]
+        },
+        "fontSize": {
+          "body-md": [
+            "15px",
+            {
+              "lineHeight": "26px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-sm": [
+            "20px",
+            {
+              "lineHeight": "30px",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-lg-mobile": [
+            "26px",
+            {
+              "lineHeight": "38px",
+              "fontWeight": "700"
+            }
+          ],
+          "label-md": [
+            "12px",
+            {
+              "lineHeight": "18px",
+              "fontWeight": "500"
+            }
+          ],
+          "label-sm": [
+            "11px",
+            {
+              "lineHeight": "16px",
+              "fontWeight": "500"
+            }
+          ],
+          "display": [
+            "48px",
+            {
+              "lineHeight": "64px",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "700"
+            }
+          ],
+          "body-lg": [
+            "18px",
+            {
+              "lineHeight": "30px",
+              "fontWeight": "400"
+            }
+          ],
+          "body-sm": [
+            "13px",
+            {
+              "lineHeight": "22px",
+              "fontWeight": "400"
+            }
+          ],
+          "title-lg": [
+            "18px",
+            {
+              "lineHeight": "28px",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-lg": [
+            "36px",
+            {
+              "lineHeight": "50px",
+              "fontWeight": "700"
+            }
+          ],
+          "headline-md": [
+            "24px",
+            {
+              "lineHeight": "36px",
+              "fontWeight": "600"
+            }
+          ],
+          "label-lg": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "600"
+            }
+          ],
+          "display-mobile": [
+            "32px",
+            {
+              "lineHeight": "44px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "700"
+            }
+          ]
+        }
+      },
+    },
+  }</script><link class="" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tajawal:wght@300;400;500;700;800;900&amp;display=swap" rel="stylesheet"><style id="thmanyah-font-styles">@font-face { font-family: 'Thmanyah'; font-weight: 300; font-style: normal; font-display: swap; src: url('https://font.thmanyah.com/fonts/Thmanyah-Light.woff2') format('woff2'), url('https://font.thmanyah.com/fonts/Thmanyah-Light.woff') format('woff'); } @font-face { font-family: 'Thmanyah'; font-weight: 400; font-style: normal; font-display: swap; src: url('https://font.thmanyah.com/fonts/Thmanyah-Regular.woff2') format('woff2'), url('https://font.thmanyah.com/fonts/Thmanyah-Regular.woff') format('woff'); } @font-face { font-family: 'Thmanyah'; font-weight: 500; font-style: normal; font-display: swap; src: url('https://font.thmanyah.com/fonts/Thmanyah-Medium.woff2') format('woff2'), url('https://font.thmanyah.com/fonts/Thmanyah-Medium.woff') format('woff'); } @font-face { font-family: 'Thmanyah'; font-weight: 700; font-style: normal; font-display: swap; src: url('https://font.thmanyah.com/fonts/Thmanyah-Bold.woff2') format('woff2'), url('https://font.thmanyah.com/fonts/Thmanyah-Bold.woff') format('woff'); } @font-face { font-family: 'Thmanyah'; font-weight: 800; font-style: normal; font-display: swap; src: url('https://font.thmanyah.com/fonts/Thmanyah-Black.woff2') format('woff2'), url('https://font.thmanyah.com/fonts/Thmanyah-Black.woff') format('woff'); } @font-face { font-family: 'Thmanyah Serif'; font-weight: 400; font-style: normal; font-display: swap; src: url('https://font.thmanyah.com/fonts/ThmanyahSerif-Regular.woff2') format('woff2'); } @font-face { font-family: 'Thmanyah Serif'; font-weight: 700; font-style: normal; font-display: swap; src: url('https://font.thmanyah.com/fonts/ThmanyahSerif-Bold.woff2') format('woff2'); } :root { --thmanyah-sans: 'Thmanyah', 'Thmanyah Sans', 'Tajawal', 'IBM Plex Sans Arabic', sans-serif; --thmanyah-serif: 'Thmanyah Serif', 'Amiri', 'Traditional Arabic', serif; } html, body, button, input, select, textarea, span, p, a, div, li, td, th { font-family: var(--thmanyah-sans) !important; } h1, h2, h3, .font-display, .font-headline-lg, .font-headline-md, .header-logo-title { font-family: var(--thmanyah-serif) !important; letter-spacing: -0.015em; } h4, h5, h6, .font-headline-sm, .font-title-lg, .font-label-lg, .font-label-md, .font-label-sm { font-family: var(--thmanyah-sans) !important; } .material-symbols-outlined { font-family: 'Material Symbols Outlined' !important; }</style></head><body class="bg-surface text-on-surface antialiased" style="font-family: &quot;Thmanyah&quot;, &quot;Thmanyah Sans&quot;, &quot;Tajawal&quot;, sans-serif !important;"><header class="fixed top-0 right-0 left-0 w-full z-50 transition-all duration-300" id="main-header"><div class="h-20 max-w-[1280px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm shrink-0"><img alt="SVG logo for an Arabic charity organization called 'جمعية الأمل لرعاية الأيتام والإغاثة'" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XGpHyI-113MFhWsR-J_e1AoPAeXGywGeIvQm8QrCQGOZFFv50oVPJpDNFOnqjL4alGcIp32Kqz7e-RAajJ_Z5aOqjjO0Q8msFOhZsRgbpQKc_O5twacfHF-BYyEwNNbd2utYdC51O5v9Oiy49Ve1zmjVDVO8SflL0D89fniO9mV5cZFbExBglDWeNUde5whotqrp3X8okDkmefM_4P7o4GRmEMHhKBRJiZiOhCjR7lodqqWUf467jDc3Pn"><div class="flex flex-col"><span class="header-logo-title font-headline-sm text-headline-sm leading-tight font-bold transition-colors duration-300">جمعية الأمل</span><span class="header-logo-subtitle font-label-sm text-label-sm leading-none transition-colors duration-300">لرعاية الأيتام والإغاثة الإنسانية</span></div></div><nav class="hidden xl:flex items-center gap-space-md"><a aria-current="page" class="nav-link active-nav transition-colors duration-200 font-bold" data-path="charity-portal" href="#hero">الرئيسية</a><a class="nav-link transition-colors duration-200 font-medium" data-path="charity-portal" href="#about">عن المؤسسة</a><a class="nav-link transition-colors duration-200 font-medium" data-path="charity-portal" href="#projects">المشاريع والبرامج</a><a class="nav-link transition-colors duration-200 font-medium" data-path="charity-portal" href="#activities">الأنشطة والأعمال</a><a class="nav-link transition-colors duration-200 font-medium" data-path="charity-portal" href="#news">الأخبار</a><a class="nav-link transition-colors duration-200 font-medium" data-path="charity-portal" href="#partners">الشركاء</a><a class="nav-link transition-colors duration-200 font-medium" data-path="charity-portal" href="#gallery">المعرض</a><a class="nav-link transition-colors duration-200 font-medium" data-path="charity-portal" href="#admin">بوابة الإدارة</a><a class="nav-link transition-colors duration-200 font-medium" data-path="charity-portal" href="#contact">اتصل بنا</a></nav><div class="flex items-center gap-space-sm"><button aria-label="حساب المستخدم والمنظومة" class="header-user-btn w-9 h-9 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 shadow-sm"><span class="material-symbols-outlined text-[19px]">person</span></button></div></div></header><main class="w-full bg-surface"><div class="flex flex-col w-full font-body-md text-body-md text-on-surface">
+<!-- =========================================================================
+       1. HERO & QUICK DONATION SECTION (id="hero")
+       ========================================================================= -->
+<section class="relative w-full overflow-hidden bg-primary text-on-primary pt-28 pb-space-xl md:pt-36 md:pb-28 min-h-[640px] flex items-center justify-center" id="hero"><video autoplay="" class="absolute inset-0 w-full h-full object-cover opacity-40 scale-105 pointer-events-none transition-transform duration-1000" loop="" muted="" playsinline="" poster="https://lh3.googleusercontent.com/aida-public/AB6AXuD6fcl8HVwJYAxpSKtUkAfuYALEbgZDb7ywyNZMuMMyjWaawJ_Mxeb8cJKfMaEwdCUbZKUD9yKeKnkLPt6KCeOzhYN8P1bnGYFY_PiV-M0TjnR8NXGAKyKT-fsNrhMp7_YM7zK9vI-zosNO3nF8Ct7r147_BgOlRR-LQHnvsFXB6ooPYDotSWopLyd6JA9aDyaooenBeeMcYsoUgyqGBZBuUJsf8Z9w6FnenYbA6ecgYw3GyjAWFh0ukA"><source src="https://assets.mixkit.co/videos/preview/mixkit-hands-of-people-holding-sand-that-slips-away-42512-large.mp4" type="video/mp4"></video><div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-primary/60 pointer-events-none"></div><div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-secondary-container/15 blur-3xl pointer-events-none"></div><div class="absolute top-1/2 -left-20 w-80 h-80 rounded-full bg-primary/20 blur-3xl pointer-events-none"></div><div class="max-w-[1280px] w-full mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin relative z-10"><div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-md"><div class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container-lowest/10 shadow-sm backdrop-blur-md border border-surface-container-lowest/10"><span class="w-2.5 h-2.5 rounded-full bg-secondary animate-ping"></span><span class="font-label-md text-label-md text-secondary font-bold">توثيق حي ومباشر من الميدان</span><span class="text-outline-variant font-body-sm">•</span><span class="font-label-md text-label-md text-on-primary/90">رصد يومي من 24 دولة وإقليم</span><span class="material-symbols-outlined text-secondary text-[16px]">videocam</span></div><button class="inline-flex items-center gap-2 px-space-sm py-1.5 rounded-full bg-surface-container-lowest/10 backdrop-blur-md border border-surface-container-lowest/10 hover:bg-surface-container-lowest/20 transition-colors text-on-primary font-label-sm text-label-sm"><span class="material-symbols-outlined text-[18px] text-secondary">volume_up</span><span class="">صوت البيئة الميدانية</span><span class="flex items-end gap-0.5 h-3.5"><span class="w-1 bg-secondary rounded-full animate-pulse h-2.5"></span><span class="w-1 bg-secondary rounded-full animate-pulse h-3.5"></span><span class="w-1 bg-secondary rounded-full animate-pulse h-1.5"></span></span></button></div><div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center"><div class="lg:col-span-8 flex flex-col gap-space-md"><div class="space-y-space-sm"><span class="font-label-lg text-label-lg text-secondary uppercase tracking-wider font-bold block">المنصة الوثائقية الرسمية لحفظ الكرامة</span><h1 class="font-display text-display text-on-primary leading-tight font-extrabold">معاً نروي قصص الأمل..<br><span class="text-secondary">ونوثق الأثر الإنساني</span> لحظة بلحظة</h1><p class="font-body-lg text-body-lg text-on-primary/80 max-w-2xl leading-relaxed">من قلب مناطق الحاجة الأكثر هشاشة، نسجل بالصوت والصورة الحية مسارات التغيير الحقيقي. هنا تنطق الحقائق عن كرامة تُصان ومجتمعات تنبعث من جديد، بأعلى معايير المصداقية والشفافية التوثيقية.</p></div><div class="flex flex-wrap items-center gap-space-md pt-space-xs"><a class="group inline-flex items-center gap-space-sm px-space-lg py-space-sm rounded-xl bg-secondary text-on-secondary font-title-lg text-title-lg shadow-xl hover:bg-secondary-container transition-all duration-300 relative overflow-hidden" href="#gallery"><span class="relative flex h-5 w-5"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-surface-container-lowest opacity-75"></span><span class="relative inline-flex rounded-full h-5 w-5 bg-surface-container-lowest text-secondary items-center justify-center"><span class="material-symbols-outlined text-[16px]">play_arrow</span></span></span><span class="">شاهد الفيلم الوثائقي للأثر الميداني</span><span class="material-symbols-outlined text-[20px] group-hover:-translate-x-1 transition-transform">arrow_back</span></a><a class="inline-flex items-center gap-space-xs px-space-md py-space-sm rounded-xl bg-surface-container-lowest/10 border border-surface-container-lowest/10 text-on-primary font-title-lg text-title-lg hover:bg-surface-container-lowest/20 backdrop-blur-sm transition-colors" href="#activities"><span class="material-symbols-outlined text-[20px] text-secondary">photo_library</span><span class="">أرشيف التقارير المصورة</span></a></div></div><div class="lg:col-span-4 w-full"><div class="grid grid-cols-2 gap-space-sm"><div class="p-space-md rounded-2xl bg-surface-container-lowest/10 backdrop-blur-md border border-surface-container-lowest/10 flex flex-col gap-1 shadow-lg hover:border-secondary/40 transition-colors"><div class="flex items-center justify-between text-secondary"><span class="material-symbols-outlined text-[22px]">group</span><span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span></div><span class="font-headline-lg text-headline-lg font-bold text-on-primary tabular-nums">+180K</span><span class="font-label-sm text-label-sm text-on-primary/70">مستفيد موثق</span></div><div class="p-space-md rounded-2xl bg-surface-container-lowest/10 backdrop-blur-md border border-surface-container-lowest/10 flex flex-col gap-1 shadow-lg hover:border-secondary/40 transition-colors"><div class="flex items-center justify-between text-secondary"><span class="material-symbols-outlined text-[22px]">public</span><span class="material-symbols-outlined text-[18px]">verified</span></div><span class="font-headline-lg text-headline-lg font-bold text-secondary tabular-nums">24</span><span class="font-label-sm text-label-sm text-on-primary/70">إقليماً مشمولاً</span></div><div class="p-space-md rounded-2xl bg-surface-container-lowest/10 backdrop-blur-md border border-surface-container-lowest/10 flex flex-col gap-1 shadow-lg hover:border-secondary/40 transition-colors"><div class="flex items-center justify-between text-secondary"><span class="material-symbols-outlined text-[22px]">video_camera_front</span><span class="font-label-sm text-label-sm text-secondary font-bold">4K HD</span></div><span class="font-headline-lg text-headline-lg font-bold text-on-primary tabular-nums">+2,500</span><span class="font-label-sm text-label-sm text-on-primary/70">تسجيل ومقطع حي</span></div><div class="p-space-md rounded-2xl bg-surface-container-lowest/10 backdrop-blur-md border border-surface-container-lowest/10 flex flex-col gap-1 shadow-lg hover:border-secondary/40 transition-colors"><div class="flex items-center justify-between text-secondary"><span class="material-symbols-outlined text-[22px]">task_alt</span><span class="material-symbols-outlined text-[18px]">shield</span></div><span class="font-headline-lg text-headline-lg font-bold text-secondary tabular-nums">98.4%</span><span class="font-label-sm text-label-sm text-on-primary/70">نسبة الشفافية والتدقيق</span></div></div></div></div></div></section>
+<!-- =========================================================================
+       2. ABOUT SECTION (id="about")
+       ========================================================================= -->
+<section class="w-full py-space-xl bg-surface" id="about">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin">
+<!-- Section Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-lg">
+<div class="space-y-space-xs max-w-2xl">
+<div class="inline-flex items-center gap-space-xs font-label-lg text-label-lg text-secondary font-bold">
+<span class="material-symbols-outlined text-[18px]">account_balance</span>
+<span class="">التعريف والمسيرة المؤسسية</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary font-bold">
+            خمسة عشر عاماً من صون الكرامة والتمكين الحقيقي
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            تأسست مؤسسة العطاء والتمكين عام 2009 ككيان إنساني غير ربحي ملتزم بإحداث نقلة نوعية من الرعائية التقليدية المؤقتة إلى التمكين الذاتي المستدام للأسر والأفراد الأقل حظاً.
+          </p>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<span class="px-space-md py-space-xs rounded-full bg-surface-container-high text-primary font-label-md text-label-md font-bold">
+            معتمدة بالمعيار الإنساني الدولي ISO 9001
+          </span>
+</div>
+</div>
+<!-- Core Vision, Mission, Values Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md mb-space-lg">
+<!-- Card 1: Vision -->
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between group hover:shadow-md transition-all">
+<div class="space-y-space-sm">
+<div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[28px]">visibility</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-primary font-bold">رؤيتنا المؤسسية</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              الريادة الإقليمية والدولية في تحويل المجتمعات المتضررة من دائرة الاحتياج الطارئ إلى مجتمعات مكتفية ذاتياً وقادرة على إدارة مواردها بكرامة واستقلالية.
+            </p>
+</div>
+<div class="pt-space-md font-label-md text-label-md text-secondary font-bold flex items-center gap-1">
+<span class="">مستهدف رؤية 2030</span>
+<span class="material-symbols-outlined text-[16px]">chevron_left</span>
+</div>
+</div>
+<!-- Card 2: Mission -->
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between group hover:shadow-md transition-all">
+<div class="space-y-space-sm">
+<div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[28px]">flag</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-primary font-bold">رسالتنا في الميدان</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              تصميم وتنفيذ تدخلات إنسانية وتنموية متكاملة تجمع بين الاستجابة السريعة للكوارث وإرساء دعائم التعليم والرعاية الصحية والمشاريع الإنتاجية المدرة للدخل.
+            </p>
+</div>
+<div class="pt-space-md font-label-md text-label-md text-secondary font-bold flex items-center gap-1">
+<span class="">ميثاق العمل الإنساني</span>
+<span class="material-symbols-outlined text-[16px]">chevron_left</span>
+</div>
+</div>
+<!-- Card 3: Values -->
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between group hover:shadow-md transition-all">
+<div class="space-y-space-sm">
+<div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[28px]">diversity_3</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-primary font-bold">القيم الجوهرية</h3>
+<ul class="space-y-space-xs font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-center gap-space-xs"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>الكرامة أولاً: حماية كبرياء المستفيد.</li>
+<li class="flex items-center gap-space-xs"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>الشفافية المطلقة: تقارير مالية مدققة.</li>
+<li class="flex items-center gap-space-xs"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>الأثر الباقي: حلول تنموية لا تنتهي بانتهاء الدعم.</li>
+<li class="flex items-center gap-space-xs"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>الحوكمة الرشيدة: إدارة لا مركزية كفؤة.</li>
+</ul>
+</div>
+<div class="pt-space-md font-label-md text-label-md text-secondary font-bold flex items-center gap-1">
+<span class="">معايير النزاهة 100%</span>
+<span class="material-symbols-outlined text-[16px]">chevron_left</span>
+</div>
+</div>
+</div>
+<!-- 4 Pillars of Operation with Visual Presentation -->
+<div class="p-space-lg rounded-2xl bg-surface-container-low shadow-sm">
+<div class="mb-space-md">
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold">ركائز التدخل الإنساني المتكامل</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">أربعة قطاعات تشغيلية حيوية نقود من خلالها جهود التغيير على مدار العام</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-secondary text-[24px]">crisis_alert</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">01</span>
+</div>
+<h4 class="font-title-lg text-title-lg text-primary font-bold">الإغاثة العاجلة والحرجة</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              فرق تدخل طارئ ميدانية مجهزة لإنقاذ الأرواح في أوقات النزاعات والزلازل والفيضانات وتوفير الإيواء الفوري.
+            </p>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-secondary text-[24px]">school</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">02</span>
+</div>
+<h4 class="font-title-lg text-title-lg text-primary font-bold">التعليم وبناء القدرات</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              بناء وترميم المدارس، كفالة طلاب العلم المتميزين، ومراكز التدريب المهني لتجهيز الشباب لأسواق العمل.
+            </p>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-secondary text-[24px]">trending_up</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">03</span>
+</div>
+<h4 class="font-title-lg text-title-lg text-primary font-bold">التمكين الاقتصادي والمشاريع</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              توفير رؤوس أموال صغيرة وأصول إنتاجية (أبقار حلوب، مشاغل خياطة، عربات طعام) لتحويل الأسر إلى منتجين.
+            </p>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-secondary text-[24px]">health_and_safety</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">04</span>
+</div>
+<h4 class="font-title-lg text-title-lg text-primary font-bold">الرعاية الصحية ومحطات المياه</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              تسيير العيادات الطبية الجراحية المتنقلة وحفر الآبار الارتوازية وتجهيز شبكات المياه النظيفة بالطاقة الشمسية.
+            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================================================================
+       3. PROGRAMS & PROJECTS (id="projects")
+       ========================================================================= -->
+<section class="w-full py-space-xl bg-surface-container-low" id="projects">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin">
+<!-- Section Header & Filter Pills -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-lg">
+<div class="space-y-space-xs"><div class="inline-flex items-center gap-space-xs font-label-lg text-label-lg text-secondary font-bold"><span class="material-symbols-outlined text-[18px]">cases</span><span class="">مشاريع وبرامج العطاء</span></div><h2 class="font-headline-lg text-headline-lg text-primary font-bold">البرامج والمبادرات الإنسانية المعتمدة</h2><p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">استعراض شامل لمسارات العمل الإنساني والبرامج المستدامة التي تنفذها المؤسسة لتحقيق الأثر المجتمعي الشامل والتنمية المستدامة.</p></div>
+<!-- Filter Pills Bar -->
+<div class="flex flex-wrap gap-space-xs" id="projectFilters">
+<button class="px-space-md py-space-xs rounded-full bg-primary text-on-primary font-label-md text-label-md font-bold transition-colors">الكل (28)</button>
+<button class="px-space-md py-space-xs rounded-full bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-highest font-label-md text-label-md font-semibold transition-colors">كفالة الأيتام</button>
+<button class="px-space-md py-space-xs rounded-full bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-highest font-label-md text-label-md font-semibold transition-colors">إغاثة وطوارئ</button>
+<button class="px-space-md py-space-xs rounded-full bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-highest font-label-md text-label-md font-semibold transition-colors">مياه وإصحاح</button>
+<button class="px-space-md py-space-xs rounded-full bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-highest font-label-md text-label-md font-semibold transition-colors">تمكين اقتصادي</button>
+</div>
+</div>
+<!-- 4 Rich Project Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Project Card 1: Gaza Emergency -->
+<div class="rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden group">
+<div class="relative h-48 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Humanitarian emergency relief aid distribution in Gaza, flour bags and warm meals handed over with dignity to displaced families, warm golden afternoon lighting, cinematic photojournalism, deep navy and warm accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6fcl8HVwJYAxpSKtUkAfuYALEbgZDb7ywyNZMuMMyjWaawJ_Mxeb8cJKfMaEwdCUbZKUD9yKeKnkLPt6KCeOzhYN8P1bnGYFY_PiV-M0TjnR8NXGAKyKT-fsNrhMp7_YM7zK9vI-zosNO3nF8Ct7r147_BgOlRR-LQHnvsFXB6ooPYDotSWopLyd6JA9aDyaooenBeeMcYsoUgyqGBZBuUJsf8Z9w6FnenYbA6ecgYw3GyjAWFh0ukA">
+<div class="absolute top-3 right-3 px-space-xs py-1 rounded-full bg-error text-on-error font-label-sm text-label-sm font-bold flex items-center gap-1 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-surface-container-lowest animate-ping"></span>
+<span class="">أولوية قصوى</span>
+</div>
+<div class="absolute bottom-3 right-3 px-space-xs py-1 rounded bg-primary/80 backdrop-blur-sm text-on-primary font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+<span class="">شمال غزة، فلسطين</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-md"><div class="space-y-space-xs"><h3 class="font-title-lg text-title-lg text-primary font-bold group-hover:text-secondary transition-colors">برنامج الإطعام الطارئ والمخابز الخيرية</h3><p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">تأمين الطحين والوقود لتشغيل 4 مخابز خيرية وتوزيع وجبات ساخنة يومية على 12,000 نازح في مراكز الإيواء.</p></div><div class="space-y-space-xs p-space-xs rounded-lg bg-surface-container-low"><div class="flex items-center justify-between font-label-sm text-label-sm"><span class="text-primary font-bold">النطاق الميداني:</span><span class="text-on-surface-variant font-semibold">4 مخابز مركزية</span></div><div class="flex items-center justify-between font-label-sm text-label-sm"><span class="text-primary font-bold">المستفيدون:</span><span class="text-secondary font-bold">12,000 نازح يومياً</span></div><div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant"><span class="">حالة التنفيذ:</span><span class="text-primary font-semibold">تشغيل مستمر</span></div></div><div class="flex items-center gap-space-xs pt-space-xs"><a class="flex-1 py-space-xs rounded-lg bg-primary text-on-primary font-label-lg text-label-lg font-bold hover:bg-primary-container transition-colors text-center" href="#contact">تفاصيل المبادرة</a><a class="w-10 h-10 rounded-lg bg-surface-container-high text-primary flex items-center justify-center hover:bg-surface-container-highest transition-colors" href="#gallery" title="معرض التوثيق"><span class="material-symbols-outlined text-[20px]">photo_camera</span></a></div></div>
+</div>
+<!-- Project Card 2: Orphan Educational Sponsorship -->
+<div class="rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden group">
+<div class="relative h-48 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Happy young Arab orphan boy holding school books and backpack smiling warmly in a bright classroom setting, soft warm lighting, hope and dignity, high resolution documentary photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBw82fKRIS6bqxFKM4g4A09Rar9samODpeXEuVr_T4pVD1I6EHzztwreZ7L0Mf-kquBzA0BuoBKT1ZJOyN7xM1Xbmjge_-FuQO5VfRkhYmV_H1ZvjX3ZHkDl6txZtAqQsHUW5o86arJUg_XxdIpbLVWFQwFpzCVrpVU_hisFlIIyjyuAIw-k3NOvK97gZ_AVQ11iMldmKo2NyRSfdPjyG9h1deJcfh5Hc1EEczr9YGlv_ZVNCxcCpSPBw">
+<div class="absolute top-3 right-3 px-space-xs py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-bold flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">school</span>
+<span class="">مشروع مستدام</span>
+</div>
+<div class="absolute bottom-3 right-3 px-space-xs py-1 rounded bg-primary/80 backdrop-blur-sm text-on-primary font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+<span class="">ريف إدلب والجنوب</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-md"><div class="space-y-space-xs"><h3 class="font-title-lg text-title-lg text-primary font-bold group-hover:text-secondary transition-colors">منظومة رعاية الأيتام والتعليم النوعي</h3><p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">رعاية متكاملة تشمل المأكل والملبس والتسجيل في المدارس النموذجية والمتابعة النفسية والرعاية الصحية المتقدمة.</p></div><div class="space-y-space-xs p-space-xs rounded-lg bg-surface-container-low"><div class="flex items-center justify-between font-label-sm text-label-sm"><span class="text-primary font-bold">إجمالي الأيتام المكفولين:</span><span class="text-secondary font-bold">500 يتيم</span></div><div class="flex items-center justify-between font-label-sm text-label-sm"><span class="text-primary font-bold">المراكز التعليمية:</span><span class="text-on-surface-variant font-semibold">6 مجمعات تعليمية</span></div><div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant"><span class="">نوع الرعاية:</span><span class="text-primary font-semibold">تعليمية وصحية شاملة</span></div></div><div class="flex items-center gap-space-xs pt-space-xs"><a class="flex-1 py-space-xs rounded-lg bg-primary text-on-primary font-label-lg text-label-lg font-bold hover:bg-primary-container transition-colors text-center" href="#contact">تفاصيل المبادرة</a><a class="w-10 h-10 rounded-lg bg-surface-container-high text-primary flex items-center justify-center hover:bg-surface-container-highest transition-colors" href="#gallery" title="معرض التوثيق"><span class="material-symbols-outlined text-[20px]">photo_camera</span></a></div></div>
+</div>
+<!-- Project Card 3: Solar Water Wells -->
+<div class="rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden group">
+<div class="relative h-48 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Fresh clean potable water pouring from a newly installed community solar well tap, joyful children and villagers drinking clean water in Yemen, realistic humanitarian documentary photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCg6EcRkkrLtzSEbBA6CPgB5s1znWiRXTbONv5Tf3eFxuFFjOg6GYi9QIEVL1CQsRsEdFFE7NZXseQFZSzjrn-hkECXzn0Yu3oiCZpWD7zT6ZH-K85_vp9m_Wje9uY5RENIX_UVZr8Go4aphZg_nodSYmqUn-F-b53IkDMx0e0yrv7Ozre6PFybNLRnLhsZKFuc216YZpLCUXKmwTIrBTBA8IOlJrb0x29pU5-RTuO3EsJEqqIJTSe0dQ">
+<div class="absolute top-3 right-3 px-space-xs py-1 rounded-full bg-surface-container-highest text-primary font-label-sm text-label-sm font-bold flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">water_drop</span>
+<span class="">سقيا الماء</span>
+</div>
+<div class="absolute bottom-3 right-3 px-space-xs py-1 rounded bg-primary/80 backdrop-blur-sm text-on-primary font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+<span class="">تعز والحديدة، اليمن</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-md"><div class="space-y-space-xs"><h3 class="font-title-lg text-title-lg text-primary font-bold group-hover:text-secondary transition-colors">شبكات مياه الشرب بالطاقة الشمسية</h3><p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">حفر آبار ارتوازية عميقة وتشييد خزانات مركزية موصلة بألواح الطاقة الشمسية لتأمين مياه شرب نظيفة لـ 8 قرى.</p></div><div class="space-y-space-xs p-space-xs rounded-lg bg-surface-container-low"><div class="flex items-center justify-between font-label-sm text-label-sm"><span class="text-primary font-bold">القرى المستفيدة:</span><span class="text-secondary font-bold">8 قرى وتجمعات</span></div><div class="flex items-center justify-between font-label-sm text-label-sm"><span class="text-primary font-bold">المستفيدون:</span><span class="text-on-surface-variant font-semibold">14,000 نسمة</span></div><div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant"><span class="">مصدر الطاقة:</span><span class="text-primary font-semibold">طاقة شمسية مستدامة</span></div></div><div class="flex items-center gap-space-xs pt-space-xs"><a class="flex-1 py-space-xs rounded-lg bg-primary text-on-primary font-label-lg text-label-lg font-bold hover:bg-primary-container transition-colors text-center" href="#contact">تفاصيل المبادرة</a><a class="w-10 h-10 rounded-lg bg-surface-container-high text-primary flex items-center justify-center hover:bg-surface-container-highest transition-colors" href="#gallery" title="معرض التوثيق"><span class="material-symbols-outlined text-[20px]">photo_camera</span></a></div></div>
+</div>
+<!-- Project Card 4: Economic Empowerment -->
+<div class="rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden group">
+<div class="relative h-48 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="An empowered hardworking mother artisan in an embroidery and tailoring workshop tailoring modest apparel with a modern sewing machine, brightly lit modern atelier, dignified economic livelihood project" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCn-RFo2Zz5F2raeEC5LZB_C-1AgjjJqlmkluYspwVZdoIkuEnlT_c4tAq_NTQhUVuVboWqoyeK3AxoUeAlsKCzUkkUSaS-VGJHafyIrM_3spXM9UKVYHvCTF8jQ6TGjbkxYIqVc56aStXj5v1p3d5ayUyvBbkfl_aB9rEYXjnI5qoTaXMqnNpevpnD7usWT4dj70gceBNjq2xRo976iTG2AG21VfUS2Juod951zyzg9Vd3fi8OnpfOg">
+<div class="absolute top-3 right-3 px-space-xs py-1 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm font-bold flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">handshake</span>
+<span class="">سند إنتاجي</span>
+</div>
+<div class="absolute bottom-3 right-3 px-space-xs py-1 rounded bg-primary/80 backdrop-blur-sm text-on-primary font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+<span class="">الخرطوم ونهر النيل</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-md"><div class="space-y-space-xs"><h3 class="font-title-lg text-title-lg text-primary font-bold group-hover:text-secondary transition-colors">حاضنة المشاريع الصغيرة للأسر المتعففة</h3><p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">تزويد المعيلات بأدوات الإنتاج والتدريب الحرفي ودراسات الجدوى لتحقيق الاكتفاء المعيشي والاستغناء عن المعونات.</p></div><div class="space-y-space-xs p-space-xs rounded-lg bg-surface-container-low"><div class="flex items-center justify-between font-label-sm text-label-sm"><span class="text-primary font-bold">المشاريع المدعومة:</span><span class="text-secondary font-bold">120 مشروع إنتاجي</span></div><div class="flex items-center justify-between font-label-sm text-label-sm"><span class="text-primary font-bold">الأسر المستقلة:</span><span class="text-on-surface-variant font-semibold">120 أسرة منتجة</span></div><div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant"><span class="">المجالات:</span><span class="text-primary font-semibold">حرفية وإنتاجية وغذائية</span></div></div><div class="flex items-center gap-space-xs pt-space-xs"><a class="flex-1 py-space-xs rounded-lg bg-primary text-on-primary font-label-lg text-label-lg font-bold hover:bg-primary-container transition-colors text-center" href="#contact">تفاصيل المبادرة</a><a class="w-10 h-10 rounded-lg bg-surface-container-high text-primary flex items-center justify-center hover:bg-surface-container-highest transition-colors" href="#gallery" title="معرض التوثيق"><span class="material-symbols-outlined text-[20px]">photo_camera</span></a></div></div>
+</div>
+</div>
+<!-- Projects View All Bottom Action -->
+<div class="mt-space-lg text-center">
+<a class="inline-flex items-center gap-space-xs px-space-lg py-space-xs rounded-full bg-surface-container-lowest text-primary font-label-lg text-label-lg font-bold hover:bg-surface-container-highest shadow-sm transition-all" href="#projects">
+<span class="">استعراض كافة البرامج والفرص الإنسانية (28 مشروع)</span>
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+</a>
+</div>
+</div>
+</section>
+<!-- =========================================================================
+       4. ACTIVITIES & FIELD WORK (id="activities")
+       ========================================================================= -->
+<section class="w-full py-space-xl bg-surface" id="activities">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-lg">
+<div class="space-y-space-xs">
+<div class="inline-flex items-center gap-space-xs font-label-lg text-label-lg text-secondary font-bold">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span class="">الميدان يتكلم</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary font-bold">
+            أنشطة ميدانية وحملات منجزة على الأرض
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+            فرقنا الإغاثية والمتطوعون يتواجدون على مدار الساعة لترجمة أموال التبرعات إلى إغاثات حقيقية وسكن ودفء.
+          </p>
+</div>
+<a class="inline-flex items-center gap-space-xs font-label-lg text-label-lg text-secondary font-bold hover:underline" href="#gallery">
+<span class="">مشاهدة الأرشيف الميداني المصور</span>
+<span class="material-symbols-outlined text-[18px]">west</span>
+</a>
+</div>
+<!-- 3 Activities Showcase Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Activity Card 1 -->
+<div class="flex flex-col rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-lg transition-all overflow-hidden">
+<div class="relative h-56 w-full">
+<img class="w-full h-full object-cover" data-alt="Convoy of humanitarian relief aid trucks loaded with warm blankets and winter supplies driving across snowy mountainous winter landscape, authentic field logistics photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDpkDH4xIqda-BjXBVpSZeoC7wLTF3L7CRsgQ8EpJKAMTpJApZoa43zfVOlJCq661JvynVwU0SM7ZxJAp8PPLkYhgswgnvv1lM59jdG6sA0stibOyilh9ynWw6X4fplEic_QCDiIwkgnn1cn7KTNNgWx85fxEVG4aUjnldw5wCoo6qdv5gvb4WKnBrwppapZyQeWXXSE-ECjH3CWk9lkd5vHaVWXvCQ2pNQy2kBz_lp9c_DPxzOKz2eg">
+<span class="absolute top-3 right-3 px-space-sm py-1 rounded-full bg-primary/90 text-on-primary font-label-sm text-label-sm font-bold backdrop-blur-sm">
+              حملة دفء الشتاء 2024
+            </span>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+<span class="">نوفمبر - ديسمبر 2024</span>
+<span class="">•</span>
+<span class="text-secondary font-bold">مخيمات اللجوء الحدودية</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-primary font-bold">
+                توزيع 10,000 طرد شتوي ومدافئ عازلة
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                تم بحمد الله إيصال حزم الدفء المتكاملة (كسوة شتوية، وقود تدفئة، بطانيات حرارية عازلة، عوازل خيام) لحماية أكثر من 45 ألف فرد من الصقيع.
+              </p>
+</div>
+<div class="pt-space-xs flex items-center justify-between border-t border-surface-container">
+<span class="font-label-md text-label-md text-primary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-[18px]">group</span>
+<span class="">45,200 مستفيد</span>
+</span>
+<a class="font-label-md text-label-md text-secondary hover:underline flex items-center gap-1" href="#">
+<span class="">تقرير الفيديو</span>
+<span class="material-symbols-outlined text-[16px]">smart_display</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Activity Card 2 -->
+<div class="flex flex-col rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-lg transition-all overflow-hidden">
+<div class="relative h-56 w-full">
+<img class="w-full h-full object-cover" data-alt="Volunteer doctors and surgeons conducting free specialized medical checkups for elderly patients and mothers in a mobile clinic hospital tent, clean sterile clinical environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTLK38g-uNM_DIMLh-N0uHvoThqm1Nnm3H69UHSKl1WkUbNxxL36lVUtlvx_CJVqVIpu80_IycMiKh7OmClpVlNspRQoyYGBBmfwFyP50kDCk5q97Rb1KsoG5aUwPh0M53wBUwsP6CVcu1YlqTWcKRDJsZ3ygwCBVT7Sx5XdGPKfbTWenIPpkx9NGdu6_jesqXNU9WoWglm5vQGjTbt0w9aKG37iS57sXZPwTMertyWIenpByCpiectQ">
+<span class="absolute top-3 right-3 px-space-sm py-1 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm font-bold shadow-sm">
+              البرنامج الصحي العاجل
+            </span>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+<span class="">أكتوبر 2024</span>
+<span class="">•</span>
+<span class="text-secondary font-bold">محافظة مأرب</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-primary font-bold">
+                تسيير 3 قوافل طبية وإجراء 320 عملية جراحية
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                تضمنت الحملة عيادات متنقلة لأمراض العيون والأسنان، وصرف أدوية مجانية، وإجراء عمليات مياه بيضاء واستئصال أورام للأطفال وكبار السن.
+              </p>
+</div>
+<div class="pt-space-xs flex items-center justify-between border-t border-surface-container">
+<span class="font-label-md text-label-md text-primary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-[18px]">medical_services</span>
+<span class="">8,400 كشف وفحص</span>
+</span>
+<a class="font-label-md text-label-md text-secondary hover:underline flex items-center gap-1" href="#">
+<span class="">تحميل PDF التوثيق</span>
+<span class="material-symbols-outlined text-[16px]">download</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Activity Card 3 -->
+<div class="flex flex-col rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-lg transition-all overflow-hidden">
+<div class="relative h-56 w-full">
+<img and="" arab="" bright="" certificates,="" class="w-full h-full object-cover data-alt=" course,="" electrical="" faces"="" from="" graduating="" group="" holding="" of="" orphans="" proudly="" smiling="" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9zrBf3H3NZmcCK5KXIxAHV_bubRc6SXYMtOgvsHMB_Zbm12pv1ZrHK9AVoyxpQ7wgHd8ZJNyep-1MIWuT3B-LcUkFGMjcYvs-chkgwCNwTtTlj0OagEW0Nvm6Oo3Ke1oRPCZYm0YsoRtqOveYU9TqNu-ZHom9KpvRjOJY8oT6LwPwprUu21pVs9ATybsqB0TnPFiHNV7orR5W4JjRvPB9rIz4iZJBFxK-Qv3jOBIMDEZrzovSsnrgpg" technology="" training="" vocational="" young="" youth="">
+<span class="absolute top-3 right-3 px-space-sm py-1 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm font-bold shadow-sm">
+              تمكين الشباب واليافعين
+            </span>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+<span class="">سبتمبر 2024</span>
+<span class="">•</span>
+<span class="text-secondary font-bold">المراكز الحضرية</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-primary font-bold">
+                تخريج الدفعة السادسة من حاضنة البرمجة والمهن
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                احتفاء بتخريج 210 أيتام وشابات بعد إتمام دبلومات مكثفة في مهارات العمل الرقمي وصيانة الأجهزة، مع توفير أجهزة حاسوب شخصية مجانية.
+              </p>
+</div>
+<div class="pt-space-xs flex items-center justify-between border-t border-surface-container">
+<span class="font-label-md text-label-md text-primary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-[18px]">school</span>
+<span class="">210 خريج موظف</span>
+</span>
+<a class="font-label-md text-label-md text-secondary hover:underline flex items-center gap-1" href="#">
+<span class="">قصص النجاح</span>
+<span class="material-symbols-outlined text-[16px]">insights</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================================================================
+       5. NEWS & ANNOUNCEMENTS (id="news")
+       ========================================================================= -->
+<section class="w-full py-space-xl bg-surface-container-low" id="news">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin">
+<!-- Section Top -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-lg">
+<div class="space-y-space-xs">
+<div class="inline-flex items-center gap-space-xs font-label-lg text-label-lg text-secondary font-bold">
+<span class="material-symbols-outlined text-[18px]">newspaper</span>
+<span class="">المركز الإعلامي والبيانات الرسمية</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary font-bold">
+            آخر الأخبار وتقارير الشفافية الدورية
+          </h2>
+</div>
+<!-- Search bar inside news -->
+<div class="relative w-full md:w-72">
+<input class="w-full pr-10 pl-space-sm py-space-xs rounded-lg bg-surface-container-lowest text-on-surface placeholder:text-outline font-label-md text-label-md outline-none focus:ring-2 focus:ring-secondary shadow-sm" placeholder="ابحث في الأخبار والبيانات..." type="text">
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
+</div>
+</div>
+<!-- Asymmetric News Layout: 1 Lead Major + 2 Side Cards -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Lead Main Article (7 cols) -->
+<div class="lg:col-span-7 flex flex-col rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all overflow-hidden">
+<div class="relative h-72 sm:h-80 w-full">
+<img class="w-full h-full object-cover" data-alt="Official high-level charitable conference signing agreement with United Nations and humanitarian partners, elegant formal hall with flags, dignified leadership" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp-Ikd0JNNTviea232Xk5-HpfaZ_LOU1RXNZHlEJ9MjQ2nqzE4PgYEuPkl5bNO00AAib7hQDa7WmWzkJxYf-MFIpu2CBfY7cUe0dvEWLpV_jcWKOxWTWeESwkzQwgTdeeuj0RopJiKwIY0Gz6jU6X2qggBuFHzrUkgPJfOj2tpy7YUpgkSXg7Fj3iBy738mKE4j2dxkfBToM619UV6ueNwTH92CJZliVeSg-dsq8sSEng-Qg73iuTGXw">
+<span class="absolute top-4 right-4 px-space-sm py-1 rounded bg-secondary text-on-secondary font-label-md text-label-md font-bold">
+              بيان صحفي رسمي
+            </span>
+</div>
+<div class="p-space-lg flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-md text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">event</span> 15 ديسمبر 2024</span>
+<span class="">•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">schedule</span> قراءة 4 دقائق</span>
+<span class="">•</span>
+<span class="text-primary font-bold">إدارة الاتصال المؤسسي</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary font-bold leading-tight hover:text-secondary cursor-pointer transition-colors">
+              اعتماد التقرير المالي السنوي المدقق لعام 2024 وتوقيع شراكة استراتيجية مع وكالات الإغاثة الدولية
+            </h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              أعلنت الجمعية العمومية لمؤسسة العطاء والتمكين في اجتماعها السنوي المنعقد بالرياض عن إقفال الحسابات المالية لعام 2024 بنسبة التزام بالحوكمة والشفافية تجاوزت 98.4% وفق مكتب التدقيق الدولي المستقل، مع التوقيع على 3 مذكرات تفاهم لتوسيع نطاق التدخل الصحي.
+            </p>
+<div class="pt-space-xs flex items-center justify-between">
+<a class="inline-flex items-center gap-space-xs font-label-lg text-label-lg text-primary font-bold hover:text-secondary transition-colors" href="#">
+<span class="">قراءة البيان كاملاً مع الملاحق</span>
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+</a>
+<span class="text-on-surface-variant font-label-sm text-label-sm">رقم القيد الإخباري: PR-2024-88</span>
+</div>
+</div>
+</div>
+<!-- 2 Stacked Side Secondary News (5 cols) -->
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<div class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col gap-space-xs">
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="text-secondary font-bold">المنح الجامعية</span>
+<span class="">10 ديسمبر 2024</span>
+</div>
+<h4 class="font-title-lg text-title-lg text-primary font-bold hover:text-secondary cursor-pointer transition-colors">
+              فتح باب التقديم لـ 500 منحة جامعية مجانية للأيتام المتفوقين في كليات الطب والهندسة والذكاء الاصطناعي
+            </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              تغطي المنحة الرسوم الجامعية الكاملة بالإضافة إلى السكن ومصروفاً شهرياً وجهاز كمبيوتر محمول طوال سنوات الدراسة.
+            </p>
+<div class="pt-space-xs flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary font-semibold">ينتهي التقديم: 30 يناير 2025</span>
+<a class="font-label-md text-label-md text-secondary font-bold flex items-center gap-1 hover:underline" href="#">
+<span class="">شروط المنحة</span>
+<span class="material-symbols-outlined text-[16px]">chevron_left</span>
+</a>
+</div>
+</div>
+<div class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col gap-space-xs">
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="text-secondary font-bold">الجوائز والاعتمادات</span>
+<span class="">28 نوفمبر 2024</span>
+</div>
+<h4 class="font-title-lg text-title-lg text-primary font-bold hover:text-secondary cursor-pointer transition-colors">
+              حصول المؤسسة على جائزة التميز المؤسسي العالمية في الشفافية والابتكار الإنساني الرقمي
+            </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              تتويجاً لإطلاق المنظومة الذكية التي تتيح للمتبرع تتبع كل ريال يتم التبرع به حتى وصوله لصاحب الحاجة وتوثيقه بالفيديو.
+            </p>
+<div class="pt-space-xs flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary font-semibold">منتدى الحوكمة الإنسانية</span>
+<a class="font-label-md text-label-md text-secondary font-bold flex items-center gap-1 hover:underline" href="#">
+<span class="">تفاصيل التكريم</span>
+<span class="material-symbols-outlined text-[16px]">chevron_left</span>
+</a>
+</div>
+</div>
+<div class="p-space-md rounded-2xl bg-primary text-on-primary shadow-sm flex items-center justify-between gap-space-sm">
+<div class="space-y-1">
+<span class="font-label-sm text-label-sm text-secondary-container font-bold">أرشيف البيانات</span>
+<h5 class="font-title-lg text-title-lg font-bold">تحميل التقارير المالية والسنوية</h5>
+<p class="font-body-sm text-body-sm text-on-primary-container">متاح للعموم التزاماً بالشفافية المطلقة (2015 - 2024)</p>
+</div>
+<a class="px-space-md py-space-xs rounded-lg bg-secondary text-on-secondary font-label-md text-label-md font-bold hover:bg-secondary-container transition-all shrink-0" href="#">
+              مكتبة التقارير
+            </a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================================================================
+       6. STRATEGIC PARTNERS & DONORS (id="partners")
+       ========================================================================= -->
+<section class="w-full py-space-xl bg-surface" id="partners">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin">
+<div class="text-center max-w-3xl mx-auto mb-space-lg space-y-space-xs">
+<div class="inline-flex items-center gap-space-xs font-label-lg text-label-lg text-secondary font-bold">
+<span class="material-symbols-outlined text-[18px]">handshake</span>
+<span class="">تحالفات الخير والتمكين</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary font-bold">
+          شركاء الأثر والمسيرة الإنسانية
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          نعتز بالتعاون الوثيق مع المؤسسات الأممية والهيئات الحكومية والقطاع الخاص لخلق حلول ذات أثر جمعي يغير حياة مئات الآلاف.
+        </p>
+</div>
+<!-- Partners Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-space-sm mb-space-lg">
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col items-center justify-center text-center gap-space-xs hover:bg-surface-container transition-all">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[24px]">shield</span>
+</div>
+<span class="font-label-md text-label-md text-primary font-bold">مفوضية اللاجئين</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">UNHCR Partner</span>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col items-center justify-center text-center gap-space-xs hover:bg-surface-container transition-all">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest flex items-center justify-center text-secondary shadow-sm">
+<span class="material-symbols-outlined text-[24px]">child_friendly</span>
+</div>
+<span class="font-label-md text-label-md text-primary font-bold">منظمة يونيسف</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">UNICEF Child Rights</span>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col items-center justify-center text-center gap-space-xs hover:bg-surface-container transition-all">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest flex items-center justify-center text-error shadow-sm">
+<span class="material-symbols-outlined text-[24px]">medical_services</span>
+</div>
+<span class="font-label-md text-label-md text-primary font-bold">الهلال الأحمر</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Red Crescent Network</span>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col items-center justify-center text-center gap-space-xs hover:bg-surface-container transition-all">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[24px]">account_balance</span>
+</div>
+<span class="font-label-md text-label-md text-primary font-bold">البنك الإسلامي</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">IsDB Development</span>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col items-center justify-center text-center gap-space-xs hover:bg-surface-container transition-all">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest flex items-center justify-center text-secondary shadow-sm">
+<span class="material-symbols-outlined text-[24px]">payments</span>
+</div>
+<span class="font-label-md text-label-md text-primary font-bold">صندوق الزكاة والصدقات</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Zakat Fund Certified</span>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col items-center justify-center text-center gap-space-xs hover:bg-surface-container transition-all">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[24px]">corporate_fare</span>
+</div>
+<span class="font-label-md text-label-md text-primary font-bold">الوقف الإنساني الدولي</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Global Waqf Alliance</span>
+</div>
+</div>
+<!-- CSR & Corporate Partnerships Banner -->
+<div class="p-space-lg rounded-2xl bg-gradient-to-l from-primary via-primary-container to-primary text-on-primary flex flex-col md:flex-row items-center justify-between gap-space-md shadow-md"><div class="space-y-space-xs text-center md:text-right"><span class="font-label-sm text-label-sm text-secondary-fixed font-bold tracking-wide uppercase">برنامج المسؤولية الاجتماعية للشركات (CSR)</span><h3 class="font-headline-sm text-headline-sm font-bold text-on-primary">شراكات استراتيجية لتنمية المجتمع وتعظيم الأثر</h3><p class="font-body-sm text-body-sm text-on-primary-container max-w-xl">نعمل جنباً إلى جنب مع كبرى الشركات والمؤسسات لتصميم مبادرات تنموية ومجتمعية نوعية متوافقة مع أهداف الاستدامة المؤسسية ومعتمدة بالتوثيق الميداني الموثوق.</p></div><div class="flex items-center gap-space-sm shrink-0"><a class="px-space-lg py-space-xs rounded-lg bg-secondary text-on-secondary font-label-lg text-label-lg font-bold hover:bg-secondary-container transition-all shadow-md" href="#contact">طلب شراكة مؤسسية</a><a class="px-space-md py-space-xs rounded-lg bg-surface-container-lowest/10 text-on-primary font-label-lg text-label-lg hover:bg-surface-container-lowest/20 transition-all" href="#contact">تحميل كتيب الشراكات</a></div></div>
+</div>
+</section>
+<!-- =========================================================================
+       7. PHOTO & MEDIA GALLERY (id="gallery")
+       ========================================================================= -->
+<section class="w-full py-space-xl bg-surface-container-low" id="gallery">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin">
+
+  <!-- 1. Header & Counters -->
+  <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-lg">
+    <div class="space-y-space-xs">
+      <div class="inline-flex items-center gap-space-xs font-label-lg text-label-lg text-secondary font-bold">
+        <span class="material-symbols-outlined text-[20px]">perm_media</span>
+        <span class="">مرئيات وتوثيق الميدان</span>
+      </div>
+      <h2 class="font-headline-lg text-headline-lg text-primary font-bold">
+        المعرض والمركز الإعلامي التوثيقي
+      </h2>
+      <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+        أرشيف حي يوثق بالصوت والصورة لحظات صناعة الأمل ووصول المساعدات الإغاثية لمستحقيها بكرامة وشفافية كاملة.
+      </p>
+    </div>
+    <div class="flex items-center gap-space-sm bg-surface-container-lowest px-space-md py-space-xs rounded-2xl shadow-sm border border-surface-container shrink-0 text-primary">
+      <div class="flex items-center gap-1.5 font-label-md text-label-md font-bold">
+        <span class="material-symbols-outlined text-secondary text-[18px]">photo_library</span>
+        <span class="">2,450 صورة</span>
+      </div>
+      <span class="text-outline-variant font-body-sm">•</span>
+      <div class="flex items-center gap-1.5 font-label-md text-label-md font-bold">
+        <span class="material-symbols-outlined text-secondary text-[18px]">play_circle</span>
+        <span class="">380 فيديو</span>
+      </div>
+      <span class="text-outline-variant font-body-sm">•</span>
+      <div class="flex items-center gap-1.5 font-label-md text-label-md font-bold text-secondary">
+        <span class="material-symbols-outlined text-[18px]">motion_photos_on</span>
+        <span class="">منها 190 ريلز</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. mo3ta.ps-Inspired Filter Bar & Search Toolbar -->
+  <div class="bg-surface-container-lowest p-space-md rounded-2xl shadow-sm border border-surface-container mb-space-lg flex flex-col gap-space-sm">
+    <!-- Row 1: Type Tabs & Orientation Filters -->
+    <div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-xs border-b border-surface-container">
+      <!-- Media Type Pills -->
+      <div class="flex flex-wrap items-center gap-1.5">
+        <span class="font-label-sm text-label-sm text-on-surface-variant font-bold ml-1">النوع:</span>
+        <button class="px-space-md py-1 rounded-full bg-primary text-on-primary font-label-md text-label-md font-bold transition-all shadow-sm">الكل</button>
+        <button class="px-space-md py-1 rounded-full bg-surface-container-low text-on-surface hover:bg-surface-container-high font-label-md text-label-md font-medium transition-all flex items-center gap-1">
+          <span class="material-symbols-outlined text-[16px]">image</span> صور
+        </button>
+        <button class="px-space-md py-1 rounded-full bg-surface-container-low text-on-surface hover:bg-surface-container-high font-label-md text-label-md font-medium transition-all flex items-center gap-1">
+          <span class="material-symbols-outlined text-[16px]">movie</span> فيديو
+        </button>
+        <button class="px-space-md py-1 rounded-full bg-surface-container-low text-on-surface hover:bg-surface-container-high font-label-md text-label-md font-medium transition-all flex items-center gap-1">
+          <span class="material-symbols-outlined text-[16px]">play_shapes</span> ريلز
+        </button>
+      </div>
+
+      <!-- Orientation Ratio Filters -->
+      <div class="flex flex-wrap items-center gap-1.5">
+        <span class="font-label-sm text-label-sm text-on-surface-variant font-bold ml-1">الاتجاه:</span>
+        <button class="px-space-sm py-1 rounded-lg bg-surface-container-high text-primary font-label-sm text-label-sm font-bold">كل الاتجاهات</button>
+        <button class="px-space-sm py-1 rounded-lg bg-surface-container-low text-on-surface-variant hover:text-primary font-label-sm text-label-sm flex items-center gap-1">
+          <span class="material-symbols-outlined text-[14px]">stay_current_portrait</span> طولي
+        </button>
+        <button class="px-space-sm py-1 rounded-lg bg-surface-container-low text-on-surface-variant hover:text-primary font-label-sm text-label-sm flex items-center gap-1">
+          <span class="material-symbols-outlined text-[14px]">stay_current_landscape</span> عرضي
+        </button>
+        <button class="px-space-sm py-1 rounded-lg bg-surface-container-low text-on-surface-variant hover:text-primary font-label-sm text-label-sm flex items-center gap-1">
+          <span class="material-symbols-outlined text-[14px]">crop_square</span> مربّع
+        </button>
+      </div>
+    </div>
+
+    <!-- Row 2: Search Input, Date Filter, Sort, Reset -->
+    <div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs">
+      <div class="flex flex-wrap items-center gap-space-sm flex-1">
+        <!-- Search Input -->
+        <div class="relative flex-1 min-w-[220px] max-w-md">
+          <input class="w-full pr-10 pl-space-sm py-1.5 rounded-xl bg-surface-container-low text-on-surface placeholder:text-outline font-label-md text-label-md outline-none focus:ring-2 focus:ring-secondary border border-transparent focus:border-secondary/20" placeholder="ابحث في العناوين والتعليقات الميدانية..." type="text">
+          <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
+        </div>
+
+        <!-- Date Range Filter -->
+        <div class="inline-flex items-center gap-1.5 px-space-sm py-1.5 rounded-xl bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm border border-transparent">
+          <span class="material-symbols-outlined text-[16px] text-secondary">calendar_month</span>
+          <span class="">التاريخ: من - إلى</span>
+          <span class="material-symbols-outlined text-[14px]">expand_more</span>
+        </div>
+      </div>
+
+      <!-- Sort and Results Count -->
+      <div class="flex items-center gap-space-sm">
+        <div class="inline-flex items-center gap-1 px-space-sm py-1.5 rounded-xl bg-surface-container-low text-primary font-label-sm text-label-sm font-bold">
+          <span class="material-symbols-outlined text-[16px]">sort</span>
+          <span class="">الأحدث أولاً</span>
+          <span class="material-symbols-outlined text-[14px]">arrow_drop_down</span>
+        </div>
+        <button class="font-label-sm text-label-sm text-on-surface-variant hover:text-error flex items-center gap-1 transition-colors">
+          <span class="material-symbols-outlined text-[16px]">restart_alt</span> مسح الفلاتر
+        </button>
+        <span class="text-outline-variant font-body-sm">|</span>
+        <span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">
+          12 عنصراً معروضاً · <span class="text-secondary font-bold">تصفح الأرشيف الميداني</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Exactly 12 Media Items Grid (Mixed Sizes & Ratios) -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+    
+    <!-- ITEM 1: Wide Feature Video (2 cols, 2 rows) -->
+    <div class="group relative sm:col-span-2 sm:row-span-2 min-h-[380px] rounded-2xl overflow-hidden shadow-sm bg-primary border border-surface-container flex flex-col justify-end">
+      <img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Large humanitarian aid truck convoy delivering urgent food parcels and hot meals to displaced families in Gaza, cinematic documentary shot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAp7jKbU3Mg0l--d8aQEak_Njwt-fFaAy6OGGCgWIRH3L3RCCUrwZL8tNAZu0Uuq91yHnmXH3ol4PNIsuXpgxe8J31h8AvNlQULBcTi87yojucZERQunQdLbPDYtxGEZ1DhjxL9f0feZy_sO0T8DtAW5vlQUC0ZuHcAUJUxdwieKfx0UdbwT80r-leo7h1JsjHQ148W3becZknqGkx21yIiQURbEnhf4NdFaASd8eg1GzxgBHjct39Waw">
+      <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-transparent"></div>
+      
+      <!-- Badges Top -->
+      <div class="absolute top-3 right-3 left-3 flex items-center justify-between pointer-events-none z-10">
+        <span class="px-space-xs py-1 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm font-bold flex items-center gap-1 shadow-md">
+          <span class="material-symbols-outlined text-[14px]">play_circle</span> فيديو 04:20
+        </span>
+        <span class="px-space-xs py-1 rounded bg-primary/80 backdrop-blur-sm text-on-primary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+          <span class="material-symbols-outlined text-[14px]">stay_current_landscape</span> عرضي
+        </span>
+      </div>
+
+      <!-- Center Big Play Button (Hover animation) -->
+      <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+        <div class="w-16 h-16 rounded-full bg-surface-container-lowest/90 text-secondary flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:bg-secondary group-hover:text-on-secondary transition-all duration-300">
+          <span class="material-symbols-outlined text-[32px] translate-x-[-1px]">play_arrow</span>
+        </div>
+      </div>
+
+      <!-- Content Bottom -->
+      <div class="relative z-10 p-space-md text-on-primary flex flex-col gap-1.5">
+        <div class="flex items-center gap-space-xs font-label-sm text-label-sm text-secondary-fixed font-bold">
+          <span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+          <span class="">غزة - مخيم جباليا والشمال</span>
+          <span class="">•</span>
+          <span class="">15 سبتمبر 2024</span>
+        </div>
+        <h3 class="font-headline-sm text-headline-sm font-bold leading-tight group-hover:text-secondary transition-colors">
+          ⭕ قافلة الإغاثة الكبرى - وثائقي توزيع السلال والوجبات الساخنة
+        </h3>
+        <p class="font-body-sm text-body-sm text-surface-variant line-clamp-2">
+          توثيق ميداني حي لانطلاق وتوزيع شحنة الطحين والمستلزمات الغذائية الطارئة لمساندة 12,000 مستفيد يومياً.
+        </p>
+        <div class="pt-1 flex items-center justify-between text-on-primary/80 font-label-sm text-label-sm border-t border-surface-container-lowest/10">
+          <span class="">الإنتاج: وحدة التوثيق الإنساني</span>
+          <div class="flex items-center gap-2">
+            <button class="hover:text-secondary transition-colors"><span class="material-symbols-outlined text-[18px]">download</span></button>
+            <button class="hover:text-secondary transition-colors"><span class="material-symbols-outlined text-[18px]">share</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ITEM 2: Tall Reels Card (طولي 9:16) -->
+    <div class="group relative sm:row-span-2 min-h-[380px] rounded-2xl overflow-hidden shadow-sm bg-primary border border-surface-container flex flex-col justify-end">
+      <img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Happy smiling orphan refugee child receiving school backpack and stationery in north camp" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBw82fKRIS6bqxFKM4g4A09Rar9samODpeXEuVr_T4pVD1I6EHzztwreZ7L0Mf-kquBzA0BuoBKT1ZJOyN7xM1Xbmjge_-FuQO5VfRkhYmV_H1ZvjX3ZHkDl6txZtAqQsHUW5o86arJUg_XxdIpbLVWFQwFpzCVrpVU_hisFlIIyjyuAIw-k3NOvK97gZ_AVQ11iMldmKo2NyRSfdPjyG9h1deJcfh5Hc1EEczr9YGlv_ZVNCxcCpSPBw">
+      <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent"></div>
+      
+      <!-- Badges -->
+      <div class="absolute top-3 right-3 left-3 flex items-center justify-between z-10">
+        <span class="px-space-xs py-1 rounded-full bg-tertiary-container text-on-tertiary font-label-sm text-label-sm font-bold flex items-center gap-1 shadow-md">
+          <span class="material-symbols-outlined text-[14px]">play_shapes</span> ريلز 00:45
+        </span>
+        <span class="px-space-xs py-1 rounded bg-primary/80 backdrop-blur-sm text-on-primary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+          <span class="material-symbols-outlined text-[14px]">stay_current_portrait</span> طولي
+        </span>
+      </div>
+
+      <div class="relative z-10 p-space-md text-on-primary flex flex-col gap-1">
+        <span class="font-label-sm text-label-sm text-secondary font-bold">ريف إدلب • 10 سبتمبر 2024</span>
+        <h4 class="font-title-lg text-title-lg font-bold group-hover:text-secondary transition-colors leading-snug">
+          ⭕ ريلز ميداني: ابتسامة أطفال مخيمات الشمال بعد استلام الحقائب المدرسية
+        </h4>
+        <div class="flex items-center justify-between pt-1 border-t border-surface-container-lowest/10 font-label-sm text-label-sm text-on-primary/70">
+          <span class="">المشاهدات: 48.2K</span>
+          <span class="material-symbols-outlined text-[18px] text-secondary">favorite</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ITEM 3: Square Photo Card (مربّع) -->
+    <div class="group relative min-h-[200px] rounded-2xl overflow-hidden shadow-sm bg-surface-container border border-surface-container flex flex-col justify-end">
+      <img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Clean fresh potable water flowing from newly inaugurated solar well tap for villagers in Yemen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCg6EcRkkrLtzSEbBA6CPgB5s1znWiRXTbONv5Tf3eFxuFFjOg6GYi9QIEVL1CQsRsEdFFE7NZXseQFZSzjrn-hkECXzn0Yu3oiCZpWD7zT6ZH-K85_vp9m_Wje9uY5RENIX_UVZr8Go4aphZg_nodSYmqUn-F-b53IkDMx0e0yrv7Ozre6PFybNLRnLhsZKFuc216YZpLCUXKmwTIrBTBA8IOlJrb0x29pU5-RTuO3EsJEqqIJTSe0dQ">
+      <div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/40 to-transparent"></div>
+      
+      <div class="absolute top-3 right-3 z-10">
+        <span class="px-space-xs py-0.5 rounded-full bg-surface-container-lowest/90 text-primary font-label-sm text-label-sm font-bold flex items-center gap-1 shadow-sm">
+          <span class="material-symbols-outlined text-[14px]">crop_square</span> صورة مربعة
+        </span>
+      </div>
+
+      <div class="relative z-10 p-space-sm text-on-primary flex flex-col gap-0.5">
+        <span class="font-label-sm text-label-sm text-secondary font-semibold">تعز، اليمن • 05 سبتمبر 2024</span>
+        <h4 class="font-label-lg text-label-lg font-bold group-hover:text-secondary transition-colors line-clamp-2">
+          ⭕ افتتاح محطة تحلية المياه النقية وارتواء 1,200 عائلة
+        </h4>
+      </div>
+    </div>
+
+    <!-- ITEM 4: Square Photo Card (مربّع) -->
+    <div class="group relative min-h-[200px] rounded-2xl overflow-hidden shadow-sm bg-surface-container border border-surface-container flex flex-col justify-end">
+      <img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Doctors performing health screening in mobile field hospital" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTLK38g-uNM_DIMLh-N0uHvoThqm1Nnm3H69UHSKl1WkUbNxxL36lVUtlvx_CJVqVIpu80_IycMiKh7OmClpVlNspRQoyYGBBmfwFyP50kDCk5q97Rb1KsoG5aUwPh0M53wBUwsP6CVcu1YlqTWcKRDJsZ3ygwCBVT7Sx5XdGPKfbTWenIPpkx9NGdu6_jesqXNU9WoWglm5vQGjTbt0w9aKG37iS57sXZPwTMertyWIenpByCpiectQ">
+      <div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/40 to-transparent"></div>
+      
+      <div class="absolute top-3 right-3 z-10">
+        <span class="px-space-xs py-0.5 rounded-full bg-surface-container-lowest/90 text-primary font-label-sm text-label-sm font-bold flex items-center gap-1 shadow-sm">
+          <span class="material-symbols-outlined text-[14px]">photo_camera</span> صورة HD
+        </span>
+      </div>
+
+      <div class="relative z-10 p-space-sm text-on-primary flex flex-col gap-0.5">
+        <span class="font-label-sm text-label-sm text-secondary font-semibold">مأرب • 01 سبتمبر 2024</span>
+        <h4 class="font-label-lg text-label-lg font-bold group-hover:text-secondary transition-colors line-clamp-2">
+          ⭕ العيادات التخصصية المتنقلة تجري 150 فحصاً مجانياً للمسنين
+        </h4>
+      </div>
+    </div>
+
+    <!-- ITEM 5: Tall Reels Card (طولي) -->
+    <div class="group relative min-h-[260px] rounded-2xl overflow-hidden shadow-sm bg-primary border border-surface-container flex flex-col justify-end">
+      <img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Aid workers unloading flour bags from white UN trucks in Gaza" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6fcl8HVwJYAxpSKtUkAfuYALEbgZDb7ywyNZMuMMyjWaawJ_Mxeb8cJKfMaEwdCUbZKUD9yKeKnkLPt6KCeOzhYN8P1bnGYFY_PiV-M0TjnR8NXGAKyKT-fsNrhMp7_YM7zK9vI-zosNO3nF8Ct7r147_BgOlRR-LQHnvsFXB6ooPYDotSWopLyd6JA9aDyaooenBeeMcYsoUgyqGBZBuUJsf8Z9w6FnenYbA6ecgYw3GyjAWFh0ukA">
+      <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent"></div>
+      
+      <div class="absolute top-3 right-3 left-3 flex items-center justify-between z-10">
+        <span class="px-space-xs py-1 rounded-full bg-tertiary-container text-on-tertiary font-label-sm text-label-sm font-bold flex items-center gap-1 shadow-md">
+          <span class="material-symbols-outlined text-[14px]">play_shapes</span> ريلز 00:58
+        </span>
+        <span class="px-space-xs py-1 rounded bg-primary/80 backdrop-blur-sm text-on-primary font-label-sm text-label-sm">
+          <span class="material-symbols-outlined text-[14px]">stay_current_portrait</span>
+        </span>
+      </div>
+
+      <div class="relative z-10 p-space-sm text-on-primary flex flex-col gap-0.5">
+        <span class="font-label-sm text-label-sm text-secondary font-bold">شمال غزة • 28 أغسطس 2024</span>
+        <h4 class="font-title-lg text-title-lg font-bold group-hover:text-secondary transition-colors line-clamp-2 leading-snug">
+          ⭕ ريلز: تفريغ شاحنات الطحين والمساعدات العاجلة
+        </h4>
+      </div>
+    </div>
+
+    <!-- ITEM 6: Wide Feature Card (عرضي 2 cols) -->
+    <div class="group relative sm:col-span-2 min-h-[260px] rounded-2xl overflow-hidden shadow-sm bg-primary border border-surface-container flex flex-col justify-end">
+      <img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Convoy of relief trucks in snowy winter camps delivering thermal blankets" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDpkDH4xIqda-BjXBVpSZeoC7wLTF3L7CRsgQ8EpJKAMTpJApZoa43zfVOlJCq661JvynVwU0SM7ZxJAp8PPLkYhgswgnvv1lM59jdG6sA0stibOyilh9ynWw6X4fplEic_QCDiIwkgnn1cn7KTNNgWx85fxEVG4aUjnldw5wCoo6qdv5gvb4WKnBrwppapZyQeWXXSE-ECjH3CWk9lkd5vHaVWXvCQ2pNQy2kBz_lp9c_DPxzOKz2eg">
+      <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-transparent"></div>
+      
+      <div class="absolute top-3 right-3 left-3 flex items-center justify-between z-10">
+        <span class="px-space-xs py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-bold flex items-center gap-1 shadow-sm border border-surface-container-lowest/20">
+          <span class="material-symbols-outlined text-[14px]">photo_camera</span> صورة بانورامية
+        </span>
+        <span class="px-space-xs py-1 rounded bg-primary/80 backdrop-blur-sm text-on-primary font-label-sm text-label-sm">
+          <span class="material-symbols-outlined text-[14px]">stay_current_landscape</span> عرضي
+        </span>
+      </div>
+
+      <div class="relative z-10 p-space-md text-on-primary flex flex-col gap-1">
+        <span class="font-label-sm text-label-sm text-secondary-fixed font-bold">مخيمات اللجوء الحدودية • 24 أغسطس 2024</span>
+        <h3 class="font-headline-sm text-headline-sm font-bold leading-snug group-hover:text-secondary transition-colors">
+          ⭕ توثيق جوي شامل لتجمع الخيام وتوزيع معاطف وأغطية الشتاء
+        </h3>
+        <p class="font-body-sm text-body-sm text-surface-variant line-clamp-1">
+          وصول القافلة الشتوية الثامنة وتوزيع 10,000 بطانية حرارية عازلة للمتضررين من الصقيع.
+        </p>
+      </div>
+    </div>
+
+    <!-- ITEM 7: Standard Card (فيديو 02:10) -->
+    <div class="group relative min-h-[260px] rounded-2xl overflow-hidden shadow-sm bg-primary border border-surface-container flex flex-col justify-end">
+      <img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="University scholarship students studying together in a modern campus library" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp-Ikd0JNNTviea232Xk5-HpfaZ_LOU1RXNZHlEJ9MjQ2nqzE4PgYEuPkl5bNO00AAib7hQDa7WmWzkJxYf-MFIpu2CBfY7cUe0dvEWLpV_jcWKOxWTWeESwkzQwgTdeeuj0RopJiKwIY0Gz6jU6X2qggBuFHzrUkgPJfOj2tpy7YUpgkSXg7Fj3iBy738mKE4j2dxkfBToM619UV6ueNwTH92CJZliVeSg-dsq8sSEng-Qg73iuTGXw">
+      <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent"></div>
+      
+      <div class="absolute top-3 right-3 z-10">
+        <span class="px-space-xs py-1 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm font-bold flex items-center gap-1 shadow-md">
+          <span class="material-symbols-outlined text-[14px]">play_circle</span> فيديو 02:10
+        </span>
+      </div>
+
+      <div class="relative z-10 p-space-sm text-on-primary flex flex-col gap-0.5">
+        <span class="font-label-sm text-label-sm text-secondary font-semibold">القدس الشريف • 18 أغسطس 2024</span>
+        <h4 class="font-label-lg text-label-lg font-bold group-hover:text-secondary transition-colors line-clamp-2">
+          ⭕ لقاء مع كفلاء الأيتام وأثر المنح الجامعية للطلبة المتفوقين
+        </h4>
+      </div>
+    </div>
+
+    <!-- ITEM 8: Standard Card (صورة) -->
+    <div class="group relative min-h-[240px] rounded-2xl overflow-hidden shadow-sm bg-primary border border-surface-container flex flex-col justify-end">
+      <img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Renovated clean classroom with wooden desks and students studying happily" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9zrBf3H3NZmcCK5KXIxAHV_bubRc6SXYMtOgvsHMB_Zbm12pv1ZrHK9AVoyxpQ7wgHd8ZJNyep-1MIWuT3B-LcUkFGMjcYvs-chkgwCNwTtTlj0OagEW0Nvm6Oo3Ke1oRPCZYm0YsoRtqOveYU9TqNu-ZHom9KpvRjOJY8oT6LwPwprUu21pVs9ATybsqB0TnPFiHNV7orR5W4JjRvPB9rIz4iZJBFxK-Qv3jOBIMDEZrzovSsnrgpg">
+      <div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/40 to-transparent"></div>
+      
+      <div class="absolute top-3 right-3 z-10">
+        <span class="px-space-xs py-0.5 rounded-full bg-surface-container-lowest/90 text-primary font-label-sm text-label-sm font-bold flex items-center gap-1 shadow-sm">
+          <span class="material-symbols-outlined text-[14px]">photo_camera</span> صورة HD
+        </span>
+      </div>
+
+      <div class="relative z-10 p-space-sm text-on-primary flex flex-col gap-0.5">
+        <span class="font-label-sm text-label-sm text-secondary font-semibold">ريف حلب • 12 أغسطس 2024</span>
+        <h4 class="font-label-lg text-label-lg font-bold group-hover:text-secondary transition-colors line-clamp-2">
+          ⭕ ترميم وتجهيز 8 فصول تعليمية بديلة للأطفال
+        </h4>
+      </div>
+    </div>
+
+    <!-- ITEM 9: Standard Card (صورة) -->
+    <div class="group relative min-h-[240px] rounded-2xl overflow-hidden shadow-sm bg-primary border border-surface-container flex flex-col justify-end">
+      <img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Elderly man and smiling orphan grandson eating warm community meals together" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2M7_h5OkRkTU1WNOMVjF1ObPdhMvYd1B2CKlaiiQ_e1uDTIQRH98dyVGtmdL9xuzkinIetJgfTY6PvesLymz6K8Rscx3ymMwPuSECXVQSNQI862ErRZq5gAcXF-wVD657-yydvd3m-oN8t6NmDTFdgoNRMBshs0k7rrDITX-hpFnTxKMsdP4C_u-XOqMJwqVZHzKtDRFpfxezHhQwQEqeCXRI9KaNSesaDjWeDyzRhrF4TKRvkJ-DhQ">
+      <div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/40 to-transparent"></div>
+      
+      <div class="absolute top-3 right-3 z-10">
+        <span class="px-space-xs py-0.5 rounded-full bg-surface-container-lowest/90 text-primary font-label-sm text-label-sm font-bold flex items-center gap-1 shadow-sm">
+          <span class="material-symbols-outlined text-[14px]">photo_camera</span> صورة HD
+        </span>
+      </div>
+
+      <div class="relative z-10 p-space-sm text-on-primary flex flex-col gap-0.5">
+        <span class="font-label-sm text-label-sm text-secondary font-semibold">مخيم اليرموك • 08 أغسطس 2024</span>
+        <h4 class="font-label-lg text-label-lg font-bold group-hover:text-secondary transition-colors line-clamp-2">
+          ⭕ مائدة إفطار صائم جماعية لـ 2,000 مستفيد
+        </h4>
+      </div>
+    </div>
+
+    <!-- ITEM 10: Tall Reels Card (طولي) -->
+    <div class="group relative min-h-[240px] rounded-2xl overflow-hidden shadow-sm bg-primary border border-surface-container flex flex-col justify-end">
+      <img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Youth students coding and studying in digital tech laboratory" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCybRbFiwuKg4qPBs3pEynA4EN0PY0Cv9YUA6vua8dDMft-upkQVuAIndD6xRnqzv7XmA49xXD2qFYUdk4LOEkv_PFQ1BUEnFvIQvUn0FKGcynWbFezE75yMr4JwUD26_7PhLFz_HqW9mkeKjBeEaaTmoy6cZKgvTRggV6bsChTkTfb6ItqHd4lw0ZnuZ8fQ7e509mP-hQqi-8iAasl8226mSrz2RyjAjMMXQSPGSS4f2oe-GacmMTMEA">
+      <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent"></div>
+      
+      <div class="absolute top-3 right-3 left-3 flex items-center justify-between z-10">
+        <span class="px-space-xs py-1 rounded-full bg-tertiary-container text-on-tertiary font-label-sm text-label-sm font-bold flex items-center gap-1 shadow-md">
+          <span class="material-symbols-outlined text-[14px]">play_shapes</span> ريلز 00:30
+        </span>
+        <span class="px-space-xs py-1 rounded bg-primary/80 backdrop-blur-sm text-on-primary font-label-sm text-label-sm">
+          <span class="material-symbols-outlined text-[14px]">stay_current_portrait</span>
+        </span>
+      </div>
+
+      <div class="relative z-10 p-space-sm text-on-primary flex flex-col gap-0.5">
+        <span class="font-label-sm text-label-sm text-secondary font-bold">الخرطوم • 03 أغسطس 2024</span>
+        <h4 class="font-label-lg text-label-lg font-bold group-hover:text-secondary transition-colors line-clamp-2">
+          ⭕ ريلز: نظرة داخل معمل الحاسوب وتأهيل الشباب مهنياً
+        </h4>
+      </div>
+    </div>
+
+    <!-- ITEM 11: Standard Video Card (فيديو 01:50) -->
+    <div class="group relative min-h-[240px] rounded-2xl overflow-hidden shadow-sm bg-primary border border-surface-container flex flex-col justify-end">
+      <img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Joyful villagers celebrating the opening of community water pump" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBe4avAu9eIKr800FvF-2B68n_L2RpGvZemW_WeoggKCyZOObdgmDnpq_PPPEznxHvt2QIevN0cPKQIW0DI8tCkxiv3I7nHSOipB0oH8TR2oX1CttF6L5a_HWpcw_5W27bzGeaR1pS7lS_egAjWSJAEF1O9wfA9Gz-FNHYWbnxBxSl00hfwInFPqkIqIbvUjz9Fq46hqnzO8thIy6I8cq2O6OAm5Wfrthf21TKJi925WN1z2tVkSCrtnA">
+      <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent"></div>
+      
+      <div class="absolute top-3 right-3 z-10">
+        <span class="px-space-xs py-1 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm font-bold flex items-center gap-1 shadow-md">
+          <span class="material-symbols-outlined text-[14px]">play_circle</span> فيديو 01:50
+        </span>
+      </div>
+
+      <div class="relative z-10 p-space-sm text-on-primary flex flex-col gap-0.5">
+        <span class="font-label-sm text-label-sm text-secondary font-semibold">الحديدة • 29 يوليو 2024</span>
+        <h4 class="font-label-lg text-label-lg font-bold group-hover:text-secondary transition-colors line-clamp-2">
+          ⭕ تقرير مصور: فرحة أهالي القرية بتشغيل مضخة الطاقة الشمسية
+        </h4>
+      </div>
+    </div>
+
+    <!-- ITEM 12: Standard Photo Card (صورة) -->
+    
+
+  </div>
+
+  <!-- 4. Pagination & Archive Exploration Bar -->
+  <div class="mt-space-lg pt-space-md border-t border-surface-container flex items-center justify-center text-center">
+    <a class="inline-flex items-center gap-space-xs px-space-md py-1.5 rounded-xl bg-secondary text-on-secondary font-label-md text-label-md font-bold hover:bg-secondary-container transition-all shadow-sm" href="#gallery">
+      <span class="">عرض المزيد من الأرشيف المصور</span>
+      <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+    </a>
+  </div>
+
+</div>
+</section>
+<!-- =========================================================================
+       8. ADMIN PORTAL & MANAGEMENT PREVIEW (id="admin")
+       ========================================================================= -->
+<section class="w-full py-space-xl bg-surface" id="admin">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin">
+<div class="p-space-lg md:p-space-xl rounded-3xl bg-surface-container-high shadow-lg relative overflow-hidden">
+<!-- Subtle gradient backdrop pattern -->
+<div class="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-primary/10 blur-2xl pointer-events-none"></div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center relative z-10">
+<!-- Admin Left Info -->
+<div class="lg:col-span-6 flex flex-col gap-space-md">
+<div class="space-y-space-xs">
+<span class="inline-flex items-center gap-space-xs font-label-md text-label-md text-secondary font-bold px-space-sm py-1 rounded-full bg-surface-container-lowest shadow-sm">
+<span class="material-symbols-outlined text-[16px]">admin_panel_settings</span>
+<span class="">الحوكمة والرقابة الرقمية الذكية</span>
+</span>
+<h2 class="font-headline-lg text-headline-lg text-primary font-bold">
+                بوابة الإدارة المركزية وتتبع الميدان
+              </h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                منظومة سحابية متقدمة تربط فرق الإغاثة في 24 دولة بمكاتب التدقيق المالي والإداري. تتيح للمانحين والمتبرعين مراقبة مسار كل مساهمة بالدقيقة والصورة الحية.
+              </p>
+</div>
+<!-- Key Features List -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+<div class="p-space-sm rounded-xl bg-surface-container-lowest shadow-sm flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[22px] shrink-0 mt-0.5">monitoring</span>
+<div class="flex flex-col">
+<span class="font-title-lg text-title-lg text-primary font-bold">تتبع المشاريع المباشر</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">خرائط تفاعلية بحالة الإنجاز الميداني لحظة بلحظة</span>
+</div>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container-lowest shadow-sm flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[22px] shrink-0 mt-0.5">verified_user</span>
+<div class="flex flex-col">
+<span class="font-title-lg text-title-lg text-primary font-bold">نظام تقارير الشفافية</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">إشعارات آلية للمتبرع بفاتورة الصرف الموثقة</span>
+</div>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container-lowest shadow-sm flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[22px] shrink-0 mt-0.5">lock_clock</span>
+<div class="flex flex-col">
+<span class="font-title-lg text-title-lg text-primary font-bold">إدارة الصلاحيات والتدقيق</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">سجل نشاطات مشفر غير قابل للتعديل (Audit Log)</span>
+</div>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container-lowest shadow-sm flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[22px] shrink-0 mt-0.5">point_of_sale</span>
+<div class="flex flex-col">
+<span class="font-title-lg text-title-lg text-primary font-bold">إدارة التبرعات الآلية</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">ربط مصرفي آمن مع بوابات الدفع الوطنية والدولية</span>
+</div>
+</div>
+</div>
+<!-- Portal CTA Link -->
+<div class="pt-space-xs flex items-center gap-space-sm">
+<a class="inline-flex items-center gap-space-xs px-space-lg py-space-sm rounded-xl bg-primary text-on-primary font-title-lg text-title-lg font-bold hover:bg-primary-container transition-all shadow-md" href="#admin">
+<span class="material-symbols-outlined text-[20px]">login</span>
+<span class="">دخول بوابة الإدارة والكادر الميداني</span>
+</a>
+<span class="font-label-sm text-label-sm text-on-surface-variant">مخصصة للموظفين والمدققين المعتمدين</span>
+</div>
+</div>
+<!-- Mock Dashboard Preview Card (Right) -->
+<div class="lg:col-span-6 w-full">
+<div class="p-space-md rounded-2xl bg-surface-container-lowest shadow-xl">
+<!-- Dashboard Mock Header -->
+<div class="flex items-center justify-between pb-space-sm border-b border-surface-container">
+<div class="flex items-center gap-space-xs">
+<span class="w-3 h-3 rounded-full bg-error"></span>
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="w-3 h-3 rounded-full bg-primary-container"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold mr-2">نظام إدارة العمليات الإنسانية v4.8</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="px-2 py-0.5 rounded bg-surface-container text-primary font-label-sm text-label-sm font-semibold">مباشر • Live</span>
+</div>
+</div>
+<!-- Mock Metrics Grid -->
+<div class="grid grid-cols-3 gap-space-xs my-space-sm">
+<div class="p-space-xs rounded-lg bg-surface-container-low flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">تبرعات اليوم</span>
+<span class="font-headline-sm text-headline-sm text-primary font-bold tabular-nums">$42,850</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">+18% عن الأمس</span>
+</div>
+<div class="p-space-xs rounded-lg bg-surface-container-low flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">مشاريع نشطة</span>
+<span class="font-headline-sm text-headline-sm text-primary font-bold tabular-nums">48 مشروع</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">12 تحت الصرف</span>
+</div>
+<div class="p-space-xs rounded-lg bg-surface-container-low flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">كفاءة الرضا</span>
+<span class="font-headline-sm text-headline-sm text-secondary font-bold tabular-nums">99.2%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">1,400 تقييم</span>
+</div>
+</div>
+<!-- Mock Mini Chart Bar SVG -->
+<div class="p-space-xs rounded-lg bg-surface-container-low mb-space-sm">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm text-primary font-bold">مؤشر الإنجاز الميداني الأسبوعي (24 دولة)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">ديسمبر 2024</span>
+</div>
+<svg class="w-full h-16 text-primary" viewBox="0 0 400 80">
+<rect class="fill-primary" height="45" rx="4" width="25" x="15" y="30"></rect>
+<rect class="fill-secondary" height="55" rx="4" width="25" x="70" y="20"></rect>
+<rect class="fill-primary" height="65" rx="4" width="25" x="125" y="10"></rect>
+<rect class="fill-secondary" height="50" rx="4" width="25" x="180" y="25"></rect>
+<rect class="fill-primary" height="60" rx="4" width="25" x="235" y="15"></rect>
+<rect class="fill-secondary" height="40" rx="4" width="25" x="290" y="35"></rect>
+<rect class="fill-primary" height="67" rx="4" width="25" x="345" y="8"></rect>
+</svg>
+</div>
+<!-- Mock Recent Transactions Log -->
+<div class="space-y-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold block">سجل الصرف والتنفيذ الميداني المدقق:</span>
+<div class="p-2 rounded bg-surface-container-low flex items-center justify-between text-xs font-label-sm"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-bold text-primary">صرف مخصصات التعليم #EDU-942</span><span class="text-on-surface-variant">(مجمع الأمل التعليمي)</span></div><span class="font-bold text-secondary tabular-nums">منفذ ميدانياً • معتمد</span></div>
+<div class="p-2 rounded bg-surface-container-low flex items-center justify-between text-xs font-label-sm"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span><span class="font-bold text-primary">دفعة الإغاثة الطارئة #REL-104</span><span class="text-on-surface-variant">(شحنة الدقيق والمواد الغذائية)</span></div><span class="font-bold text-secondary tabular-nums">مسلّم وموثق • معتمد</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================================================================
+       9. CONTACT & LOCATION SECTION (id="contact")
+       ========================================================================= -->
+<section class="w-full py-space-xl bg-surface-container-low" id="contact">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin">
+<!-- Section Header -->
+<div class="text-center max-w-3xl mx-auto mb-space-lg space-y-space-xs">
+<div class="inline-flex items-center gap-space-xs font-label-lg text-label-lg text-secondary font-bold">
+<span class="material-symbols-outlined text-[18px]">contact_support</span>
+<span class="">التواصل وخدمة الواقفين</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary font-bold">
+          نحن في خدمتك للإجابة عن كل استفسار
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          فريق خدمة المتبرعين والشركاء متاح على مدار الساعة لاستقبال طلبات الدعم وتقديم الاستشارات الخيرية.
+        </p>
+</div>
+<!-- Contact Info Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-sm mb-space-lg">
+<div class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-xs">
+<div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">call</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">الخط الساخن الموحد</span>
+<span class="font-title-lg text-title-lg text-primary font-bold tabular-nums" dir="ltr">+966 920008842</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">متاح 24/7 للحالات الطارئة</span>
+</div>
+<div class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-xs">
+<div class="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[22px]">mail</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">البريد الإلكتروني المؤسسي</span>
+<span class="font-title-lg text-title-lg text-primary font-bold">info@alamal-charity.org</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">الرد خلال أقل من ساعتين عمل</span>
+</div>
+<div class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-xs">
+<div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">location_on</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">المقر الرئيسي</span>
+<span class="font-title-lg text-title-lg text-primary font-bold">الرياض، حي النرجس</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">طريق الملك سلمان بن عبد العزيز</span>
+</div>
+<div class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-xs">
+<div class="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[22px]">schedule</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">ساعات العمل الإداري</span>
+<span class="font-title-lg text-title-lg text-primary font-bold">الأحد - الخميس</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">8:00 صباحاً - 4:00 مساءً</span>
+</div>
+</div>
+<!-- Split Layout: Interactive Inquiry Form & Stylized Location Map -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Contact Form (7 cols) -->
+<div class="lg:col-span-7 p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
+<div class="space-y-space-xs">
+<h3 class="font-title-lg text-title-lg text-primary font-bold">أرسل استفسارك أو طلب الرعاية</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">يسعدنا تواصلك، وسيتم توجيه رسالتك إلى القسم المعني فوراً.</p>
+</div>
+<form class="space-y-space-sm" onsubmit="event.preventDefault(); alert('شكراً لتواصلك، تم استلام رسالتك بنجاح وسيتصل بك منسقنا الإنساني قريباً.');">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-bold">الاسم الكامل *</label>
+<input class="w-full px-space-sm py-space-xs rounded-lg bg-surface-container-low text-on-surface outline-none focus:ring-2 focus:ring-secondary font-body-sm text-body-sm transition-all" placeholder="مثال: عبد الله السالم" required="" type="text">
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-bold">رقم الهاتف أو الواتساب *</label>
+<input class="w-full px-space-sm py-space-xs rounded-lg bg-surface-container-low text-on-surface outline-none focus:ring-2 focus:ring-secondary font-body-sm text-body-sm text-left transition-all" placeholder="+966 5x xxx xxxx" required="" type="tel">
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-bold">البريد الإلكتروني *</label>
+<input class="w-full px-space-sm py-space-xs rounded-lg bg-surface-container-low text-on-surface outline-none focus:ring-2 focus:ring-secondary font-body-sm text-body-sm transition-all" placeholder="name@example.com" required="" type="email">
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-bold">نوع الاستفسار أو المعاملة</label>
+<select class="w-full px-space-sm py-space-xs rounded-lg bg-surface-container-low text-on-surface outline-none focus:ring-2 focus:ring-secondary font-body-sm text-body-sm transition-all">
+<option>استفسار عن كفالة أيتام</option>
+<option>شراكة مؤسسية ومسؤولية مجتمعية</option>
+<option>رغبة في التطوع الميداني</option>
+<option>استفسار عن حوالة أو تبرع سابق</option>
+<option>أخرى</option>
+</select>
+</div>
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-bold">نص الرسالة أو تفاصيل الطلب *</label>
+<textarea class="w-full p-space-sm rounded-lg bg-surface-container-low text-on-surface outline-none focus:ring-2 focus:ring-secondary font-body-sm text-body-sm transition-all" placeholder="اكتب تفاصيل استفسارك أو البرنامج الذي تود دعمه..." required="" rows="4"></textarea>
+</div>
+<button class="w-full sm:w-auto px-space-xl py-space-sm rounded-xl bg-primary text-on-primary font-title-lg text-title-lg font-bold hover:bg-primary-container transition-all flex items-center justify-center gap-space-xs shadow-md" type="submit">
+<span class="material-symbols-outlined text-[20px]">send</span>
+<span class="">إرسال الرسالة الآن</span>
+</button>
+</form>
+</div>
+<!-- Location Map & Branch Info (5 cols) -->
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<!-- Static/Interactive Location Map View -->
+<div class="relative w-full h-72 rounded-2xl overflow-hidden shadow-sm" data-location="Riyadh, Saudi Arabia" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDdVt_3eMsmdl0KPblhQkUBqVCltE4aeaUGUTtMidiX_VWjXkXcjmbdV-gCE6lh2EhwIAnwsE4L89VSLtQijPvUCPDytueYrwaxkocK2RuqZN7Zs2-uMIkjY7STtMgY3LWy-v_u7U0D2LSt3kwYdKZIzILKuM2cWUXxkLtFpEwTB0s1IAyfe8BZobrPEPvcquLbqKdE0FWiZAf_I7f_Glfj-Lq83toGnpAMTBEOUULOD1B-ENVBt-Zr2w&quot;);">
+<!-- Overlay Pin Info Badge -->
+<div class="absolute bottom-4 right-4 left-4 p-space-sm rounded-xl bg-surface-container-lowest/95 backdrop-blur-md shadow-lg flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[24px]">corporate_fare</span>
+<div>
+<span class="font-title-lg text-title-lg text-primary font-bold block">المقر العام - الرياض</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">طريق الملك سلمان، حي النرجس</span>
+</div>
+</div>
+<a class="px-space-sm py-1 rounded bg-secondary text-on-secondary font-label-sm text-label-sm font-bold flex items-center gap-1" href="https://maps.google.com" rel="noopener" target="_blank">
+<span class="">الاتجاهات</span>
+<span class="material-symbols-outlined text-[14px]">directions</span>
+</a>
+</div>
+</div>
+<!-- Regional Network Box -->
+<div class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-xs">
+<h4 class="font-title-lg text-title-lg text-primary font-bold">المكاتب الميدانية الإقليمية</h4>
+<div class="grid grid-cols-2 gap-space-xs font-label-md text-label-md text-on-surface-variant pt-space-xs">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="">مكتب عمان، الأردن</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="">مكتب إسطنبول، تركيا</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="">مكتب القاهرة، مصر</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="">مكتب مقديشو، الصومال</span>
+</div>
+</div>
+<div class="pt-space-xs border-t border-surface-container flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="">تواصل مباشر عبر الواتساب:</span>
+<a class="text-secondary font-bold hover:underline flex items-center gap-1" dir="ltr" href="https://wa.me/966920008842">
+<span class="material-symbols-outlined text-[16px]">chat</span>
+<span class="">+966 920008842</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================================================================
+       FLOATING WHATSAPP ASSISTANT BUTTON
+       ========================================================================= -->
+<a aria-label="WhatsApp Instant Donor Care" class="fixed bottom-6 left-6 z-50 flex items-center gap-2 px-space-md py-space-xs rounded-full bg-secondary text-on-secondary shadow-2xl hover:scale-105 transition-all duration-300" href="https://wa.me/966920008842" rel="noopener" target="_blank">
+<span class="material-symbols-outlined text-[24px]">support_agent</span>
+<span class="font-label-lg text-label-lg font-bold hidden sm:inline">خدمة المتبرعين الفورية</span>
+</a>
+<!-- =========================================================================
+       INLINE INTERACTIVITY SCRIPT
+       ========================================================================= -->
+<script>
+    // Header Sticky Transparent on Top / Solid White on Scroll
+    const headerElement = document.getElementById('main-header');
+    const updateHeaderOnScroll = () => {
+      if (window.scrollY > 40) {
+        headerElement.classList.add('scrolled');
+      } else {
+        headerElement.classList.remove('scrolled');
+      }
+    };
+    window.addEventListener('scroll', updateHeaderOnScroll, { passive: true });
+    updateHeaderOnScroll();
+
+    // Project Category Filter Pills
+    const projButtons = document.querySelectorAll('#projectFilters button');
+    projButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        projButtons.forEach(b => {
+          b.classList.remove('bg-primary', 'text-on-primary');
+          b.classList.add('bg-surface-container-lowest', 'text-on-surface-variant');
+        });
+        btn.classList.add('bg-primary', 'text-on-primary');
+        btn.classList.remove('bg-surface-container-lowest', 'text-on-surface-variant');
+      });
+    });
+
+    // Gallery Filter Tabs
+    const galleryTabs = document.querySelectorAll('#galleryFilterTabs button');
+    galleryTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        galleryTabs.forEach(t => {
+          t.classList.remove('bg-primary', 'text-on-primary');
+          t.classList.add('bg-surface-container-lowest', 'text-on-surface-variant');
+        });
+        tab.classList.add('bg-primary', 'text-on-primary');
+        tab.classList.remove('bg-surface-container-lowest', 'text-on-surface-variant');
+      });
+    });
+  </script>
+</div></main><footer class="w-full bg-surface-container-low text-on-surface py-space-xl"><div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-lg mb-space-xl"><div class="flex flex-col gap-space-sm"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-primary font-bold">جمعية الأمل للإغاثة والتنمية</span></div><p class="font-body-md text-body-md text-on-surface-variant">مؤسسة إنسانية تنموية مرخصة تعنى برعاية الأيتام وتمكين الأسر المتعففة والاستجابة للطوارئ الإغاثية وفق أعلى معايير الحوكمة والشفافية المؤسسية.</p><div class="font-label-sm text-label-sm text-on-surface-variant">ترخيص رقم: HRSD-77492 | مسجلة رسمياً لدى المركز الوطني للقطاع غير الربحي</div></div><div class="flex flex-col gap-space-xs"><h3 class="font-title-lg text-title-lg text-primary font-bold mb-space-xs">روابط الوصول السريع</h3><ul class="space-y-space-xs font-body-md text-body-md text-on-surface-variant"><li class="hover:text-on-surface transition-colors"><a class="" href="#about">الرؤية والرسالة المؤسسية</a></li><li class="hover:text-on-surface transition-colors"><a class="" href="#projects">برامج كفالة الأيتام والتعليم</a></li><li class="hover:text-on-surface transition-colors"><a class="" href="#activities">تقارير الإغاثة الميدانية</a></li><li class="hover:text-on-surface transition-colors"><a class="" href="#news">المركز الإعلامي والبيانات</a></li><li class="hover:text-on-surface transition-colors"><a class="" href="#partners">ميثاق الشركاء والمانحين</a></li></ul></div><div class="flex flex-col gap-space-xs"><h3 class="font-title-lg text-title-lg text-primary font-bold mb-space-xs">معلومات التواصل والمقر</h3><div class="font-body-md text-body-md text-on-surface-variant flex flex-col gap-space-xs"><div class="">المركز الرئيسي: حي النرجس، طريق الملك سلمان، الرياض</div><div class="">الهاتف الموحد: 920008842 (966+)</div><div class="">البريد المؤسسي: info@alamal-charity.org</div><div class="">أوقات العمل: الأحد - الخميس | 8:00 ص - 4:00 م</div></div></div><div class="flex flex-col gap-space-sm"><h3 class="font-title-lg text-title-lg text-primary font-bold">النشرة البريدية للإنجازات</h3><p class="font-body-sm text-body-sm text-on-surface-variant">اشترك لتصلك تقارير الأثر والشفافية الدورية والحملات الطارئة.</p><div class="flex flex-col gap-space-xs"><input class="px-space-sm py-space-xs rounded-lg bg-surface-container-lowest text-on-surface placeholder:text-outline text-body-sm font-body-sm" placeholder="أدخل بريدك الإلكتروني" type="email"><button class="px-space-md py-space-xs rounded-lg bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container hover:text-on-primary transition-colors" type="button">تأكيد الاشتراك</button></div></div></div><div class="pt-space-md flex flex-col md:flex-row items-center justify-between gap-space-sm text-center md:text-right"><span class="font-body-sm text-body-sm text-on-surface-variant">جميع الحقوق محفوظة © 2025 جمعية الأمل لرعاية الأيتام والإغاثة</span><div class="flex items-center gap-space-md font-label-sm text-label-sm text-on-surface-variant"><a class="hover:text-on-surface transition-colors" href="#">سياسة الخصوصية والاستخدام</a><a class="hover:text-on-surface transition-colors" href="#">لوائح الحوكمة المالية</a><a class="hover:text-on-surface transition-colors" href="#admin">بوابة الموظفين والرقابة</a></div></div></div></footer>
+
+
+
+
+
+
+</body></html>

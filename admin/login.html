@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تسجيل الدخول — لوحة تحكم جمعية الأمل</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#f6f5f2">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Crect width=%2724%27 height=%2724%27 rx=%276%27 fill=%27%23f28c14%27/%3E%3Cpath d=%27M12 4c-2.4 3.1-6 5.3-6 8.7A6 6 0 0 0 12 19a6 6 0 0 0 6-6.3C18 9.3 14.4 7.1 12 4Z%27 fill=%27%23001a3c%27/%3E%3C/svg%3E">
+  <script>(function(){try{var d=document.documentElement,t=localStorage.getItem('almel-admin-theme');if(t==='dark'||(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))d.classList.add('dark');if(localStorage.getItem('almel-admin-sb')==='1')d.classList.add('sb-collapsed');}catch(e){}})();</script>
+  <link rel="stylesheet" href="../css/fonts.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body data-page="login">
+  <div class="login">
+    <main class="login-form-side" id="main">
+      <div class="login-top">
+        <a class="login-brand" href="../index.html"><span class="brand-mark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3c-2.8 3.6-7 6.2-7 10.2A7 7 0 0 0 12 21a7 7 0 0 0 7-7.8C19 9.2 14.8 6.6 12 3Z" fill="currentColor"/></svg></span><span><strong>جمعية الأمل</strong><span>لوحة التحكم</span></span></a>
+        <button type="button" class="icon-btn theme-toggle theme-btn" aria-pressed="false" aria-label="الوضع الداكن"><span class="material-symbols-outlined" aria-hidden="true">dark_mode</span></button>
+      </div>
+      <div class="login-form-wrap">
+        <span class="demo-badge"><span class="dot" aria-hidden="true"></span>بيانات تجريبية</span>
+        <h1 class="mt-16">مرحباً بعودتك</h1>
+        <p class="lead">سجّل الدخول لإدارة المشاريع والأخبار والتبرعات.</p>
+        <form id="login-form" novalidate>
+          <div class="field">
+            <label class="label" for="l-email">البريد الإلكتروني</label>
+            <span class="input-icon"><span class="material-symbols-outlined" aria-hidden="true">mail</span><input class="input" id="l-email" type="email" dir="ltr" autocomplete="username" inputmode="email" placeholder="name@alamal-gaza.org" aria-describedby="l-email-err" required style="text-align:right;height:48px"></span>
+            <p class="error" id="l-email-err" hidden><span class="material-symbols-outlined" aria-hidden="true">error</span><span></span></p>
+          </div>
+          <div class="field">
+            <label class="label" for="l-pass">كلمة المرور</label>
+            <span class="input-icon"><span class="material-symbols-outlined" aria-hidden="true">lock</span><input class="input" id="l-pass" type="password" autocomplete="current-password" aria-describedby="l-pass-err l-pass-hint" required style="height:48px;padding-inline-end:48px"><span class="input-end"><button type="button" class="pw-toggle" id="pw-toggle" aria-pressed="false" aria-label="إظهار كلمة المرور" aria-controls="l-pass"><span class="material-symbols-outlined" aria-hidden="true">visibility</span></button></span></span>
+            <p class="hint" id="l-pass-hint">4 أحرف على الأقل</p>
+            <p class="error" id="l-pass-err" hidden><span class="material-symbols-outlined" aria-hidden="true">error</span><span></span></p>
+          </div>
+          <div class="login-row">
+            <label class="check-label"><input type="checkbox" class="checkbox" id="l-remember">تذكّرني على هذا الجهاز</label>
+            <a href="forgot-password.html" id="forgot" class="link" style="font-size:13px">نسيت كلمة المرور؟</a>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-block" id="l-submit"><span class="material-symbols-outlined flip-rtl" aria-hidden="true">login</span><span class="btn-text">تسجيل الدخول</span></button>
+        </form>
+        <div class="login-note" role="note"><span class="material-symbols-outlined" aria-hidden="true">info</span><p><strong>قالب ثابت للعرض:</strong> لا يوجد خادم أو قاعدة بيانات. أي بريد إلكتروني صالح مع كلمة مرور من 4 أحرف أو أكثر ينقلك إلى لوحة التحكم.</p></div>
+      </div>
+      <div class="login-foot"><span>© 2026 جمعية الأمل</span><a href="../index.html">العودة إلى الموقع</a></div>
+    </main>
+    <aside class="login-media" aria-label="لمحة عن المنصة">
+      <img src="../img/gallery-convoy.jpg" alt="">
+      <div class="lm-top"><span class="lm-badge"><span class="dot" aria-hidden="true"></span>غرفة عمليات غزة</span><span class="lm-badge">أرقام تجريبية</span></div>
+      <h2>كل تبرع يُتابَع.. <span>وكل أثر يُوثَّق</span></h2>
+      <p>منصة واحدة لإدارة مشاريع الإغاثة في محافظات القطاع الخمس، من استلام التبرع حتى توثيق وصوله إلى العائلات.</p>
+      <ul class="stat-chips">
+        <li class="stat-chip"><span class="sc-ico"><span class="material-symbols-outlined" aria-hidden="true">payments</span></span><div><b class="ltr">$184K</b><span>تبرعات هذا الشهر</span></div></li>
+        <li class="stat-chip"><span class="sc-ico"><span class="material-symbols-outlined" aria-hidden="true">volunteer_activism</span></span><div><b>12</b><span>مشروعاً قيد الإدارة</span></div></li>
+        <li class="stat-chip"><span class="sc-ico"><span class="material-symbols-outlined" aria-hidden="true">diversity_3</span></span><div><b>88,950</b><span>مستفيداً هذا الشهر</span></div></li>
+      </ul>
+    </aside>
+  </div>
+  <div id="toasts" class="toasts" role="status" aria-live="polite"></div>
+  <script src="js/admin-data.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
