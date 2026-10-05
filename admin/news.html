@@ -36,7 +36,7 @@
           </div>
           <div class="toolbar">
             <label class="input-icon"><span class="sr-only">بحث في الأخبار</span><span class="material-symbols-outlined" aria-hidden="true">search</span><input class="input sm" id="n-search" type="search" placeholder="ابحث بالعنوان أو الوسم…" autocomplete="off"></label>
-            <label class="sr-only" for="n-cat">تصفية حسب التصنيف</label><select class="select sm auto" id="n-cat"></select>
+            <label class="sr-only" for="n-cat">تصفية حسب التصنيف</label><select class="select sm auto" id="n-cat" data-const="news_category" data-ph-value="" data-ph-label="كل التصنيفات"></select>
           </div>
           <div id="news-panel" role="tabpanel" aria-labelledby="tab-all"><div id="news-body"></div></div>
           <div class="card-foot"><div class="pagination" id="news-pages" style="width:100%"></div></div>
@@ -47,6 +47,7 @@
 
   <div id="toasts" class="toasts" role="status" aria-live="polite"></div>
   <script src="js/admin-data.js"></script>
+  <script src="js/admin-constants.js"></script>
   <script src="js/admin.js"></script>
 </body>
 </html>

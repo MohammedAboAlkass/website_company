@@ -1,0 +1,69 @@
+@extends('layouts.auth')
+@section('title', 'تسجيل الدخول — جمعية الشمال للتنمية والتطوير المجتمعي - بوابة الإدارة')
+@section('viewport', 'width=device-width, initial-scale=1.0, viewport-fit=cover')
+@section('theme_color', '#00112a')
+@section('body_attrs') class="lv1"@endsection
+@push('css')
+<link rel="stylesheet" href="{{ asset('assets/admin/css/login-variants.css') }}">
+@endpush
+@section('body')
+  <a class="skip-link" href="#l-email">انتقل إلى نموذج الدخول</a>
+  <div class="lv1-bg lv-fade" aria-hidden="true"><img src="{{ asset('assets/site/img/hero-poster.jpg') }}" alt=""></div>
+  <div class="lv-page">
+    <header class="lv1-top lv-in" style="--d:0">
+      <a class="lv-brand" href="{{ url('/') }}" aria-label="جمعية الشمال للتنمية والتطوير المجتمعي - بوابة الإدارة، الصفحة الرئيسية للموقع"><span class="lv-mark"><img src="{{ asset('assets/site/img/logo.png') }}" alt="شعار الجمعية" width="44" height="44"></span><span class="lv-brand-text"><strong>جمعية الشمال للتنمية والتطوير المجتمعي</strong><span class="lv-sep"> - </span><span>بوابة الإدارة</span></span></a>
+      <a class="lv-back" href="{{ url('/') }}"><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span><span class="txt">العودة إلى الموقع</span></a>
+    </header>
+    <div class="lv1-stage">
+      <main class="lv1-card lv-in" style="--d:1" id="main">
+        <p class="lv-eyebrow">بوابة الإدارة</p>
+        <h1 class="lv-title">مرحباً بعودتك</h1>
+        <p class="lv-lead">سجّل الدخول لمتابعة المشاريع والأنشطة وتوثيق الأثر في الميدان.</p>
+        <form class="lv-form" id="login-form" novalidate>
+            <div class="lv-field lv-in" style="--d:2">
+              <label class="lv-label" for="l-email">البريد الإلكتروني</label>
+              <div class="lv-control">
+                <span class="material-symbols-outlined lv-ico" aria-hidden="true">mail</span>
+                <input class="lv-input" id="l-email" name="email" type="email" dir="ltr" autocomplete="username" inputmode="email" spellcheck="false" placeholder="name@shamal-society.org" aria-describedby="l-email-err" required>
+              </div>
+              <p class="lv-error" id="l-email-err" hidden><span class="material-symbols-outlined" aria-hidden="true">error</span><span></span></p>
+            </div>
+            <div class="lv-field lv-in" style="--d:3">
+              <label class="lv-label" for="l-pass">كلمة المرور</label>
+              <div class="lv-control">
+                <span class="material-symbols-outlined lv-ico" aria-hidden="true">lock</span>
+                <input class="lv-input has-toggle" id="l-pass" name="password" type="password" dir="ltr" autocomplete="current-password" aria-describedby="l-pass-err" required>
+                <button type="button" class="lv-toggle" id="pw-toggle" aria-pressed="false" aria-label="إظهار كلمة المرور" aria-controls="l-pass"><span class="material-symbols-outlined" aria-hidden="true">visibility</span></button>
+              </div>
+              <p class="lv-error" id="l-pass-err" hidden><span class="material-symbols-outlined" aria-hidden="true">error</span><span></span></p>
+            </div>
+            <div class="lv-row lv-in" style="--d:4">
+              <label class="lv-check"><input type="checkbox" id="l-remember" name="remember">تذكّرني</label>
+              <a href="{{ url('/admin/forgot-password') }}" class="lv-link" id="forgot">نسيت كلمة المرور؟</a>
+            </div>
+            <button type="submit" class="lv-btn lv-in" style="--d:5" id="l-submit"><span>تسجيل الدخول</span><span class="material-symbols-outlined" aria-hidden="true">arrow_back</span></button>
+          </form>
+        <div class="lv1-card-foot lv-in" style="--d:6"><p class="lv-demo" role="note"><span class="material-symbols-outlined" aria-hidden="true">info</span><span><b>قالب تجريبي</b> · أي بريد صالح وكلمة مرور من 4 أحرف</span></p></div>
+      </main>
+      <aside class="lv1-story lv-in" style="--d:4" id="lv1-story" aria-label="من الميدان: اقتباسات من فرق العمل">
+        <div class="lv1-story-head">
+          <p class="lv-eyebrow">من الميدان</p>
+          <button type="button" class="lv1-pause" aria-pressed="false" aria-label="إيقاف تدوير الاقتباسات مؤقتاً"><span class="material-symbols-outlined" aria-hidden="true">pause</span></button>
+        </div>
+        <div class="lv1-quotes">
+              <blockquote class="lv1-quote is-active" aria-hidden="false"><p>نبدأ قبل الفجر، لأن الطرود يجب أن تصل إلى العائلات قبل أن يشتدّ البرد.</p><footer><span class="material-symbols-outlined" aria-hidden="true">location_on</span>فريق التوزيع · دير البلح</footer></blockquote>
+              <blockquote class="lv1-quote" aria-hidden="true"><p>خلف كل اسم في القائمة عائلة تنتظر، لذلك نراجع كل تفصيل مرتين.</p><footer><span class="material-symbols-outlined" aria-hidden="true">location_on</span>فريق دراسة الحالات · خان يونس</footer></blockquote>
+              <blockquote class="lv1-quote" aria-hidden="true"><p>الماء النظيف ليس بنداً في تقرير؛ إنه طفل ينام الليلة دون مرض.</p><footer><span class="material-symbols-outlined" aria-hidden="true">location_on</span>فريق المياه والإصحاح · رفح</footer></blockquote>
+              <blockquote class="lv1-quote" aria-hidden="true"><p>ما نوثّقه في الميدان يصل إلى المجتمع كما هو، بصدق ودون تجميل.</p><footer><span class="material-symbols-outlined" aria-hidden="true">location_on</span>فريق التوثيق · غزة</footer></blockquote>
+        </div>
+        <div class="lv1-bars"><button type="button" class="lv1-bar" aria-label="الاقتباس 1 من 4"><i></i></button><button type="button" class="lv1-bar" aria-label="الاقتباس 2 من 4"><i></i></button><button type="button" class="lv1-bar" aria-label="الاقتباس 3 من 4"><i></i></button><button type="button" class="lv1-bar" aria-label="الاقتباس 4 من 4"><i></i></button></div>
+      </aside>
+    </div>
+    <footer class="lv1-foot">© 2026 جمعية الشمال للتنمية والتطوير المجتمعي · غزة، فلسطين</footer>
+  </div>
+
+  <div id="lv-toasts" class="lv-toasts" role="status" aria-live="polite"></div>
+@endsection
+@push('scripts')
+<script src="{{ asset('assets/admin/js/login-variants.js') }}"></script>
+@endpush

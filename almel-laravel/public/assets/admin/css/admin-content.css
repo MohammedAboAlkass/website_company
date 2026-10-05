@@ -1,0 +1,46 @@
+/* إدارة محتوى الواجهة — stories / activities / partners / faq / appeal / impact (uses admin.css + admin-builder.css tokens) */
+.ct-row .sec-item { flex-wrap: nowrap; }
+.ct-row .sec-text strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ct-thumb { width: 56px; height: 44px; border-radius: 10px; overflow: hidden; flex-shrink: 0; background: var(--surface-3); display: grid; place-items: center; border: 1px solid var(--border); }
+.ct-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ct-thumb.is-logo { background: #fff; }
+.ct-thumb.is-logo img { object-fit: contain; padding: 5px; }
+.ct-row.is-off .ct-thumb, .ct-row.is-off .ct-tag { opacity: .55; }
+.ct-tag { max-width: 190px; overflow: hidden; }
+.ct-del:hover { background: var(--danger-tint); color: var(--danger-text); }
+.ct-empty { list-style: none; }
+.ct-imgfield { display: flex; align-items: center; gap: 12px; }
+.ct-imgfield .input { flex: 1; min-width: 0; }
+.ct-imgprev { width: 64px; height: 44px; border-radius: 10px; border: 1px solid var(--border); background: var(--surface-3); overflow: hidden; flex-shrink: 0; display: grid; place-items: center; }
+.ct-imgprev img { width: 100%; height: 100%; object-fit: cover; }
+.ct-imgprev img[hidden] { display: none; }
+.ct-help { display: flex; gap: 10px; align-items: flex-start; padding: 12px 24px; border-bottom: 1px solid var(--border); background: var(--surface-2); color: var(--text-2); font-size: 13px; }
+.ct-help .material-symbols-outlined { font-size: 18px; color: var(--muted); margin-top: 2px; }
+.ct-help p { margin: 0; }
+.ct-form-grid { padding: 24px; display: flex; flex-direction: column; gap: 20px; }
+.ct-barset { padding: 16px 24px; display: flex; align-items: flex-end; gap: 24px; flex-wrap: wrap; border-bottom: 1px solid var(--border); }
+.ct-barset .field { flex: 1 1 260px; }
+.ct-switch { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 13.5px; color: var(--text); padding-bottom: 8px; }
+/* appeal preview */
+.ap-card { position: relative; border-radius: 16px; overflow: hidden; background: #0a3d24; color: #fff; border: 1px solid var(--border); }
+.ap-media { position: relative; height: 130px; }
+.ap-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ap-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.05), rgba(10,61,36,.85)); }
+.ap-flag { position: absolute; z-index: 1; top: 12px; inset-inline-start: 12px; background: #e11d48; color: #fff; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 99px; }
+.ap-body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 8px; }
+.ap-chip { align-self: flex-start; font-size: 11.5px; padding: 3px 10px; border-radius: 99px; border: 1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.08); }
+.ap-kicker { margin: 0; font-size: 12.5px; font-weight: 700; color: #ffd9a8; }
+.ap-title { margin: 0; font-size: 18px; line-height: 1.5; font-weight: 700; color: #fff; font-family: var(--font); }
+.ap-title span { color: #ffb066; }
+.ap-desc { margin: 0; font-size: 12.5px; line-height: 1.8; color: rgba(255,255,255,.75); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.ap-btns { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+.ap-btn { font-size: 12px; font-weight: 700; padding: 6px 12px; border-radius: 99px; border: 1px solid rgba(255,255,255,.3); }
+.ap-btn.is-main { background: #FF7000; border-color: #FF7000; }
+.ap-card.is-off .ap-media, .ap-card.is-off .ap-body { opacity: .4; }
+.ap-off { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 6px; font-weight: 700; font-size: 13px; background: rgba(0,0,0,.35); }
+@media (max-width: 639px) {
+  .ct-row .sec-item { flex-wrap: wrap; }
+  .ct-tag { display: none; }
+  .ct-thumb { width: 44px; height: 36px; }
+  .ct-help, .ct-barset, .ct-form-grid { padding-inline: 16px; }
+}

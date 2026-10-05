@@ -1,0 +1,70 @@
+@extends('layouts.admin')
+@section('title', 'معرض الصور')
+@section('page', 'gallery')
+@section('content')
+
+        <div class="page-head">
+          <div><h1 class="page-title">معرض الصور</h1><p class="page-sub">نظّم صور الميدان في ألبومات، وأضف نصاً بديلاً لكل صورة لتحسين الوصول.</p></div>
+          <div class="page-actions">
+            <button type="button" class="btn btn-secondary" id="new-album"><span class="material-symbols-outlined" aria-hidden="true">create_new_folder</span>ألبوم جديد</button>
+            <button type="button" class="btn btn-primary" id="g-upload-btn"><span class="material-symbols-outlined" aria-hidden="true">upload</span>رفع صور</button>
+          </div>
+        </div>
+        <section class="card" aria-label="رفع الصور">
+          <div class="card-body">
+            <div class="dropzone lg" id="g-dropzone">
+              <input type="file" id="g-file" accept="image/*" multiple aria-label="اختر صوراً لرفعها إلى المعرض" aria-describedby="g-dz-hint">
+              <span class="dz-ico"><span class="material-symbols-outlined" aria-hidden="true">cloud_upload</span></span>
+              <strong>اسحب الصور وأفلتها هنا</strong>
+              <span class="hint" id="g-dz-hint">أو <b>تصفّح جهازك</b> — JPG وPNG وWebP · حتى {{ $opts['maxMb'] }} ميغابايت للصورة</span>
+            </div>
+          </div>
+        </section>
+        <div class="gallery-layout mt-24">
+          <section class="card" aria-labelledby="t-gal">
+            <div class="card-head">
+              <h2 class="sr-only" id="t-gal">الصور</h2>
+              <div class="chips" id="g-albums" role="group" aria-label="الألبومات"></div>
+              <button type="button" class="btn btn-ghost btn-sm" id="g-select-all"><span class="material-symbols-outlined" aria-hidden="true">select_all</span>تحديد الكل</button>
+            </div>
+            <div class="bulkbar mt-16" id="g-bulk" hidden style="border-top:1px solid color-mix(in srgb, var(--amber-500) 22%, var(--border))">
+              <strong id="g-bulk-count" aria-live="polite"></strong><span class="sp"></span>
+              <label class="sr-only" for="bulk-move">نقل الصور المحددة إلى ألبوم</label><select class="select sm auto" id="bulk-move"></select>
+              <button type="button" class="btn btn-danger-ghost btn-sm" id="g-bulk-delete"><span class="material-symbols-outlined" aria-hidden="true">delete</span>حذف</button>
+              <button type="button" class="btn btn-ghost btn-sm" id="g-bulk-clear">إلغاء</button>
+            </div>
+            <div class="card-body"><ul class="ggrid" id="g-grid"></ul></div>
+          </section>
+          <aside class="card detail-panel" id="g-panel" role="region" aria-labelledby="gp-heading">
+            <div class="card-head bordered">
+              <h2 class="card-title" id="gp-heading">تفاصيل الصورة</h2>
+              <button type="button" class="icon-btn sm dp-close" data-close-drawer aria-label="إغلاق التفاصيل"><span class="material-symbols-outlined" aria-hidden="true">close</span></button>
+            </div>
+            <div class="card-body">
+              <div id="gp-empty">
+                <div class="empty" style="padding:32px 8px"><div class="empty-ico"><span class="material-symbols-outlined" aria-hidden="true">touch_app</span></div><h3>لم تُحدَّد صورة</h3><p>اختر صورة من المعرض لعرض تفاصيلها وتعديل عنوانها ونصها البديل.</p></div>
+              </div>
+              <form id="gp-form" novalidate hidden style="display:flex;flex-direction:column;gap:20px">
+                <div class="dp-img"><img id="gp-img" alt=""></div>
+                <div class="field"><label class="label" for="gp-title">العنوان</label><input class="input" id="gp-title" maxlength="80" required></div>
+                <div class="field"><label class="label" for="gp-alt"><span>النص البديل (Alt)</span><span class="counter" id="gp-alt-count">0 / 125</span></label>
+                  <textarea class="textarea" id="gp-alt" rows="3" aria-describedby="gp-alt-hint" style="min-height:88px"></textarea>
+                  <p class="hint" id="gp-alt-hint">صف محتوى الصورة لقارئات الشاشة بجملة قصيرة.</p></div>
+                <div class="field"><label class="label" for="gp-album">الألبوم</label><select class="select" id="gp-album"></select></div>
+                <dl class="meta-grid"><div><dt>الأبعاد</dt><dd><span class="ltr" id="gp-dims"></span></dd></div><div><dt>الحجم</dt><dd><span class="ltr" id="gp-size"></span></dd></div></dl>
+                <div class="row" style="flex-wrap:wrap;gap:8px">
+                  <button type="submit" class="btn btn-primary" style="flex:1"><span class="material-symbols-outlined" aria-hidden="true">save</span>حفظ</button>
+                  <button type="button" class="btn btn-secondary" id="gp-copy"><span class="material-symbols-outlined" aria-hidden="true">link</span>نسخ الرابط</button>
+                  <button type="button" class="btn btn-danger-ghost" id="gp-delete" aria-label="حذف الصورة"><span class="material-symbols-outlined" aria-hidden="true">delete</span>حذف</button>
+                </div>
+              </form>
+            </div>
+          </aside>
+        </div>
+      @endsection
+@push('constants')
+<script>window.__DB_PAGES = { gallery: 1 }; window.__GAL_OPTS = {!! json_encode($opts, JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) !!};</script>
+@endpush
+@push('scripts')
+<script src="{{ asset('assets/admin/js/admin-gallery-db.js') }}"></script>
+@endpush

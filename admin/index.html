@@ -34,67 +34,58 @@
         <section aria-label="المؤشرات الرئيسية"><div class="kpis" id="kpis"></div></section>
 
         <div class="grid mt-24">
-          <section class="card xl-8" aria-labelledby="t-don">
-            <div class="card-head">
-              <div><h2 class="card-title" id="t-don">التبرعات عبر الزمن</h2><p class="card-sub">الفترة الحالية مقارنة بالفترة السابقة</p></div>
-              <div class="seg" id="range-seg" role="group" aria-label="الفترة الزمنية للمخطط">
-                <button type="button" data-value="7d" aria-pressed="false">7 أيام</button>
-                <button type="button" data-value="30d" aria-pressed="false">30 يوماً</button>
-                <button type="button" data-value="12m" aria-pressed="true">12 شهراً</button>
-              </div>
+          <section class="card xl-8" aria-labelledby="t-ben">
+            <div class="card-head bordered">
+              <div class="ch"><span class="ch-ico"><span class="material-symbols-outlined" aria-hidden="true">diversity_3</span></span><div><h2 class="card-title" id="t-ben">المستفيدون عبر الزمن</h2><p class="card-sub">آخر 12 شهراً — القيم بالآلاف</p></div></div>
+              <span class="pill pill-neutral no-dot">12 شهراً</span>
             </div>
             <div class="card-body">
               <div class="row-between" style="flex-wrap:wrap;margin-bottom:16px">
-                <div class="chart-summary"><span class="big ltr" id="donations-total"></span><span id="donations-delta" class="row" style="gap:8px"></span></div>
-                <div class="legend" aria-hidden="true"><span><i class="sw-1"></i>الفترة الحالية</span><span><i class="dash"></i>الفترة السابقة</span></div>
+                <div class="chart-summary"><span class="big ltr" id="ben-total"></span><span id="ben-delta" class="row" style="gap:8px"></span></div>
               </div>
-              <div id="donations-chart"></div>
+              <div id="ben-chart"></div>
             </div>
           </section>
 
           <section class="card xl-4" aria-labelledby="t-gov">
-            <div class="card-head"><div><h2 class="card-title" id="t-gov">التوزيع حسب المحافظات</h2><p class="card-sub">محافظات قطاع غزة الخمس — مخطط توضيحي</p></div></div>
+            <div class="card-head bordered"><div class="ch"><span class="ch-ico"><span class="material-symbols-outlined" aria-hidden="true">map</span></span><div><h2 class="card-title" id="t-gov">التوزيع حسب المحافظات</h2><p class="card-sub">محافظات قطاع غزة الخمس — مخطط توضيحي</p></div></div></div>
             <div class="card-body">
               <div class="seg" id="gov-seg" role="group" aria-label="المؤشر المعروض" style="display:flex">
                 <button type="button" data-value="beneficiaries" aria-pressed="true" style="flex:1;justify-content:center">المستفيدون</button>
-                <button type="button" data-value="donations" aria-pressed="false" style="flex:1;justify-content:center">التبرعات</button>
+                <button type="button" data-value="points" aria-pressed="false" style="flex:1;justify-content:center">نقاط التوزيع</button>
+                <button type="button" data-value="projects" aria-pressed="false" style="flex:1;justify-content:center">المشاريع</button>
               </div>
               <div id="gov-widget" class="mt-16"></div>
             </div>
           </section>
 
-          <section class="card xl-7" aria-labelledby="t-fund">
-            <div class="card-head">
-              <div><h2 class="card-title" id="t-fund">تقدّم تمويل المشاريع</h2><p class="card-sub">المشاريع النشطة الأقرب إلى هدفها</p></div>
+          <section class="card xl-7" aria-labelledby="t-proj">
+            <div class="card-head bordered">
+              <div class="ch"><span class="ch-ico"><span class="material-symbols-outlined" aria-hidden="true">folder_open</span></span><div><h2 class="card-title" id="t-proj">المشاريع النشطة</h2><p class="card-sub">المشاريع الجارية وحالة كل منها</p></div></div>
               <a class="link" href="projects.html">كل المشاريع<span class="material-symbols-outlined" aria-hidden="true">arrow_back</span></a>
             </div>
-            <div class="card-body"><ul class="proj-list" id="proj-funding"></ul></div>
+            <div class="card-body"><ul class="proj-list" id="proj-active"></ul></div>
           </section>
 
           <section class="card xl-5" aria-labelledby="t-feed">
-            <div class="card-head">
-              <div><h2 class="card-title" id="t-feed">آخر النشاطات</h2><p class="card-sub">تحديث لحظي من المنصة</p></div>
-              <div class="seg" role="tablist" id="feed-tabs" aria-label="نوع النشاط">
-                <button type="button" role="tab" id="tab-don" aria-selected="true" aria-controls="feed-donations">التبرعات</button>
-                <button type="button" role="tab" id="tab-act" aria-selected="false" aria-controls="feed-activity" tabindex="-1">السجل</button>
-              </div>
+            <div class="card-head bordered">
+              <div class="ch"><span class="ch-ico"><span class="material-symbols-outlined" aria-hidden="true">history</span></span><div><h2 class="card-title" id="t-feed">آخر النشاطات</h2><p class="card-sub">سجل التحديثات في المنصة</p></div></div>
             </div>
             <div class="card-body">
-              <div id="feed-donations" role="tabpanel" aria-labelledby="tab-don" tabindex="0"></div>
-              <div id="feed-activity" role="tabpanel" aria-labelledby="tab-act" tabindex="0" hidden></div>
+              <div id="feed-activity" role="region" aria-labelledby="t-feed" tabindex="0"></div>
             </div>
           </section>
 
           <section class="card xl-8" aria-labelledby="t-msg">
-            <div class="card-head">
-              <div><h2 class="card-title" id="t-msg">أحدث الرسائل</h2><p class="card-sub">طلبات التواصل والتطوع واستفسارات التبرع</p></div>
+            <div class="card-head bordered">
+              <div class="ch"><span class="ch-ico"><span class="material-symbols-outlined" aria-hidden="true">inbox</span></span><div><h2 class="card-title" id="t-msg">أحدث الرسائل</h2><p class="card-sub">طلبات التواصل والتطوع الواردة</p></div></div>
               <a class="link" href="messages.html">صندوق الرسائل<span class="material-symbols-outlined" aria-hidden="true">arrow_back</span></a>
             </div>
             <div class="card-body" style="padding-top:8px"><ul id="latest-messages"></ul></div>
           </section>
 
           <section class="card xl-4" aria-labelledby="t-quick">
-            <div class="card-head"><div><h2 class="card-title" id="t-quick">إجراءات سريعة</h2><p class="card-sub">أكثر المهام استخداماً</p></div></div>
+            <div class="card-head bordered"><div class="ch"><span class="ch-ico"><span class="material-symbols-outlined" aria-hidden="true">bolt</span></span><div><h2 class="card-title" id="t-quick">إجراءات سريعة</h2><p class="card-sub">أكثر المهام استخداماً</p></div></div></div>
             <div class="card-body">
               <div class="quick">
                 <a href="projects.html#new"><span class="q-ico"><span class="material-symbols-outlined" aria-hidden="true">add_circle</span></span><span><strong>مشروع جديد</strong><span class="s">إضافة حملة أو برنامج</span></span></a>

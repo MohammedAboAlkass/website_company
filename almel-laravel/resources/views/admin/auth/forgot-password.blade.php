@@ -1,0 +1,109 @@
+@extends('layouts.auth')
+@section('title', 'استعادة كلمة المرور — لوحة تحكم جمعية الشمال للتنمية والتطوير المجتمعي')
+@section('viewport', 'width=device-width, initial-scale=1.0')
+@section('theme_color', '#f6f5f2')
+@section('body_attrs') data-page="forgot"@endsection
+@section('head_script')
+<script>(function(){try{var d=document.documentElement,t=localStorage.getItem('almel-admin-theme');if(t==='dark')d.classList.add('dark');}catch(e){}})();</script>
+@endsection
+@push('css')
+<link rel="stylesheet" href="{{ asset('assets/admin/css/admin-status.css') }}">
+@endpush
+@section('body')
+  <div class="login fp">
+    <main class="login-form-side" id="main">
+      <div class="login-top">
+        <a class="login-brand" href="{{ url('/admin/login') }}"><span class="brand-mark"><img src="{{ asset('assets/site/img/logo.png') }}" alt="شعار الجمعية" width="44" height="44"></span><span><strong>جمعية الشمال للتنمية والتطوير المجتمعي</strong><span>لوحة التحكم</span></span></a>
+        <button type="button" class="icon-btn theme-toggle theme-btn" aria-pressed="false" aria-label="الوضع الداكن"><span class="material-symbols-outlined" aria-hidden="true">dark_mode</span></button>
+      </div>
+      <div class="login-form-wrap">
+        <div class="fp-badges"><span class="fp-demo"><span class="material-symbols-outlined" aria-hidden="true">science</span>قالب تجريبي</span></div>
+        <div class="fp-steps" aria-hidden="true"><span class="is-done"></span><span></span><span></span><span></span></div>
+        <p class="fp-step-label" id="fp-step-label">الخطوة 1 من 4</p>
+
+        <section class="fp-step" id="fp-1" data-step="1" aria-labelledby="fp-1-t">
+          <h1 id="fp-1-t" tabindex="-1">نسيت كلمة المرور؟</h1>
+          <p class="lead">أدخل بريدك الإلكتروني المسجّل، وسنرسل إليك رمز تحقق من 6 أرقام لإعادة تعيين كلمة المرور.</p>
+          <form id="fp-email-form" novalidate>
+            <div class="field">
+              <label class="label" for="fp-email">البريد الإلكتروني</label>
+              <span class="input-icon"><span class="material-symbols-outlined" aria-hidden="true">mail</span><input class="input" id="fp-email" type="email" dir="ltr" autocomplete="username" inputmode="email" placeholder="name@shamal-society.org" aria-describedby="fp-email-err" required style="text-align:right;height:48px"></span>
+              <p class="error" id="fp-email-err" hidden><span class="material-symbols-outlined" aria-hidden="true">error</span><span></span></p>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-block" id="fp-send"><span class="material-symbols-outlined" aria-hidden="true">send</span><span class="btn-text">إرسال رمز التحقق</span></button>
+          </form>
+        </section>
+
+        <section class="fp-step" id="fp-2" data-step="2" aria-labelledby="fp-2-t" hidden>
+          <span class="fp-ico"><span class="material-symbols-outlined" aria-hidden="true">mark_email_unread</span></span>
+          <h1 id="fp-2-t" tabindex="-1">تحقق من بريدك</h1>
+          <p class="lead">أرسلنا رمزاً من 6 أرقام إلى <span class="fp-email" id="fp-email-out" dir="ltr"></span>. أدخله أدناه أو الصقه مباشرة.</p>
+          <form id="fp-otp-form" novalidate>
+            <div class="field">
+              <span class="label" id="fp-otp-l">رمز التحقق</span>
+              <div class="otp" id="fp-otp" role="group" aria-labelledby="fp-otp-l" aria-describedby="fp-otp-hint fp-otp-err">
+                <input class="input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" placeholder=" " autocomplete="one-time-code" aria-label="الرقم 1 من 6"><input class="input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" placeholder=" " autocomplete="off" aria-label="الرقم 2 من 6"><input class="input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" placeholder=" " autocomplete="off" aria-label="الرقم 3 من 6"><input class="input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" placeholder=" " autocomplete="off" aria-label="الرقم 4 من 6"><input class="input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" placeholder=" " autocomplete="off" aria-label="الرقم 5 من 6"><input class="input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" placeholder=" " autocomplete="off" aria-label="الرقم 6 من 6">
+              </div>
+              <p class="hint" id="fp-otp-hint">تجريبي: يُقبل أي 6 أرقام ما عدا 000000.</p>
+              <p class="error" id="fp-otp-err" hidden><span class="material-symbols-outlined" aria-hidden="true">error</span><span></span></p>
+            </div>
+            <div class="fp-inline"><span id="fp-timer" aria-live="polite"></span><button type="button" class="fp-link" id="fp-resend" disabled>إعادة إرسال الرمز</button></div>
+            <button type="submit" class="btn btn-primary btn-lg btn-block" id="fp-verify"><span class="material-symbols-outlined" aria-hidden="true">verified</span><span class="btn-text">تحقق من الرمز</span></button>
+          </form>
+          <button type="button" class="fp-back" data-goto="1"><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>تغيير البريد الإلكتروني</button>
+        </section>
+
+        <section class="fp-step" id="fp-3" data-step="3" aria-labelledby="fp-3-t" hidden>
+          <span class="fp-ico"><span class="material-symbols-outlined" aria-hidden="true">password</span></span>
+          <h1 id="fp-3-t" tabindex="-1">كلمة مرور جديدة</h1>
+          <p class="lead">اختر كلمة مرور قوية لم تستخدمها من قبل.</p>
+          <form id="fp-pass-form" novalidate>
+            <div class="field">
+              <label class="label" for="fp-pass">كلمة المرور الجديدة</label>
+              <span class="input-icon"><span class="material-symbols-outlined" aria-hidden="true">lock</span><input class="input" id="fp-pass" type="password" autocomplete="new-password" aria-describedby="fp-pass-meter fp-pass-err" required style="height:48px;padding-inline-end:48px"><span class="input-end"><button type="button" class="pw-toggle" data-toggle="fp-pass" aria-pressed="false" aria-label="إظهار كلمة المرور" aria-controls="fp-pass"><span class="material-symbols-outlined" aria-hidden="true">visibility</span></button></span></span>
+              <div class="pw-meter" id="fp-pass-meter" data-score="0"><div class="pw-meter-bar" aria-hidden="true"><i></i><i></i><i></i><i></i></div><strong id="fp-strength">—</strong></div>
+              <ul class="pw-rules" id="fp-rules" aria-label="متطلبات كلمة المرور">
+                <li data-rule="len"><span class="material-symbols-outlined" aria-hidden="true">radio_button_unchecked</span><span>8 أحرف على الأقل</span></li>
+                <li data-rule="case"><span class="material-symbols-outlined" aria-hidden="true">radio_button_unchecked</span><span>حرف كبير وصغير</span></li>
+                <li data-rule="num"><span class="material-symbols-outlined" aria-hidden="true">radio_button_unchecked</span><span>رقم واحد على الأقل</span></li>
+                <li data-rule="sym"><span class="material-symbols-outlined" aria-hidden="true">radio_button_unchecked</span><span>رمز مثل ! @ #</span></li>
+              </ul>
+              <p class="error" id="fp-pass-err" hidden><span class="material-symbols-outlined" aria-hidden="true">error</span><span></span></p>
+            </div>
+            <div class="field">
+              <label class="label" for="fp-pass2">تأكيد كلمة المرور</label>
+              <span class="input-icon"><span class="material-symbols-outlined" aria-hidden="true">lock_reset</span><input class="input" id="fp-pass2" type="password" autocomplete="new-password" aria-describedby="fp-pass2-err" required style="height:48px;padding-inline-end:48px"><span class="input-end"><button type="button" class="pw-toggle" data-toggle="fp-pass2" aria-pressed="false" aria-label="إظهار تأكيد كلمة المرور" aria-controls="fp-pass2"><span class="material-symbols-outlined" aria-hidden="true">visibility</span></button></span></span>
+              <p class="error" id="fp-pass2-err" hidden><span class="material-symbols-outlined" aria-hidden="true">error</span><span></span></p>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-block" id="fp-save"><span class="material-symbols-outlined" aria-hidden="true">check</span><span class="btn-text">حفظ كلمة المرور</span></button>
+          </form>
+        </section>
+
+        <section class="fp-step" id="fp-4" data-step="4" aria-labelledby="fp-4-t" hidden>
+          <span class="fp-ico is-ok"><span class="material-symbols-outlined" aria-hidden="true">task_alt</span></span>
+          <h1 id="fp-4-t" tabindex="-1">تم تغيير كلمة المرور</h1>
+          <p class="lead">يمكنك الآن تسجيل الدخول بكلمة المرور الجديدة. أنهينا الجلسات المفتوحة على الأجهزة الأخرى احتياطاً (تجريبي).</p>
+          <div class="fp-actions-col">
+            <a class="btn btn-primary btn-lg btn-block" href="{{ url('/admin/login') }}" id="fp-login"><span class="material-symbols-outlined" aria-hidden="true">login</span>العودة إلى تسجيل الدخول</a>
+          </div>
+        </section>
+
+        <div class="login-note mt-24" role="note"><span class="material-symbols-outlined" aria-hidden="true">info</span><p><strong>قالب تجريبي:</strong> لا يُرسل أي بريد ولا تُحفظ كلمة المرور. الخطوات للعرض فقط.</p></div>
+        <a class="fp-back" href="{{ url('/admin/login') }}" id="fp-to-login"><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>العودة إلى تسجيل الدخول</a>
+      </div>
+      <div class="login-foot"><span>© 2026 جمعية الشمال للتنمية والتطوير المجتمعي</span><a href="{{ url('/') }}">العودة إلى الموقع</a></div>
+    </main>
+    <aside class="login-media" aria-label="حماية الحساب">
+      <img src="{{ asset('assets/site/img/gallery-convoy.jpg') }}" alt="">
+      <div class="lm-top"><span class="lm-badge"><span class="dot" aria-hidden="true"></span>أمان الحساب</span><span class="lm-badge">قالب تجريبي</span></div>
+      <h2>حسابك مفتاح العمل.. <span>فلنحمه معاً</span></h2>
+      <p>استخدم كلمة مرور فريدة، وفعّل المصادقة الثنائية من الإعدادات بعد الدخول لحماية بيانات المستفيدين والشركاء.</p>
+    </aside>
+  </div>
+  <div id="toasts" class="toasts" role="status" aria-live="polite"></div>
+@endsection
+@push('scripts')
+<script src="{{ asset('assets/admin/js/admin-data.js') }}"></script>
+<script src="{{ asset('assets/admin/js/admin.js') }}"></script>
+<script src="{{ asset('assets/admin/js/admin-status.js') }}"></script>
+@endpush

@@ -19,6 +19,8 @@
     var $ = function (s, r) { return (r || document).querySelector(s); };
     var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
     var esc = UI.esc, icon = UI.icon, toast = UI.toast, modal = UI.modal;
+    var ACN = window.AdminConstants; /* ثوابت النظام: كل القوائم تقرأ من admin-constants.js */
+    function CP(group, cur) { return ACN ? ACN.pairs(group, cur) : []; }
     var clone = function (o) { return JSON.parse(JSON.stringify(o)); };
     function read(k, d) { try { var v = JSON.parse(localStorage.getItem(k)); return v == null ? d : v; } catch (e) { return d; } }
     function write(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); return true; } catch (e) { return false; } }
@@ -44,6 +46,7 @@
     var K = { settings: 'almel-admin-settings', users: 'almel-admin-users', sessions: 'almel-admin-sessions', integ: 'almel-admin-integrations', keys: 'almel-admin-api-keys', audit: 'almel-admin-audit', twofa: 'almel-admin-2fa' };
     var SECTIONS = [
       { id: 'general', label: 'الإعدادات العامة', icon: 'tune', desc: 'هوية الجمعية وبيانات التواصل والمنطقة الزمنية ووضع الصيانة.' },
+      { id: 'constants', label: 'ثوابت النظام', icon: 'list_alt', desc: 'القوائم المنسدلة وخيارات الاختيار في اللوحة: أضف قيماً أو عدّل تسمياتها أو رتّبها أو عطّلها من مكان واحد.' },
       { id: 'appearance', label: 'المظهر', icon: 'palette', desc: 'السمة ولون التمييز والكثافة وشكل القائمة الجانبية — تُطبّق على كل صفحات اللوحة.' },
       { id: 'users', label: 'المستخدمون والصلاحيات', icon: 'group', desc: 'أعضاء الفريق والدعوات والأدوار وما يستطيع كل دور فعله.' },
       { id: 'security', label: 'الأمان', icon: 'shield_lock', desc: 'سياسة كلمات المرور والمصادقة الثنائية والجلسات وقيود الوصول.' },
@@ -112,10 +115,11 @@
       var ap = AP.read(); ['accent', 'scale', 'density', 'sidebar', 'radius'].forEach(function (k) { s.appearance[k] = ap[k]; });
       s.appearance.theme = storedTheme === 'dark' || storedTheme === 'light' ? storedTheme : 'light';
       (s.users.custom || []).forEach(function (r) { if (!s.users.matrix[r.id]) s.users.matrix[r.id] = permSet([]); });
+      if (ACN) ACN.all('user_role').forEach(function (r) { if (!s.users.matrix[r.key]) s.users.matrix[r.key] = permSet([]); });
       return s;
     }
     var S = load(), SAVED = clone(S);
-    var rolesAll = function () { return ROLES.concat(S.users.custom || []); };
+    var rolesAll = function () { var base = ACN ? ACN.get('user_role').map(function (r) { return { id: r.key, label: r.label }; }) : ROLES; return base.concat(S.users.custom || []); };
 
     /* ---------- paths ---------- */
     function getP(path) { return path.split('.').reduce(function (o, k) { return o == null ? o : o[k]; }, S); }
@@ -146,15 +150,15 @@
         (o.hint ? '<p class="hint" id="' + id + '-hint">' + esc(o.hint) + '</p>' : '') + '<p class="error" id="' + id + '-err" hidden>' + icon('error') + '<span></span></p></div>';
     }
     function select(path, label, opts, o) {
-      o = o || {}; var id = pid(path);
-      return '<div class="field"><label class="label" for="' + id + '">' + esc(label) + '</label><select class="select" id="' + id + '" data-path="' + path + '">' + opts.map(function (x) { return '<option value="' + esc(x[0]) + '">' + esc(x[1]) + '</option>'; }).join('') + '</select>' + (o.hint ? '<p class="hint">' + esc(o.hint) + '</p>' : '') + '</div>';
+      o = o || {}; var id = pid(path); if (o.group) opts = CP(o.group, getP(path));
+      return '<div class="field"><label class="label" for="' + id + '">' + esc(label) + '</label><select class="select" id="' + id + '" data-path="' + path + '"' + (o.group ? ' data-const="' + o.group + '"' : '') + '>' + opts.map(function (x) { return '<option value="' + esc(x[0]) + '">' + esc(x[1]) + '</option>'; }).join('') + '</select>' + (o.hint ? '<p class="hint">' + esc(o.hint) + '</p>' : '') + '</div>';
     }
     function toggle(path, label, hint) {
       var id = pid(path);
       return '<div class="st-toggle"><div><strong id="' + id + '-l">' + esc(label) + '</strong>' + (hint ? '<span class="hint" id="' + id + '-h">' + esc(hint) + '</span>' : '') + '</div><button type="button" class="switch" role="switch" id="' + id + '" data-path="' + path + '" aria-checked="false" aria-labelledby="' + id + '-l"' + (hint ? ' aria-describedby="' + id + '-h"' : '') + '></button></div>';
     }
     function seg(path, label, opts, o) {
-      o = o || {}; var id = pid(path);
+      o = o || {}; var id = pid(path); if (o.group) opts = CP(o.group, getP(path));
       return '<div class="field"><span class="label" id="' + id + '-l">' + esc(label) + '</span><div class="seg st-seg' + (o.wide ? ' is-wide' : '') + '" role="group" aria-labelledby="' + id + '-l" data-path="' + path + '">' + opts.map(function (x) { return '<button type="button" data-value="' + esc(x[0]) + '" aria-pressed="false">' + (x[2] ? icon(x[2]) : '') + esc(x[1]) + '</button>'; }).join('') + '</div>' + (o.hint ? '<p class="hint">' + esc(o.hint) + '</p>' : '') + '</div>';
     }
     function range(path, label, min, max, step, unit, hint) {
@@ -170,6 +174,7 @@
         if (el.classList.contains('switch')) el.setAttribute('aria-checked', String(!!v));
         else if (el.classList.contains('seg')) $$('button', el).forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-value') === String(v))); });
         else if (el.type === 'checkbox') el.checked = !!v;
+        else if (el.tagName === 'SELECT' && el.hasAttribute('data-const') && ACN) { ACN.setValue(el, v); }
         else if (el.tagName === 'INPUT' || el.tagName === 'SELECT' || el.tagName === 'TEXTAREA') { if (String(el.value) !== String(v == null ? '' : v)) el.value = v == null ? '' : v; }
       });
       $$('[data-out]', scope).forEach(function (o) { o.textContent = getP(o.getAttribute('data-out')) + (o.getAttribute('data-unit') ? ' ' + o.getAttribute('data-unit') : ''); });
@@ -292,9 +297,9 @@
           row('general', 'contact', 'البريد والهاتف', 'قنوات التواصل الرسمية مع المتبرعين.', cols(text('general.email', 'البريد العام', { req: true, type: 'email', dir: 'ltr', iconName: 'mail', auto: 'email' }), text('general.phone', 'الخط الساخن', { type: 'tel', dir: 'ltr', iconName: 'call', auto: 'tel' })), 'بريد ايميل هاتف جوال تواصل') +
           row('general', 'address', 'العنوان', 'يظهر في التذييل وصفحة التواصل.', text('general.address', 'العنوان', { area: true, rows: 2, max: 160 }), 'عنوان مكتب')) +
         card('general', 'locale', 'المنطقة واللغة', null,
-          row('general', 'timezone', 'المنطقة الزمنية', 'تُستخدم لمواعيد النشر والتقارير.', select('general.timezone', 'المنطقة الزمنية', TZ), 'توقيت منطقة زمنية ساعة') +
-          row('general', 'language', 'لغة اللوحة', 'اللغة الافتراضية لواجهة الإدارة.', seg('general.language', 'اللغة', [['ar', 'العربية'], ['en', 'English']]), 'لغة عربي انجليزي') +
-          row('general', 'date', 'تنسيق التاريخ', null, seg('general.dateFormat', 'التنسيق', [['long', 'طويل'], ['short', 'مختصر'], ['iso', 'رقمي']]) + '<p class="st-example">' + icon('event') + '<span>مثال: </span><strong id="st-date-example"></strong></p>', 'تاريخ تنسيق')) +
+          row('general', 'timezone', 'المنطقة الزمنية', 'تُستخدم لمواعيد النشر والتقارير.', select('general.timezone', 'المنطقة الزمنية', TZ, { group: 'timezone' }), 'توقيت منطقة زمنية ساعة') +
+          row('general', 'language', 'لغة اللوحة', 'اللغة الافتراضية لواجهة الإدارة.', seg('general.language', 'اللغة', [['ar', 'العربية'], ['en', 'English']], { group: 'language' }), 'لغة عربي انجليزي') +
+          row('general', 'date', 'تنسيق التاريخ', null, seg('general.dateFormat', 'التنسيق', [['long', 'طويل'], ['short', 'مختصر'], ['iso', 'رقمي']], { group: 'date_format' }) + '<p class="st-example">' + icon('event') + '<span>مثال: </span><strong id="st-date-example"></strong></p>', 'تاريخ تنسيق')) +
         card('general', 'maintenance', 'وضع الصيانة', 'يعرض للزوار رسالة مؤقتة بدل الموقع أثناء التحديثات.',
           row('general', 'maintenance', 'تفعيل وضع الصيانة', 'يبقى الوصول متاحاً للمسؤولين.', toggle('general.maintenance', 'إيقاف الموقع مؤقتاً للزوار', 'تجريبي: لا يتأثر الموقع العام في هذه النسخة.') +
             '<div class="st-when" data-when="general.maintenance">' + text('general.maintenanceMsg', 'رسالة الصيانة', { area: true, rows: 3, max: 220, counter: true }) + '<div class="st-maint-prev" aria-hidden="true"><span class="material-symbols-outlined">construction</span><div><strong>الموقع تحت الصيانة</strong><span data-live="maintenanceMsg"></span></div></div></div>', 'صيانة ايقاف رسالة maintenance'));
@@ -405,7 +410,7 @@
     R.security = function () {
       return card('security', 'password', 'سياسة كلمات المرور', 'تُطبَّق على كل أعضاء الفريق عند تغيير كلمة المرور.',
           row('security', 'length', 'الطول والتعقيد', null, range('security.minLength', 'أقل طول', 8, 32, 1, 'حرفاً') + '<div class="st-toggles">' + toggle('security.upper', 'حرف كبير واحد على الأقل (A–Z)') + toggle('security.number', 'رقم واحد على الأقل') + toggle('security.symbol', 'رمز خاص واحد على الأقل (!@#)') + '</div>', 'كلمة المرور طول تعقيد رموز password') +
-          row('security', 'rotation', 'التجديد والحظر', null, range('security.reuse', 'منع إعادة استخدام آخر', 0, 24, 1, 'كلمات') + cols(select('security.expiry', 'انتهاء الصلاحية', [['never', 'لا تنتهي'], ['30', 'كل 30 يوماً'], ['60', 'كل 60 يوماً'], ['90', 'كل 90 يوماً'], ['180', 'كل 180 يوماً']]), range('security.lockout', 'قفل الحساب بعد', 3, 10, 1, 'محاولات')), 'انتهاء صلاحية قفل محاولات') +
+          row('security', 'rotation', 'التجديد والحظر', null, range('security.reuse', 'منع إعادة استخدام آخر', 0, 24, 1, 'كلمات') + cols(select('security.expiry', 'انتهاء الصلاحية', [['never', 'لا تنتهي'], ['30', 'كل 30 يوماً'], ['60', 'كل 60 يوماً'], ['90', 'كل 90 يوماً'], ['180', 'كل 180 يوماً']], { group: 'password_expiry' }), range('security.lockout', 'قفل الحساب بعد', 3, 10, 1, 'محاولات')), 'انتهاء صلاحية قفل محاولات') +
           row('security', 'strength', 'قوة السياسة', 'جرّب كلمة مرور لترى هل تطابق السياسة (لا تُحفظ).', '<div class="st-meter" id="st-policy"><div class="st-meter-bar"><span></span></div><strong></strong></div><div class="field"><label class="label" for="st-pw-test">تجربة كلمة مرور</label><input class="input" id="st-pw-test" type="password" autocomplete="new-password" dir="ltr"></div><ul class="st-rules" id="st-rules" aria-live="polite"></ul>', 'قوة اختبار')) +
         card('security', '2fa', 'المصادقة الثنائية', 'طبقة حماية إضافية عند تسجيل الدخول.',
           row('security', '2fa', 'حسابك', 'رمز من تطبيق المصادقة عند كل دخول.', '<div id="st-2fa"></div>', 'مصادقة ثنائية 2fa رمز تطبيق') +
@@ -413,7 +418,7 @@
         card('security', 'sessions', 'الجلسات النشطة', 'الأجهزة المسجّل دخولها حالياً إلى حسابك (بيانات تجريبية).', '<ul class="st-sessions" id="st-sessions"></ul>', '<button type="button" class="btn btn-ghost btn-sm" id="st-revoke-all">' + icon('logout') + 'إنهاء الجلسات الأخرى</button>') +
         card('security', 'access', 'التنبيهات وقيود الوصول', null,
           row('security', 'alerts', 'تنبيهات الدخول', null, toggle('security.alertNewDevice', 'دخول من جهاز أو متصفح جديد') + toggle('security.alertFailed', 'محاولات دخول فاشلة متكررة') + toggle('security.alertCountry', 'دخول من دولة غير معتادة'), 'تنبيه دخول فاشل') +
-          row('security', 'timeout', 'مهلة الجلسة', 'تسجيل الخروج تلقائياً بعد عدم النشاط.', select('security.timeout', 'المهلة', [['15', '15 دقيقة'], ['30', '30 دقيقة'], ['60', 'ساعة'], ['240', '4 ساعات'], ['480', '8 ساعات']]), 'مهلة خروج تلقائي') +
+          row('security', 'timeout', 'مهلة الجلسة', 'تسجيل الخروج تلقائياً بعد عدم النشاط.', select('security.timeout', 'المهلة', [['15', '15 دقيقة'], ['30', '30 دقيقة'], ['60', 'ساعة'], ['240', '4 ساعات'], ['480', '8 ساعات']], { group: 'session_timeout' }), 'مهلة خروج تلقائي') +
           row('security', 'ip', 'قائمة عناوين IP المسموحة', 'اقصر الدخول إلى اللوحة على عناوين أو نطاقات محددة.', toggle('security.ipAllow', 'تفعيل القائمة المسموحة', 'تجريبي: لا يُطبَّق فعلياً في النسخة الثابتة.') + '<div class="st-chips" id="st-ips" aria-label="العناوين المسموحة"></div><div class="st-add"><label class="sr-only" for="st-ip-input">أضف عنوان IP أو نطاق CIDR</label><input class="input" id="st-ip-input" dir="ltr" placeholder="203.0.113.10 أو 203.0.113.0/24" aria-describedby="st-ip-err" autocomplete="off"><button type="button" class="btn btn-secondary" id="st-ip-add">' + icon('add') + 'إضافة</button></div><p class="error" id="st-ip-err" hidden>' + icon('error') + '<span></span></p>', 'ip عناوين مسموحة allowlist'));
     };
     function policyScore() { var s = S.security; var sc = (s.minLength - 8) * 3 + (s.upper ? 12 : 0) + (s.number ? 12 : 0) + (s.symbol ? 16 : 0) + Math.min(s.reuse, 10) * 1.5 + (s.expiry !== 'never' ? 6 : 0); return Math.max(8, Math.min(100, Math.round(sc + 14))); }
@@ -437,7 +442,7 @@
         card('notifications', 'quiet', 'أوقات الهدوء', 'لا تُرسل تنبيهات غير عاجلة خلال هذه الفترة. التنبيهات الأمنية تُرسل دائماً.',
           row('notifications', 'quiet', 'فترة الهدوء', null, toggle('notifications.quiet', 'تفعيل أوقات الهدوء') + '<div class="st-when" data-when="notifications.quiet">' + cols(text('notifications.quietFrom', 'من', { type: 'time', dir: 'ltr' }), text('notifications.quietTo', 'إلى', { type: 'time', dir: 'ltr' })) + '</div>', 'هدوء ازعاج ليل')) +
         card('notifications', 'digest', 'الملخص الدوري', 'رسالة بريد تجمع أهم المؤشرات.',
-          row('notifications', 'digest', 'التكرار', null, seg('notifications.digest', 'تكرار الملخص', [['off', 'متوقف'], ['daily', 'يومي'], ['weekly', 'أسبوعي'], ['monthly', 'شهري']]) + '<div class="st-when" data-when="notifications.digest">' + cols(select('notifications.digestDay', 'يوم الإرسال', [['sat', 'السبت'], ['sun', 'الأحد'], ['mon', 'الاثنين'], ['thu', 'الخميس']]), text('notifications.digestEmail', 'يُرسل إلى', { type: 'email', dir: 'ltr', iconName: 'mail' })) + '</div>', 'ملخص تقرير دوري digest'));
+          row('notifications', 'digest', 'التكرار', null, seg('notifications.digest', 'تكرار الملخص', [['off', 'متوقف'], ['daily', 'يومي'], ['weekly', 'أسبوعي'], ['monthly', 'شهري']], { group: 'digest_frequency' }) + '<div class="st-when" data-when="notifications.digest">' + cols(select('notifications.digestDay', 'يوم الإرسال', [['sat', 'السبت'], ['sun', 'الأحد'], ['mon', 'الاثنين'], ['thu', 'الخميس']], { group: 'digest_day' }), text('notifications.digestEmail', 'يُرسل إلى', { type: 'email', dir: 'ltr', iconName: 'mail' })) + '</div>', 'ملخص تقرير دوري digest'));
     };
     hooks.notifications = function () {
       CHANNELS.forEach(function (c) {
@@ -553,7 +558,7 @@
     var roleMap = { admin: 'admin', editor: 'editor', field: 'writer', finance: 'viewer', viewer: 'viewer' };
     var users = read(K.users, null) || (D.users || []).map(function (u, i) { return { id: 'u' + (i + 1), name: u.name, email: u.email, role: roleMap[u.role] || 'viewer', status: u.status, last: u.last, me: i === 0 }; });
     function saveUsers() { write(K.users, users); }
-    function roleLabel(id) { var r = rolesAll().filter(function (x) { return x.id === id; })[0]; return r ? r.label : 'مشاهد'; }
+    function roleLabel(id) { var r = rolesAll().filter(function (x) { return x.id === id; })[0]; return r ? r.label : ((ACN && ACN.label('user_role', id)) || 'مشاهد'); }
     R.users = function () {
       return card('users', 'team', 'أعضاء الفريق', null,
           '<div class="st-toolbar"><label class="input-icon st-grow"><span class="sr-only">ابحث في الأعضاء</span><span class="material-symbols-outlined" aria-hidden="true">search</span><input class="input sm" id="st-user-q" type="search" placeholder="ابحث بالاسم أو البريد…" autocomplete="off"></label><label class="sr-only" for="st-user-role">تصفية حسب الدور</label><select class="select sm auto" id="st-user-role"></select></div>' +
@@ -569,6 +574,7 @@
       list.forEach(function (u) {
         var st = USTATUS[u.status] || USTATUS.active;
         var sel = h('select', { class: 'select sm auto', 'aria-label': 'دور ' + u.name, disabled: u.me ? true : null }, rolesAll().map(function (r) { return h('option', { value: r.id, text: r.label }); }));
+        if (!rolesAll().some(function (r) { return r.id === u.role; })) { var ox = h('option', { value: u.role, text: roleLabel(u.role), disabled: true }); sel.appendChild(ox); }
         sel.value = u.role;
         sel.addEventListener('change', function () { var old = roleLabel(u.role); u.role = sel.value; saveUsers(); audit('غيّر دور ' + u.name + ' من «' + old + '» إلى «' + roleLabel(u.role) + '»', 'users', 'manage_accounts'); toast('تم تغيير الدور', { text: u.name + ' ← ' + roleLabel(u.role), icon: 'manage_accounts' }); renderRoles(); });
         var menu = u.me ? h('span', { class: 'sr-only', text: 'لا إجراءات لحسابك' }) : h('button', { type: 'button', class: 'icon-btn sm', 'aria-haspopup': 'menu', 'aria-expanded': 'false', 'aria-label': 'إجراءات: ' + u.name }, [ic('more_horiz')]);
@@ -805,7 +811,7 @@
           row('backup', 'export', 'تصدير نسخة', null, '<div class="st-backup-stat" id="st-backup-stat"></div><button type="button" class="btn btn-primary" id="st-export">' + icon('download') + 'تنزيل النسخة (JSON)</button>', 'تصدير نسخة تنزيل export json') +
           row('backup', 'import', 'استيراد نسخة', 'نعرض الفروقات قبل التطبيق.', '<label class="st-drop" id="st-drop">' + icon('upload_file') + '<span><strong>اختر ملف JSON</strong> أو اسحبه إلى هنا</span><input type="file" id="st-import" accept="application/json,.json" class="sr-only"></label><div id="st-import-prev" hidden></div>', 'استيراد استعادة import')) +
         card('backup', 'schedule', 'النسخ المجدول', 'واجهة تجريبية — تتطلب خادماً لتعمل فعلياً.',
-          row('backup', 'schedule', 'الجدولة', null, seg('backup.schedule', 'التكرار', [['off', 'متوقف'], ['daily', 'يومي'], ['weekly', 'أسبوعي'], ['monthly', 'شهري']]) + cols(text('backup.time', 'وقت التشغيل', { type: 'time', dir: 'ltr' }), select('backup.dest', 'الوجهة', [['local', 'تنزيل محلي'], ['cloud', 'التخزين السحابي (غير متصل)'], ['email', 'البريد الإلكتروني']])) + range('backup.keep', 'الاحتفاظ بآخر', 3, 30, 1, 'نسخ'), 'جدولة مجدول تلقائي') +
+          row('backup', 'schedule', 'الجدولة', null, seg('backup.schedule', 'التكرار', [['off', 'متوقف'], ['daily', 'يومي'], ['weekly', 'أسبوعي'], ['monthly', 'شهري']], { group: 'digest_frequency' }) + cols(text('backup.time', 'وقت التشغيل', { type: 'time', dir: 'ltr' }), select('backup.dest', 'الوجهة', [['local', 'تنزيل محلي'], ['cloud', 'التخزين السحابي (غير متصل)'], ['email', 'البريد الإلكتروني']])) + range('backup.keep', 'الاحتفاظ بآخر', 3, 30, 1, 'نسخ'), 'جدولة مجدول تلقائي') +
           row('backup', 'include', 'محتوى النسخة', null, '<div class="st-checks"><label class="check-label"><input type="checkbox" class="checkbox" data-path="backup.incContent">المحتوى (الصفحات، القائمة، الأخبار)</label><label class="check-label"><input type="checkbox" class="checkbox" data-path="backup.incSettings">الإعدادات والمستخدمون</label><label class="check-label"><input type="checkbox" class="checkbox" data-path="backup.incMedia">الوسائط (يزيد الحجم)</label></div>', 'محتوى وسائط') +
           row('backup', 'history', 'آخر النسخ', null, '<ul class="st-history"><li>' + icon('check_circle') + '<span>نسخة أسبوعية تلقائية</span><span class="hint">قبل 3 أيام · 184 KB</span></li><li>' + icon('check_circle') + '<span>نسخة يدوية قبل التحديث</span><span class="hint">قبل 9 أيام · 176 KB</span></li><li class="is-fail">' + icon('error') + '<span>نسخة أسبوعية (فشل الاتصال)</span><span class="hint">قبل 10 أيام</span></li></ul>', 'سجل نسخ')) +
         '<section class="card st-card st-danger" aria-labelledby="ct-danger"><div class="card-head bordered"><div><h3 class="card-title" id="ct-danger">' + icon('warning') + 'منطقة الخطر</h3><p class="card-sub">إجراءات لا يمكن التراجع عنها.</p></div></div><div class="card-body">' +
@@ -915,7 +921,7 @@
     R.audit = function () {
       return card('audit', 'log', 'كل الأحداث', 'بيانات تجريبية مع الأحداث الفعلية التي تنفذها في هذه المعاينة.',
         '<div class="st-toolbar st-audit-tools"><label class="input-icon st-grow"><span class="sr-only">ابحث في السجل</span><span class="material-symbols-outlined" aria-hidden="true">search</span><input class="input sm" id="au-q" type="search" placeholder="ابحث في الأحداث…" autocomplete="off"></label>' +
-        '<label class="sr-only" for="au-user">المستخدم</label><select class="select sm auto" id="au-user"></select><label class="sr-only" for="au-type">النوع</label><select class="select sm auto" id="au-type"><option value="all">كل الأنواع</option>' + Object.keys(TYPES).map(function (k) { return '<option value="' + k + '">' + TYPES[k][0] + '</option>'; }).join('') + '</select>' +
+        '<label class="sr-only" for="au-user">المستخدم</label><select class="select sm auto" id="au-user"></select><label class="sr-only" for="au-type">النوع</label><select class="select sm auto" id="au-type"><option value="all">كل الأنواع</option>' + Object.keys(TYPES).map(function (k) { return [k, TYPES[k][0]]; }).concat([]).map(function (p) { return p; }).map(function (p) { var k = p[0]; return '<option value="' + k + '">' + esc(ACN ? (ACN.label('audit_type', k) || p[1]) : p[1]) + '</option>'; }).join('') + '</select>' +
         '<label class="st-date"><span>من</span><input class="input sm" type="date" id="au-from" dir="ltr"></label><label class="st-date"><span>إلى</span><input class="input sm" type="date" id="au-to" dir="ltr"></label><button type="button" class="btn btn-ghost btn-sm" id="au-clear">مسح</button></div>' +
         '<div class="table-wrap" tabindex="0" role="region" aria-label="جدول أحداث السجل"><table class="table compact"><thead><tr><th scope="col">الحدث</th><th scope="col">المستخدم</th><th scope="col">النوع</th><th scope="col">الوقت</th><th scope="col">IP</th></tr></thead><tbody id="au-body"></tbody></table></div>' +
         '<div class="st-audit-foot"><span class="hint" id="au-count" aria-live="polite"></span><button type="button" class="btn btn-secondary btn-sm" id="au-more">عرض المزيد</button></div>',
@@ -956,6 +962,105 @@
       }
     });
     INIT.audit = function () { renderAudit(); };
+
+    /* =================== ثوابت النظام (System constants) =================== */
+    var AC = window.AdminConstants;
+    var NEEDKEY = ['timezone', 'icon', 'section_anchor', 'password_expiry', 'session_timeout'];
+    var ct = { g: AC ? AC.groups()[0].key : '', q: '' };
+    R.constants = function () {
+      if (!AC) return card('constants', 'editor', 'ثوابت النظام', null, '<p class="muted">تعذّر تحميل ملف الثوابت (admin-constants.js).</p>');
+      return card('constants', 'editor', 'ثوابت النظام', 'كل قائمة منسدلة في اللوحة هي ثابت من ثوابت الموقع. أي تعديل هنا ينعكس فوراً على القوائم في كل الصفحات.',
+        '<div class="ct-wrap"><aside class="ct-groups" aria-label="مجموعات الثوابت"><label class="input-icon ct-gq"><span class="sr-only">ابحث في الثوابت</span><span class="material-symbols-outlined" aria-hidden="true">search</span><input class="input sm" id="ct-q" type="search" placeholder="ابحث في الثوابت…" autocomplete="off"></label><ul class="ct-glist" id="ct-glist"></ul></aside><div class="ct-editor" id="ct-editor"></div></div>');
+    };
+    function ctGroupCount(g) { var a = AC.all(g.key); return a.filter(function (x) { return x.active; }).length + '/' + a.length; }
+    function ctRenderGroups() {
+      var ul = $('#ct-glist'); if (!ul) return; var q = UI.normalize(ct.q); ul.textContent = '';
+      AC.groups().forEach(function (g) {
+        var hay = UI.normalize(g.label + ' ' + g.desc + ' ' + g.pages.join(' ') + ' ' + AC.all(g.key).map(function (x) { return x.label; }).join(' '));
+        if (q && hay.indexOf(q) < 0) return;
+        var b = h('button', { type: 'button', class: 'ct-g' + (g.key === ct.g ? ' is-on' : ''), 'data-ct-group': g.key, 'aria-pressed': String(g.key === ct.g) }, [h('span', { class: 'ct-g-name', text: g.label }), h('span', { class: 'ct-g-n', text: ctGroupCount(g), title: 'الفعّال / الكل' })]);
+        ul.appendChild(h('li', {}, [b]));
+      });
+      if (!ul.children.length) ul.appendChild(h('li', { class: 'muted st-empty', text: 'لا توجد مجموعات مطابقة.' }));
+    }
+    function ctRenderEditor() {
+      var box = $('#ct-editor'); if (!box) return; var g = AC.group(ct.g) || AC.groups()[0]; ct.g = g.key;
+      var items = AC.all(g.key), lock = g.lock || [], act = items.filter(function (x) { return x.active; }).length;
+      box.textContent = '';
+      var head = h('div', { class: 'ct-head' }, [
+        h('div', { class: 'ct-head-t' }, [h('h4', { text: g.label }), h('p', { class: 'hint', text: g.desc }), h('p', { class: 'ct-pages' }, [ic('web'), h('span', { text: 'تُستخدم في: ' + g.pages.join('، ') })])]),
+        h('button', { type: 'button', class: 'btn btn-ghost btn-sm', 'data-ct-reset': g.key, disabled: AC.isCustom(g.key) ? null : true }, [ic('restart_alt'), 'إعادة الافتراضي'])
+      ]);
+      box.appendChild(head);
+      if (g.fixed) box.appendChild(h('p', { class: 'ct-note' }, [ic('info'), h('span', { text: 'مفاتيح هذه المجموعة مرتبطة بسلوك اللوحة، لذلك يمكنك تعديل التسميات والترتيب والتفعيل فقط (بدون إضافة أو حذف).' })]));
+      var tbody = h('tbody');
+      items.forEach(function (x, i) {
+        var locked = lock.indexOf(x.key) >= 0;
+        var inp = h('input', { class: 'input sm ct-label', value: x.label, maxlength: '60', 'data-ct-label': x.key, 'aria-label': 'تسمية ' + x.label });
+        var sw = h('button', { type: 'button', class: 'switch', role: 'switch', 'aria-checked': String(x.active), 'data-ct-toggle': x.key, 'aria-label': 'تفعيل ' + x.label, disabled: (locked || (x.active && act <= 1)) ? true : null });
+        var up = h('button', { type: 'button', class: 'icon-btn sm', 'data-ct-up': x.key, 'aria-label': 'رفع ' + x.label, disabled: i === 0 ? true : null }, [ic('keyboard_arrow_up')]);
+        var dn = h('button', { type: 'button', class: 'icon-btn sm', 'data-ct-down': x.key, 'aria-label': 'خفض ' + x.label, disabled: i === items.length - 1 ? true : null }, [ic('keyboard_arrow_down')]);
+        var del = g.fixed || locked ? h('span', { class: 'sr-only', text: 'لا يمكن حذفه' }) : h('button', { type: 'button', class: 'icon-btn sm st-danger-text', 'data-ct-del': x.key, 'aria-label': 'حذف ' + x.label }, [ic('delete')]);
+        tbody.appendChild(h('tr', { class: x.active ? '' : 'is-off' }, [
+          h('td', { class: 'ct-c-n', text: String(i + 1) }), h('td', {}, [inp]), h('td', { class: 'ct-c-k' }, [h('code', { class: 'ltr', text: x.key })]),
+          h('td', { class: 'ct-c-s' }, [sw]), h('td', { class: 'ct-c-a' }, [h('div', { class: 'ct-acts' }, [up, dn, del])])
+        ]));
+      });
+      box.appendChild(h('div', { class: 'table-wrap', tabindex: '0', role: 'region', 'aria-label': 'قيم ' + g.label }, [h('table', { class: 'table compact ct-table' }, [
+        h('thead', {}, [h('tr', {}, [h('th', { text: '#' }), h('th', { text: 'التسمية (تظهر في القائمة)' }), h('th', { text: 'المفتاح' }), h('th', { text: 'مفعّل' }), h('th', { class: 'col-actions', text: 'ترتيب / حذف' })])]), tbody])]));
+      if (!g.fixed) {
+        var needKey = NEEDKEY.indexOf(g.key) >= 0;
+        var f = h('form', { class: 'ct-add', id: 'ct-add', novalidate: true }, [
+          h('div', { class: 'field' }, [h('label', { class: 'label', for: 'ct-new-label', text: 'قيمة جديدة' }), h('input', { class: 'input sm', id: 'ct-new-label', maxlength: '60', placeholder: 'التسمية بالعربية', autocomplete: 'off' })]),
+          h('div', { class: 'field' }, [h('label', { class: 'label', for: 'ct-new-key', text: needKey ? 'المفتاح (مطلوب)' : 'المفتاح (اختياري)' }), h('input', { class: 'input sm', id: 'ct-new-key', dir: 'ltr', maxlength: '40', placeholder: needKey ? 'مثال: Asia/Beirut' : 'يُولَّد تلقائياً', autocomplete: 'off' })]),
+          h('button', { type: 'submit', class: 'btn btn-primary btn-sm' }, [ic('add'), 'إضافة'])
+        ]);
+        box.appendChild(f);
+        box.appendChild(h('p', { class: 'ct-err', id: 'ct-err', hidden: true, role: 'alert' }));
+      }
+      box.appendChild(h('p', { class: 'hint ct-foot', text: 'عند تعطيل قيمة أو حذفها تختفي من القوائم، أما السجلات المحفوظة مسبقاً فتبقى تعرض تسميتها كما هي.' }));
+    }
+    function ctSaved(msg, tone, icn) { audit(msg, 'settings', 'tune'); toast('تم حفظ التغيير', { text: msg, tone: tone || 'success', icon: icn || 'check', duration: 2200 }); }
+    function ctRender(keepFocus) { ctRenderGroups(); ctRenderEditor(); }
+    INIT.constants = function () { ctRender(); };
+    function ctErr(t) { var e = $('#ct-err'); if (!e) return; e.textContent = t; e.hidden = !t; }
+    root.addEventListener('input', function (e) { if (e.target.id === 'ct-q') { ct.q = e.target.value; ctRenderGroups(); } });
+    root.addEventListener('change', function (e) {
+      var k = e.target.getAttribute && e.target.getAttribute('data-ct-label'); if (!k) return;
+      var v = e.target.value.trim(), old = AC.label(ct.g, k);
+      if (!v) { e.target.value = old; toast('التسمية لا يمكن أن تكون فارغة', { tone: 'danger', icon: 'error' }); return; }
+      if (v === old) return;
+      AC.update(ct.g, k, { label: v }); ctSaved('عدّل «' + old + '» إلى «' + v + '»'); ctRender();
+    });
+    root.addEventListener('submit', function (e) {
+      if (e.target.id !== 'ct-add') return; e.preventDefault();
+      var l = $('#ct-new-label').value.trim(), k = $('#ct-new-key').value.trim();
+      if (l.length < 1) { ctErr('أدخل تسمية للقيمة الجديدة.'); $('#ct-new-label').focus(); return; }
+      if (NEEDKEY.indexOf(ct.g) >= 0 && !k) { ctErr('هذه المجموعة تحتاج مفتاحاً.'); $('#ct-new-key').focus(); return; }
+      if (k && AC.all(ct.g).some(function (x) { return x.key === k; })) { ctErr('المفتاح مستخدم من قبل.'); $('#ct-new-key').focus(); return; }
+      if (AC.all(ct.g).some(function (x) { return x.label === l; })) { ctErr('توجد قيمة بنفس التسمية.'); $('#ct-new-label').focus(); return; }
+      AC.add(ct.g, { label: l, key: k }); ctSaved('أُضيفت القيمة «' + l + '»'); ctRender(); var n = $('#ct-new-label'); if (n) n.focus();
+    });
+    root.addEventListener('click', function (e) {
+      var b;
+      if ((b = e.target.closest('[data-ct-group]'))) { ct.g = b.getAttribute('data-ct-group'); ctRender(); return; }
+      if ((b = e.target.closest('[data-ct-toggle]'))) { var k = b.getAttribute('data-ct-toggle'), x = AC.all(ct.g).filter(function (y) { return y.key === k; })[0]; if (!x) return; AC.update(ct.g, k, { active: !x.active }); ctSaved((x.active ? 'عُطّلت' : 'فُعّلت') + ' القيمة «' + x.label + '»', 'info', 'toggle_on'); ctRender(); return; }
+      if ((b = e.target.closest('[data-ct-up]'))) { AC.move(ct.g, b.getAttribute('data-ct-up'), -1); ctSaved('غُيّر ترتيب القيم', 'info', 'swap_vert'); ctRender(); var f1 = $('[data-ct-up="' + b.getAttribute('data-ct-up') + '"]:not([disabled])') || $('[data-ct-down="' + b.getAttribute('data-ct-up') + '"]'); if (f1) f1.focus(); return; }
+      if ((b = e.target.closest('[data-ct-down]'))) { AC.move(ct.g, b.getAttribute('data-ct-down'), 1); ctSaved('غُيّر ترتيب القيم', 'info', 'swap_vert'); ctRender(); var f2 = $('[data-ct-down="' + b.getAttribute('data-ct-down') + '"]:not([disabled])') || $('[data-ct-up="' + b.getAttribute('data-ct-down') + '"]'); if (f2) f2.focus(); return; }
+      if ((b = e.target.closest('[data-ct-del]'))) {
+        var key = b.getAttribute('data-ct-del'), lab = AC.label(ct.g, key);
+        UI.confirmDelete('القيمة «' + lab + '»', 'ستختفي من القوائم. السجلات المحفوظة التي تستخدمها تبقى تعرض تسميتها.').then(function (ok) { if (!ok) return; AC.remove(ct.g, key); ctSaved('حُذفت القيمة «' + lab + '»', 'danger', 'delete'); ctRender(); });
+        return;
+      }
+      if ((b = e.target.closest('[data-ct-reset]'))) {
+        var gk = b.getAttribute('data-ct-reset'), gg = AC.group(gk);
+        modal({ title: 'إعادة «' + gg.label + '» إلى الافتراضي؟', text: 'ستُستبدل القيم الحالية بالقيم الأصلية وبترتيبها الأصلي.', icon: 'restart_alt', tone: 'warn', confirmText: 'إعادة الافتراضي' }).then(function (ok) { if (!ok) return; AC.reset(gk); ctSaved('أُعيدت المجموعة «' + gg.label + '» إلى الافتراضي', 'info', 'restart_alt'); ctRender(); });
+      }
+    });
+    if (AC) AC.subscribe(function () { if ($('#ct-editor') && !document.activeElement.matches('input')) ctRender(); });
+
+    /* constants changed elsewhere: refresh sections whose lists come from them */
+    if (ACN) ACN.subscribe(function () { ['general', 'security', 'notifications', 'backup', 'users', 'audit'].forEach(function (k) { if (document.getElementById('sec-' + k) && !R[k].__busy) { var a = document.activeElement; if (a && a.closest && a.closest('#sec-' + k)) return; renderSection(k); } }); });
 
     /* =================== LAYOUT: nav, sections, search =================== */
     var nav = $('#st-nav');

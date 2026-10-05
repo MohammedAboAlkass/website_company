@@ -26,6 +26,8 @@
   };
   var pct = function (a, b) { return b ? Math.min(100, Math.round((a / b) * 100)) : 0; };
   var uid = (function () { var i = 0; return function (p) { return (p || 'u') + (++i); }; })();
+  /* ثوابت النظام: عيّن قيمة قائمة حتى لو كان خيارها معطّلاً/محذوفاً */
+  function AC_set(sel, v) { if (window.AdminConstants) window.AdminConstants.setValue(sel, v); else sel.value = v == null ? '' : v; }
   var byId = function (list, id) { for (var i = 0; i < list.length; i++) if (list[i].id === id) return list[i]; return null; };
   var store = {
     get: function (k, d) { try { var v = localStorage.getItem(k); return v === null ? d : v; } catch (e) { return d; } },
@@ -55,8 +57,10 @@
       .replace(/[\u064B-\u065F\u0670]/g, '')
       .replace(/[أإآ]/g, 'ا').replace(/ة/g, 'ه').replace(/ى/g, 'ي').trim();
   }
-  function cat(id) { return byId(D.categories || [], id) || { label: id, icon: 'category' }; }
-  function pStatus(id) { return byId(D.projectStatuses || [], id) || { label: id, tone: 'neutral' }; }
+  /* تسميات الثوابت المعدّلة تنعكس على الجداول والبطاقات أيضاً */
+  function acLabel(group, id, fallback) { var l = window.AdminConstants && window.AdminConstants.label(group, id); return l || fallback; }
+  function cat(id) { var c = byId(D.categories || [], id) || { label: id, icon: 'category' }; return Object.assign({}, c, { label: acLabel('project_category', id, c.label) }); }
+  function pStatus(id) { var s = byId(D.projectStatuses || [], id) || { label: id, tone: 'neutral' }; return Object.assign({}, s, { label: acLabel('project_status', id, s.label) }); }
   function pill(label, tone) { return '<span class="pill pill-' + tone + '">' + esc(label) + '</span>'; }
   var MSG_TYPES = { contact: { label: 'تواصل', tone: 'info', icon: 'chat' }, volunteer: { label: 'تطوع', tone: 'warn', icon: 'handshake' }, donation: { label: 'استفسار تبرع', tone: 'neutral', icon: 'payments' } };
   function initials(name) { var s = String(name || '').replace(/[#\d]/g, '').trim(); return s ? s.charAt(0) : '؟'; }
@@ -457,6 +461,12 @@
       { id: 'projects', href: 'projects.html', icon: 'volunteer_activism', label: 'إدارة المشاريع', count: function () { return (D.projects || []).length; }, countLabel: 'مشروعاً' },
       { id: 'news', href: 'news.html', icon: 'newspaper', label: 'الأخبار', count: function () { return (D.news || []).filter(function (n) { return n.status === 'draft'; }).length; }, countLabel: 'مسودات' },
       { id: 'gallery', href: 'gallery.html', icon: 'photo_library', label: 'معرض الصور' },
+      { id: 'stories', href: 'stories.html', icon: 'format_quote', label: 'قصص الميدان' },
+      { id: 'activities', href: 'activities.html', icon: 'event_available', label: 'الأنشطة الميدانية' },
+      { id: 'partners', href: 'partners.html', icon: 'handshake', label: 'الشركاء' },
+      { id: 'faq', href: 'faq.html', icon: 'help', label: 'الأسئلة الشائعة' },
+      { id: 'appeal', href: 'appeal.html', icon: 'campaign', label: 'نداء الإغاثة والإعلانات' },
+      { id: 'impact', href: 'impact.html', icon: 'map', label: 'خريطة الأثر' },
       { id: 'pages', href: 'pages.html', icon: 'web', label: 'إدارة الصفحات' },
       { id: 'menu', href: 'menu.html', icon: 'menu_open', label: 'إدارة القائمة' }
     ] },
@@ -471,7 +481,9 @@
     index: { title: 'نظرة عامة' }, reports: { title: 'التقارير والإحصائيات' }, projects: { title: 'إدارة المشاريع' },
     news: { title: 'الأخبار' }, 'news-edit': { title: 'تحرير خبر', parent: 'news' }, gallery: { title: 'معرض الصور' },
     messages: { title: 'الرسائل والطلبات' }, settings: { title: 'الإعدادات' },
-    pages: { title: 'إدارة الصفحات' }, menu: { title: 'إدارة القائمة' }, homepage: { title: 'الصفحة الرئيسية' }
+    pages: { title: 'إدارة الصفحات' }, menu: { title: 'إدارة القائمة' }, homepage: { title: 'الصفحة الرئيسية' },
+    stories: { title: 'قصص الميدان' }, activities: { title: 'الأنشطة الميدانية' }, partners: { title: 'الشركاء' }, faq: { title: 'الأسئلة الشائعة' },
+    appeal: { title: 'نداء الإغاثة والإعلانات' }, impact: { title: 'خريطة الأثر' }
   };
   var LOGO = '<img src="../img/logo.png" alt="شعار الجمعية" width="44" height="44">';
 
@@ -494,7 +506,7 @@
     });
     h += '</nav>';
     var u = D.user || {};
-    h += '<div class="sb-foot"><a class="sb-link" href="../index.html" data-tip="عرض الموقع">' + icon('open_in_new') + '<span class="sb-label">عرض الموقع</span></a>' +
+    h += '<div class="sb-foot">' +
       '<div class="sb-user"><span class="avatar" aria-hidden="true">' + esc(u.initials || 'م') + '</span><div class="sb-user-meta"><strong>' + esc(u.name) + '</strong><span>' + esc(u.role) + '</span></div>' +
       '<a class="sb-user-btn" href="login.html" aria-label="تسجيل الخروج" data-tip="تسجيل الخروج">' + icon('logout', 'flip-rtl') + '</a></div></div>';
     sb.innerHTML = h;
@@ -559,6 +571,7 @@
       '<div class="tb-spacer"></div>' +
       '<div class="tb-actions">' +
       '<button type="button" class="tb-search" id="tb-search" aria-haspopup="dialog" aria-label="بحث وأوامر سريعة (Ctrl+K)">' + icon('search') + '<span class="tb-search-text" aria-hidden="true">ابحث أو انتقل إلى…</span><kbd aria-hidden="true">Ctrl K</kbd></button>' +
+      '<a class="icon-btn" href="../index.html" target="_blank" rel="noopener" aria-label="عرض الموقع" data-tip="عرض الموقع">' + icon('open_in_new') + '</a>' +
       '<button type="button" class="icon-btn theme-toggle" aria-pressed="false" aria-label="الوضع الداكن">' + icon('dark_mode') + '</button>' +
       '<div class="dd"><button type="button" class="icon-btn" id="notif-btn" data-dd aria-controls="notif-panel" aria-expanded="false" aria-haspopup="dialog" aria-label="الإشعارات' + (unreadN ? '، ' + unreadN + ' غير مقروءة' : '') + '">' + icon('notifications') + (unreadN ? '<span class="notif-dot" aria-hidden="true"></span>' : '') + '</button>' +
       '<div class="dd-panel notif-panel" id="notif-panel" role="dialog" aria-label="الإشعارات" hidden>' +
@@ -976,58 +989,59 @@
     $('#greet-date').textContent = fmtDate(now, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
 
     var kpiEl = $('#kpis');
-    kpiEl.innerHTML = [0, 1, 2, 3].map(function () { return '<div class="card kpi" aria-hidden="true"><div class="kpi-top"><span class="skeleton sk-line" style="width:45%"></span><span class="skeleton" style="width:36px;height:36px;border-radius:10px"></span></div><span class="skeleton" style="width:60%;height:32px;margin-top:12px"></span><div class="kpi-foot"><span class="skeleton sk-line" style="width:40%"></span><span class="skeleton" style="width:104px;height:40px"></span></div></div>'; }).join('');
+    kpiEl.innerHTML = [0, 1, 2, 3].map(function () { return '<div class="card kpi" aria-hidden="true"><div class="kpi-top"><span class="skeleton sk-line" style="width:45%"></span><span class="skeleton" style="width:36px;height:36px;border-radius:10px"></span></div><span class="skeleton" style="width:60%;height:32px;margin-top:12px"></span><div class="kpi-foot"><span class="skeleton sk-line" style="width:40%"></span></div></div>'; }).join('');
     kpiEl.setAttribute('aria-busy', 'true');
-    var sparkCls = ['2', '1', '3', '1'];
+
+    // KPI cards: real entries from D.kpis + two values derived from existing data (no new numbers).
+    var govs = D.governorates || [], msgs = D.messages || [];
+    var pointsTotal = sum(govs.map(function (g) { return g.points || 0; }));
+    var volNew = msgs.filter(function (m) { return m.type === 'volunteer' && !m.read && !m.archived; }).length;
+    var volAll = msgs.filter(function (m) { return m.type === 'volunteer' && !m.archived; }).length;
+    var kpiList = (D.kpis || []).map(function (k) { return { label: k.label, value: fmtNum(k.value), icon: k.icon, delta: k.delta, unit: k.deltaUnit, note: 'عن الشهر الماضي', spark: k.spark }; });
+    kpiList.push({ label: 'نقاط التوزيع', value: fmtNum(pointsTotal), icon: 'location_on', chip: govs.length + ' محافظات', note: 'موزعة على قطاع غزة' });
+    kpiList.push({ label: 'طلبات تطوع جديدة', value: fmtNum(volNew), icon: 'handshake', chip: 'من أصل ' + volAll, note: 'غير مقروءة في الرسائل' });
     setTimeout(function () {
-      kpiEl.innerHTML = (D.kpis || []).map(function (k, i) {
-        var val = k.format === 'money' ? fmtMoney(k.value) : fmtNum(k.value);
-        return '<article class="card kpi' + (i === 0 ? ' accent' : '') + '"><div class="kpi-top"><h2 class="kpi-label">' + esc(k.label) + '</h2><span class="kpi-ico">' + icon(k.icon) + '</span></div>' +
-          '<p class="kpi-value"><span class="ltr">' + val + '</span></p><div class="kpi-foot"><div>' + deltaChip(k.delta, k.deltaUnit) + '<span class="muted">عن الشهر الماضي</span></div><div class="kpi-spark">' + sparkline(k.spark, sparkCls[i]) + '</div></div></article>';
+      kpiEl.innerHTML = kpiList.map(function (k) {
+        var badge = k.chip ? '<span class="pill pill-neutral no-dot">' + esc(k.chip) + '</span>' : deltaChip(k.delta, k.unit);
+        return '<article class="card kpi"><div class="kpi-top"><h2 class="kpi-label">' + esc(k.label) + '</h2><span class="kpi-ico">' + icon(k.icon) + '</span></div>' +
+          '<p class="kpi-value"><span class="ltr">' + k.value + '</span></p><div class="kpi-foot"><div>' + badge + '<span class="muted">' + esc(k.note) + '</span></div>' + (k.spark ? '<div class="kpi-spark">' + sparkline(k.spark, '1') + '</div>' : '') + '</div></article>';
       }).join('');
       kpiEl.removeAttribute('aria-busy');
       kpiEl.classList.add('stagger');
     }, reduceMotion ? 0 : 450);
 
-    // Donations chart
-    var chartEl = $('#donations-chart');
-    function cfgFor(key) {
-      var s = D.donationsSeries[key], dates = periodDates(key);
-      var cur = sum(s.current), prev = sum(s.previous), dlt = Math.round(((cur - prev) / prev) * 1000) / 10;
-      $('#donations-total').textContent = fmtMoney(cur);
-      $('#donations-delta').innerHTML = deltaChip(dlt) + '<span class="muted" style="font-size:12.5px">عن الفترة السابقة</span>';
-      return { labels: periodLabels(key, dates), tipTitle: periodTip(key, dates), height: 272, aria: 'مخطط التبرعات: ' + fmtMoney(cur) + ' في الفترة الحالية مقابل ' + fmtMoney(prev) + ' في الفترة السابقة',
-        series: [{ name: 'الفترة الحالية', values: s.current, cls: '1', area: true }, { name: 'الفترة السابقة', values: s.previous, dashed: true }] };
-    }
-    lineChart(chartEl, cfgFor('12m'));
-    initSeg($('#range-seg'), function (v) { chartEl._update(cfgFor(v)); });
+    // Beneficiaries over time (from the beneficiaries KPI spark: last 12 months, in thousands)
+    var bk = null; (D.kpis || []).forEach(function (k) { if (k.id === 'beneficiaries') bk = k; });
+    var benEl = $('#ben-chart');
+    if (bk && bk.spark && bk.spark.length > 1) {
+      $('#ben-total').textContent = fmtNum(bk.value);
+      $('#ben-delta').innerHTML = deltaChip(bk.delta) + '<span class="muted" style="font-size:12.5px">عن الشهر الماضي</span>';
+      lineChart(benEl, { labels: periodLabels('12m', periodDates('12m')), tipTitle: periodTip('12m', periodDates('12m')), height: 272,
+        yFormat: function (v) { return fmtNum(Math.round(v)); }, tipFormat: function (v) { return fmtNum(v) + ' ألف'; },
+        aria: 'مخطط المستفيدين خلال آخر 12 شهراً، بالآلاف',
+        series: [{ name: 'المستفيدون', values: bk.spark, cls: '1', area: true }] });
+    } else { benEl.closest('.card').hidden = true; }
 
     var gov = govWidget($('#gov-widget'), 'beneficiaries');
     initSeg($('#gov-seg'), function (v) { gov.setMetric(v); });
 
-    // Funding progress
+    // Active projects (status only; no money figures)
     var top = (D.projects || []).filter(function (p) { return p.status === 'active' || p.status === 'urgent'; })
-      .sort(function (a, b) { return b.raised / b.goal - a.raised / a.goal; }).slice(0, 5);
-    $('#proj-funding').innerHTML = top.map(function (p) {
-      var pc = pct(p.raised, p.goal);
-      return '<li class="proj-row"><img src="' + esc(p.image) + '" alt="" loading="lazy"><span class="t">' + esc(p.title) + '</span><span class="m"><b class="ltr">' + fmtCompact(p.raised) + '</b> من <span class="ltr">' + fmtCompact(p.goal) + '</span></span>' +
-        '<div class="bar"><div class="progress" role="progressbar" aria-label="تمويل ' + esc(p.title) + '" aria-valuemin="0" aria-valuemax="100" aria-valuenow="' + pc + '"><span style="width:' + pc + '%"></span></div><b>' + pc + '%</b></div></li>';
+      .sort(function (a, b) { return (b.status === 'urgent') - (a.status === 'urgent') || a.updated - b.updated; }).slice(0, 5);
+    $('#proj-active').innerHTML = top.map(function (p) {
+      var st = pStatus(p.status);
+      return '<li class="pl-item"><img src="' + esc(p.image) + '" alt="" loading="lazy"><div class="pl-main"><p class="pl-title">' + esc(p.title) + '</p><p class="pl-sub">' + esc(p.location) + ' · ' + esc(cat(p.cat).label) + '</p></div><div class="pl-end">' + pill(st.label, st.tone) + '<small>' + (p.updated ? 'حُدِّث ' + ago(p.updated * 1440) : 'حُدِّث اليوم') + '</small></div></li>';
     }).join('');
 
-    // Feed
-    $('#feed-donations').innerHTML = '<ul class="list">' + (D.recentDonations || []).slice(0, 5).map(function (d) {
-      var p = byId(D.projects, d.project) || { title: '' };
-      return '<li class="list-item"><span class="li-ico tone-gold">' + icon('volunteer_activism') + '</span><div class="li-main"><p class="li-title">' + esc(d.donor) + '</p><p class="li-sub">' + esc(p.title) + '</p></div><div class="li-end"><span class="amount">' + fmtMoney(d.amount) + '</span><small>' + ago(d.mins) + '</small></div></li>';
-    }).join('') + '</ul>';
+    // Feed (activity log)
     $('#feed-activity').innerHTML = '<ul class="timeline">' + (D.activity || []).map(function (a) {
       return '<li class="tl-item"><span class="li-ico">' + icon(a.icon) + '</span><div><p>' + esc(a.text) + '</p><span>' + esc(a.by) + ' · ' + ago(a.mins) + '</span></div></li>';
     }).join('') + '</ul>';
-    initTabs($('#feed-tabs'));
 
-    // Messages
-    $('#latest-messages').innerHTML = (D.messages || []).filter(function (m) { return !m.archived; }).slice(0, 4).map(function (m) {
+    // Messages (contact + volunteer only on the overview)
+    $('#latest-messages').innerHTML = (D.messages || []).filter(function (m) { return !m.archived && m.type !== 'donation'; }).slice(0, 4).map(function (m) {
       var t = MSG_TYPES[m.type];
-      return '<li><a class="msg-mini" href="messages.html#' + m.id + '"><span class="avatar navy" aria-hidden="true">' + icon(t.icon) + '</span><div class="li-main"><div class="top"><strong>' + (m.read ? '' : '<span class="udot" aria-hidden="true"></span><span class="sr-only">غير مقروءة: </span>') + esc(m.from) + '</strong><time>' + ago(m.mins) + '</time></div><p>' + esc(m.subject) + '</p></div></a></li>';
+      return '<li><a class="msg-mini" href="messages.html#' + m.id + '"><span class="avatar navy" aria-hidden="true">' + icon(t.icon) + '</span><div class="li-main"><div class="top"><strong>' + (m.read ? '' : '<span class="udot" aria-hidden="true"></span><span class="sr-only">غير مقروءة: </span>') + esc(m.from) + '</strong><time>' + ago(m.mins) + '</time></div><p>' + esc(m.subject) + '</p></div><span class="pill pill-' + t.tone + ' no-dot">' + esc(t.label) + '</span></a></li>';
     }).join('');
   };
 
@@ -1040,8 +1054,6 @@
     search.value = st.q;
 
     // filters
-    $('#f-cat').innerHTML = '<option value="">كل الفئات</option>' + D.categories.map(function (c) { return '<option value="' + c.id + '">' + esc(c.label) + '</option>'; }).join('');
-    $('#f-status').innerHTML = '<option value="">كل الحالات</option>' + D.projectStatuses.map(function (s) { return '<option value="' + s.id + '">' + esc(s.label) + '</option>'; }).join('');
     function stats() {
       var active = items.filter(function (p) { return p.status === 'active' || p.status === 'urgent'; }).length;
       var raised = sum(items.map(function (p) { return p.raised; })), goal = sum(items.map(function (p) { return p.goal; }));
@@ -1124,9 +1136,6 @@
 
     // Drawer (add / edit)
     var drawer = $('#project-drawer'), form = $('#project-form'), editing = null, coverData = null;
-    $('#pf-cat').innerHTML = D.categories.map(function (c) { return '<option value="' + c.id + '">' + esc(c.label) + '</option>'; }).join('');
-    $('#pf-status').innerHTML = D.projectStatuses.map(function (s) { return '<option value="' + s.id + '">' + esc(s.label) + '</option>'; }).join('');
-    $('#pf-gov').innerHTML = D.governorates.map(function (g) { return '<option value="' + g.id + '">' + esc(g.name) + '</option>'; }).join('');
     function setCover(src) {
       coverData = src;
       $('#pf-cover-preview').hidden = !src; $('#pf-dropzone').hidden = !!src;
@@ -1139,12 +1148,12 @@
       $('#drawer-title').textContent = p ? 'تعديل المشروع' : 'مشروع جديد';
       $('#drawer-sub').textContent = p ? 'حدّث بيانات المشروع ثم احفظ التغييرات.' : 'أدخل بيانات المشروع لإضافته إلى القائمة.';
       $('#pf-title').value = p ? p.title : '';
-      $('#pf-cat').value = p ? p.cat : 'relief';
-      $('#pf-gov').value = p ? p.gov : 'north';
+      AC_set($('#pf-cat'), p ? p.cat : 'relief');
+      AC_set($('#pf-gov'), p ? p.gov : 'north');
       $('#pf-location').value = p ? p.location : '';
       $('#pf-goal').value = p ? p.goal : '';
       $('#pf-raised').value = p ? p.raised : '';
-      $('#pf-status').value = p ? p.status : 'draft';
+      AC_set($('#pf-status'), p ? p.status : 'draft');
       $('#pf-desc').value = p ? (p.desc || '') : '';
       $('#pf-desc').dispatchEvent(new Event('input'));
       setCover(p ? p.image : null);
@@ -1165,7 +1174,7 @@
       if (raised.value !== '' && +raised.value < 0) { fieldError(raised, 'لا يمكن أن يكون المبلغ سالباً.'); bad.push(raised); }
       if ($('#pf-desc').value.length > 280) { bad.push($('#pf-desc')); }
       if (bad.length) { bad[0].focus(); toast('يرجى تصحيح الحقول المظللة', { tone: 'danger', icon: 'error' }); return; }
-      var data = { title: title.value.trim(), cat: $('#pf-cat').value, gov: $('#pf-gov').value, location: $('#pf-location').value.trim() || byId(D.governorates, $('#pf-gov').value).name, goal: +goal.value, raised: +raised.value || 0, status: $('#pf-status').value, desc: $('#pf-desc').value, image: coverData || '../img/project-parallax.jpg', updated: 0 };
+      var data = { title: title.value.trim(), cat: $('#pf-cat').value, gov: $('#pf-gov').value, location: $('#pf-location').value.trim() || (window.AdminConstants ? AdminConstants.label('governorate', $('#pf-gov').value) : ($('#pf-gov').value)), goal: +goal.value, raised: +raised.value || 0, status: $('#pf-status').value, desc: $('#pf-desc').value, image: coverData || '../img/project-parallax.jpg', updated: 0 };
       if (editing) Object.assign(editing, data); else items.unshift(Object.assign({ id: 'p' + Date.now(), donors: 0 }, data));
       Drawer.close(drawer); st.page = 1; render(); stats();
       toast(editing ? 'تم حفظ التغييرات' : 'تمت إضافة المشروع', { text: data.title });
@@ -1176,12 +1185,12 @@
 
   /* ----- News list ----- */
   var NEWS_STATUS = { published: { label: 'منشور', tone: 'info' }, draft: { label: 'مسودة', tone: 'neutral' }, scheduled: { label: 'مجدول', tone: 'warn' } };
-  function newsCat(id) { return byId(D.newsCategories || [], id) || { label: id }; }
+  if (window.AdminConstants) AdminConstants.all('article_status').forEach(function (c) { if (NEWS_STATUS[c.key]) NEWS_STATUS[c.key].label = c.label; });
+  function newsCat(id) { var c = byId(D.newsCategories || [], id) || { label: id }; return { id: c.id, label: acLabel('news_category', id, c.label) }; }
   Pages.news = function () {
     var items = (D.news || []).map(function (n) { return Object.assign({}, n); });
     var st = { tab: 'all', q: '', cat: '', page: 1, per: 6 };
     var tabsEl = $('#news-tabs'), body = $('#news-body');
-    $('#n-cat').innerHTML = '<option value="">كل التصنيفات</option>' + D.newsCategories.map(function (c) { return '<option value="' + c.id + '">' + esc(c.label) + '</option>'; }).join('');
     function counts() {
       $$('[data-tab-count]', tabsEl).forEach(function (c) { var k = c.getAttribute('data-tab-count'); c.textContent = k === 'all' ? items.length : items.filter(function (n) { return n.status === k; }).length; });
     }
@@ -1231,7 +1240,6 @@
     var id = new URLSearchParams(location.search).get('id');
     var n = id ? byId(D.news, id) : null;
     var title = $('#ne-title'), rte = $('#ne-body'), slug = $('#ne-slug'), meta = $('#ne-meta'), statusSel = $('#ne-status');
-    $('#ne-cat').innerHTML = D.newsCategories.map(function (c) { return '<option value="' + c.id + '">' + esc(c.label) + '</option>'; }).join('');
     var tags = [];
     function autoGrow() { title.style.height = 'auto'; title.style.height = title.scrollHeight + 'px'; }
     function slugify(s) { return normalize(s).replace(/[^\u0600-\u06FFa-z0-9\s-]/g, '').trim().replace(/\s+/g, '-').slice(0, 60); }
@@ -1264,7 +1272,7 @@
     if (n) {
       $('#ne-heading').textContent = 'تحرير الخبر';
       document.title = 'تحرير: ' + n.title + ' — لوحة التحكم';
-      title.value = n.title; $('#ne-cat').value = n.cat; statusSel.value = n.status; tags = (n.tags || []).slice();
+      title.value = n.title; AC_set($('#ne-cat'), n.cat); AC_set(statusSel, n.status); tags = (n.tags || []).slice();
       var dd = parseISO(n.date); dd.setHours(10, 0); $('#ne-date').value = toLocalInput(dd);
       rte.innerHTML = '<p>' + esc('نص تجريبي: هذه فقرة افتتاحية للخبر «' + n.title + '». يُستبدل هذا النص بالمحتوى الرسمي من المكتب الإعلامي عند ربط القالب بنظام إدارة المحتوى.') + '</p><h2>أبرز ما جاء في الخبر</h2><ul><li>توثيق ميداني بالصور لكل مرحلة من مراحل التوزيع.</li><li>تنسيق مع الشركاء لضمان وصول المساعدات إلى مستحقيها.</li></ul><blockquote>«الشفافية جزء أصيل من عملنا» — اقتباس تجريبي.</blockquote>';
       setCover(n.image);
@@ -1351,18 +1359,18 @@
   Pages.gallery = function () {
     var items = (D.gallery || []).map(function (g) { return Object.assign({}, g); });
     var albums = (D.albums || []).slice();
+    var AC = window.AdminConstants;
+    function shownAlbums() { if (!AC) return albums; var on = {}; AC.get('gallery_album').forEach(function (c) { on[c.key] = 1; }); return albums.filter(function (a) { return on[a.id] || items.some(function (g) { return g.album === a.id; }); }); }
     var st = { album: 'all', sel: new Set(), active: null };
     var grid = $('#g-grid'), panel = $('#g-panel'), mq = matchMedia('(max-width: 1279px)');
-    function albumLabel(id) { var a = byId(albums, id); return a ? a.label : 'بدون ألبوم'; }
+    function albumLabel(id) { var a = byId(albums, id); return a ? a.label : ((AC && AC.label('gallery_album', id)) || 'بدون ألبوم'); }
     function renderChips() {
-      var chips = [{ id: 'all', label: 'كل الصور' }].concat(albums);
+      var chips = [{ id: 'all', label: 'كل الصور' }].concat(shownAlbums());
       $('#g-albums').innerHTML = chips.map(function (a) {
         var c = a.id === 'all' ? items.length : items.filter(function (g) { return g.album === a.id; }).length;
         return '<button type="button" class="chip-btn" data-album="' + a.id + '" aria-pressed="' + (st.album === a.id) + '">' + esc(a.label) + '<span class="c">' + c + '</span></button>';
       }).join('');
       $$('[data-album]').forEach(function (b) { b.addEventListener('click', function () { st.album = b.getAttribute('data-album'); renderChips(); renderGrid(); }); });
-      $('#gp-album').innerHTML = albums.map(function (a) { return '<option value="' + a.id + '">' + esc(a.label) + '</option>'; }).join('');
-      $('#bulk-move').innerHTML = '<option value="">نقل إلى ألبوم…</option>' + albums.map(function (a) { return '<option value="' + a.id + '">' + esc(a.label) + '</option>'; }).join('');
     }
     function renderGrid() {
       var list = items.filter(function (g) { return st.album === 'all' || g.album === st.album; });
@@ -1392,7 +1400,7 @@
       $('#gp-empty').hidden = !!g; $('#gp-form').hidden = !g;
       if (!g) return;
       $('#gp-img').src = g.src; $('#gp-img').alt = g.alt || '';
-      $('#gp-title').value = g.title; $('#gp-alt').value = g.alt || ''; $('#gp-album').value = g.album;
+      $('#gp-title').value = g.title; $('#gp-alt').value = g.alt || ''; AC_set($('#gp-album'), g.album);
       $('#gp-dims').textContent = g.dims || '—'; $('#gp-size').textContent = g.size || '—';
       $('#gp-alt').dispatchEvent(new Event('input'));
     }
@@ -1437,7 +1445,7 @@
       modal({ title: 'ألبوم جديد', icon: 'create_new_folder', body: '<div class="field mt-16"><label class="label" for="album-name">اسم الألبوم</label><input class="input" id="album-name" maxlength="40" placeholder="مثال: حملة الشتاء"></div>', confirmText: 'إنشاء', focus: '#album-name',
         validate: function (d) { var i = $('#album-name', d); if (!i.value.trim()) { i.setAttribute('aria-invalid', 'true'); i.focus(); return false; } return true; },
         getValue: function (d) { return $('#album-name', d).value.trim(); } })
-        .then(function (name) { if (!name) return; var id = 'a' + Date.now(); albums.push({ id: id, label: name }); st.album = id; renderChips(); renderGrid(); toast('تم إنشاء الألبوم «' + name + '»', { icon: 'folder' }); });
+        .then(function (name) { if (!name) return; var id = 'a' + Date.now(); albums.push({ id: id, label: name }); if (AC) AC.add('gallery_album', { key: id, label: name }); st.album = id; renderChips(); renderGrid(); toast('تم إنشاء الألبوم «' + name + '»', { icon: 'folder' }); });
     });
     // Upload
     function addFiles(files) {
@@ -1753,7 +1761,7 @@
     // Users
     var users = (D.users || []).map(function (u) { return Object.assign({}, u); });
     var STATUS = { active: { label: 'نشط', tone: 'info' }, invited: { label: 'مدعو', tone: 'warn' }, disabled: { label: 'معطّل', tone: 'neutral' } };
-    function role(id) { return byId(D.roles, id) || { label: id, tone: 'neutral' }; }
+    function role(id) { var r = byId(D.roles, id) || { label: id, tone: 'neutral' }; return Object.assign({}, r, { label: acLabel('user_role', id, r.label) }); }
     function renderUsers() {
       $('#users-body').innerHTML = users.map(function (u, i) {
         var r = role(u.role), s = STATUS[u.status];
@@ -1773,7 +1781,7 @@
         ]);
       }); });
     }
-    var roleOptions = function (sel) { return D.roles.map(function (r) { return '<option value="' + r.id + '"' + (r.id === sel ? ' selected' : '') + '>' + esc(r.label) + '</option>'; }).join(''); };
+    var roleOptions = function (sel) { var list = D.roles.map(function (r) { return [r.id, r.label]; }); return list.map(function (r) { return '<option value="' + r[0] + '"' + (r[0] === sel ? ' selected' : '') + '>' + esc(acLabel('user_role', r[0], r[1])) + '</option>'; }).join(''); };
     function roleModal(u) {
       modal({ title: 'تغيير دور ' + u.name, icon: 'manage_accounts', body: '<div class="field mt-16"><label class="label" for="role-sel">الدور</label><select class="select" id="role-sel">' + roleOptions(u.role) + '</select><p class="hint">يحدد الدور الصفحات والإجراءات المتاحة للمستخدم.</p></div>', confirmText: 'حفظ', focus: '#role-sel', getValue: function (d) { return $('#role-sel', d).value; } })
         .then(function (v) { if (!v) return; u.role = v; renderUsers(); toast('تم تحديث الدور', { text: role(v).label, icon: 'manage_accounts' }); });

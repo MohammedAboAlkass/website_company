@@ -33,8 +33,8 @@
           <h2 class="sr-only" id="t-plist">قائمة المشاريع</h2>
           <div class="toolbar">
             <label class="input-icon"><span class="sr-only">بحث في المشاريع</span><span class="material-symbols-outlined" aria-hidden="true">search</span><input class="input sm" id="proj-search" type="search" placeholder="ابحث بالعنوان أو الموقع…" autocomplete="off"></label>
-            <label class="sr-only" for="f-cat">تصفية حسب الفئة</label><select class="select sm auto" id="f-cat"></select>
-            <label class="sr-only" for="f-status">تصفية حسب الحالة</label><select class="select sm auto" id="f-status"></select>
+            <label class="sr-only" for="f-cat">تصفية حسب الفئة</label><select class="select sm auto" id="f-cat" data-const="project_category" data-ph-value="" data-ph-label="كل الفئات"></select>
+            <label class="sr-only" for="f-status">تصفية حسب الحالة</label><select class="select sm auto" id="f-status" data-const="project_status" data-ph-value="" data-ph-label="كل الحالات"></select>
             <span class="grow"></span>
             <span class="muted" id="result-count" aria-live="polite" style="font-size:13px"></span>
             <div class="seg icons" id="view-seg" role="group" aria-label="طريقة العرض">
@@ -69,11 +69,11 @@
           <p class="error" id="pf-title-err" hidden><span class="material-symbols-outlined" aria-hidden="true">error</span><span></span></p>
         </div>
         <div class="field-row">
-          <div class="field"><label class="label" for="pf-cat">الفئة</label><select class="select" id="pf-cat"></select></div>
-          <div class="field"><label class="label" for="pf-status">الحالة</label><select class="select" id="pf-status"></select></div>
+          <div class="field"><label class="label" for="pf-cat">الفئة</label><select class="select" id="pf-cat" data-const="project_category"></select></div>
+          <div class="field"><label class="label" for="pf-status">الحالة</label><select class="select" id="pf-status" data-const="project_status"></select></div>
         </div>
         <div class="field-row">
-          <div class="field"><label class="label" for="pf-gov">المحافظة</label><select class="select" id="pf-gov"></select></div>
+          <div class="field"><label class="label" for="pf-gov">المحافظة</label><select class="select" id="pf-gov" data-const="governorate"></select></div>
           <div class="field"><label class="label" for="pf-location"><span>الموقع التفصيلي <span class="opt">اختياري</span></span></label><input class="input" id="pf-location" placeholder="الحي أو المخيم"></div>
         </div>
         <div class="field-row">
@@ -118,6 +118,7 @@
   </div>
   <div id="toasts" class="toasts" role="status" aria-live="polite"></div>
   <script src="js/admin-data.js"></script>
+  <script src="js/admin-constants.js"></script>
   <script src="js/admin.js"></script>
 </body>
 </html>

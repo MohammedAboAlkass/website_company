@@ -1,0 +1,58 @@
+@extends('layouts.auth')
+@section('title', 'لا تملك صلاحية الوصول (403) — لوحة تحكم جمعية الشمال للتنمية والتطوير المجتمعي')
+@section('viewport', 'width=device-width, initial-scale=1.0')
+@section('theme_color', '#f6f5f2')
+@section('body_attrs') class="status-page" data-page="status-403"@endsection
+@section('head_script')
+<script>(function(){try{var d=document.documentElement,t=localStorage.getItem('almel-admin-theme');if(t==='dark')d.classList.add('dark');}catch(e){}})();</script>
+@endsection
+@push('css')
+<link rel="stylesheet" href="{{ asset('assets/admin/css/admin.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/admin/css/admin-status.css') }}">
+@endpush
+@section('body')
+  <header class="status-top">
+    <a class="login-brand" href="{{ url('/admin') }}"><span class="brand-mark"><img src="{{ asset('assets/site/img/logo.png') }}" alt="شعار الجمعية" width="44" height="44"></span><span><strong>جمعية الشمال للتنمية والتطوير المجتمعي</strong><span>لوحة التحكم</span></span></a>
+    <div class="status-top-actions"><button type="button" class="icon-btn theme-toggle theme-btn" aria-pressed="false" aria-label="الوضع الداكن"><span class="material-symbols-outlined" aria-hidden="true">dark_mode</span></button></div>
+  </header>
+  <main class="status-main" id="main">
+    <div class="status-card">
+    <svg class="status-art" viewBox="0 0 400 240" aria-hidden="true" focusable="false">
+      <ellipse class="ill-soft" cx="200" cy="218" rx="150" ry="12"/>
+      <circle class="ill-line" cx="200" cy="112" r="100" stroke-dasharray="3 9"/>
+      <circle class="ill-soft" cx="200" cy="112" r="80"/>
+      <g class="ill-float">
+        <path class="ill-ink" d="M200 36 l64 24 v46 c0 44 -28 74 -64 90 c-36 -16 -64 -46 -64 -90 v-46z"/>
+        <path class="ill-ink-2" d="M200 36 l64 24 v46 c0 44 -28 74 -64 90z" opacity=".45"/>
+        <rect class="ill-card" x="172" y="104" width="56" height="44" rx="10"/>
+        <path d="M182 104 v-12 a18 18 0 0 1 36 0 v12" fill="none" stroke="var(--ill-card)" stroke-width="8" stroke-linecap="round"/>
+        <circle class="ill-amber" cx="200" cy="122" r="7"/><rect class="ill-amber" x="197" y="124" width="6" height="14" rx="3"/>
+      </g>
+      <g class="ill-pulse"><circle class="ill-amber-2" cx="84" cy="70" r="6"/><circle class="ill-amber" cx="322" cy="176" r="5"/></g>
+      <circle class="ill-ink-2" cx="318" cy="56" r="4"/><path class="ill-line" d="M70 170 l12 0 M76 164 l0 12"/>
+    </svg>
+      <span class="status-code"><span class="material-symbols-outlined" aria-hidden="true">shield_lock</span>خطأ 403</span>
+      <h1>لا تملك صلاحية الوصول</h1>
+      <p class="status-lead">هذه الصفحة متاحة لأدوار محددة فقط. إن كنت تحتاجها لعملك، اطلب الصلاحية من مدير المنصة وسيصلك إشعار عند الموافقة.</p>
+      <div class="status-actions">
+        <button type="button" class="btn btn-accent btn-lg" id="req-access"><span class="material-symbols-outlined" aria-hidden="true">key</span><span>طلب صلاحية الوصول</span></button>
+        <a class="btn btn-secondary btn-lg" href="{{ url('/admin') }}"><span class="material-symbols-outlined" aria-hidden="true">dashboard</span>العودة إلى لوحة التحكم</a>
+      </div>
+      <section class="status-panel" aria-labelledby="fb-t">
+        <h2 class="status-panel-title" id="fb-t">تفاصيل الطلب (تجريبي)</h2>
+        <div class="status-facts">
+          <div class="status-fact"><span class="material-symbols-outlined" aria-hidden="true">badge</span><div><small>دورك الحالي</small><strong id="fb-role">محرر</strong></div></div>
+          <div class="status-fact"><span class="material-symbols-outlined" aria-hidden="true">lock</span><div><small>الصفحة المطلوبة</small><strong id="fb-page">الإعدادات ← المستخدمون والصلاحيات</strong></div></div>
+        </div>
+        <p class="status-help">الصلاحية المطلوبة: <strong>مدير</strong>. يمكن للمدير تعديل الأدوار من «الإعدادات ← المستخدمون والصلاحيات». هذا قالب ثابت، ولن يُرسل أي طلب فعلياً.</p>
+      </section>
+    </div>
+  </main>
+  <footer class="status-foot"><span>© 2026 جمعية الشمال للتنمية والتطوير المجتمعي · قالب تجريبي</span><a href="{{ url('/') }}">العودة إلى الموقع</a></footer>
+  <div id="toasts" class="toasts" role="status" aria-live="polite"></div>
+@endsection
+@push('scripts')
+<script src="{{ asset('assets/admin/js/admin-data.js') }}"></script>
+<script src="{{ asset('assets/admin/js/admin.js') }}"></script>
+<script src="{{ asset('assets/admin/js/admin-status.js') }}"></script>
+@endpush

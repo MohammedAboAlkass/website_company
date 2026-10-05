@@ -21,6 +21,7 @@
     var ME = (D.user && D.user.name) || 'مدير المنصة';
     var DOMAIN = B.site.domain;
     var STATUS = {}; B.pageStatuses.forEach(function (s) { STATUS[s.id] = s; });
+    if (window.AdminConstants) window.AdminConstants.all('page_status').forEach(function (c) { if (STATUS[c.key]) STATUS[c.key].label = c.label; });
 
     /* ---------- storage ---------- */
     function read(key) { try { var v = JSON.parse(localStorage.getItem(key)); return v; } catch (e) { return null; } }
@@ -238,7 +239,7 @@
       f.seo.value = p ? p.seoTitle : '';
       f.slug.value = p ? p.slug : '';
       f.meta.value = p ? p.meta : '';
-      f.status.value = p ? p.status : 'draft';
+      if (window.AdminConstants) window.AdminConstants.setValue(f.status, p ? p.status : 'draft'); else f.status.value = p ? p.status : 'draft';
       f.slug.disabled = !!home;
       f.status.disabled = !!home;
       $('#pf-slug-hint').textContent = home ? 'رابط الصفحة الرئيسية ثابت ولا يمكن تغييره.' : 'أحرف لاتينية صغيرة وأرقام وشرطات فقط.';

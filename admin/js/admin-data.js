@@ -65,10 +65,8 @@ window.ADMIN_DATA = {
 
   /* KPI cards: spark = last 12 points, oldest first. */
   kpis: [
-    { id: 'donations', label: 'تبرعات هذا الشهر', value: 184250, format: 'money', delta: 12.4, icon: 'payments', spark: [98, 112, 105, 121, 118, 134, 129, 142, 151, 147, 163, 184] },
-    { id: 'donors', label: 'متبرعون جدد', value: 1392, format: 'number', delta: 8.1, icon: 'group_add', spark: [70, 82, 78, 90, 96, 94, 101, 108, 104, 116, 121, 139] },
-    { id: 'projects', label: 'مشاريع نشطة', value: 8, format: 'number', delta: 2, deltaUnit: 'مشروع', icon: 'volunteer_activism', spark: [4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 6, 8] },
-    { id: 'beneficiaries', label: 'مستفيدون هذا الشهر', value: 88950, format: 'number', delta: -3.2, icon: 'diversity_3', spark: [72, 79, 84, 90, 93, 95, 97, 94, 96, 93, 92, 89] }
+    { id: 'beneficiaries', label: 'مستفيدون هذا الشهر', value: 88950, format: 'number', delta: -3.2, icon: 'diversity_3', spark: [72, 79, 84, 90, 93, 95, 97, 94, 96, 93, 92, 89] },
+    { id: 'projects', label: 'مشاريع نشطة', value: 8, format: 'number', delta: 2, deltaUnit: 'مشروع', icon: 'folder_open', spark: [4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 6, 8] }
   ],
 
   /* Donations over time (USD). Oldest first. */
@@ -108,7 +106,7 @@ window.ADMIN_DATA = {
     { icon: 'newspaper', text: 'نُشر خبر «إطلاق خريطة تتبع السلال»', by: 'محرر المحتوى #2', mins: 55 },
     { icon: 'photo_library', text: 'أُضيفت 6 صور إلى ألبوم «توثيق الميدان»', by: 'محرر المحتوى #2', mins: 140 },
     { icon: 'person_add', text: 'انضم مستخدم جديد بصلاحية «مراجع»', by: 'مدير المنصة', mins: 320 },
-    { icon: 'task_alt', text: 'اكتمل تمويل «الخيمة التعليمية السادسة»', by: 'النظام', mins: 1440 }
+    { icon: 'task_alt', text: 'اكتمل تنفيذ «الخيمة التعليمية السادسة»', by: 'النظام', mins: 1440 }
   ],
 
   messages: [
@@ -167,8 +165,8 @@ window.ADMIN_DATA = {
   ],
 
   notifications: [
-    { icon: 'payments', tone: 'gold', title: 'تبرع جديد بقيمة $2,500', text: 'لمشروع «خيام ومستلزمات الإيواء في رفح»', mins: 42, unread: true },
-    { icon: 'mail', tone: 'info', title: '3 رسائل جديدة', text: 'طلبا تطوع واستفسار عن التبرع', mins: 95, unread: true },
+    { icon: 'handshake', tone: 'gold', title: 'طلب تطوع جديد', text: 'متطوع #0417 — فريق التوثيق', mins: 37, unread: true },
+    { icon: 'mail', tone: 'info', title: '3 رسائل جديدة', text: 'طلبا تطوع ورسالة تواصل', mins: 95, unread: true },
     { icon: 'warning', tone: 'danger', title: 'مشروع عاجل تحت 30%', text: '«أدوية الأمراض المزمنة لكبار السن»', mins: 240, unread: true },
     { icon: 'schedule', tone: 'neutral', title: 'خبر مجدول للنشر', text: '«توزيع 10,000 طرد شتوي» — 5 أكتوبر', mins: 1440, unread: false }
   ],

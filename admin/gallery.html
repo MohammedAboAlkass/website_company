@@ -45,7 +45,7 @@
             </div>
             <div class="bulkbar mt-16" id="g-bulk" hidden style="border-top:1px solid color-mix(in srgb, var(--amber-500) 22%, var(--border))">
               <strong id="g-bulk-count" aria-live="polite"></strong><span class="sp"></span>
-              <label class="sr-only" for="bulk-move">نقل الصور المحددة إلى ألبوم</label><select class="select sm auto" id="bulk-move"></select>
+              <label class="sr-only" for="bulk-move">نقل الصور المحددة إلى ألبوم</label><select class="select sm auto" id="bulk-move" data-const="gallery_album" data-ph-value="" data-ph-label="نقل إلى ألبوم…"></select>
               <button type="button" class="btn btn-danger-ghost btn-sm" id="g-bulk-delete"><span class="material-symbols-outlined" aria-hidden="true">delete</span>حذف</button>
               <button type="button" class="btn btn-ghost btn-sm" id="g-bulk-clear">إلغاء</button>
             </div>
@@ -66,7 +66,7 @@
                 <div class="field"><label class="label" for="gp-alt"><span>النص البديل (Alt)</span><span class="counter" id="gp-alt-count">0 / 125</span></label>
                   <textarea class="textarea" id="gp-alt" rows="3" aria-describedby="gp-alt-hint" style="min-height:88px"></textarea>
                   <p class="hint" id="gp-alt-hint">صف محتوى الصورة لقارئات الشاشة بجملة قصيرة.</p></div>
-                <div class="field"><label class="label" for="gp-album">الألبوم</label><select class="select" id="gp-album"></select></div>
+                <div class="field"><label class="label" for="gp-album">الألبوم</label><select class="select" id="gp-album" data-const="gallery_album"></select></div>
                 <dl class="meta-grid"><div><dt>الأبعاد</dt><dd><span class="ltr" id="gp-dims"></span></dd></div><div><dt>الحجم</dt><dd><span class="ltr" id="gp-size"></span></dd></div></dl>
                 <div class="row" style="flex-wrap:wrap;gap:8px">
                   <button type="submit" class="btn btn-primary" style="flex:1"><span class="material-symbols-outlined" aria-hidden="true">save</span>حفظ</button>
@@ -83,6 +83,7 @@
 
   <div id="toasts" class="toasts" role="status" aria-live="polite"></div>
   <script src="js/admin-data.js"></script>
+  <script src="js/admin-constants.js"></script>
   <script src="js/admin.js"></script>
 </body>
 </html>

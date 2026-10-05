@@ -78,7 +78,7 @@
                 <div class="card-head bordered"><h2 class="card-title" id="t-pub">النشر</h2><span class="pill pill-neutral">واجهة تجريبية</span></div>
                 <div class="card-body" style="display:flex;flex-direction:column;gap:20px">
                   <div class="field"><label class="label" for="ne-status">الحالة</label>
-                    <select class="select" id="ne-status"><option value="draft">مسودة</option><option value="published">منشور</option><option value="scheduled">مجدول</option></select></div>
+                    <select class="select" id="ne-status" data-const="article_status"></select></div>
                   <div class="field" id="ne-date-field"><label class="label" for="ne-date">تاريخ ووقت النشر</label><input class="input" id="ne-date" type="datetime-local"></div>
                   <div class="row" style="font-size:13px;color:var(--text-2)"><span class="material-symbols-outlined" aria-hidden="true">person</span><span>الكاتب: فريق الإعلام</span></div>
                 </div>
@@ -86,7 +86,7 @@
               <section class="card" aria-labelledby="t-tax">
                 <div class="card-head bordered"><h2 class="card-title" id="t-tax">التصنيف والوسوم</h2></div>
                 <div class="card-body" style="display:flex;flex-direction:column;gap:20px">
-                  <div class="field"><label class="label" for="ne-cat">التصنيف</label><select class="select" id="ne-cat"></select></div>
+                  <div class="field"><label class="label" for="ne-cat">التصنيف</label><select class="select" id="ne-cat" data-const="news_category"></select></div>
                   <div class="field"><label class="label" for="ne-tag-input">الوسوم</label>
                     <div class="tags-input"><ul id="ne-tags-list" style="display:contents" aria-label="الوسوم المضافة"></ul><input id="ne-tag-input" placeholder="أضف وسماً ثم Enter" aria-describedby="ne-tag-hint"></div>
                     <p class="hint" id="ne-tag-hint">اضغط Enter أو الفاصلة لإضافة وسم.</p></div>
@@ -112,6 +112,7 @@
 
   <div id="toasts" class="toasts" role="status" aria-live="polite"></div>
   <script src="js/admin-data.js"></script>
+  <script src="js/admin-constants.js"></script>
   <script src="js/admin.js"></script>
 </body>
 </html>

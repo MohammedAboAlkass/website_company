@@ -1,0 +1,22 @@
+/* سجل العمليات (/admin/audit-logs) — uses the panel tokens of admin.css */
+.au-filters{flex-wrap:wrap}
+.au-date{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted)}
+.au-date .input{width:auto;min-width:140px}
+.au-mod{display:inline-flex;align-items:center;gap:4px;margin-inline-start:8px;font-size:12.5px;color:var(--muted);white-space:nowrap}
+.au-mod .material-symbols-outlined{font-size:15px}
+.au-desc{max-width:420px;line-height:1.7}
+.au-subj{display:block;font-size:12.5px;color:var(--muted)}
+.au-head{display:flex;align-items:center;flex-wrap:wrap;gap:4px}
+.au-head .au-mod{margin-inline-start:0}
+.au-text{margin:0;font-size:15px;line-height:1.8;color:var(--heading);font-weight:600}
+.au-dl{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;margin:0;font-size:13px}
+.au-dl dt{color:var(--muted)}
+.au-dl dd{margin:0;color:var(--heading);word-break:break-word;min-width:0}
+.au-ua{font-size:12px;color:var(--muted);direction:ltr;unicode-bidi:isolate;display:inline-block}
+.au-h{margin:8px 0 0;font-size:14px;font-family:var(--font);color:var(--heading)}
+.au-changes th[scope=row]{font-weight:700;color:var(--heading);white-space:nowrap;vertical-align:top}
+.au-changes td{vertical-align:top;word-break:break-word;font-size:13px;max-width:220px}
+.au-old{background:var(--danger-tint);color:var(--danger-text)}
+.au-new{background:var(--info-tint);color:var(--info-text)}
+.au-none{margin:0}
+.au-drawer{width:min(620px,100vw)}

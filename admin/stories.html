@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>قصص الميدان — لوحة تحكم جمعية الشمال للتنمية والتطوير المجتمعي</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#f6f5f2">
+  <link rel="icon" type="image/png" href="../img/logo.png">
+  <script>(function(){try{var d=document.documentElement,t=localStorage.getItem('almel-admin-theme');if(t==='dark')d.classList.add('dark');if(localStorage.getItem('almel-admin-sb')==='1')d.classList.add('sb-collapsed');}catch(e){}})();</script>
+  <link rel="stylesheet" href="../css/fonts.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/admin-builder.css">
+  <link rel="stylesheet" href="css/admin-content.css">
+</head>
+<body data-page="stories">
+  <a class="skip-link" href="#main">تخطَّ إلى المحتوى</a>
+  <div class="app">
+    <aside class="sidebar" id="sidebar" aria-label="القائمة الجانبية"></aside>
+    <div class="main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content" id="main" tabindex="-1">
+
+        <div class="page-head">
+          <div><h1 class="page-title">قصص الميدان</h1><p class="page-sub">أدِر شهادات العائلات والمتطوعين التي تظهر في قسم «قصص من الميدان» بالصفحة الرئيسية.</p></div>
+          <div class="page-actions">
+            <a class="btn btn-ghost" href="../index.html#stories" target="_blank" rel="noopener"><span class="material-symbols-outlined" aria-hidden="true">open_in_new</span>عرض في الموقع<span class="sr-only"> (تفتح في نافذة جديدة)</span></a>
+            <button type="button" class="btn btn-secondary" id="st-reset"><span class="material-symbols-outlined" aria-hidden="true">restart_alt</span>استعادة الافتراضي</button>
+            <button type="button" class="btn btn-primary" id="st-add"><span class="material-symbols-outlined" aria-hidden="true">add</span>قصة جديدة</button>
+          </div>
+        </div>
+
+        <section class="card" aria-label="ملخص"><dl class="mini-stats" id="st-stats"></dl></section>
+
+        <section class="card mt-24" aria-labelledby="t-st">
+          <div class="card-head bordered">
+            <div><h2 class="card-title" id="t-st">قائمة القصص</h2><p class="card-sub">الاسم والموقع ونص الشهادة والصورة لكل قصة.</p></div>
+            <span class="save-state" id="st-saved" aria-live="polite"><span class="material-symbols-outlined" aria-hidden="true">cloud_done</span><span>محفوظة على هذا الجهاز</span></span>
+          </div>
+          <div class="toolbar">
+            <label class="input-icon"><span class="sr-only">بحث</span><span class="material-symbols-outlined" aria-hidden="true">search</span><input class="input sm" id="st-search" type="search" placeholder="ابحث بالاسم أو الموقع أو نص القصة…" autocomplete="off"></label>
+            <label class="sr-only" for="st-filter">تصفية حسب الظهور</label><select class="select sm auto" id="st-filter" data-const="visibility" data-ph-value="all" data-ph-label="الكل"></select>
+            <span class="grow"></span>
+            <span class="muted" id="st-count" aria-live="polite" style="font-size:13px"></span>
+          </div>
+          <div class="ct-help"><span class="material-symbols-outlined" aria-hidden="true">info</span><p>اسحب المقبض لتغيير الترتيب أو استخدم الأسهم، وبدّل المفتاح لإظهار العنصر أو إخفائه. تُحفظ التغييرات فوراً على هذا المتصفح (جمعية الشمال للتنمية والتطوير المجتمعي).</p></div>
+          <ol class="sortable sec-list" id="st-list" aria-labelledby="t-st"></ol>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <div class="drawer" id="st-drawer" role="dialog" aria-modal="true" hidden></div>
+  <div id="toasts" class="toasts" role="status" aria-live="polite"></div>
+  <script src="js/admin-data.js"></script>
+  <script src="js/admin-constants.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/admin-builder-data.js"></script>
+  <script src="js/admin-dnd.js"></script>
+  <script src="js/admin-content.js"></script>
+</body>
+</html>

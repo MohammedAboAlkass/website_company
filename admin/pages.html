@@ -44,7 +44,7 @@
           </div>
           <div class="toolbar">
             <label class="input-icon"><span class="sr-only">بحث في الصفحات</span><span class="material-symbols-outlined" aria-hidden="true">search</span><input class="input sm" id="pg-search" type="search" placeholder="ابحث بالاسم أو الرابط أو الوصف…" autocomplete="off"></label>
-            <label class="sr-only" for="pg-status">تصفية حسب الحالة</label><select class="select sm auto" id="pg-status"><option value="all">كل الحالات</option><option value="published">منشورة</option><option value="draft">مسودة</option><option value="hidden">مخفية</option></select>
+            <label class="sr-only" for="pg-status">تصفية حسب الحالة</label><select class="select sm auto" id="pg-status" data-const="page_status" data-ph-value="all" data-ph-label="كل الحالات"></select>
             <span class="grow"></span>
             <span class="muted" id="pg-count" aria-live="polite" style="font-size:13px"></span>
           </div>
@@ -108,7 +108,7 @@
         </div>
         <div class="field">
           <label class="label" for="pf-status">الحالة</label>
-          <select class="select" id="pf-status"><option value="published">منشورة</option><option value="draft">مسودة</option><option value="hidden">مخفية (لا تظهر في القوائم والبحث)</option></select>
+          <select class="select" id="pf-status" data-const="page_status" data-notes></select>
         </div>
         <div class="field">
           <div class="row-between"><span class="label" id="serp-label">معاينة نتيجة Google</span>
@@ -131,6 +131,7 @@
 
   <div id="toasts" class="toasts" role="status" aria-live="polite"></div>
   <script src="js/admin-data.js"></script>
+  <script src="js/admin-constants.js"></script>
   <script src="js/admin.js"></script>
   <script src="js/admin-builder-data.js"></script>
   <script src="js/admin-dnd.js"></script>

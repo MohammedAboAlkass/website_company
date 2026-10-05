@@ -1,0 +1,53 @@
+/* Database-backed admin pages: messages inbox, dashboard, reports, newsletter. Uses the panel's own tokens. */
+.lv-n{display:inline-block;margin-inline-start:6px;padding:0 6px;border-radius:999px;background:var(--neutral-tint);color:var(--neutral-text);font-size:11.5px;line-height:18px;min-width:18px;text-align:center}
+.seg button[aria-pressed="true"] .lv-n,.chip-btn[aria-pressed="true"] .lv-n{background:rgba(255,255,255,.22);color:inherit}
+.lv-seg{flex-wrap:wrap}
+.lv-mlink{display:flex;gap:12px;color:inherit;text-decoration:none;width:100%;align-items:flex-start}
+.mitem[aria-current="true"]{background:var(--accent-tint)}
+.lv-empty{display:flex;flex-direction:column;align-items:center;gap:6px;padding:36px 16px;text-align:center;color:var(--muted)}
+.lv-empty .material-symbols-outlined{font-size:40px;color:var(--navy-200)}
+.lv-pager{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px;border-top:1px solid var(--border)}
+.reader-actions form{display:inline-flex;margin:0}
+.lv-meta{display:flex;flex-wrap:wrap;gap:6px 24px;margin:16px 0 0;font-size:13px;color:var(--text-2)}
+.lv-meta dt{font-weight:600;color:var(--heading);display:inline}
+.lv-meta dt::after{content:": "}
+.lv-meta dd{display:inline;margin:0}
+.lv-handle{margin-top:14px;display:flex;flex-direction:column;gap:6px}
+.lv-handle-foot{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.lv-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}
+.lv-bars{display:flex;align-items:flex-end;gap:4px;height:180px;padding-top:8px;border-bottom:1px solid var(--border)}
+.lv-bar{flex:1;min-width:6px;background:var(--c-1);border-radius:4px 4px 0 0;position:relative;min-height:2px}
+.lv-bar.is-zero{background:var(--c-grid)}
+.lv-bar.alt{background:var(--c-2)}
+.lv-bar-labels{display:flex;gap:4px;margin-top:6px;font-size:11px;color:var(--muted)}
+.lv-bar-labels span{flex:1;text-align:center;overflow:hidden;white-space:nowrap}
+.lv-row{display:grid;grid-template-columns:minmax(90px,150px) 1fr auto;gap:10px;align-items:center;padding:7px 0;font-size:14px}
+.lv-track{height:9px;border-radius:99px;background:var(--surface-3);overflow:hidden}
+.lv-fill{height:100%;border-radius:99px;background:var(--c-1)}
+.lv-fill.alt{background:var(--c-2)}
+.lv-range{display:flex;gap:6px;flex-wrap:wrap}
+.lv-note{font-size:12.5px;color:var(--muted)}
+.lv-sub{display:flex;flex-direction:column;gap:2px}
+.lv-list{list-style:none;margin:0;padding:0}
+.lv-list li{padding:10px 0;border-bottom:1px solid var(--border);display:flex;gap:10px;justify-content:space-between;align-items:center}
+.lv-list li:last-child{border-bottom:0}
+.lv-list a{color:inherit;text-decoration:none;font-weight:600}
+.lv-list a:hover{color:var(--accent-text)}
+@media (max-width:640px){.lv-row{grid-template-columns:90px 1fr auto}}
+/* Inbox filters: search, then two captioned groups (status grid, type chips). Layout only; uses the existing .seg / .chip-btn tokens. */
+.inbox-filters{gap:14px}
+.inbox-filters .input-icon .input{height:40px;font-size:13.5px}
+.lv-fgroup{display:flex;flex-direction:column;gap:8px;min-width:0}
+.lv-fgroup + .lv-fgroup{border-top:1px solid var(--border);padding-top:14px}
+.lv-cap{margin:0;font-size:12px;font-weight:700;line-height:1.3;color:var(--muted)}
+.inbox-filters .lv-seg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;padding:4px}
+.inbox-filters .lv-seg button{flex:none;border:1px solid transparent;min-width:0;height:48px;padding:4px 6px;flex-direction:column;justify-content:center;align-items:center;gap:2px;font-size:12.5px;line-height:1.3;text-align:center}
+.inbox-filters .lv-seg .lv-n{margin:0}
+.inbox-filters .lv-seg button[aria-pressed="true"]{border:1px solid var(--border-strong)}
+.inbox-filters .type-chips{gap:8px}
+.inbox-filters .type-chips .chip-btn{height:32px;padding-inline:12px}
+@media (min-width:560px) and (max-width:1023px){.inbox-filters .lv-seg button{flex-direction:row;justify-content:space-between;height:40px;padding-inline:12px}}
+/* Live filtering (admin-messages-live.js): a subtle "loading" state, opacity only. */
+.inbox.lv-loading .inbox-items,.inbox.lv-loading .reader{opacity:.6}
+/* Reply/action card: more breathing room from the list column (admin.css has 24px). Desktop and tablet only; the stacked mobile layout keeps its 16px. */
+@media (min-width:640px){.reply{margin-inline:32px}}

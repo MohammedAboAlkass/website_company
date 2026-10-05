@@ -1,0 +1,1 @@
+﻿Schema comes from ../almel-redesign/db/schema.sql (copy in database/sql/). Tables already exist; do NOT run php artisan migrate. Default Laravel migrations are kept in database/_laravel_default_migrations/.

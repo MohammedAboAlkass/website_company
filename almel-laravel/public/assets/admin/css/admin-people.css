@@ -1,0 +1,21 @@
+/* Partners / FAQ / Announcements+Appeal / Impact map — database-backed pages (extends admin-content.css) */
+.pp-img { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.pp-img-prev { width: 96px; height: 64px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface-3); overflow: hidden; flex-shrink: 0; display: grid; place-items: center; color: var(--muted); }
+.pp-img.is-logo .pp-img-prev { background: #fff; }
+.pp-img-prev img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pp-img.is-logo .pp-img-prev img { object-fit: contain; padding: 6px; }
+.pp-img-act { display: flex; gap: 8px; flex-wrap: wrap; }
+.pp-img.is-busy .pp-img-prev { opacity: .5; }
+.pp-lib { margin-top: 10px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface-2); padding: 12px; }
+.pp-lib[hidden] { display: none; }
+.pp-lib-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); gap: 8px; max-height: 240px; overflow: auto; }
+.pp-lib-item { border: 2px solid transparent; border-radius: 10px; background: #fff; padding: 0; height: 66px; overflow: hidden; cursor: pointer; display: grid; place-items: center; }
+.pp-lib-item:hover, .pp-lib-item:focus-visible { border-color: var(--accent, #f28c14); outline: none; }
+.pp-lib-item img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.pp-lib-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; font-size: 12.5px; color: var(--muted); gap: 8px; }
+.pp-state { padding: 28px 24px; text-align: center; color: var(--muted); font-size: 14px; }
+.pp-state .btn { margin-top: 12px; }
+.pp-skel-row { list-style: none; height: 62px; margin: 10px 24px; border-radius: 12px; background: var(--surface-3); opacity: .6; }
+.ct-row .sec-flag .pp-sched { color: var(--muted); }
+.ct-thumb.is-initial { font-weight: 800; color: var(--muted); font-size: 18px; }
+.btn[disabled].is-busy { opacity: .7; cursor: progress; }
