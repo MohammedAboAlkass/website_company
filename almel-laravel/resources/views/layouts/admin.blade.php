@@ -13,6 +13,8 @@
   <script>(function(){try{var a={!! json_encode($__almelAp, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) !!},def={accent:'#f28c14',scale:'md',density:'comfortable',sidebar:'navy',radius:'md'},o={},same=true;if(a.theme==='dark'||a.theme==='light')localStorage.setItem('almel-admin-theme',a.theme);Object.keys(def).forEach(function(k){o[k]=a[k]||def[k];if(o[k]!==def[k])same=false;});if(same)localStorage.removeItem('almel-admin-appearance');else localStorage.setItem('almel-admin-appearance',JSON.stringify(o));}catch(e){}})();</script>
   @endif
   <script>(function(){try{var d=document.documentElement,t=localStorage.getItem('almel-admin-theme');if(t==='dark')d.classList.add('dark');if(localStorage.getItem('almel-admin-sb')==='1')d.classList.add('sb-collapsed');}catch(e){}})();</script>
+  <link rel="preload" href="{{ asset('assets/site/css/fonts/material-symbols-outlined.woff2') }}" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
   <link rel="stylesheet" href="{{ asset('assets/site/css/fonts.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/admin/css/admin.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/admin/css/admin-notif.css') }}">
@@ -21,7 +23,9 @@
 <body data-page="@yield('page')">
   <a class="skip-link" href="#main">تخطَّ إلى المحتوى</a>
   <div class="app">
-    <aside class="sidebar" id="sidebar" aria-label="القائمة الجانبية"></aside>
+    <aside class="sidebar" id="sidebar" aria-label="القائمة الجانبية">
+      @include('partials.admin-sidebar')
+    </aside>
     <div class="main">
       <header class="topbar" id="topbar"></header>
       <main class="content" id="main" tabindex="-1">@yield('content')</main>

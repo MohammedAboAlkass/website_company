@@ -76,7 +76,7 @@
   --radius-sm: 12px;
   --radius-xs: 8px;
   --ease: cubic-bezier(.22,.8,.24,1);
-  --sb-w: 272px;
+  --sb-w: 284px;
   --sb-w-collapsed: 80px;
   --topbar-h: 64px;
   --font: "IBM Plex Sans Arabic", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -188,7 +188,9 @@ table { border-collapse: collapse; width: 100%; }
   display: flex; flex-direction: column; z-index: 40;
   background: linear-gradient(180deg, var(--sb-bg) 0%, var(--sb-bg-2) 100%);
   color: var(--sb-text); border-inline-end: 1px solid var(--sb-border);
-  transition: width .3s var(--ease), flex-basis .3s var(--ease), transform .3s var(--ease), visibility .3s;
+}
+html.sb-animating .sidebar {
+  transition: width .25s var(--ease), flex-basis .25s var(--ease), transform .25s var(--ease), visibility .25s;
 }
 .sidebar::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(420px 260px at 100% 0%, rgba(242,140,20,.10), transparent 70%); }
 .sb-head { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 72px; padding-block: 8px; padding-inline: 20px 16px; }
