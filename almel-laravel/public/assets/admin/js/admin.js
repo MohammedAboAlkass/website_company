@@ -650,6 +650,26 @@
         sessionStorage.setItem('almel-admin-sb-scroll', sbNav.scrollTop);
       }, { passive: true });
     }
+
+    // Instant hover prefetching & 0ms visual feedback on click
+    document.addEventListener('pointerenter', function (e) {
+      var a = e.target.closest ? e.target.closest('a.sb-link, a[href^="/admin"]') : null;
+      if (!a || !a.href || a.__prefetched || a.href.indexOf('#') !== -1 || a.hasAttribute('data-logout')) return;
+      a.__prefetched = true;
+      var link = document.createElement('link');
+      link.rel = 'prefetch';
+      link.href = a.href;
+      document.head.appendChild(link);
+    }, true);
+
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest ? e.target.closest('a.sb-link') : null;
+      if (!a || !a.href || (a.getAttribute('href') && a.getAttribute('href').charAt(0) === '#') || a.hasAttribute('data-logout') || e.ctrlKey || e.metaKey || e.shiftKey) return;
+      $$('.sb-link[aria-current="page"]').forEach(function (el) { el.removeAttribute('aria-current'); });
+      a.setAttribute('aria-current', 'page');
+      var loader = $('#nav-loader');
+      if (loader) loader.classList.add('is-loading');
+    });
   }
   function openMobileNav() {
     var sb = $('#sidebar');
@@ -2008,7 +2028,11 @@
     if (Pages[PAGE] && !(window.__DB_PAGES && window.__DB_PAGES[PAGE])) { // pages that load their own database-backed script (news, gallery) set window.__DB_PAGES
       try { Pages[PAGE](); } catch (err) { if (window.console) console.error(err); }
     }
-    requestAnimationFrame(function () { html.classList.add('is-ready'); });
+    requestAnimationFrame(function () {
+      html.classList.add('is-ready');
+      var loader = $('#nav-loader');
+      if (loader) loader.classList.remove('is-loading');
+    });
     try { // quick-search deep link: /admin/<page>?q=term fills the page search box (best effort)
       var dq = new URLSearchParams(location.search).get('q');
       if (dq) setTimeout(function () {
