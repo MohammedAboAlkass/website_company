@@ -590,45 +590,66 @@
   function renderSidebar() {
     var sb = $('#sidebar');
     if (!sb) return;
-    var active = (PAGES[PAGE] && PAGES[PAGE].parent) || PAGE;
-    var h = '<div class="sb-head"><a class="sb-brand" href="/admin" data-tip="جمعية الشمال للتنمية والتطوير المجتمعي"><span class="brand-mark">' + LOGO + '</span><span class="sb-brand-text"><strong>' + esc(D.org ? D.org.name : 'جمعية الشمال للتنمية والتطوير المجتمعي') + '</strong><small>لوحة التحكم</small></span></a>' +
-      '<button type="button" class="sb-collapse" id="sb-collapse" aria-controls="sidebar" aria-expanded="true" aria-label="طي القائمة الجانبية" data-tip="توسيع القائمة">' + icon('right_panel_close') + '</button>' +
-      '<button type="button" class="sb-close" id="sb-close" aria-label="إغلاق القائمة">' + icon('close') + '</button></div>';
-    h += '<nav class="sb-nav" aria-label="التنقل في لوحة التحكم">';
-    NAV.forEach(function (g, gi) {
-      h += '<div class="sb-group"><p class="sb-group-label" id="sbg-' + gi + '">' + esc(g.group) + '</p><ul aria-labelledby="sbg-' + gi + '">';
-      g.items.forEach(function (it) {
-        var c = it.count ? it.count() : 0;
-        h += '<li><a class="sb-link" href="' + it.href + '" data-tip="' + esc(it.label) + '"' + (active === it.id ? ' aria-current="page"' : '') + '>' + icon(it.icon) + '<span class="sb-label">' + esc(it.label) + '</span>' +
-          (c ? '<span class="sb-count' + (it.accent ? ' is-accent' : '') + '" data-count="' + it.id + '" aria-hidden="true">' + c + '</span><span class="sr-only" data-count-sr="' + it.id + '">، ' + c + ' ' + it.countLabel + '</span>' : '') + '</a></li>';
+
+    if (!sb.querySelector('.sb-nav')) {
+      var active = (PAGES[PAGE] && PAGES[PAGE].parent) || PAGE;
+      var h = '<div class="sb-head"><a class="sb-brand" href="/admin" data-tip="جمعية الشمال للتنمية والتطوير المجتمعي"><span class="brand-mark">' + LOGO + '</span><span class="sb-brand-text"><strong>' + esc(D.org ? D.org.name : 'جمعية الشمال للتنمية والتطوير المجتمعي') + '</strong><small>لوحة التحكم</small></span></a>' +
+        '<button type="button" class="sb-collapse" id="sb-collapse" aria-controls="sidebar" aria-expanded="true" aria-label="طي القائمة الجانبية" data-tip="توسيع القائمة">' + icon('right_panel_close') + '</button>' +
+        '<button type="button" class="sb-close" id="sb-close" aria-label="إغلاق القائمة">' + icon('close') + '</button></div>';
+      h += '<nav class="sb-nav" aria-label="التنقل في لوحة التحكم">';
+      NAV.forEach(function (g, gi) {
+        h += '<div class="sb-group"><p class="sb-group-label" id="sbg-' + gi + '">' + esc(g.group) + '</p><ul aria-labelledby="sbg-' + gi + '">';
+        g.items.forEach(function (it) {
+          var c = it.count ? it.count() : 0;
+          h += '<li><a class="sb-link" href="' + it.href + '" data-tip="' + esc(it.label) + '"' + (active === it.id ? ' aria-current="page"' : '') + '>' + icon(it.icon) + '<span class="sb-label">' + esc(it.label) + '</span>' +
+            (c ? '<span class="sb-count' + (it.accent ? ' is-accent' : '') + '" data-count="' + it.id + '" aria-hidden="true">' + c + '</span><span class="sr-only" data-count-sr="' + it.id + '">، ' + c + ' ' + it.countLabel + '</span>' : '') + '</a></li>';
+        });
+        h += '</ul></div>';
       });
-      h += '</ul></div>';
-    });
-    h += '</nav>';
-    var u = D.user || {};
-    h += '<div class="sb-foot">' +
-      '<div class="sb-user"><span class="avatar" aria-hidden="true" data-me-avatar data-ini="' + esc(u.initials || 'م') + '">' + avatarInner(u) + '</span><div class="sb-user-meta"><strong>' + esc(u.name) + '</strong><span>' + esc(u.role) + '</span></div>' +
-      '<button type="button" class="sb-user-btn" data-logout aria-label="تسجيل الخروج" data-tip="تسجيل الخروج">' + icon('logout', 'flip-rtl') + '</button></div></div>';
-    sb.innerHTML = h;
+      h += '</nav>';
+      var u = D.user || {};
+      h += '<div class="sb-foot">' +
+        '<div class="sb-user"><span class="avatar" aria-hidden="true" data-me-avatar data-ini="' + esc(u.initials || 'م') + '">' + avatarInner(u) + '</span><div class="sb-user-meta"><strong>' + esc(u.name) + '</strong><span>' + esc(u.role) + '</span></div>' +
+        '<button type="button" class="sb-user-btn" data-logout aria-label="تسجيل الخروج" data-tip="تسجيل الخروج">' + icon('logout', 'flip-rtl') + '</button></div></div>';
+      sb.innerHTML = h;
+    }
 
     var collapseBtn = $('#sb-collapse');
-    function syncCollapse() {
-      var c = html.classList.contains('sb-collapsed');
-      collapseBtn.setAttribute('aria-expanded', c ? 'false' : 'true');
-      collapseBtn.setAttribute('aria-label', c ? 'توسيع القائمة الجانبية' : 'طي القائمة الجانبية');
-      collapseBtn.innerHTML = icon(c ? 'right_panel_open' : 'right_panel_close');
-    }
-    syncCollapse();
-    collapseBtn.addEventListener('click', function () {
-      html.classList.toggle('sb-collapsed');
-      store.set('almel-admin-sb', html.classList.contains('sb-collapsed') ? '1' : '0');
+    if (collapseBtn) {
+      function syncCollapse() {
+        var c = html.classList.contains('sb-collapsed');
+        collapseBtn.setAttribute('aria-expanded', c ? 'false' : 'true');
+        collapseBtn.setAttribute('aria-label', c ? 'توسيع القائمة الجانبية' : 'طي القائمة الجانبية');
+        collapseBtn.innerHTML = icon(c ? 'right_panel_open' : 'right_panel_close');
+      }
       syncCollapse();
-      window.dispatchEvent(new Event('resize'));
-    });
-    $('#sb-close').addEventListener('click', closeMobileNav);
-    var bd = document.createElement('div'); bd.className = 'sb-backdrop'; bd.setAttribute('aria-hidden', 'true');
-    bd.addEventListener('click', closeMobileNav);
-    sb.parentNode.insertBefore(bd, sb.nextSibling);
+      collapseBtn.addEventListener('click', function () {
+        html.classList.add('sb-animating');
+        html.classList.toggle('sb-collapsed');
+        store.set('almel-admin-sb', html.classList.contains('sb-collapsed') ? '1' : '0');
+        syncCollapse();
+        window.dispatchEvent(new Event('resize'));
+        setTimeout(function () { html.classList.remove('sb-animating'); }, 300);
+      });
+    }
+    var closeBtn = $('#sb-close');
+    if (closeBtn) closeBtn.addEventListener('click', closeMobileNav);
+    var bd = $('.sb-backdrop');
+    if (!bd && sb.parentNode) {
+      bd = document.createElement('div'); bd.className = 'sb-backdrop'; bd.setAttribute('aria-hidden', 'true');
+      bd.addEventListener('click', closeMobileNav);
+      sb.parentNode.insertBefore(bd, sb.nextSibling);
+    }
+    var sbNav = $('.sb-nav', sb);
+    if (sbNav) {
+      var savedScroll = sessionStorage.getItem('almel-admin-sb-scroll');
+      if (savedScroll !== null) {
+        sbNav.scrollTop = parseInt(savedScroll, 10);
+      }
+      sbNav.addEventListener('scroll', function () {
+        sessionStorage.setItem('almel-admin-sb-scroll', sbNav.scrollTop);
+      }, { passive: true });
+    }
   }
   function openMobileNav() {
     var sb = $('#sidebar');
