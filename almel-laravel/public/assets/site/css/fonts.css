@@ -20,8 +20,15 @@
 @font-face {
   font-family: "Material Symbols Outlined";
   font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("fonts/material-symbols-outlined.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Material Symbols Outlined";
+  font-style: normal;
   font-weight: 100 700;
-  font-display: swap;
+  font-display: block;
   src: url("fonts/material-symbols-outlined.woff2") format("woff2");
 }
 
@@ -44,9 +51,11 @@
   white-space: nowrap;
   word-wrap: normal;
   direction: ltr;
-  -webkit-font-feature-settings: "liga";
-  font-feature-settings: "liga";
+  -webkit-font-feature-settings: "liga" 1;
+  font-feature-settings: "liga" 1;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* IBM Plex Sans Arabic - site font */

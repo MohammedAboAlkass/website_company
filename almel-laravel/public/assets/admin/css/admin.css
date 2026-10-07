@@ -166,6 +166,26 @@ table { border-collapse: collapse; width: 100%; }
 .skip-link { position: fixed; top: -64px; inset-inline-start: 16px; z-index: 200; background: var(--surface); color: var(--heading); padding: 8px 16px; border-radius: var(--radius-sm); box-shadow: var(--shadow-pop); font-weight: 700; transition: top .2s; }
 .skip-link:focus { top: 16px; }
 
+#nav-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--amber-500), #ffc107, #ffe2b3);
+  z-index: 99999;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .25s ease, opacity .15s ease;
+  pointer-events: none;
+}
+#nav-loader.is-loading {
+  opacity: 1;
+  transform: scaleX(0.85);
+  transition: transform 1.2s cubic-bezier(0.1, 0.5, 0.1, 1);
+}
+
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 99px; border: 3px solid transparent; background-clip: content-box; }

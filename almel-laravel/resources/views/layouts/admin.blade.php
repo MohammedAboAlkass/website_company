@@ -14,13 +14,52 @@
   @endif
   <script>(function(){try{var d=document.documentElement,t=localStorage.getItem('almel-admin-theme');if(t==='dark')d.classList.add('dark');if(localStorage.getItem('almel-admin-sb')==='1')d.classList.add('sb-collapsed');}catch(e){}})();</script>
   <link rel="preload" href="{{ asset('assets/site/css/fonts/material-symbols-outlined.woff2') }}" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
   <link rel="stylesheet" href="{{ asset('assets/site/css/fonts.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/admin/css/admin.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/admin/css/admin-notif.css') }}">
+  <script type="speculationrules">
+  {
+    "prefetch": [
+      {
+        "source": "list",
+        "urls": [
+          "{{ url('/admin') }}",
+          "{{ url('/admin/reports') }}",
+          "{{ url('/admin/homepage') }}",
+          "{{ url('/admin/hero') }}",
+          "{{ url('/admin/projects') }}",
+          "{{ url('/admin/news') }}",
+          "{{ url('/admin/tags') }}",
+          "{{ url('/admin/gallery') }}",
+          "{{ url('/admin/media') }}",
+          "{{ url('/admin/stories') }}",
+          "{{ url('/admin/activities') }}",
+          "{{ url('/admin/partners') }}",
+          "{{ url('/admin/faq') }}",
+          "{{ url('/admin/appeal') }}",
+          "{{ url('/admin/announcements') }}",
+          "{{ url('/admin/impact') }}",
+          "{{ url('/admin/vision') }}",
+          "{{ url('/admin/pages') }}",
+          "{{ url('/admin/site-texts') }}",
+          "{{ url('/admin/menu') }}",
+          "{{ url('/admin/messages') }}",
+          "{{ url('/admin/newsletter') }}",
+          "{{ url('/admin/users') }}",
+          "{{ url('/admin/roles') }}",
+          "{{ url('/admin/backup') }}",
+          "{{ url('/admin/audit-logs') }}",
+          "{{ url('/admin/settings') }}"
+        ],
+        "eagerness": "moderate"
+      }
+    ]
+  }
+  </script>
   @stack('css')
 </head>
 <body data-page="@yield('page')">
+  <div id="nav-loader" aria-hidden="true"></div>
   <a class="skip-link" href="#main">تخطَّ إلى المحتوى</a>
   <div class="app">
     <aside class="sidebar" id="sidebar" aria-label="القائمة الجانبية">
