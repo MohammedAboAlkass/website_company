@@ -13,7 +13,15 @@ use App\Http\Controllers\Site\ProjectController;
 use App\Http\Controllers\Site\ThemeController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', function () {
+    if (file_exists(public_path('index2.html'))) {
+        return response()->file(public_path('index2.html'));
+    }
+    if (file_exists(public_path('index-navy.html'))) {
+        return response()->file(public_path('index-navy.html'));
+    }
+    return app(\App\Http\Controllers\Site\HomeController::class)->index();
+})->name('home');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
 Route::get('/projects/{slug}', [ProjectController::class, 'show'])->name('projects.show');
